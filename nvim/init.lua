@@ -1,37 +1,30 @@
 local vim = vim
 
 -- plugins
-require[[packer]].startup(function(use)
-	-- packer
-	use "wbthomason/packer.nvim"
-
+require[[paq]] {
 	-- colors
-	use "navarasu/onedark.nvim"
-	use "norcalli/nvim-colorizer.lua"
+	"navarasu/onedark.nvim",
+	"norcalli/nvim-colorizer.lua",
 
 	-- syntax
-	use "adelarsq/neofsharp.vim"
+	"adelarsq/neofsharp.vim",
 
 	-- lsp
-	use "neovim/nvim-lspconfig"
-	use "nvim-treesitter/nvim-treesitter"
-	use "onsails/lspkind-nvim"
-	use "hrsh7th/nvim-compe"
-	use "sbdchd/neoformat"
+	"neovim/nvim-lspconfig",
+	"nvim-treesitter/nvim-treesitter",
+	"onsails/lspkind-nvim",
+	"hrsh7th/nvim-compe",
 
 	-- tabline/statusline
-	use {
-		"akinsho/nvim-bufferline.lua",
-		requires = "kyazdani42/nvim-web-devicons"
-	}
-	use "glepnir/galaxyline.nvim"
+	"akinsho/nvim-bufferline.lua",
+	"kyazdani42/nvim-web-devicons",
+	"glepnir/galaxyline.nvim",
 
 	-- others
-	use "windwp/nvim-autopairs" -- auto open and close pairs
-	use "kyazdani42/nvim-tree.lua" -- file manager
-	use "lukas-reineke/indent-blankline.nvim" -- ident guides
-	use "kassio/neoterm" -- terminal
-end)
+	"windwp/nvim-autopairs", -- auto open and close pairs
+	"kyazdani42/nvim-tree.lua", -- file manager
+	"lukas-reineke/indent-blankline.nvim", -- ident guides
+}
 
 --  options
 local opt, bopt, wopt = vim.o, vim.bo, vim.wo
