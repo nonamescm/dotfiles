@@ -17,7 +17,7 @@ theme.icon_font = "Iosevka Nerd Font 15"
 theme.exit_screen_font = "FiraMono Nerd Font Mono 120"
 theme.widget_font = 'Iosevka Nerd Font 10'
 theme.notification_font = "Iosevka Nerd Font 12"
-theme.tasklist_font = "Iosevka Nerd Font 9"
+theme.tasklist_font = "Iosevka Nerd Font 7"
 
 -- colors
 theme.clr = {
@@ -132,7 +132,7 @@ local baticon = wibox.widget.textbox(
 local bat = wibox.widget.textbox('')
 theme.update_battery = function()
 	awful.spawn.easy_async_with_shell(
-	[[echo $(acpi|awk '{split($0,a,", "); print a[2]}')]],
+	[[bash -c "echo $(acpi|awk '{split($0,a,", "); print a[2]}')"]],
 	function(stdout)
 		if stdout == '' then
 			bat:set_markup('<span color="'..theme.clr.blue..'" font="'..theme.widget_font..'"> N/A</span>')

@@ -367,6 +367,7 @@ client.connect_signal("focus", function(c)
 end)
 client.connect_signal("unfocus", function(c)
 	c.border_color = beautiful.border_normal
+	beautiful.update_battery() -- update battery status when focus change
 end)
 
 client.connect_signal('request::display', function(n)
