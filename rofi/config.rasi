@@ -1,21 +1,21 @@
 /* vi: set filetype=css:*/
 configuration {
-	font: "Noto Sans 20";
+	font: "Iosevka Nerd Font Mono 15";
 	modi: "drun,run,window";
-	show-icons: true;
+	show-icons: false;
 	fullscreen: false;
 	drun-display-format: "{name}";
 }
 
 * {
-	border-radius: 0px;
-	bg: #383C4466;
-	bg-alt: #516177;
+	border-radius: 20px;
+	bg: #1b1b2a;
+	bg-alt: #181828;
 	fg: #ABB2BF;
 	fg-alt: #5D5E72;
-	text-color: #CBD2DF;
+	text-color: #a6accd;
 	background-color: @bg;
-	padding: 6;
+	padding: 12;
 }
 
 element, prompt {
@@ -24,7 +24,7 @@ element, prompt {
 }
 
 entry {
-	placeholder-color: #999999;
+	placeholder-color: @text-color;
 	placeholder: "Search Applications";
 	blink: true;
 }
@@ -43,9 +43,18 @@ listview {
 	scrollbar: false;
 }
 
+textbox-prompt-colon {
+    expand:     false;
+    str:        "|";
+    margin:     0px 0.3em 0em 0em ;
+    text-color: @fg-alt;
+	font: "BlexMono Nerd Font 100";
+}
+
 mainbox {
 	children: [inputbar, listview];
 }
+
 window {
 	location: center;
 	anchor: center;
