@@ -1,5 +1,6 @@
 xterm*Background:#181828
 xterm*Foreground:#a6accd
+xterm*cursorColor:#bac0eb
 xterm*faceName:Iosevka Nerd Font Mono:style=Medium
 xterm*faceSize:13
 xterm*selectToClipboard:true
@@ -13,8 +14,6 @@ xterm*VT100.Translations: #override \
 	Ctrl Shift <Key>Down: scroll-forw(1, halfpage) \n\
 	Ctrl Shift <Key>+:         larger-vt-font() \n\
 	Ctrl Shift <Key>-:         smaller-vt-font()
-
-
 
 xterm*color0:#2b2b3b
 xterm*color1:#c04148
