@@ -10,6 +10,12 @@ local function on_attach(client)
 
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
+	vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+		virtual_text = false,
+		signs = true,
+		update_in_insert = true,
+	})
+
 	-- Mappings.
 	local opts = {noremap = true, silent = true}
 
@@ -38,34 +44,29 @@ local function on_attach(client)
 end
 
 local lspconf = require("lspconfig")
--- these langs require same lspconfig so put em all in a table and loop through!
 
-lspconf.rust_analyzer.setup {
-	on_attach = on_attach,
-	root_dir = vim.loop.cwd,
-	cmd = { "rust-analyzer" }
+local servers = {
+	tsserver = "tsserver",
+	rust_analyzer = "rust-analyzer",
+	sumneko_lua = "lua-lsp"
 }
 
-local servers = { "tsserver" }
-
-for _, lang in ipairs(servers) do
-	lspconf[lang].setup {
+for server, command in pairs(servers) do
+	lspconf[server].setup {
 		on_attach = on_attach,
-		root_dir = vim.loop.cwd
+		root_dir = vim.loop.cwd,
+		cmd = { command }
 	}
 end
-
-lspconf.sumneko_lua.setup {
-	cmd = { "lua-lsp" },
-	filetypes = { "lua" },
-	root_dir = function()
-		return vim.loop.cwd()
-	end,
-	on_attach = on_attach
-}
 
 -- replace the default lsp diagnostic letters with prettier symbols
 vim.fn.sign_define("LspDiagnosticsSignError", {text = "", numhl = "LspDiagnosticsDefaultError"})
 vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", numhl = "LspDiagnosticsDefaultWarning"})
 vim.fn.sign_define("LspDiagnosticsSignInformation", {text = "", numhl = "LspDiagnosticsDefaultInformation"})
 vim.fn.sign_define("LspDiagnosticsSignHint", {text = "", numhl = "LspDiagnosticsDefaultHint"})
+
+-- LspKind
+require('lspkind').init {
+	with_text = true,
+	preset = 'default'
+}

@@ -1,27 +1,35 @@
 xterm*Background:#181828
 xterm*Foreground:#a6accd
-xterm*faceName:Iosevka Nerd Font Mono:style=Regular
-xterm*faceSize:14
+xterm*faceName:Iosevka Nerd Font Mono:style=Medium
+xterm*faceSize:13
 xterm*selectToClipboard:true
+xterm*eightBitInput:false
+xterm*eightBitOutput:true
 
 xterm*VT100.Translations: #override \
 	Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
-	Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)
+	Ctrl Shift <Key>C:    copy-selection(CLIPBOARD) \n\
+	Ctrl Shift <Key>Up:   scroll-back(1, halfpage) \n\
+	Ctrl Shift <Key>Down: scroll-forw(1, halfpage) \n\
+	Ctrl Shift <Key>+:         larger-vt-font() \n\
+	Ctrl Shift <Key>-:         smaller-vt-font()
 
-xterm*color15:#cccccc
-xterm*color14:#62adcc
-xterm*color13:#c792ea
-xterm*color6:#62adcc
-xterm*color10:#7cd380
-xterm*color12:#82aaff
-xterm*color11:#e37858
-xterm*color1:#f07178
-xterm*color2:#7cd380
+
+
+xterm*color0:#2b2b3b
+xterm*color1:#c04148
+xterm*color2:#5cb360
 xterm*color3:#ffcb6b
-xterm*color4:#82aaff
-xterm*color9:#f07178
-xterm*color5:#c792ea
-xterm*color8:#8796b0
-xterm*color0:#1b1b2b
+xterm*color4:#62aaef
+xterm*color5:#a772ca
+xterm*color6:#327d9c
 xterm*color7:#abb2bf
+xterm*color8:#8796b0
+xterm*color9:#f07178
+xterm*color10:#7cd380
+xterm*color11:#e37858
+xterm*color12:#82aaff
+xterm*color13:#c792ea
+xterm*color14:#62adcc
+xterm*color15:#ffffff
 XTerm*visualBell:False

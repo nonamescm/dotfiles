@@ -60,7 +60,7 @@ hi('IncSearch'   , { bg = yellow, fg = bg })
 hi('Substitute'  , { bg = blue, fg = bg })
 hi('LineNr'      , { fg = fg_dark })
 hi('CursorLineNr', { fg = fg })
-hi('MatchParen'  , { fg = cyan, gui = 'bold' })
+hi('MatchParen'  , { fg = "NONE", bg = bg_light })
 hi('Normal'      , { fg = fg_light, bg = bg_normal })
 hi('NormalFloat' , { bg = bg_darker })
 hi('Pmenu'       , { bg = bg_darker, fg = fg_light })
@@ -192,6 +192,20 @@ hi('LspDiagnosticsVirtualTextError'  , { fg = red, gui = 'bold' })
 hi('LspDiagnosticsVirtualTextWarning', { fg = yellow, gui = 'bold' })
 hi('LspDiagnosticsVirtualTextHint'   , { fg = green, gui = 'bold' })
 hi('LspDiagnosticsVirtualTextMessage', { fg = fg, gui = 'bold' })
+
+-- }}}
+
+-- tree-sitter highlight {{{
+
+hi("TSAnnotation",  { fg = red })
+hi("TSBoolean", { fg = orange })
+hi("TSCharacter", { fg = green, gui = 'bold' })
+hi('TSComment' , { fg = fg_dark, gui = 'italic' })
+hi("TSConstBuiltin", { fg = blue })
+hi("TSConstMacro", { fg = blue })
+hi("TSConstructor", { fg = yellow })
+hi("TSFuncBuiltin", { fg = blue })
+hi("TSVariableBuiltin", { fg = blue, gui = 'italic' })
 
 -- }}}
 
