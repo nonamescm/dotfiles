@@ -1,5 +1,12 @@
 local vim = vim
 
+vim.o.fillchars = table.concat(
+	{
+		[[fold: ]]
+	},
+	","
+)
+vim.o.foldmethod = "indent"
 vim.wo.listchars = table.concat(
 	{
 		"tab:│ ",
@@ -16,5 +23,6 @@ vim.g.indent_blankline_space_char_blankline = " "
 vim.g.indent_blankline_strict_tabs = true
 vim.g.indent_blankline_debug = true
 vim.g.indent_blankline_show_current_context = true
+vim.g.indent_blankline_show_foldtext = false
 
 require[[indent_blankline]].setup()
