@@ -23,10 +23,6 @@ require[[paq]] {
 	"kyazdani42/nvim-web-devicons",
 	"glepnir/galaxyline.nvim",
 
-	-- Zen mode
-	"folke/twilight.nvim",
-	"Pocco81/TrueZen.nvim",
-
 	-- others
 	"windwp/nvim-autopairs", -- auto open and close pairs
 	"kyazdani42/nvim-tree.lua", -- file manager
