@@ -23,3 +23,6 @@ other infos:
 ### Screenshot
 
 ![Screenshot](https://media.discordapp.net/attachments/793170492411740224/863255108611211264/unknown.png?width=741&height=416)
+
+## Credits
+the assests on awesome/themes/notheme/assets are from [EliverLara/Sweet](https://github.com/EliverLara/Sweet)
