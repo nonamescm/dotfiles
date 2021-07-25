@@ -2,8 +2,7 @@
 
 ## Welcome to the worst dotfiles repostory you'll ever see.
 
-I'm bad at everything that I do, so this is probably bad code, bad UI, unusable and doesn't work out-of-the-box.
-If you doesn't want to end up patching things by yourself, use the dotfiles from anyone else.
+these dotfiles are probably unusable outside of my machine, use them at your own risk
 
 ## But, since you're here
 
