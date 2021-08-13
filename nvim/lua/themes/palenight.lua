@@ -131,13 +131,13 @@ hi('Float'         , { fg = orange })
 hi('Boolean'       , { fg = orange })
 
 hi('Identifier'    , { fg = heavy_red })
-hi('Function'      , { fg = cyan, gui = 'italic' })
+hi('Function'      , { fg = cyan })
 
-hi('Statement'     , { fg = blue, gui = 'italic' })
-hi('Conditional'   , { fg = purple, gui = 'italic' })
-hi('Repeat'        , { fg = purple, gui = 'italic' })
-hi('Label'         , { fg = cyan, gui = 'italic' })
-hi('Exception'     , { fg = cyan, gui = 'italic' })
+hi('Statement'     , { fg = blue })
+hi('Conditional'   , { fg = purple })
+hi('Repeat'        , { fg = purple })
+hi('Label'         , { fg = cyan })
+hi('Exception'     , { fg = cyan })
 hi('Operator'      , { fg = purple })
 hi('Keyword'       , { fg = heavy_red })
 
@@ -205,7 +205,7 @@ hi("TSConstBuiltin", { fg = blue })
 hi("TSConstMacro", { fg = blue })
 hi("TSConstructor", { fg = yellow })
 hi("TSFuncBuiltin", { fg = blue })
-hi("TSVariableBuiltin", { fg = blue, gui = 'italic' })
+hi("TSVariableBuiltin", { fg = blue })
 
 -- }}}
 

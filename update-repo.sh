@@ -16,7 +16,7 @@ load_status_bar() {
 }
 
 copy_files() {
-	local files_to_copy=("$CH/awesome" "$CH/nvim" "$CH/rofi" "$HOME/.Xresources" "$(ls /home/renamed/.zshrc*)")
+	local files_to_copy=("$CH/awesome" "$CH/nvim" "$CH/rofi" "$HOME/.Xresources" $(ls /home/renamed/.zshrc*))
 
 	for file in $files_to_copy; do
 		cp -r $file .

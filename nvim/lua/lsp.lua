@@ -46,18 +46,28 @@ end
 local lspconf = require("lspconfig")
 
 local servers = {
-	tsserver = "tsserver",
-	rust_analyzer = "rust-analyzer",
-	sumneko_lua = "lua-lsp"
+	tsserver = { "typescript-language-server", "--stdio" },
+	rust_analyzer = { "rust-analyzer" },
+	sumneko_lua =  { "lua-lsp" }
 }
 
 for server, command in pairs(servers) do
 	lspconf[server].setup {
 		on_attach = on_attach,
 		root_dir = vim.loop.cwd,
-		cmd = { command }
+		cmd = command
 	}
 end
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+lspconf['cssls'].setup {
+	capabilities = capabilities
+}
+lspconf['html'].setup {
+	capabilities = capabilities
+}
 
 -- replace the default lsp diagnostic letters with prettier symbols
 vim.fn.sign_define("LspDiagnosticsSignError", {text = "", numhl = "LspDiagnosticsDefaultError"})

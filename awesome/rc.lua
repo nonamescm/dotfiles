@@ -11,12 +11,12 @@ local dpi = require('beautiful.xresources').apply_dpi
 
 -- startup and general utilities {{{
 local function move_tag(pos)
-    local tag = awful.screen.focused().selected_tag
-    if tonumber(pos) <= -1 then
-        awful.tag.move(tag.index - 1, tag)
-    else
-        awful.tag.move(tag.index + 1, tag)
-    end
+	local tag = awful.screen.focused().selected_tag
+	if tonumber(pos) <= -1 then
+		awful.tag.move(tag.index - 1, tag)
+	else
+		awful.tag.move(tag.index + 1, tag)
+	end
 end
 
 -- Check if awesome encountered an error during startup and fell back to
@@ -371,7 +371,7 @@ client.connect_signal("unfocus", function(c)
 end)
 
 client.connect_signal('request::display', function(n)
-    naughty.layout.box {notification = n}
+	naughty.layout.box {notification = n}
 end)
 
 -- add gaps to new clients
@@ -399,10 +399,33 @@ client.connect_signal('request::titlebars', function(c)
 			buttons = buttons
 		}
 	end
-	create_titlebar('left', 8)
-	create_titlebar('right', 8)
 	create_titlebar('top', 8)
+	create_titlebar('right', 8)
 	create_titlebar('bottom', 8)
+	create_titlebar('left', 8)
+
+	-- Create a titlebar for the client.
+	-- By default, awful.rules will create one, but all it does is to call this
+	-- function.
+	--[[
+	local function button_c(widget)
+		return wibox.container.margin(
+			widget(c),
+			dpi(3), dpi(3), dpi(3), dpi(3)
+		)
+	end
+
+	local top_titlebar = awful.titlebar(c, {
+		size = 25,
+		position = 'left',
+	})
+	top_titlebar:setup {
+		button_c(awful.titlebar.widget.closebutton),
+		button_c(awful.titlebar.widget.minimizebutton),
+		buttons = buttons,
+		layout = wibox.layout.fixed.vertical(),
+	}
+	]]--
 end)
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
@@ -415,6 +438,12 @@ screen.connect_signal("property::geometry", function(s)
 			wallpaper = wallpaper(s)
 		end
 		gears.wallpaper.maximized(wallpaper, s, true)
+	end
+end)
+
+client.connect_signal("manage", function (c)
+	c.shape = function(cr,w,h)
+		gears.shape.rounded_rect(cr,w,h,2)
 	end
 end)
 -- }}}

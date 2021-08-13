@@ -1,0 +1,31 @@
+#!/bin/zsh
+alias sudo="doas "
+alias doas="doas "
+alias vim="nvim"
+alias vi="nvim"
+alias cl="clear"
+alias ls="ls --color=always"
+alias l="ls -lAh"
+alias la="ls -lah"
+alias ll="ls -lh"
+alias rm="rm -i"
+alias mv="mv -i"
+alias cp="cp -i"
+alias :q="exit"
+alias emacs="TERM=xterm-24bit emacs -nw"
+alias npm="echo use yarn instead && echo > /dev/null"
+
+run() {
+	if test -f Cargo.toml; then
+		command cargo run $@
+	elif test -f package.json; then
+		command yarn run $@
+	elif test -f obj; then
+		command dotnet run $@
+	else
+		echo "no target found"
+		return 1
+	fi
+}
+
+export EDITOR=nvim

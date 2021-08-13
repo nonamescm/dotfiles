@@ -1,0 +1,76 @@
+#!/bin/zsh
+
+# zstyle {{{
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' menu select=2
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+zstyle ':completion:*' menu select=long
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+# }}}
+
+__GIT_BRANCH="$(git branch --show-current 2>/dev/null)"
+__GIT_PROMPT=
+
+# functions {{{
+__get_files_to_add(){
+	echo "$(git status --porcelain=v1|grep -E "^\?\?|^ M|^ D"|wc -l)"
+}
+
+__get_files_to_commit(){
+	echo "$(git status --porcelain=v1|grep -E "^A|^M|^D"|wc -l)"
+}
+
+__initialize_git_prompt(){
+	if git rev-parse --git-dir > /dev/null 2>&1; then
+		__GIT_BRANCH="$(git branch --show-current)"
+		local files_to_add="$(__get_files_to_add)"
+		local files_to_commit="$(__get_files_to_commit)"
+
+		local git_final_string=" %F{red}git:%f(%F{blue}$__GIT_BRANCH%f"
+
+		if [[ $files_to_add > 0 ]]; then
+			git_final_string+=" %F{green}*$files_to_add%f"
+		fi
+
+		if [[ $files_to_commit > 0 ]]; then
+			git_final_string+=" %F{yellow}+$files_to_commit%f"
+		fi
+
+		git_final_string+=")"
+		__GIT_PROMPT="$git_final_string"
+	else
+		__GIT_PROMPT=
+	fi
+}
+
+precmd(){
+	local LAST_STAT=$?
+	__initialize_git_prompt
+
+	if [[ "$LAST_STAT" == "0" ]]; then
+		STATUS="%B%F{green}✓%b%f"
+	else
+		STATUS="%B%F{red}✗%b%f"
+	fi
+
+	printf "\033[6 q"
+}
+
+chpwd(){
+	__initialize_git_prompt
+}
+### }}}
+
+PROMPT='%F{green}%c%f $STATUS${__GIT_PROMPT} '
+
+precmd

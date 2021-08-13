@@ -1,0 +1,23 @@
+#!/bin/zsh
+autoload -Uz colors && colors
+autoload -Uz promptinit && promptinit
+autoload -Uz compinit && compinit
+autoload -U history-search-end
+fpath+=~/.zfunc
+
+setopt autocd histignorealldups sharehistory no_nomatch prompt_subst interactivecomments
+
+# Use emacs keybindings even if our EDITOR is set to vi
+bindkey -e
+
+# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=~/.zsh_history
+
+# auto filter history
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^[[A" history-beginning-search-backward-end
+bindkey "^[[B" history-beginning-search-forward-end
+

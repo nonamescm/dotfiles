@@ -17,6 +17,7 @@ require[[paq]] {
 	"nvim-treesitter/nvim-treesitter",
 	"onsails/lspkind-nvim",
 	"hrsh7th/nvim-compe",
+	"L3MON4D3/LuaSnip",
 
 	-- tabline/statusline
 	"akinsho/nvim-bufferline.lua",
@@ -72,3 +73,4 @@ require[[nvimtree]]
 require[[statusline]]
 require[[maps]]
 require[[indentation]]
+require[[snippets]]

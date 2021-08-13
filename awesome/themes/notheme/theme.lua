@@ -60,19 +60,17 @@ theme.border_marked = '#424760'
 theme.tasklist_plain_task_name = true
 theme.tasklist_disable_icon = true
 theme.useless_gap = dpi(4)
-theme.gap_single_client = false
+theme.gap_single_client = true
 
 -- assests
-theme.titlebar_close_button_normal = theme.dir.."assets/scale-slider-hover.svg"
-theme.titlebar_close_button_focus = theme.dir.."assets/scale-slider-hover.svg"
+theme.titlebar_close_button_normal = theme.dir.."./assets/close-button.svg"
+theme.titlebar_close_button_focus = theme.dir.."./assets/close-button.svg"
 
-theme.titlebar_minimize_button_normal = theme.dir.."assets/radio-unselected-hover@2.png"
-theme.titlebar_minimize_button_focus = theme.dir.."assets/radio-unselected-hover@2.png"
+theme.titlebar_minimize_button_normal = theme.dir.."./assets/minimize-button.svg"
+theme.titlebar_minimize_button_focus = theme.dir.."./assets/minimize-button.svg"
 
-theme.titlebar_sticky_button_normal_inactive = theme.dir.."assets/radio-selected-insensitive@2.png"
-theme.titlebar_sticky_button_focus_inactive = theme.dir.."assets/radio-selected-insensitive@2.png"
-theme.titlebar_sticky_button_normal_active = theme.dir.."assets/radio-selected@2.png"
-theme.titlebar_sticky_button_focus_active = theme.dir.."assets/radio-selected@2.png"
+theme.titlebar_maximized_button_normal = theme.dir.."./assets/maximized-button.svg"
+theme.titlebar_maximized_button_focus = theme.dir.."./assets/maximized-button.svg"
 
 theme.layout_fairh = theme.dir.."layouts/fairhw.png"
 theme.layout_fairv = theme.dir.."layouts/fairvw.png"
@@ -148,11 +146,12 @@ local volicon = wibox.widget.textbox('')
 local vol = wibox.widget.textbox('')
 theme.update_volume = function()
 	awful.spawn.easy_async_with_shell([[
-	if amixer get Master | sed 5q | grep -q '\[on\]'; then
-		echo $(awk -F'[][]' '/dB/ { print $2 }' <(amixer sget Master))
-	else
-		echo 'muted'
-	fi]], function(stdout)
+		if amixer get Master | sed 5q | grep -q '\[on\]'; then
+			echo $(awk -F'[][]' '/dB/ { print $2 }' <(amixer sget Master))
+		else
+			echo 'muted'
+		fi
+	]], function(stdout)
 		stdout = tostring(stdout):gsub("\n", '')
 		if stdout == "muted" then
 			volicon:set_markup('<span color="'..theme.clr.green..'" font="'..theme.icon_font..'">婢</span>')
@@ -417,20 +416,6 @@ function theme.at_screen_connect(s)
 				half_spr,
 				{
 					{
-						{
-							layout = wibox.layout.align.horizontal,
-							s.mylayoutbox
-						},
-						widget = wibox.container.margin,
-						margins = dpi(5),
-					},
-					widget = wibox.container.background,
-					bg = theme.bg_light,
-					shape = gears.shape.rounded_rect
-				},
-				half_spr,
-				{
-					{
 						layout = wibox.layout.align.horizontal,
 						s.mytaglist,
 					},
@@ -510,6 +495,20 @@ function theme.at_screen_connect(s)
 					bg = theme.bg_light,
 					shape = gears.shape.rounded_rect,
 					widget = wibox.container.background,
+				},
+				half_spr,
+				{
+					{
+						{
+							layout = wibox.layout.align.horizontal,
+							s.mylayoutbox
+						},
+						widget = wibox.container.margin,
+						margins = dpi(5),
+					},
+					widget = wibox.container.background,
+					bg = theme.bg_light,
+					shape = gears.shape.rounded_rect
 				},
 				half_spr,
 				{
