@@ -10,11 +10,13 @@
 local vim = vim
 
 local function hi(group, styles)
+	local cmd = vim.cmd or vim.command
+
 	local gui = styles.gui and 'gui='..styles.gui or 'gui=NONE'
 	local sp = styles.sp and 'guisp='..styles.sp or 'guisp=NONE'
 	local fg = styles.fg and 'guifg='..styles.fg or 'guifg=NONE'
 	local bg = styles.bg and 'guibg='..styles.bg or 'guibg=NONE'
-	vim.api.nvim_command('highlight '..group..' '..gui..' '..sp..' '..fg..' '..bg)
+	cmd('highlight '..group..' '..gui..' '..sp..' '..fg..' '..bg)
 end
 
 local bg_normal   = '#181828'
@@ -83,7 +85,7 @@ hi('WarningMsg'  , { fg = yellow, gui = 'italic' })
 hi('Whitespace'  , { fg = fg_dark })
 
 -- git highlighting
-hi('gitcommitComment'        , { fg = fg_dark, gui = 'italic' })
+hi('gitcommitComment'        , { fg = fg_dark })
 hi('gitcommitUntracked'      , { fg = fg_dark, gui = 'italic' })
 hi('gitcommitDiscarded'      , { fg = fg_dark, gui = 'italic' })
 hi('gitcommitSelected'       , { fg = fg_dark, gui = 'italic' })
@@ -122,10 +124,10 @@ hi('WildMenu'    , {})
 
 -- Vim Default Code Syntax {{{
 
-hi('Comment'       , { fg = fg_dark, gui = 'italic' })
+hi('Comment'       , { fg = fg_dark })
 hi('Constant'      , { fg = yellow })
 hi('String'        , { fg = green })
-hi('Character'     , { fg = green, gui = 'bold' })
+hi('Character'     , { fg = green })
 hi('Number'        , { fg = orange })
 hi('Float'         , { fg = orange })
 hi('Boolean'       , { fg = orange })
@@ -200,7 +202,6 @@ hi('LspDiagnosticsVirtualTextMessage', { fg = fg, gui = 'bold' })
 hi("TSAnnotation",  { fg = red })
 hi("TSBoolean", { fg = orange })
 hi("TSCharacter", { fg = green, gui = 'bold' })
-hi('TSComment' , { fg = fg_dark, gui = 'italic' })
 hi("TSConstBuiltin", { fg = blue })
 hi("TSConstMacro", { fg = blue })
 hi("TSConstructor", { fg = yellow })

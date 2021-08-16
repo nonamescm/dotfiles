@@ -1,4 +1,4 @@
-local vim, bufnr = vim, bufnr
+local vim = vim
 
 local function on_attach(client)
 	local function buf_set_keymap(...)
@@ -48,7 +48,9 @@ local lspconf = require("lspconfig")
 local servers = {
 	tsserver = { "typescript-language-server", "--stdio" },
 	rust_analyzer = { "rust-analyzer" },
-	sumneko_lua =  { "lua-lsp" }
+	sumneko_lua =  { "lua-lsp" },
+	fsautocomplete = { "dotnet", "fsautocomplete", "--background-service-enabled" },
+	clangd = { "clangd", "--background-index" }
 }
 
 for server, command in pairs(servers) do

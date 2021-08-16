@@ -12,7 +12,7 @@ alias rm="rm -i"
 alias mv="mv -i"
 alias cp="cp -i"
 alias :q="exit"
-alias emacs="TERM=xterm-24bit emacs -nw"
+alias emacs="emacs"
 alias npm="echo use yarn instead && echo > /dev/null"
 
 run() {
