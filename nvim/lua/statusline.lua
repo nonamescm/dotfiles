@@ -14,18 +14,7 @@ local function checkwidth()
 end
 
 -- Colors {{{
-local colors = {
-	purple = '#5752ca',
-	bg = '#0b0e1b',
-	fg = '#abb2bf',
-	green = "#BBE67E",
-	orange = "#BF4836",
-	red = '#cf2340',
-	lightbg = '#141227',
-	blue = '#527adc',
-	greenYel = "#EBCB8B",
-	yellow = "#ffcb6b",
-}
+local colors = require("colors")
 -- }}}
 
 -- Left galaxyline {{{
@@ -118,7 +107,7 @@ gls.left[10] = {
 		provider = function()
 			return vim.fn.strftime('%T') .. " "
 		end,
-		highlight = {colors.greenYel, colors.bg},
+		highlight = {colors.yellow, colors.bg},
 	}
 }
 

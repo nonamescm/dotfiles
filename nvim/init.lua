@@ -8,9 +8,10 @@ require[[paq]] {
 	-- colors
 	"navarasu/onedark.nvim",
 	"norcalli/nvim-colorizer.lua",
+	"Dedsd/DarkBlue-Ice-for-vim",
 
 	-- syntax
-	"adelarsq/neofsharp.vim",
+	"nonamescm/neofsharp.vim",
 
 	-- lsp
 	"neovim/nvim-lspconfig",
@@ -18,6 +19,7 @@ require[[paq]] {
 	"onsails/lspkind-nvim",
 	"hrsh7th/nvim-compe",
 	"L3MON4D3/LuaSnip",
+	"nvim-telescope/telescope.nvim",
 
 	-- tabline/statusline
 	"akinsho/nvim-bufferline.lua",
@@ -43,6 +45,7 @@ vim.g.loaded_syncolor = 0
 
 -- options
 local opt, bopt, wopt = vim.o, vim.bo, vim.wo
+opt.background = "light"
 opt.splitbelow = true
 opt.wrap, wopt.wrap = false, false
 opt.number, wopt.number = true, true

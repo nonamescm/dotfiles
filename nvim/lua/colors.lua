@@ -1,0 +1,16 @@
+return {
+	black2 = "#2b2b3b",
+	grey_fg = '#545277',
+	light_grey = "#6d749c",
+	black = "#222632",
+	white = "#b6bcdd",
+	blue = "#729aef",
+	red = "#ff5370",
+	bg = "#242434",
+	yellow = "#ffcb6b",
+	green = "#7cd380",
+	fg = "#bbc2cf",
+	orange = "#e37858",
+	purple = "#b782da",
+	lightbg = "#333748",
+}

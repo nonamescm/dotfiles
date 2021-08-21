@@ -1,6 +1,6 @@
 vim.o.completeopt = "menuone,noselect"
 
-require "compe".setup {
+require("compe").setup {
 	enabled = true,
 	autocomplete = true,
 	debug = false,
@@ -12,18 +12,11 @@ require "compe".setup {
 	max_abbr_width = 100,
 	max_kind_width = 100,
 	max_menu_width = 100,
-	documentation = false,
+	documentation = true,
 	source = {
 		path = true,
-		buffer = {kind = "﬘", true},
-		calc = true,
-		vsnip = {kind = "﬌"}, --replace to what sign you prefer
-		nvim_lsp = true,
-		nvim_lua = true,
-		spell = true,
-		tags = true,
-		snippets_nvim = true,
-		treesitter = true
+		buffer = { kind = "﬘", menu = "Buffer", true },
+		nvim_lsp = { menu = "", kind = "" },
 	}
 }
 
@@ -42,7 +35,7 @@ end
 
 -- tab completion
 
-_G.tab_complete = function()
+function _G.tab_complete()
 	if vim.fn.pumvisible() == 1 then
 		return t "<C-n>"
 	elseif check_back_space() then
@@ -51,7 +44,7 @@ _G.tab_complete = function()
 		return vim.fn["compe#complete"]()
 	end
 end
-_G.s_tab_complete = function()
+function _G.s_tab_complete()
 	if vim.fn.pumvisible() == 1 then
 		return t "<C-p>"
 	elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
@@ -100,4 +93,3 @@ g.loaded_compe_ultisnips = 0
 g.loaded_compe_vim_lsc = 0
 g.loaded_compe_vim_lsp = 0
 g.loaded_compe_omni = 0
-
