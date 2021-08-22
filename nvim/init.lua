@@ -62,7 +62,7 @@ opt.guicursor = "v-c-sm:block,c-i-ci-ve:ver25,r-cr-o:hor20"
 -- plugins that doesn"t need configuration requires
 require("nvim-autopairs").setup()
 require("colorizer").setup()
-vim.cmd("colorscheme palenight")
+vim.cmd("colorscheme notheme")
 
 vim.cmd("command! Term split|term")
 vim.cmd("command! VTerm belowright vsplit|term")

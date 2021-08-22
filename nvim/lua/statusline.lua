@@ -30,7 +30,7 @@ gls.left[1] = {
 gls.left[2] = {
 	FileIcon = {
 		provider = "FileIcon",
-		highlight = {require("galaxyline.provider_fileinfo").get_file_icon_color, colors.bg},
+		highlight = {colors.fg, colors.bg, "bold"},
 	}
 }
 
@@ -121,13 +121,13 @@ gls.left[11] = {
 }
 
 gls.left[12] = {
-	FolderName = {
+	FileName = {
 		condition = checkwidth,
 		provider = function()
-			return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+			return vim.fn.expand("%:t")
 		end,
 		separator = "  ",
-		highlight = {colors.white, colors.lightbg, "italic"},
+		highlight = {colors.white, colors.lightbg},
 		separator_highlight = { colors.white, colors.lightbg }
 	}
 }
@@ -153,13 +153,13 @@ gls.right[1] = {
 }
 
 gls.right[2] = {
-	FileName = {
+	FolderName = {
 		condition = checkwidth,
 		provider = function()
-			return vim.fn.expand("%:h") .. " "
+			return vim.fn.expand('%:p:h:t') .. " "
 		end,
 		separator = " ",
-		highlight = {colors.white, colors.lightbg, "italic"},
+		highlight = { colors.white, colors.lightbg },
 		separator_highlight = { colors.white, colors.lightbg }
 	}
 }
