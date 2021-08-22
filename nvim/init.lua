@@ -1,7 +1,7 @@
 local vim = vim
 
 -- plugins
-require[[paq]] {
+require("paq") {
 	-- paq
 	"savq/paq-nvim",
 
@@ -60,22 +60,22 @@ opt.termguicolors = true
 opt.guicursor = "v-c-sm:block,c-i-ci-ve:ver25,r-cr-o:hor20"
 
 -- plugins that doesn"t need configuration requires
-require[[nvim-autopairs]].setup()
-require[[colorizer]].setup()
-vim.cmd[[colorscheme palenight]]
+require("nvim-autopairs").setup()
+require("colorizer").setup()
+vim.cmd("colorscheme palenight")
 
-vim.cmd[[command! Term split|term]]
-vim.cmd[[command! VTerm belowright vsplit|term]]
+vim.cmd("command! Term split|term")
+vim.cmd("command! VTerm belowright vsplit|term")
 
 -- lua files requires
-require[[lsp]]
-require[[tabline]]
-require[[treesitter]]
-require[[highlight]]
-require[[compe-completion]]
-require[[nvimtree]]
-require[[statusline]]
-require[[maps]]
-require[[indentation]]
-require[[snippets]]
-require[[telescope-config]]
+require("lsp")
+require("tabline")
+require("treesitter")
+require("highlight")
+require("compe-completion")
+require("nvimtree")
+require("statusline")
+require("maps")
+require("indentation")
+require("snippets")
+require("telescope-config")
