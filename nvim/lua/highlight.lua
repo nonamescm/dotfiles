@@ -1,12 +1,13 @@
-local highlight = require[[functions.highlight]]
+local highlight = require("functions.highlight")
+local colors = require("colors")
 
 highlight("VertSplit", {
-	ctermbg = "NONE",
-	guibg = "NONE"
+	guibg = colors.lightbg,
+	guifg = colors.lightbg
 }, true)
 
 highlight("StatusLineNC", {
 	gui = "underline",
 	guibg = "NONE",
-	guifg = "#282C34"
+	guifg = colors.lightbg
 }, true)

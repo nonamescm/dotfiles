@@ -41,16 +41,16 @@ gls.left[3] = {
 		end,
 		separator = " ",
 		highlight = { colors.bg, colors.lightbg },
-		separator_highlight = { colors.lightbg, colors.lightbg }
+		separator_highlight = { colors.red, colors.lightbg }
 	}
 }
 
 gls.left[4] = {
 	GetLspProvider = {
 		condition = function()
-			return checkwidth and require('galaxyline.provider_lsp').get_lsp_client() ~= "No Active Lsp"
+			return checkwidth
 		end,
-		provider = "GetLspClient",
+		provider = function() return "LSP" end,
 		icon = " ",
 		highlight = { colors.fg, colors.lightbg }
 	}
@@ -121,10 +121,14 @@ gls.left[11] = {
 }
 
 gls.left[12] = {
-	FileName = {
+	FolderName = {
 		condition = checkwidth,
-		provider = {"FileName", "FileSize"},
-		highlight = {colors.fg, colors.lightbg, "italic"}
+		provider = function()
+			return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+		end,
+		separator = "  ",
+		highlight = {colors.white, colors.lightbg, "italic"},
+		separator_highlight = { colors.white, colors.lightbg }
 	}
 }
 
@@ -136,21 +140,52 @@ gls.left[13] = {
 		highlight = {colors.lightbg, colors.bg}
 	}
 }
+-- }}}
 
 -- Right galaxyline {{{
 gls.right[1] = {
+	FolderSeparator = {
+		provider = function()
+			return " "
+		end,
+		highlight = {colors.bg, colors.lightbg},
+	}
+}
+
+gls.right[2] = {
+	FileName = {
+		condition = checkwidth,
+		provider = function()
+			return vim.fn.expand("%:h") .. " "
+		end,
+		separator = " ",
+		highlight = {colors.white, colors.lightbg, "italic"},
+		separator_highlight = { colors.white, colors.lightbg }
+	}
+}
+
+gls.right[3] = {
+	FolderSeparator_2 = {
+		provider = function()
+			return ""
+		end,
+		highlight = {colors.lightbg, colors.bg}
+	}
+}
+
+gls.right[4] = {
 	GitIcon = {
 		provider = function()
 			return " "
 		end,
-		condition = require("galaxyline.provider_vcs").check_git_workspace,
+		condition = require("galaxyline.condition").check_git_workspace,
 		highlight = {colors.green, colors.bg},
 		separator = " ",
 		separator_highlight = { colors.bg, colors.bg }
 	}
 }
 
-gls.right[2] = {
+gls.right[5] = {
 	GitBranch = {
 		provider = "GitBranch",
 		condition = require("galaxyline.provider_vcs").check_git_workspace,
@@ -158,18 +193,27 @@ gls.right[2] = {
 	}
 }
 
-gls.right[3] = {
+gls.right[6] = {
 	right_LeftRounded = {
 		provider = function()
 			return ""
 		end,
 		separator = " ",
 		separator_highlight = {colors.bg, colors.bg},
-		highlight = {colors.red, colors.bg}
+		highlight = {colors.lightbg, colors.bg}
 	}
 }
 
-gls.right[4] = {
+gls.right[7] = {
+	IconMode = {
+		provider = function()
+			return "  "
+		end,
+		highlight = { colors.fg, colors.lightbg }
+	}
+}
+
+gls.right[8] = {
 	ViMode = {
 		provider = function()
 			local mode = vim.fn.mode()
@@ -182,42 +226,24 @@ gls.right[4] = {
 				[""] = "VISUAL/BLOCK",
 				v = "VISUAL",
 				R = "REPLACE",
-				t = "TERM"
+				t = "TERM",
 			}
 
-			local mode_color = {
-				n = colors.fg,
-				i = colors.blue,
-				c = colors.fg,
-				V = colors.purple,
-				[""] = colors.purple,
-				v = colors.purple,
-				R = colors.orange,
-				t = colors.fg
-			}
-			local color = mode_color[mode]
-
-			if color ~= nil then
-				vim.cmd("hi! GalaxyViMode guibg="..color)
-				vim.cmd("hi! GalaxyIcon guifg="..color)
-				vim.cmd("hi! Galaxyright_LeftRounded guifg="..color)
-				return " " ..alias[mode]
-			end
-			return " "
+			return " " ..alias[mode] .. " "
 		end,
-		highlight = {colors.bg, colors.red},
+		highlight = {colors.fg, colors.lightbg},
 
 		separator = "",
 		separator_highlight = { colors.bg, colors.bg }
 	}
 }
 
-gls.right[5] = {
+gls.right[9] = {
 	Icon = {
 		provider = function()
-			return ""
+			return " "
 		end,
-		highlight = {colors.red, colors.bg},
+		highlight = {colors.lightbg, colors.bg},
 	}
 }
 -- }}}

@@ -1,7 +1,7 @@
 local g = vim.g
 
 g.nvim_tree_side = "left"
-g.nvim_tree_width = 25
+g.nvim_tree_width = 30
 g.nvim_tree_ignore = {".git", "node_modules", ".cache", "target"}
 g.nvim_tree_auto_open = 0
 g.nvim_tree_auto_close = 0
@@ -44,6 +44,9 @@ vim.api.nvim_set_keymap(
 	}
 )
 
-require[[functions.highlight]]("NvimTreeFolderIcon", {
-	guifg='#82aaff'
-})
+local hi = require("functions.highlight")
+local colors = require('colors')
+
+hi("NvimTreeFolderIcon", { guifg = colors.blue })
+hi("NvimTreeEndOfBuffer", { guibg = colors.bg, guifg = colors.bg })
+hi("NvimTreeNormal", { guibg = colors.bg })

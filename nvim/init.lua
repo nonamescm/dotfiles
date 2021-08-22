@@ -6,9 +6,7 @@ require[[paq]] {
 	"savq/paq-nvim",
 
 	-- colors
-	"navarasu/onedark.nvim",
 	"norcalli/nvim-colorizer.lua",
-	"Dedsd/DarkBlue-Ice-for-vim",
 
 	-- syntax
 	"nonamescm/neofsharp.vim",
@@ -19,7 +17,10 @@ require[[paq]] {
 	"onsails/lspkind-nvim",
 	"hrsh7th/nvim-compe",
 	"L3MON4D3/LuaSnip",
+
+	-- telescope
 	"nvim-telescope/telescope.nvim",
+	"nvim-lua/plenary.nvim",
 
 	-- tabline/statusline
 	"akinsho/nvim-bufferline.lua",
@@ -77,3 +78,4 @@ require[[statusline]]
 require[[maps]]
 require[[indentation]]
 require[[snippets]]
+require[[telescope-config]]
