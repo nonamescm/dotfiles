@@ -30,7 +30,7 @@ gls.left[1] = {
 gls.left[2] = {
 	FileIcon = {
 		provider = "FileIcon",
-		highlight = {colors.fg, colors.bg, "bold"},
+		highlight = {colors.fg, colors.bg},
 	}
 }
 
