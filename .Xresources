@@ -1,7 +1,7 @@
 xterm*Background:#181828
 xterm*Foreground:#a6accd
 xterm*cursorColor:#a6accd
-xterm*faceName:Iosevka Nerd Font Mono:style=Medium
+xterm*faceName:BlexMono Nerd Font Mono:style=Medium Italic
 xterm*faceSize:13
 xterm*selectToClipboard:true
 xterm*eightBitInput:false
