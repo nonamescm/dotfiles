@@ -1,5 +1,5 @@
 configuration{
-	font:"Iosevka Nerd Font Mono Medium 8";
+	font:"Iosevka Nerd Font Mono Medium 9";
 	show-icons:true;
 	icon-theme:"Papirus";
 	display-drun:"";
@@ -11,12 +11,12 @@ configuration{
 }
 
 *{
-	background:#181820;
-	background-alt:#181820;
-	foreground:#a6accd;
-	border-alt:#181828;
-	selected:#2b2b3b;
-	urgent:#c04148;
+	background:#282838;
+	background-alt:#282838;
+	foreground:#b6bcdd;
+	border-alt:#282838;
+	selected:#3b3b4b;
+	urgent:#d05158;
 }
 
 window{
