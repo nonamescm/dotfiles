@@ -1,7 +1,7 @@
-xterm*Background:#181828
-xterm*Foreground:#a6accd
-xterm*cursorColor:#a6accd
-xterm*faceName:BlexMono Nerd Font Mono:style=Medium Italic
+xterm*Background:#282838
+xterm*Foreground:#bbc2cf
+xterm*cursorColor:#bbc2cf
+xterm*faceName:Iosevka Nerd Font Mono:style=Medium
 xterm*faceSize:13
 xterm*selectToClipboard:true
 xterm*eightBitInput:false
@@ -15,20 +15,20 @@ xterm*VT100.Translations: #override \
 	Ctrl Shift <Key>+:    larger-vt-font() \n\
 	Ctrl Shift <Key>-:    smaller-vt-font()
 
-xterm*color0: #2b2b3b
-xterm*color1: #c04148
-xterm*color2: #5cb360
-xterm*color3: #ffcb6b
-xterm*color4: #62aaef
-xterm*color5: #a772ca
-xterm*color6: #327d9c
-xterm*color7: #abb2bf
-xterm*color8: #8796b0
-xterm*color9: #f07178
-xterm*color10:#7cd380
-xterm*color11:#e37858
-xterm*color12:#82aaff
-xterm*color13:#c792ea
-xterm*color14:#62adcc
-xterm*color15:#ffffff
+xterm*color0:  #2b2b3b
+xterm*color1:  #f07178
+xterm*color2:  #7cd380
+xterm*color3:  #ffcb6b
+xterm*color4:  #729aef
+xterm*color5:  #b782da
+xterm*color6:  #529dbc
+xterm*color7:  #bbc2cf
+xterm*color8:  #97a6c0
+xterm*color9:  #ff5370
+xterm*color10: #8ce390
+xterm*color11: #ffdb7b
+xterm*color12: #82aaff
+xterm*color13: #c792ea
+xterm*color14: #62adcc
+xterm*color15: #ffffff
 XTerm*visualBell:False
