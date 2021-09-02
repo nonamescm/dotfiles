@@ -31,6 +31,7 @@ require("paq") {
 	"windwp/nvim-autopairs", -- auto open and close pairs
 	"kyazdani42/nvim-tree.lua", -- file manager
 	"lukas-reineke/indent-blankline.nvim", -- ident guides
+	"glepnir/dashboard-nvim", -- dashboard screen
 }
 
 -- Disable Default Vim Plugins
@@ -79,3 +80,4 @@ require("maps")
 require("indentation")
 require("snippets")
 require("telescope-config")
+require("dashboard")

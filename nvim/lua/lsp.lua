@@ -50,19 +50,24 @@ local servers = {
 	rust_analyzer = { "rust-analyzer" },
 	sumneko_lua =  { "lua-lsp" },
 	fsautocomplete = { "dotnet", "fsautocomplete", "--background-service-enabled" },
-	clangd = { "clangd", "--background-index" }
+	clangd = { "clangd", "--background-index" },
+	pyright = { "pyright-langserver", "--stdio" },
+	cssls = { "vscode-css-language-server", "--stdio" },
+	html = { "vscode-html-language-server", "--stdio" }
 }
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 
 for server, command in pairs(servers) do
 	lspconf[server].setup {
 		on_attach = on_attach,
 		root_dir = vim.loop.cwd,
-		cmd = command
+		cmd = command,
+		-- capabilities = capabilities,
 	}
 end
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 lspconf['cssls'].setup {
 	capabilities = capabilities

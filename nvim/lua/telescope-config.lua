@@ -7,3 +7,5 @@ map("n", "tf", "<cmd>Telescope find_files<CR>")
 map("n", "tg", "<cmd>Telescope live_grep<CR>")
 map("n", "tb", "<cmd>Telescope buffers<CR>")
 map("n", "th", "<cmd>Telescope help_tags<CR>")
+
+require'plenary.filetype'.add_file('override')
