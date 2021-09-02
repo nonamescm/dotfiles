@@ -35,4 +35,4 @@ vim.g.dashboard_custom_footer = {
    "Neovim",
 }
 
-vim.g.dashboard_disable_statusline = 1
+vim.g.dashboard_disable_statusline = 0
