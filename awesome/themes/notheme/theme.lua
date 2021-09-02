@@ -42,6 +42,8 @@ theme.tasklist_bg_normal = '#282838'
 theme.tasklist_bg_focus = '#2f2f3f'
 theme.tasklist_bg_urgent = '#2b2b3b'
 
+theme.prompt_fg = '#868cad'
+
 theme.taglist_bg_urgent = "#3f3f4f"
 theme.taglist_bg_focus = "#3f3f4f"
 theme.taglist_fg_occupied = theme.clr.blue
