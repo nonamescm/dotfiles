@@ -40,6 +40,7 @@ else
 			neovim|nvim) copy_files "$CH/nvim"&load_status_bar 1;;
 			awesome) copy_files "$CH/awesome"&load_status_bar 1;;
 			rofi) copy_files "$CH/rofi"&load_status_bar 1;;
+			kitty) copy_files "$CH/kitty"&load_status_bar 1;;
 			xterm) copy_files "$HOME/.Xresources"&load_status_bar 1;;
 			zsh) for file in $(ls /home/renamed/.zshrc*); do copy_files $file &; done&load_status_bar 1;;
 			*) echo "Unexpected Argument: $arg"
