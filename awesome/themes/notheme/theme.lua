@@ -21,36 +21,36 @@ theme.tasklist_font = "Iosevka Nerd Font 7"
 
 -- colors
 theme.clr = {
-	purple = "#c792ea",
-	blue = "#82aaff",
+	purple = "#b782da",
+	blue = "#729aef",
 	green = "#7cd380",
 	red = '#ff5370',
-	gray = '#8796b0',
-	yellow = '#ffcb8b'
+	gray = '#97a6c0',
+	yellow = '#ffcb6b'
 }
-theme.fg_normal = '#424760'
-theme.fg_focus = '#a6accd'
-theme.fg_urgent = '#424760'
+theme.fg_normal = '#525770'
+theme.fg_focus = '#b6bcdd'
+theme.fg_urgent = '#525770'
 
-theme.bg_normal = '#121622'
-theme.bg_focus = '#121622'
-theme.bg_urgent = "#081218"
-theme.bg_light = '#1f1f2f'
+theme.bg_normal = '#222632'
+theme.bg_focus = '#222632'
+theme.bg_urgent = "#182228"
+theme.bg_light = '#2f2f3f'
 theme.bg_systray = theme.bg_light
 
-theme.tasklist_bg_normal = '#181828'
-theme.tasklist_bg_focus = '#1f1f2f'
-theme.tasklist_bg_urgent = '#1b1b2b'
+theme.tasklist_bg_normal = '#282838'
+theme.tasklist_bg_focus = '#2f2f3f'
+theme.tasklist_bg_urgent = '#2b2b3b'
 
-theme.taglist_bg_urgent = "#2f2f3f"
-theme.taglist_bg_focus = "#2f2f3f"
+theme.taglist_bg_urgent = "#3f3f4f"
+theme.taglist_bg_focus = "#3f3f4f"
 theme.taglist_fg_occupied = theme.clr.blue
 theme.taglist_fg_urgent = theme.clr.red
 theme.taglist_fg_empty = theme.clr.gray
 theme.taglist_fg_focus = theme.clr.green
 
 theme.notification_fg = '#a6accd'
-theme.notification_bg = '#121622'
+theme.notification_bg = '#222632'
 theme.notification_opacity = 1
 
 theme.border_normal = '#20253e'
