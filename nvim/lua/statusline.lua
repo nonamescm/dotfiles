@@ -122,7 +122,13 @@ gls.left[11] = {
 
 gls.left[12] = {
 	FileName = {
-		condition = checkwidth,
+		condition = function()
+				if checkwidth() then
+					return vim.fn.expand("%:t") ~= ""
+				else
+					return true
+				end
+			end,
 		provider = function()
 			return vim.fn.expand("%:t")
 		end,
