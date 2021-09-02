@@ -20,6 +20,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 __GIT_BRANCH="$(git branch --show-current 2>/dev/null)"
 __GIT_PROMPT=
+__IS_GIT_REPO=false
 
 # functions {{{
 __get_files_to_add(){
@@ -57,11 +58,20 @@ precmd(){
 	local LAST_STAT=$?
 	__initialize_git_prompt
 
-	if [[ "$LAST_STAT" == "0" ]]; then
-		STATUS="%B%F{green}✓%b%f"
+	if [[ "$__GIT_PROMPT" != "" ]]; then
+		if [[ "$LAST_STAT" == "0" ]]; then
+			STATUS="%B%F{green} %b%f"
+		else
+			STATUS="%B%F{red} %b%f"
+		fi
 	else
-		STATUS="%B%F{red}✗%b%f"
+		if [[ "$LAST_STAT" == "0" ]]; then
+			STATUS="%B%F{green}✓%b%f"
+		else
+			STATUS="%B%F{red}✗%b%f"
+		fi
 	fi
+
 
 	printf "\033[6 q"
 }

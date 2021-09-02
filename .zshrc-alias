@@ -13,7 +13,6 @@ alias mv="mv -i"
 alias cp="cp -i"
 alias :q="exit"
 alias emacs="emacs"
-alias npm="echo use yarn instead && echo > /dev/null"
 
 run() {
 	if test -f Cargo.toml; then

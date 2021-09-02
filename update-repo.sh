@@ -21,7 +21,7 @@ copy_files() {
 	local files_to_copy=
 
 	if test -z $1; then
-		files_to_copy=("$CH/awesome" "$CH/nvim" "$CH/rofi" "$HOME/.Xresources" $(ls /home/renamed/.zshrc*))
+		files_to_copy=("$CH/awesome" "$CH/nvim" "$CH/rofi" "$CH/kitty" "$HOME/.Xresources" $(ls /home/renamed/.zshrc*))
 	else
 		files_to_copy=($1)
 	fi
