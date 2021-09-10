@@ -44,6 +44,7 @@ vim.g.loaded_netrw = 0
 vim.g.loaded_netrwPlugin = 0
 vim.g.loaded_spec = 0
 vim.g.loaded_syncolor = 0
+vim.g.markdown_fenced_languages = { "fs=fsharp", "js=javascript", "py=python", "rs=rust" }
 
 -- options
 local opt, bopt, wopt = vim.o, vim.bo, vim.wo
@@ -67,17 +68,3 @@ vim.cmd("colorscheme notheme")
 
 vim.cmd("command! Term split|term")
 vim.cmd("command! VTerm belowright vsplit|term")
-
--- lua files requires
-require("lsp")
-require("tabline")
-require("treesitter")
-require("highlight")
-require("compe-completion")
-require("nvimtree")
-require("statusline")
-require("maps")
-require("indentation")
-require("snippets")
-require("telescope-config")
-require("dashboard")
