@@ -9,15 +9,23 @@ configuration{
 	hide-scrollbar:true;
 	sidebar-mode:false;
 }
+@theme "/dev/null"
+
+element-text, element-icon {
+    background-color: inherit;
+    text-color:       inherit;
+}
 
 *{
-	background:#282838;
-	background-alt:#282838;
-	foreground:#b6bcdd;
-	border-alt:#282838;
-	selected:#3b3b4b;
-	urgent:#d05158;
+	background:#282838ff;
+	background-alt:#282838ff;
+	foreground:#b6bcddff;
+	border-alt:#282838ff;
+	border:#282838ff;
+	selected:#3b3b4bff;
+	urgent:#d05158ff;
 }
+
 
 window{
 	transparency:"real";
