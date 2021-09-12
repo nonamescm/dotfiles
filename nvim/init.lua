@@ -1,5 +1,4 @@
 local vim = vim
-
 -- plugins
 require "paq" {
 	-- paq
@@ -15,8 +14,10 @@ require "paq" {
 	"neovim/nvim-lspconfig",
 	"nvim-treesitter/nvim-treesitter",
 	"onsails/lspkind-nvim",
-	"hrsh7th/nvim-compe",
+
+	"hrsh7th/cmp-buffer",
 	"L3MON4D3/LuaSnip",
+	"hrsh7th/nvim-cmp",
 
 	-- telescope
 	"nvim-telescope/telescope.nvim",
@@ -45,9 +46,9 @@ vim.g.loaded_netrw = 0
 vim.g.loaded_netrwPlugin = 0
 vim.g.loaded_spec = 0
 vim.g.loaded_syncolor = 0
-vim.g.markdown_fenced_languages = { "fs=fsharp", "js=javascript", "py=python", "rs=rust" }
 
 -- options
+vim.g.markdown_fenced_languages = { "fs=fsharp", "js=javascript", "py=python", "rs=rust" }
 local opt, bopt, wopt = vim.o, vim.bo, vim.wo
 opt.background = "light"
 opt.splitbelow = true
