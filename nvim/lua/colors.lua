@@ -2,7 +2,7 @@ return {
 	black2 = "#2b2b3b",
 	grey_fg = '#545277',
 	light_grey = "#6d749c",
-	black = "#222632",
+	black = "#1f1f2f",
 	white = "#b6bcdd",
 	blue = "#729aef",
 	red = "#ff5370",
@@ -13,4 +13,5 @@ return {
 	orange = "#e37858",
 	purple = "#b782da",
 	lightbg = "#333748",
+	normalbg = '#282838',
 }

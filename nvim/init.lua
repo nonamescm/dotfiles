@@ -1,7 +1,7 @@
 local vim = vim
 
 -- plugins
-require("paq") {
+require "paq" {
 	-- paq
 	"savq/paq-nvim",
 
@@ -20,6 +20,7 @@ require("paq") {
 
 	-- telescope
 	"nvim-telescope/telescope.nvim",
+	"airblade/vim-gitgutter",
 	"nvim-lua/plenary.nvim",
 
 	-- tabline/statusline

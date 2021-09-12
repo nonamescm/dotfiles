@@ -2,254 +2,234 @@ local vim = vim
 
 local gl = require("galaxyline")
 local gls = gl.section
+local glc = require("galaxyline.condition")
+local vcs = require("galaxyline.provider_vcs")
+local glf = require("galaxyline.provider_fileinfo")
+local lsp = require("galaxyline.provider_lsp")
 
 gl.short_line_list = { "NvimTree", "packer" } -- keeping this table { } as empty will show inactive statuslines
 
-local function checkwidth()
-	local squeeze_width = vim.fn.winwidth(0) / 2
-	if squeeze_width > 40 then
-		return true
-	end
-	return false
-end
-
--- Colors {{{
 local colors = require("colors")
--- }}}
 
--- Left galaxyline {{{
-gls.left[1] = {
-	leftRounded = {
+-- galaxyline {{{
+gls.left[0] = {
+	StartLeft = {
 		provider = function()
-			return "  "
+			return "@"
 		end,
-		highlight = {colors.bg, colors.bg}
+		highlight = { colors.green, colors.green },
+
+		separator = "@",
+		separator_highlight = { colors.bg, colors.bg },
+	}
+}
+
+gls.left[1] = {
+	FileEncode = {
+		provider = glf.get_file_encode,
+
+		highlight = { colors.green, colors.bg, "bold" },
+
+		separator = "@",
+		separator_highlight = { colors.bg, colors.bg },
 	}
 }
 
 gls.left[2] = {
-	FileIcon = {
-		provider = "FileIcon",
-		highlight = {colors.fg, colors.bg},
+	StatusLeft = {
+		provider = function()
+			if glc.check_git_workspace() then
+				return (
+					" " .. vcs.get_git_branch()
+				)
+			else
+				return " "
+			end
+		end,
+		highlight = { colors.green, colors.bg, "bold" },
+
+		separator = "@",
+		separator_highlight = { colors.bg, colors.bg },
 	}
 }
 
 gls.left[3] = {
-	RoundedSymbol = {
-		provider = function()
-			return ""
-		end,
-		separator = " ",
-		highlight = { colors.bg, colors.lightbg },
-		separator_highlight = { colors.red, colors.lightbg }
+	GitDiffAdd = {
+		condition = glc.check_git_workspace,
+		provider = "DiffAdd",
+		icon = "  ",
+		highlight = { colors.purple, colors.bg, "bold" },
+
+		separator = "@",
+		separator_highlight = { colors.bg, colors.bg },
 	}
 }
 
 gls.left[4] = {
-	GetLspProvider = {
-		condition = function()
-			return checkwidth
-		end,
-		provider = function() return "LSP" end,
-		icon = " ",
-		highlight = { colors.fg, colors.lightbg }
+	GitDiffModified = {
+		condition = glc.check_git_workspace,
+		provider = "DiffModified",
+		icon = " 柳",
+		highlight = { colors.blue, colors.bg, "bold" },
+
+		separator = "@",
+		separator_highlight = { colors.bg, colors.bg },
 	}
 }
 
 gls.left[5] = {
-	DiagnosticError = {
-		provider = "DiagnosticError",
-		icon = "   ",
-		highlight = {colors.red, colors.lightbg}
+	GitDiffRemove = {
+		condition = glc.check_git_workspace,
+		provider = 'DiffRemove',
+		icon = "  ",
+		highlight = { colors.red, colors.bg, "bold" },
+
+		separator = "@",
+		separator_highlight = { colors.bg, colors.bg },
 	}
 }
 
 gls.left[6] = {
-	Space = {
+	LeftSepOne = {
 		provider = function()
-			return " "
+			return ''
 		end,
-		highlight = {colors.lightbg, colors.lightbg}
+		highlight = { colors.black, colors.bg, "bold" },
+
+		separator = '@@',
+		separator_highlight = { colors.black, colors.black },
 	}
 }
 
 gls.left[7] = {
-	DiagnosticWarn = {
-		provider = "DiagnosticWarn",
-		icon = "  ",
-		highlight = {colors.yellow, colors.lightbg},
-		separator = " ",
-		separator_highlight = { colors.bg, colors.lightbg },
+	FileIcon = {
+		provider = function()
+			local icon = glf.get_file_icon():gsub("^%s*(.-)%s*$", "%1")
+			if icon == '' then
+				return ''
+			else
+				return icon .. ' '
+			end
+		end,
+		highlight = { colors.fg, colors.black }
 	}
 }
 
 gls.left[8] = {
-	rightNearEnd = {
+	FileName = {
 		provider = function()
-			return ""
+			local name = glf.get_current_file_name():gsub("^%s*(.-)%s*$", "%1")
+
+			if name == "" then
+				return "Empty buffer"
+			else
+				return name
+			end
 		end,
-		highlight = { colors.bg, colors.lightbg },
+		highlight = { colors.fg, colors.black, "bold" },
+
+		separator = "@@",
+		separator_highlight = { colors.black, colors.black },
 	}
 }
 
 gls.left[9] = {
-	RightEnd = {
+	LeftSepTwo = {
 		provider = function()
-			return ""
+			return ''
 		end,
-		highlight = { colors.bg, colors.bg },
-	}
-}
+		highlight = { colors.black, colors.bg, "bold" },
 
-gls.left[10] = {
-	CurrentTime = {
-		condition = checkwidth,
-		provider = function()
-			return vim.fn.strftime('%T') .. " "
-		end,
-		highlight = {colors.yellow, colors.bg},
-	}
-}
-
-gls.left[11] = {
-	MidSeparator = {
-		provider = function()
-			return " "
-		end,
-		highlight = {colors.bg, colors.lightbg},
-	}
-}
-
-gls.left[12] = {
-	FileName = {
-		condition = function()
-				if checkwidth() then
-					return vim.fn.expand("%:t") ~= ""
-				else
-					return true
-				end
-			end,
-		provider = function()
-			return vim.fn.expand("%:t")
-		end,
-		separator = "  ",
-		highlight = {colors.white, colors.lightbg},
-		separator_highlight = { colors.white, colors.lightbg }
-	}
-}
-
-gls.left[13] = {
-	OtherSeparator = {
-		provider = function()
-			return ""
-		end,
-		highlight = {colors.lightbg, colors.bg}
+		separator = '@@',
+		separator_highlight = { colors.bg, colors.bg },
 	}
 }
 -- }}}
 
--- Right galaxyline {{{
+-- Right {{{
+gls.right[0] = {
+	LspErrorInfo = {
+		provider = 'DiagnosticError',
+		highlight = { colors.red, colors.bg, "bold" },
+		icon = ' ',
+
+		separator = '@',
+		separator_highlight = { colors.bg, colors.bg },
+	}
+}
+
 gls.right[1] = {
-	FolderSeparator = {
-		provider = function()
-			return " "
-		end,
-		highlight = {colors.bg, colors.lightbg},
+	LspWarnInfo = {
+		provider = 'DiagnosticWarn',
+		highlight = { colors.yellow, colors.bg, "bold" },
+		icon = ' ',
+
+		separator = '@',
+		separator_highlight = { colors.bg, colors.bg },
 	}
 }
 
 gls.right[2] = {
-	FolderName = {
-		condition = checkwidth,
-		provider = function()
-			return vim.fn.expand('%:p:h:t') .. " "
-		end,
-		separator = " ",
-		highlight = { colors.white, colors.lightbg },
-		separator_highlight = { colors.white, colors.lightbg }
+	LspHintInfo = {
+		provider = 'DiagnosticHint',
+		highlight = { colors.green, colors.bg, "bold" },
+		icon = ' ',
+
+		separator = '@',
+		separator_highlight = { colors.bg, colors.bg },
 	}
 }
 
 gls.right[3] = {
-	FolderSeparator_2 = {
-		provider = function()
-			return ""
-		end,
-		highlight = {colors.lightbg, colors.bg}
+	LspInfoInfo = {
+		provider = 'DiagnosticInfo',
+		highlight = { colors.blue, colors.bg, "bold" },
+		icon = ' ',
+
+		separator = '@',
+		separator_highlight = { colors.bg, colors.bg },
 	}
 }
 
 gls.right[4] = {
-	GitIcon = {
+	RightSepOne = {
 		provider = function()
-			return " "
+			return ''
 		end,
-		condition = require("galaxyline.condition").check_git_workspace,
-		highlight = {colors.green, colors.bg},
-		separator = " ",
-		separator_highlight = { colors.bg, colors.bg }
+		highlight = { colors.black, colors.bg, "bold" },
 	}
 }
 
 gls.right[5] = {
-	GitBranch = {
-		provider = "GitBranch",
-		condition = require("galaxyline.provider_vcs").check_git_workspace,
-		highlight = {colors.green, colors.bg}
+	LspProviderInfo = {
+		provider = function()
+			return ' ' .. lsp.get_lsp_client()
+		end,
+		highlight = { colors.fg, colors.black, "bold" },
+
+		separator = '@',
+		separator_highlight = { colors.black, colors.black },
 	}
 }
 
 gls.right[6] = {
-	right_LeftRounded = {
+	RightSepTwo = {
 		provider = function()
-			return ""
+			return ''
 		end,
-		separator = " ",
-		separator_highlight = {colors.bg, colors.bg},
-		highlight = {colors.lightbg, colors.bg}
+		highlight = { colors.black, colors.bg, "bold" },
+
+		separator = '@',
+		separator_highlight = { colors.black, colors.black },
 	}
 }
 
 gls.right[7] = {
-	IconMode = {
+	EndRight = {
 		provider = function()
-			return "  "
+			return '@'
 		end,
-		highlight = { colors.fg, colors.lightbg }
-	}
-}
-
-gls.right[8] = {
-	ViMode = {
-		provider = function()
-			local mode = vim.fn.mode()
-
-			local alias = {
-				n = "NORMAL",
-				i = "INSERT",
-				c = "COMMAND",
-				V = "VISUAL/LINE",
-				[""] = "VISUAL/BLOCK",
-				v = "VISUAL",
-				R = "REPLACE",
-				t = "TERM",
-			}
-
-			return " " ..alias[mode] .. " "
-		end,
-		highlight = {colors.fg, colors.lightbg},
-
-		separator = "",
-		separator_highlight = { colors.bg, colors.bg }
-	}
-}
-
-gls.right[9] = {
-	Icon = {
-		provider = function()
-			return " "
-		end,
-		highlight = {colors.lightbg, colors.bg},
+		highlight = { colors.bg, colors.bg }
 	}
 }
 -- }}}

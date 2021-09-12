@@ -40,20 +40,20 @@ bufferline.setup {
 	highlights = {
 		fill = {
 			guifg = colors.grey_fg,
-			guibg = colors.black2,
+			guibg = colors.bg,
 		},
 		background = {
 			guifg = colors.grey_fg,
-			guibg = colors.black2,
+			guibg = colors.bg,
 		},
 		-- buffers
 		buffer_visible = {
 			guifg = colors.light_grey,
-			guibg = colors.black2,
+			guibg = colors.bg,
 		},
 		buffer_selected = {
 			guifg = colors.white,
-			guibg = colors.black,
+			guibg = colors.bg,
 			gui = "bold",
 		},
 		-- tabs
@@ -62,7 +62,7 @@ bufferline.setup {
 			guibg = colors.bg,
 		},
 		tab_selected = {
-			guifg = colors.black2,
+			guifg = colors.black,
 			guibg = colors.blue,
 		},
 		tab_close = {
@@ -70,49 +70,48 @@ bufferline.setup {
 			guibg = colors.black,
 		},
 		indicator_selected = {
-			guifg = colors.black,
-			guibg = colors.black,
+			guifg = colors.bg,
+			guibg = colors.bg,
 		},
 		-- separators
 		separator = {
-			guifg = colors.black2,
-			guibg = colors.black2,
+			guifg = colors.bg,
+			guibg = colors.bg,
 		},
 		separator_visible = {
-			guifg = colors.black2,
-			guibg = colors.black2,
+			guifg = colors.bg,
+			guibg = colors.bg,
 		},
 		separator_selected = {
-			guifg = colors.black2,
-			guibg = colors.black2,
+			guifg = colors.black,
+			guibg = colors.black,
 		},
 		-- modified
 		modified = {
 			guifg = colors.red,
-			guibg = colors.black2,
+			guibg = colors.bg,
 		},
 		modified_visible = {
 			guifg = colors.red,
-			guibg = colors.black2,
+			guibg = colors.bg,
 		},
 		modified_selected = {
 			guifg = colors.green,
-			guibg = colors.black,
+			guibg = colors.bg,
 		},
 		-- close buttons
 
 		close_button = {
 			guifg = colors.light_grey,
-			guibg = colors.black2,
+			guibg = colors.bg,
 		},
 		close_button_visible = {
 			guifg = colors.light_grey,
-			guibg = colors.black2,
+			guibg = colors.bg,
 		},
 		close_button_selected = {
 			guifg = colors.red,
-			guibg = colors.black,
+			guibg = colors.bg,
 		},
 	},
 }
-
