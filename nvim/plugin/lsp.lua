@@ -52,8 +52,6 @@ local servers = {
 	fsautocomplete = { "dotnet", "fsautocomplete", "--background-service-enabled" },
 	clangd = { "clangd", "--background-index" },
 	pyright = { "pyright-langserver", "--stdio" },
-	cssls = { "vscode-css-language-server", "--stdio" },
-	html = { "vscode-html-language-server", "--stdio" }
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -67,6 +65,18 @@ for server, command in pairs(servers) do
 		cmd = command,
 	}
 end
+
+lspconf['html'].setup {
+	on_attach = on_attach,
+	root_dir = vim.loop.cwd,
+	capabilities = capabilities
+}
+
+lspconf['cssls'].setup {
+	on_attach = on_attach,
+	root_dir = vim.loop.cwd,
+	capabilities = capabilities
+}
 
 -- replace the default lsp diagnostic letters with prettier symbols
 vim.fn.sign_define("LspDiagnosticsSignError", {text = "", numhl = "LspDiagnosticsDefaultError"})

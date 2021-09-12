@@ -1,4 +1,5 @@
 local vim = vim
+
 -- plugins
 require "paq" {
 	-- paq
@@ -15,6 +16,7 @@ require "paq" {
 	"nvim-treesitter/nvim-treesitter",
 	"onsails/lspkind-nvim",
 
+	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-buffer",
 	"L3MON4D3/LuaSnip",
 	"hrsh7th/nvim-cmp",
