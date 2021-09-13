@@ -55,16 +55,18 @@ local servers = {
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 for server, command in pairs(servers) do
 	lspconf[server].setup {
 		on_attach = on_attach,
 		root_dir = vim.loop.cwd,
 		cmd = command,
+		capabilities = capabilities,
 	}
 end
+
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 lspconf['html'].setup {
 	on_attach = on_attach,

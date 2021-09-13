@@ -12,39 +12,23 @@ gl.short_line_list = { "NvimTree", "packer" } -- keeping this table { } as empty
 local colors = require("colors")
 
 -- galaxyline {{{
-gls.left[0] = {
+gls.left[1] = {
 	StartLeft = {
 		provider = function()
-			return "@"
+			return "   "
 		end,
-		highlight = { colors.green, colors.green },
+		highlight = { colors.bg, colors.green },
 
-		separator = "@",
-		separator_highlight = { colors.bg, colors.bg },
-	}
-}
-
-gls.left[1] = {
-	FileEncode = {
-		provider = glf.get_file_encode,
-
-		highlight = { colors.green, colors.bg, "bold" },
-
-		separator = "@",
-		separator_highlight = { colors.bg, colors.bg },
+		separator = "",
+		separator_highlight = { colors.green, colors.bg },
 	}
 }
 
 gls.left[2] = {
 	StatusLeft = {
+		condition = glc.check_git_workspace,
 		provider = function()
-			if glc.check_git_workspace() then
-				return (
-					" " .. vcs.get_git_branch()
-				)
-			else
-				return " "
-			end
+			return "  " .. vcs.get_git_branch()
 		end,
 		highlight = { colors.green, colors.bg, "bold" },
 
@@ -92,9 +76,9 @@ gls.left[5] = {
 gls.left[6] = {
 	LeftSepOne = {
 		provider = function()
-			return ''
+			return ''
 		end,
-		highlight = { colors.black, colors.bg, "bold" },
+		highlight = { colors.bg, colors.black, "bold" },
 
 		separator = '@@',
 		separator_highlight = { colors.black, colors.black },
