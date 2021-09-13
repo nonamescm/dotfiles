@@ -26,7 +26,9 @@ gls.left[1] = {
 
 gls.left[2] = {
 	StatusLeft = {
-		condition = glc.check_git_workspace,
+		condition = function()
+			return glc.check_git_workspace() and (vcs.get_git_branch() ~= nil)
+		end,
 		provider = function()
 			return "  " .. vcs.get_git_branch()
 		end,

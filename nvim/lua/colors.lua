@@ -13,5 +13,4 @@ return {
 	orange = "#e37858",
 	purple = "#b782da",
 	lightbg = "#333748",
-	normalbg = '#282838',
 }

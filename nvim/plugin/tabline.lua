@@ -40,11 +40,11 @@ bufferline.setup {
 	highlights = {
 		fill = {
 			guifg = colors.grey_fg,
-			guibg = colors.bg,
+			guibg = colors.black,
 		},
 		background = {
 			guifg = colors.grey_fg,
-			guibg = colors.bg,
+			guibg = colors.black,
 		},
 		-- buffers
 		buffer_visible = {
@@ -103,11 +103,11 @@ bufferline.setup {
 
 		close_button = {
 			guifg = colors.light_grey,
-			guibg = colors.bg,
+			guibg = colors.black,
 		},
 		close_button_visible = {
 			guifg = colors.light_grey,
-			guibg = colors.bg,
+			guibg = colors.black,
 		},
 		close_button_selected = {
 			guifg = colors.red,
