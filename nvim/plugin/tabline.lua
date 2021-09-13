@@ -107,7 +107,7 @@ bufferline.setup {
 		},
 		close_button_visible = {
 			guifg = colors.light_grey,
-			guibg = colors.black,
+			guibg = colors.bg,
 		},
 		close_button_selected = {
 			guifg = colors.red,
