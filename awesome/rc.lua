@@ -393,7 +393,8 @@ client.connect_signal('request::titlebars', function(c)
 	local function create_titlebar(pos, size)
 		awful.titlebar(c, {
 			size = dpi(size),
-			position = pos
+			position = pos,
+			bg = beautiful.bg_light,
 		}):setup {
 			layout = wibox.layout.fixed.horizontal,
 			buttons = buttons
@@ -443,7 +444,7 @@ end)
 
 client.connect_signal("manage", function (c)
 	c.shape = function(cr,w,h)
-		gears.shape.rounded_rect(cr,w,h,2)
+		gears.shape.rounded_rect(cr,w,h,1)
 	end
 end)
 -- }}}
