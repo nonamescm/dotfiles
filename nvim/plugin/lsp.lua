@@ -1,5 +1,7 @@
 local vim = vim
 
+vim.o.completeopt=[[menuone,noinsert,noselect]]
+
 local function on_attach(client)
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -41,6 +43,8 @@ local function on_attach(client)
 	elseif client.resolved_capabilities.document_range_formatting then
 		buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
 	end
+
+	require('completion').on_attach(client)
 end
 
 local lspconf = require("lspconfig")
@@ -55,7 +59,6 @@ local servers = {
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 for server, command in pairs(servers) do
 	lspconf[server].setup {

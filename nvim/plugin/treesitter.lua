@@ -1,4 +1,5 @@
 local ts_config = require("nvim-treesitter.configs")
+local colors = require("colors")
 
 ts_config.setup {
 	ensure_installed = {
@@ -13,5 +14,5 @@ ts_config.setup {
 	highlight = {
 		enable = true,
 		use_languagetree = true
-	}
+	},
 }

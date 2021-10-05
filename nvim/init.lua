@@ -15,16 +15,13 @@ require "paq" {
 	"neovim/nvim-lspconfig",
 	"nvim-treesitter/nvim-treesitter",
 	"onsails/lspkind-nvim",
-
-	"hrsh7th/cmp-nvim-lsp",
-	"hrsh7th/cmp-buffer",
 	"L3MON4D3/LuaSnip",
-	"hrsh7th/nvim-cmp",
 
 	-- telescope
 	"nvim-telescope/telescope.nvim",
 	"airblade/vim-gitgutter",
 	"nvim-lua/plenary.nvim",
+	"nvim-lua/completion-nvim",
 
 	-- tabline/statusline
 	"akinsho/nvim-bufferline.lua",
@@ -50,7 +47,7 @@ vim.g.loaded_spec = 0
 vim.g.loaded_syncolor = 0
 
 -- options
-vim.g.markdown_fenced_languages = { "fs=fsharp", "js=javascript", "py=python", "rs=rust" }
+vim.g.markdown_fenced_languages = { "fs=fsharp", "js=javascript", "py=python", "rs=rust", "rb=ruby" }
 local opt, bopt, wopt = vim.o, vim.bo, vim.wo
 opt.background = "light"
 opt.splitbelow = true
@@ -66,7 +63,6 @@ opt.termguicolors = true
 opt.guicursor = "v-c-sm:block,c-i-ci-ve:ver25,r-cr-o:hor20"
 
 -- plugins that doesn"t need configuration requires
-require("nvim-autopairs").setup()
 require("colorizer").setup()
 vim.cmd("colorscheme notheme")
 

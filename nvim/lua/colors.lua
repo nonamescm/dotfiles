@@ -13,4 +13,5 @@ return {
 	orange = "#e37858",
 	purple = "#b782da",
 	lightbg = "#333748",
+	cyan = '#529dbc',
 }
