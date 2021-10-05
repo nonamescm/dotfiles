@@ -388,7 +388,7 @@ function theme.at_screen_connect(s)
 	}
 
 	s.wibox_left = wibox {
-		width = dpi(1366 / 4.8),
+		width = dpi(1366 / 5),
 		height = dpi(36),
 		ontop = false,
 		screen = s,
@@ -466,14 +466,14 @@ function theme.at_screen_connect(s)
 	}
 	
 	s.wibox_right = wibox {
-		width = dpi(1366 / 3.9),
+		width = dpi(1366 / 4.2),
 		height = dpi(36),
 		ontop = false,
 		screen = s,
 		expand = true,
 		visible = true,
 		bg = theme.bg_normal,
-		x = dpi(1366 - 1366 / 3.9 - 9),
+		x = dpi(1366 - 1366 / 4.2 - 9),
 		y = dpi(3),
 		border_width = dpi(2),
 		border_color = theme.bg_light,
@@ -487,7 +487,6 @@ function theme.at_screen_connect(s)
 				{
 					{
 						layout = wibox.layout.fixed.horizontal,
-						line(theme.clr.purple),
 						half_spr,
 						clockicon,
 						clock,
@@ -500,7 +499,6 @@ function theme.at_screen_connect(s)
 				{
 					{
 						layout = wibox.layout.fixed.horizontal,
-						line(theme.clr.yellow),
 						half_spr,
 						calendaricon,
 						calendar,
@@ -513,7 +511,6 @@ function theme.at_screen_connect(s)
 				{
 					{
 						layout = wibox.layout.fixed.horizontal,
-						line(theme.clr.green),
 						half_spr,
 						volicon,
 						vol,
@@ -526,7 +523,6 @@ function theme.at_screen_connect(s)
 				{
 					{
 						layout = wibox.layout.fixed.horizontal,
-						line(theme.clr.blue),
 						half_spr,
 						baticon,
 						bat,
