@@ -16,12 +16,14 @@ require "paq" {
 	"nvim-treesitter/nvim-treesitter",
 	"onsails/lspkind-nvim",
 	"L3MON4D3/LuaSnip",
+	"hrsh7th/nvim-cmp",
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-buffer",
 
 	-- telescope
 	"nvim-telescope/telescope.nvim",
 	"airblade/vim-gitgutter",
 	"nvim-lua/plenary.nvim",
-	"nvim-lua/completion-nvim",
 
 	-- tabline/statusline
 	"akinsho/nvim-bufferline.lua",

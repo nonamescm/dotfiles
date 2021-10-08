@@ -43,8 +43,6 @@ local function on_attach(client)
 	elseif client.resolved_capabilities.document_range_formatting then
 		buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
 	end
-
-	require('completion').on_attach(client)
 end
 
 local lspconf = require("lspconfig")
@@ -62,10 +60,10 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 for server, command in pairs(servers) do
 	lspconf[server].setup {
+		capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities),
 		on_attach = on_attach,
 		root_dir = vim.loop.cwd,
 		cmd = command,
-		capabilities = capabilities,
 	}
 end
 
