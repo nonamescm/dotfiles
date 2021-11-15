@@ -1,7 +1,7 @@
 xterm*Background:#282838
 xterm*Foreground:#b6bcdd
 xterm*cursorColor:#b6bcdd
-xterm*faceName:JetBrainsMono Nerd Font
+xterm*faceName:Iosevka Nerd Font Mono:style=Medium
 xterm*faceSize:13
 xterm*selectToClipboard:true
 xterm*eightBitInput:false
@@ -15,7 +15,7 @@ xterm*VT100.Translations: #override \
 	Ctrl Shift <Key>+:    larger-vt-font() \n\
 	Ctrl Shift <Key>-:    smaller-vt-font()
 
-xterm*color0:  #2b2b3b
+xterm*color0:  #3b3b4b
 xterm*color1:  #f07178
 xterm*color2:  #7cd380
 xterm*color3:  #ffcb6b

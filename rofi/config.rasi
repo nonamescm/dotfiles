@@ -17,7 +17,7 @@ element-text, element-icon {
 }
 
 *{
-	background:#282838ff;
+	background:#222232ff;
 	background-alt:#282838ff;
 	foreground:#b6bcddff;
 	border-alt:#282838ff;

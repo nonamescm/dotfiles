@@ -4,7 +4,7 @@ alias doas="doas "
 alias vim="nvim"
 alias vi="nvim"
 alias cl="clear"
-alias ls="ls --color=always"
+alias ls="ls"
 alias l="ls -lAh"
 alias la="ls -lah"
 alias ll="ls -lh"
@@ -12,7 +12,6 @@ alias rm="rm -i"
 alias mv="mv -i"
 alias cp="cp -i"
 alias :q="exit"
-alias emacs="emacs"
 
 run() {
 	if test -f Cargo.toml; then
@@ -28,3 +27,15 @@ run() {
 }
 
 export EDITOR=nvim
+
+emacs() {
+	local is_no_window=false
+
+	for arg in $@; do
+		if [[ "${arg}" = "-nw" ]] || [[ "${arg}" = "--no-window-system" ]]; then
+			is_no_window=true
+		fi
+	done
+
+	$is_no_window && TERM=xterm-24bit command emacs $@ || command emacs $@
+}

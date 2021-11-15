@@ -59,9 +59,9 @@ precmd(){
 
 	if [[ "$__GIT_PROMPT" != "" ]]; then
 		if [[ "$LAST_STAT" == "0" ]]; then
-			STATUS="%F{green} %f"
+			STATUS="%F{green}✓%f"
 		else
-			STATUS="%F{red} %f"
+			STATUS="%F{red}✗%f"
 		fi
 	else
 		if [[ "$LAST_STAT" == "0" ]]; then
