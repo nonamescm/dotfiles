@@ -59,7 +59,7 @@ theme.border_marked = '#424760'
 
 theme.tasklist_plain_task_name = true
 theme.tasklist_disable_icon = true
-theme.useless_gap = dpi(4)
+theme.useless_gap = dpi(2)
 theme.gap_single_client = true
 
 -- assests
@@ -138,7 +138,7 @@ local baticon = wibox.widget.textbox(
 )
 
 local bat = wibox.widget.textbox('')
-theme.update_battery = function()
+function theme.update_battery()
 	awful.spawn.easy_async_with_shell(
 	[[bash -c "echo $(acpi|awk '{split($0,a,", "); print a[2]}')"]],
 	function(stdout)
@@ -387,21 +387,19 @@ function theme.at_screen_connect(s)
 		}
 	}
 
-	s.wibox_left = wibox {
-		width = dpi(1366 / 5),
+	s.wibox_right = awful.wibar {
+		width = dpi(1270),
 		height = dpi(36),
-		ontop = false,
+		ontop = true,
 		screen = s,
 		expand = true,
 		visible = true,
 		bg = theme.bg_normal,
-		x = dpi(5),
-		y = dpi(3),
 		border_width = dpi(2),
 		border_color = theme.bg_light,
-
 	}
-	s.wibox_left:setup {
+
+	s.wibox_right:setup {
 		layout = wibox.layout.align.horizontal,
 		{ -- Left widgets
 			{
@@ -463,24 +461,6 @@ function theme.at_screen_connect(s)
 		{ -- Center widgets
 			layout = wibox.layout.align.horizontal,
 		},
-	}
-	
-	s.wibox_right = wibox {
-		width = dpi(1366 / 4.2),
-		height = dpi(36),
-		ontop = false,
-		screen = s,
-		expand = true,
-		visible = true,
-		bg = theme.bg_normal,
-		x = dpi(1366 - 1366 / 4.2 - 9),
-		y = dpi(3),
-		border_width = dpi(2),
-		border_color = theme.bg_light,
-	}
-
-	s.wibox_right:setup {
-		layout = wibox.layout.align.horizontal,
 		{ -- Right widgets
 			{
 				layout = wibox.layout.fixed.horizontal,
@@ -541,7 +521,7 @@ function theme.at_screen_connect(s)
 		},
 	}
 
-	s.wibox_left:struts {
+	s.wibox_right:struts {
 		top = dpi(40),
 	}
 end
