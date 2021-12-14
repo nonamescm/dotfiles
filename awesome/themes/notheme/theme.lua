@@ -59,7 +59,7 @@ theme.border_marked = '#424760'
 
 theme.tasklist_plain_task_name = true
 theme.tasklist_disable_icon = true
-theme.useless_gap = dpi(2)
+theme.useless_gap = dpi(4)
 theme.gap_single_client = true
 
 -- assests
@@ -388,9 +388,9 @@ function theme.at_screen_connect(s)
 	}
 
 	s.wibox_right = awful.wibar {
-		width = dpi(1270),
+		width = dpi(1268),
 		height = dpi(36),
-		ontop = true,
+		ontop = false,
 		screen = s,
 		expand = true,
 		visible = true,

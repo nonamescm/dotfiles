@@ -405,9 +405,6 @@ client.connect_signal('request::titlebars', function(c)
 	create_titlebar('bottom', 8)
 	create_titlebar('left', 8)
 
-	-- Create a titlebar for the client.
-	-- By default, awful.rules will create one, but all it does is to call this
-	-- function.
 	--[[
 	local function button_c(widget)
 		return wibox.container.margin(
