@@ -20,11 +20,6 @@ require "paq" {
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-buffer",
 
-	-- telescope
-	"nvim-telescope/telescope.nvim",
-	"airblade/vim-gitgutter",
-	"nvim-lua/plenary.nvim",
-
 	-- tabline/statusline
 	"akinsho/nvim-bufferline.lua",
 	"kyazdani42/nvim-web-devicons",
@@ -34,7 +29,7 @@ require "paq" {
 	"windwp/nvim-autopairs", -- auto open and close pairs
 	"kyazdani42/nvim-tree.lua", -- file manager
 	"lukas-reineke/indent-blankline.nvim", -- ident guides
-	"glepnir/dashboard-nvim", -- dashboard screen
+	-- "glepnir/dashboard-nvim", -- dashboard screen
 }
 
 -- Disable Default Vim Plugins
