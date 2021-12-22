@@ -388,7 +388,7 @@ function theme.at_screen_connect(s)
 	}
 
 	s.wibox_right = awful.wibar {
-		width = dpi(1268),
+		width = dpi(1360),
 		height = dpi(36),
 		ontop = false,
 		screen = s,
