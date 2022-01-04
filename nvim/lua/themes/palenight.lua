@@ -232,4 +232,3 @@ vim.g.terminal_color_background = bg_dark
 vim.g.terminal_color_foreground = fg_light
 
 -- }}}
-

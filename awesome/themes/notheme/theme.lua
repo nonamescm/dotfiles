@@ -156,8 +156,8 @@ local volicon = wibox.widget.textbox('')
 local vol = wibox.widget.textbox('')
 theme.update_volume = function()
 	awful.spawn.easy_async_with_shell([[
-		if amixer get Master | sed 5q | grep -q '\[on\]'; then
-			echo $(awk -F'[][]' '/dB/ { print $2 }' <(amixer sget Master))
+		if amixer get Master | grep -q '\[on\]'; then
+			grep 'Left:' <(amixer sget Master)|awk -F"[][]" '{ print $2 }'
 		else
 			echo 'muted'
 		fi
@@ -460,6 +460,7 @@ function theme.at_screen_connect(s)
 		},
 		{ -- Center widgets
 			layout = wibox.layout.align.horizontal,
+			s.mytasklist,
 		},
 		{ -- Right widgets
 			{

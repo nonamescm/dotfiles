@@ -19,6 +19,7 @@ require "paq" {
 	"hrsh7th/nvim-cmp",
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-buffer",
+	"simrat39/rust-tools.nvim",
 
 	-- tabline/statusline
 	"akinsho/nvim-bufferline.lua",
@@ -29,6 +30,7 @@ require "paq" {
 	"windwp/nvim-autopairs", -- auto open and close pairs
 	"kyazdani42/nvim-tree.lua", -- file manager
 	"lukas-reineke/indent-blankline.nvim", -- ident guides
+	"andweeb/presence.nvim", -- Rich presence
 	-- "glepnir/dashboard-nvim", -- dashboard screen
 }
 
@@ -44,7 +46,15 @@ vim.g.loaded_spec = 0
 vim.g.loaded_syncolor = 0
 
 -- options
-vim.g.markdown_fenced_languages = { "fs=fsharp", "js=javascript", "py=python", "rs=rust", "rb=ruby" }
+vim.g.markdown_fenced_languages = {
+	"fs=fsharp",
+	"js=javascript",
+	"py=python",
+	"rs=rust",
+	"rb=ruby",
+	"yex=yex",
+}
+
 local opt, bopt, wopt = vim.o, vim.bo, vim.wo
 opt.background = "light"
 opt.splitbelow = true
@@ -61,6 +71,7 @@ opt.guicursor = "v-c-sm:block,c-i-ci-ve:ver25,r-cr-o:hor20"
 
 -- plugins that doesn"t need configuration requires
 require("colorizer").setup()
+require("rust-tools").setup({})
 vim.cmd("colorscheme notheme")
 
 vim.cmd("command! Term split|term")
