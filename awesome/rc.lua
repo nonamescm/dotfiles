@@ -127,12 +127,8 @@ local globalkeys = my_table.join(
 		description = "view next",
 		group = "tag"
 	}), awful.key({modkey}, "d", function()
-		for s in screen do
-			s.mywibox.visible = not s.mywibox.visible
-			if s.mybottomwibox then
-				s.mybottomwibox.visible = not s.mybottomwibox.visible
-			end
-		end
+			local bar = awful.screen.focused().mywibox
+			bar.visible = not bar.visible
 	end, {
 		description = "toggle wibox",
 		group = "awesome"
@@ -221,11 +217,13 @@ local clientkeys = my_table.join(
 			description = "select previous",
 			group = "layout"
 	}), awful.key({ modkey }, "m", function(c)
-		c.floating = not c.floating
+		c.maximized = not c.maximized
+		c:raise()
 	end, {
 			description = "magnify client",
 			group = "client"
 		}), awful.key({modkey}, "f", function(c)
+			mouse.screen.mywibox.visible = c.fullscreen
 			c.fullscreen = not c.fullscreen
 			c:raise()
 		end, {
@@ -340,7 +338,7 @@ awful.rules.rules = {{
 		titlebars_enabled = true,
 		maximized_horizontal = false,
 		maximized_vertical = false,
-		maximized = false,
+		maximized = true,
 		border_width = 1.2,
 		border_color = beautiful.border_normal,
 		focus = awful.client.focus.filter,
@@ -379,13 +377,13 @@ client.connect_signal('request::titlebars', function(c)
 	-- buttons for the titlebar
 	local buttons = gears.table.join(
 		awful.button({ }, 1, function()
-			client.focus = c
-			c:raise()
+			c:emit_signal("request::activate", "titlebar", {raise = true})
+			c.focus = true
 			awful.mouse.client.move(c)
 		end),
 		awful.button({ }, 3, function()
-			client.focus = c
-			c:raise()
+			c:emit_signal("request::activate", "titlebar", {raise = true})
+			c.focus = true
 			awful.mouse.client.resize(c)
 		end)
 	)
@@ -397,7 +395,7 @@ client.connect_signal('request::titlebars', function(c)
 			bg = beautiful.bg_light,
 		}):setup {
 			layout = wibox.layout.fixed.horizontal,
-			buttons = buttons
+			buttons = buttons,
 		}
 	end
 	create_titlebar('top', 8)
@@ -440,6 +438,7 @@ screen.connect_signal("property::geometry", function(s)
 end)
 
 client.connect_signal("manage", function (c)
+	c.maximized = false
 	c.shape = function(cr,w,h)
 		gears.shape.rounded_rect(cr,w,h,1)
 	end

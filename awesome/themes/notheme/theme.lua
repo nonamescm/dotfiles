@@ -12,9 +12,9 @@ theme.dir = os.getenv("HOME").."/.config/awesome/themes/notheme/"
 -- Fonts
 theme.font = "Iosevka Nerd Font 9"
 theme.taglist_font = "FiraMono Nerd Font Mono 15"
-theme.icon_font = "Iosevka Nerd Font 15"
+theme.icon_font = "Iosevka Nerd Font 12"
 theme.exit_screen_font = "FiraMono Nerd Font Mono 120"
-theme.widget_font = 'Iosevka Nerd Font 10'
+theme.widget_font = 'Iosevka Nerd Font 8'
 theme.notification_font = "Iosevka Nerd Font 12"
 theme.tasklist_font = "Iosevka Nerd Font 7"
 
@@ -35,7 +35,8 @@ theme.bg_normal = '#222632'
 theme.bg_focus = '#222632'
 theme.bg_urgent = "#182228"
 theme.bg_light = '#2f2f3f'
-theme.bg_systray = theme.bg_light
+theme.bg_systray = theme.bg_normal
+theme.systray_icon_spacing = dpi(10)
 
 theme.tasklist_bg_normal = '#282838'
 theme.tasklist_bg_focus = '#2f2f3f'
@@ -59,8 +60,8 @@ theme.border_marked = '#424760'
 
 theme.tasklist_plain_task_name = true
 theme.tasklist_disable_icon = true
-theme.useless_gap = dpi(4)
-theme.gap_single_client = true
+theme.useless_gap = dpi(2)
+theme.gap_single_client = false
 
 -- assests
 theme.titlebar_close_button_normal = theme.dir.."./assets/close-button.svg"
@@ -104,6 +105,11 @@ naughty.config.defaults = {
 
 -- }}}
 
+
+-- Separators
+local spr = wibox.widget.textbox('     ')
+local half_spr = wibox.widget.textbox('  ')
+
 -- widgets {{{
 local function line(color)
 	return (
@@ -124,6 +130,19 @@ local clock = wibox.widget.textclock(
 	'<span font="'..theme.widget_font..'" color="'..theme.clr.purple..'"> %R</span>'
 )
 
+local clock =
+	{
+		{
+			layout = wibox.layout.fixed.horizontal,
+			half_spr,
+			clockicon,
+			clock,
+			half_spr
+		},
+		bg = theme.bg_light,
+		widget = wibox.container.background,
+	}
+
 -- Calendar
 local calendaricon = wibox.widget.textbox(
 	string.format('<span color="%s" font="'..theme.icon_font..'"></span>', theme.clr.yellow)
@@ -131,6 +150,19 @@ local calendaricon = wibox.widget.textbox(
 local calendar = wibox.widget.textclock(
 	'<span font="'..theme.widget_font..'" color="'..theme.clr.yellow..'"> %x</span>'
 )
+
+local calendar =
+	{
+		{
+			layout = wibox.layout.fixed.horizontal,
+			half_spr,
+			calendaricon,
+			calendar,
+			half_spr
+		},
+		bg = theme.bg_light,
+		widget = wibox.container.background,
+	}
 
 -- Battery
 local baticon = wibox.widget.textbox(
@@ -150,6 +182,19 @@ function theme.update_battery()
 	end)
 end
 theme.update_battery()
+
+local battery =
+	{
+		{
+			layout = wibox.layout.fixed.horizontal,
+			half_spr,
+			baticon,
+			bat,
+			half_spr,
+		},
+		bg = theme.bg_light,
+		widget = wibox.container.background,
+	}
 
 -- ALSA volume
 local volicon = wibox.widget.textbox('')
@@ -176,9 +221,18 @@ theme.update_volume = function()
 end
 theme.update_volume()
 
--- Separators
-local spr = wibox.widget.textbox('     ')
-local half_spr = wibox.widget.textbox('  ')
+local volume =
+	{
+		{
+			layout = wibox.layout.fixed.horizontal,
+			half_spr,
+			volicon,
+			vol,
+			half_spr,
+		},
+		bg = theme.bg_light,
+		widget = wibox.container.background,
+	}
 
 -- power
 local power_menu = { }
@@ -306,31 +360,27 @@ function theme.at_screen_connect(s)
 		widget_template = {
 			{
 				{
-					{
-						bg = theme.fg_normal,
-						shape = '',
-						widget = wibox.container.background,
-					},
-					{
-						{
-							id = 'icon_role',
-							widget = wibox.widget.imagebox,
-						},
-						margins = 0,
-						widget = wibox.container.margin,
-					},
-					{
-						id = 'text_role',
-						widget = wibox.widget.textbox,
-					},
-					layout = wibox.layout.align.horizontal,
+					bg = theme.fg_normal,
+					shape = '',
+					widget = wibox.container.background,
 				},
-				left = 10,
-				right = 10,
-				widget = wibox.container.margin
+				{
+					{
+						id = 'icon_role',
+						widget = wibox.widget.imagebox,
+					},
+					margins = 0,
+					widget = wibox.container.margin,
+				},
+				{
+					id = 'text_role',
+					widget = wibox.widget.textbox,
+				},
+				layout = wibox.layout.align.horizontal,
 			},
-			id = 'background_role',
-			widget = wibox.container.background,
+			left = 10,
+			right = 10,
+			widget = wibox.container.margin
 		},
 		buttons = awful.util.taglist_buttons
 	}
@@ -339,67 +389,43 @@ function theme.at_screen_connect(s)
 		screen = s,
 		filter = awful.widget.tasklist.filter.currenttags,
 		buttons = awful.util.tasklist_buttons,
-		style = {
-			shape = gears.shape.rounded_rect,
-			shape_border_width = dpi(1),
-			shape_border_color = theme.bg_normal,
-		},
-		layout = {
-			spacing = dpi(20),
-			spacing_widget = {
-				{
-					forced_width = dpi(5),
-					shape = gears.shape.circle,
-					widget = wibox.widget.separator
-				},
-				valign = 'center',
-				halign = 'center',
-				widget = wibox.container.place,
-			},
-			layout = wibox.layout.flex.horizontal
-		},
-		-- Notice that there is *NO* wibox.wibox prefix, it is a template,
-		-- not a widget instance.
 		widget_template = {
 			{
-				{
-					{
-						{
-							id = 'icon_role',
-							widget = wibox.widget.imagebox,
-						},
-						margins = dpi(0),
-						widget = wibox.container.margin,
-					},
-					{
-						id = 'text_role',
-						forced_height = dpi(32),
-						widget = wibox.widget.textbox,
-					},
-					layout = wibox.layout.fixed.horizontal,
-				},
-				left = dpi(10),
-				right = dpi(10),
-				widget = wibox.container.margin
+				wibox.widget.base.make_widget(),
+				forced_height = 5,
+				id            = 'background_role',
+				widget        = wibox.container.background,
 			},
-			id = 'background_role',
-			widget = wibox.container.background,
-		}
+			{
+				{
+					id     = 'clienticon',
+					widget = awful.widget.clienticon,
+				},
+				margins = 5,
+				widget  = wibox.container.margin
+			},
+			nil,
+			create_callback = function(self, c, index, objects) --luacheck: no unused args
+				self:get_children_by_id('clienticon')[1].client = c
+			end,
+			layout = wibox.layout.align.vertical,
+		},
 	}
 
-	s.wibox_right = awful.wibar {
+	s.mywibox = awful.wibar {
 		width = dpi(1360),
-		height = dpi(36),
-		ontop = false,
+		height = dpi(30),
+		ontop = true,
 		screen = s,
 		expand = true,
 		visible = true,
 		bg = theme.bg_normal,
 		border_width = dpi(2),
 		border_color = theme.bg_light,
+		position = "bottom",
 	}
 
-	s.wibox_right:setup {
+	s.mywibox:setup {
 		layout = wibox.layout.align.horizontal,
 		{ -- Left widgets
 			{
@@ -416,26 +442,18 @@ function theme.at_screen_connect(s)
 				},
 				half_spr,
 				{
-					{
-						layout = wibox.layout.align.horizontal,
-						s.mytaglist,--}}}
-					},
-					bg = theme.bg_light,
-					widget = wibox.container.background,
+					layout = wibox.layout.align.horizontal,
+					s.mytaglist,
 				},
 				half_spr,
 				{
-					{
 						layout = wibox.layout.fixed.horizontal,
 						half_spr,
 						wibox.container.margin(
 							wibox.widget.systray(),
-							dpi(6), dpi(6), dpi(6), dpi(6)
+							dpi(3), dpi(3), dpi(3), dpi(3)
 						),
 						half_spr,
-					},
-					bg = theme.bg_light,
-					widget = wibox.container.background,
 				},
 				half_spr,
 				{
@@ -459,60 +477,22 @@ function theme.at_screen_connect(s)
 			left = dpi(5)
 		},
 		{ -- Center widgets
-			layout = wibox.layout.align.horizontal,
+			layout = wibox.container.place,
 			s.mytasklist,
 		},
 		{ -- Right widgets
 			{
 				layout = wibox.layout.fixed.horizontal,
-				{
-					{
-						layout = wibox.layout.fixed.horizontal,
-						half_spr,
-						clockicon,
-						clock,
-						half_spr
-					},
-					bg = theme.bg_light,
-					widget = wibox.container.background,
-				},
+				spr,
+				spr,
 				half_spr,
-				{
-					{
-						layout = wibox.layout.fixed.horizontal,
-						half_spr,
-						calendaricon,
-						calendar,
-						half_spr
-					},
-					bg = theme.bg_light,
-					widget = wibox.container.background,
-				},
+				clock,
 				half_spr,
-				{
-					{
-						layout = wibox.layout.fixed.horizontal,
-						half_spr,
-						volicon,
-						vol,
-						half_spr,
-					},
-					bg = theme.bg_light,
-					widget = wibox.container.background,
-				},
+				calendar,
 				half_spr,
-				{
-					{
-						layout = wibox.layout.fixed.horizontal,
-						half_spr,
-						baticon,
-						bat,
-						half_spr,
-					},
-					bg = theme.bg_light,
-					widget = wibox.container.background,
-				},
+				volume,
 				half_spr,
+				battery,
 			},
 			widget = wibox.container.margin,
 			top = dpi(5),
@@ -522,8 +502,8 @@ function theme.at_screen_connect(s)
 		},
 	}
 
-	s.wibox_right:struts {
-		top = dpi(40),
+	s.mywibox:struts {
+		bottom = dpi(35),
 	}
 end
 -- }}}
