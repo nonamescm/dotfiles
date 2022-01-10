@@ -61,7 +61,7 @@ theme.border_marked = '#424760'
 theme.tasklist_plain_task_name = true
 theme.tasklist_disable_icon = true
 theme.useless_gap = dpi(2)
-theme.gap_single_client = false
+theme.gap_single_client = true
 
 -- assests
 theme.titlebar_close_button_normal = theme.dir.."./assets/close-button.svg"
@@ -132,15 +132,11 @@ local clock = wibox.widget.textclock(
 
 local clock =
 	{
-		{
-			layout = wibox.layout.fixed.horizontal,
-			half_spr,
-			clockicon,
-			clock,
-			half_spr
-		},
-		bg = theme.bg_light,
-		widget = wibox.container.background,
+		layout = wibox.layout.fixed.horizontal,
+		half_spr,
+		clockicon,
+		clock,
+		half_spr
 	}
 
 -- Calendar
@@ -153,15 +149,11 @@ local calendar = wibox.widget.textclock(
 
 local calendar =
 	{
-		{
-			layout = wibox.layout.fixed.horizontal,
-			half_spr,
-			calendaricon,
-			calendar,
-			half_spr
-		},
-		bg = theme.bg_light,
-		widget = wibox.container.background,
+		layout = wibox.layout.fixed.horizontal,
+		half_spr,
+		calendaricon,
+		calendar,
+		half_spr
 	}
 
 -- Battery
@@ -185,15 +177,11 @@ theme.update_battery()
 
 local battery =
 	{
-		{
-			layout = wibox.layout.fixed.horizontal,
-			half_spr,
-			baticon,
-			bat,
-			half_spr,
-		},
-		bg = theme.bg_light,
-		widget = wibox.container.background,
+		layout = wibox.layout.fixed.horizontal,
+		half_spr,
+		baticon,
+		bat,
+		half_spr,
 	}
 
 -- ALSA volume
@@ -223,15 +211,11 @@ theme.update_volume()
 
 local volume =
 	{
-		{
-			layout = wibox.layout.fixed.horizontal,
-			half_spr,
-			volicon,
-			vol,
-			half_spr,
-		},
-		bg = theme.bg_light,
-		widget = wibox.container.background,
+		layout = wibox.layout.fixed.horizontal,
+		half_spr,
+		volicon,
+		vol,
+		half_spr,
 	}
 
 -- power
@@ -360,19 +344,6 @@ function theme.at_screen_connect(s)
 		widget_template = {
 			{
 				{
-					bg = theme.fg_normal,
-					shape = '',
-					widget = wibox.container.background,
-				},
-				{
-					{
-						id = 'icon_role',
-						widget = wibox.widget.imagebox,
-					},
-					margins = 0,
-					widget = wibox.container.margin,
-				},
-				{
 					id = 'text_role',
 					widget = wibox.widget.textbox,
 				},
@@ -380,7 +351,7 @@ function theme.at_screen_connect(s)
 			},
 			left = 10,
 			right = 10,
-			widget = wibox.container.margin
+			widget = wibox.container.margin,
 		},
 		buttons = awful.util.taglist_buttons
 	}
@@ -463,7 +434,7 @@ function theme.at_screen_connect(s)
 							s.mylayoutbox,
 						},
 						widget = wibox.container.margin,
-						margins = dpi(5),
+						margins = dpi(2),
 					},
 					widget = wibox.container.background,
 					bg = theme.bg_light,
