@@ -4,7 +4,7 @@ alias doas="doas "
 alias vim="nvim"
 alias vi="nvim"
 alias cl="clear"
-alias ls="ls"
+alias ls="ls --color=always"
 alias l="ls -lAh"
 alias la="ls -lah"
 alias ll="ls -lh"
@@ -12,6 +12,7 @@ alias rm="rm -i"
 alias mv="mv -i"
 alias cp="cp -i"
 alias :q="exit"
+alias ygo="~/Downloads/yugioh/YGO\ Omega.x86_64 & disown"
 
 run() {
 	if test -f Cargo.toml; then

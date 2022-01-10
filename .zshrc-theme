@@ -80,6 +80,6 @@ chpwd(){
 }
 ### }}}
 
-PROMPT='%F{green}%c%f $STATUS${__GIT_PROMPT} '
+PROMPT='%F{green}%c%f$STATUS${__GIT_PROMPT} '
 
 precmd
