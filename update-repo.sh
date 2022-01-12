@@ -37,12 +37,12 @@ else
 	echo "Copying selected configuration files."
 	for arg in $@; do
 		case $arg in
-			neovim|nvim) copy_files "$CH/nvim"&load_status_bar 1;;
-			awesome) copy_files "$CH/awesome"&load_status_bar 1;;
-			rofi) copy_files "$CH/rofi"&load_status_bar 1;;
-			kitty) copy_files "$CH/kitty"&load_status_bar 1;;
-			xterm) copy_files "$HOME/.Xresources"&load_status_bar 1;;
-			zsh) for file in $(ls /home/renamed/.zshrc*); do copy_files $file &; done&load_status_bar 1;;
+			nvim) rm -rf nvim && copy_files "$CH/nvim" & load_status_bar 1;;
+			awesome) rm -rf awesome && copy_files "$CH/awesome" & load_status_bar 1;;
+			rofi) rm -rf rofi && copy_files "$CH/rofi" & load_status_bar 1;;
+			kitty) rm -rf kitty && copy_files "$CH/kitty" & load_status_bar 1;;
+			xterm) rm -rf .Xresources && copy_files "$HOME/.Xresources" & load_status_bar 1;;
+			zsh) for file in $(ls /home/renamed/.zshrc*); do rm -rf $file && copy_files $file &; done&load_status_bar 1;;
 			*) echo "Unexpected Argument: $arg"
 		esac
 	done
