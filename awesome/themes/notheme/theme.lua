@@ -157,9 +157,12 @@ local calendar =
 	}
 
 -- Battery
-local baticon = wibox.widget.textbox(
-	string.format('<span color="%s" font="'..theme.icon_font..'"></span>', theme.clr.blue)
-)
+local baticon = wibox.widget.textbox('')
+function theme.update_baticon(icon)
+	baticon:set_markup(
+		string.format('<span color="%s" font="'..theme.icon_font..'">%s</span>', theme.clr.blue, icon)
+	)
+end
 
 local bat = wibox.widget.textbox('')
 function theme.update_battery()
@@ -168,9 +171,23 @@ function theme.update_battery()
 	function(stdout)
 		if stdout == '' then
 			bat:set_markup('<span color="'..theme.clr.blue..'" font="'..theme.widget_font..'"> N/A</span>')
-		else
-			bat:set_markup('<span color="'..theme.clr.blue..'" font="'..theme.widget_font..'"> ' ..stdout.."%</span> ")
+			return
 		end
+		stdout = stdout:gsub("%%", ""):match("^%s*(.-)%s*$")
+		percent = tonumber(stdout)
+		if percent <= 5 then
+			theme.update_baticon('')
+		elseif percent <= 25 then
+			theme.update_baticon('')
+		elseif percent >= 25 and percent <= 75 then
+			theme.update_baticon('')
+		elseif percent < 100 then
+			theme.update_baticon('')
+		else
+			theme.update_baticon('')
+		end
+			
+		bat:set_markup('<span color="'..theme.clr.blue..'" font="'..theme.widget_font..'"> ' ..stdout.."%</span> ")
 	end)
 end
 theme.update_battery()
@@ -195,16 +212,18 @@ theme.update_volume = function()
 			echo 'muted'
 		fi
 	]], function(stdout)
-		stdout = tostring(stdout):gsub("\n", '')
+		stdout = tostring(stdout):gsub("\n", ''):gsub("%%", ""):match("^%s*(.-)%s*$")
+		percent = tonumber(stdout)
 		if stdout == "muted" then
 			volicon:set_markup('<span color="'..theme.clr.green..'" font="'..theme.icon_font..'">婢</span>')
-		elseif stdout == "0%" then
+		elseif percent == 0 then
 			volicon:set_markup('<span color="'..theme.clr.green..'" font="'..theme.icon_font..'"></span>')
-			vol:set_markup('<span color="'..theme.clr.green..'" font="'..theme.widget_font..'"> '..stdout.."</span> ")
+		elseif percent <= 50 then
+			volicon:set_markup('<span color="'..theme.clr.green..'" font="'..theme.icon_font..'">奔</span>')
 		else
 			volicon:set_markup('<span color="'..theme.clr.green..'" font="'..theme.icon_font..'">墳</span>')
-			vol:set_markup('<span color="'..theme.clr.green..'" font="'..theme.widget_font..'"> '..stdout.."</span> ")
 		end
+		vol:set_markup('<span color="'..theme.clr.green..'" font="'..theme.widget_font..'"> '..stdout.."%</span> ")
 	end)
 end
 theme.update_volume()
@@ -406,7 +425,7 @@ function theme.at_screen_connect(s)
 						layout = wibox.layout.align.horizontal,
 						s.mypromptbox,
 						half_spr,
-						power,
+						s.mylayoutbox,
 						half_spr
 					},
 					widget = wibox.container.background,
@@ -416,7 +435,6 @@ function theme.at_screen_connect(s)
 					layout = wibox.layout.align.horizontal,
 					s.mytaglist,
 				},
-				half_spr,
 				{
 						layout = wibox.layout.fixed.horizontal,
 						half_spr,
@@ -425,19 +443,6 @@ function theme.at_screen_connect(s)
 							dpi(3), dpi(3), dpi(3), dpi(3)
 						),
 						half_spr,
-				},
-				half_spr,
-				{
-					{
-						{
-							layout = wibox.layout.align.horizontal,
-							s.mylayoutbox,
-						},
-						widget = wibox.container.margin,
-						margins = dpi(2),
-					},
-					widget = wibox.container.background,
-					bg = theme.bg_light,
 				},
 				half_spr,
 			},

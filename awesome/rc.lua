@@ -217,12 +217,12 @@ local clientkeys = my_table.join(
 		description = "select previous",
 		group = "layout"
 	}), awful.key({ modkey }, "m", function(c)
-		c.maximized = not c.maximized
+		c.floating = not c.floating
 	end, {
 		description = "magnify client",
 		group = "client"
 	}), awful.key({modkey}, "f", function(c)
-		mouse.screen.mywibox.visible = c.fullscreen
+		mouse.screen.mywibox.visible = not mouse.screen.mywibox.visible
 		c.fullscreen = not c.fullscreen
 		c:raise()
 	end, {
@@ -312,15 +312,13 @@ awful.rules.rules = {{
 	rule = {},
 	properties = {
 		titlebars_enabled = true,
-		maximized_horizontal = false,
-		maximized_vertical = false,
 		maximized = false,
-		border_width = 1.2,
-		border_color = beautiful.border_normal,
+		border_width = dpi(2.4),
+		border_color = beautiful.border_focus,
 		focus = awful.client.focus.filter,
 		raise = true,
 		keys = clientkeys,
-		buttons = clientbuttons,
+		buttons = nil,
 		screen = awful.screen.preferred,
 		placement = awful.placement.no_overlap + awful.placement.no_offscreen,
 		size_hints_honor = false,
@@ -362,7 +360,7 @@ client.connect_signal('request::titlebars', function(c)
 
 	for _, side in ipairs {'top', 'right', 'left', 'bottom'} do
 		awful.titlebar(c, {
-			size = dpi(8),
+			size = dpi(12),
 			position = side,
 			bg = beautiful.bg_light,
 		}):setup {
@@ -386,8 +384,10 @@ screen.connect_signal("property::geometry", function(s)
 end)
 
 client.connect_signal("manage", function(c)
+	c.maximized = false
+	c.border_color = beautiful.border_focus
 	c.shape = function(cr,w,h)
-		gears.shape.rounded_rect(cr,w,h,3)
+		gears.shape.rounded_rect(cr,w,h,1)
 	end
 end)
 -- }}}
