@@ -32,3 +32,23 @@ xterm*color13: #c792ea
 xterm*color14: #62adcc
 xterm*color15: #ffffff
 XTerm*visualBell:False
+
+color0:  #3b3b4b
+color1:  #f07178
+color2:  #7cd380
+color3:  #ffcb6b
+color4:  #729aef
+color5:  #b782da
+color6:  #529dbc
+color7:  #bbc2cf
+color8:  #97a6c0
+color9:  #ff5370
+color10: #8ce390
+color11: #ffdb7b
+color12: #82aaff
+color13: #c792ea
+color14: #62adcc
+color15: #ffffff
+
+background:#282838
+foreground:#b6bcdd
