@@ -57,18 +57,10 @@ precmd(){
 	local LAST_STAT=$?
 	__initialize_git_prompt
 
-	if [[ "$__GIT_PROMPT" != "" ]]; then
-		if [[ "$LAST_STAT" == "0" ]]; then
-			STATUS="%F{green}✓%f"
-		else
-			STATUS="%F{red}✗%f"
-		fi
+	if [[ "$LAST_STAT" == "0" ]]; then
+		STATUS="%F{green}"
 	else
-		if [[ "$LAST_STAT" == "0" ]]; then
-			STATUS="%B%F{green}✓%b%f"
-		else
-			STATUS="%B%F{red}✗%b%f"
-		fi
+		STATUS="%F{red}"
 	fi
 
 
@@ -80,6 +72,6 @@ chpwd(){
 }
 ### }}}
 
-PROMPT='%F{green}%c%f$STATUS${__GIT_PROMPT} '
+PROMPT='$STATUS%c%f${__GIT_PROMPT} '
 
 precmd
