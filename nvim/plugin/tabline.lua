@@ -71,7 +71,7 @@ bufferline.setup {
 		},
 		indicator_selected = {
 			guifg = colors.bg,
-			guibg = colors.bg,
+			guibg = colors.blue,
 		},
 		-- separators
 		separator = {

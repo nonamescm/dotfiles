@@ -24,7 +24,7 @@ require "paq" {
 	-- tabline/statusline
 	"akinsho/nvim-bufferline.lua",
 	"kyazdani42/nvim-web-devicons",
-	"glepnir/galaxyline.nvim",
+	"nonamescm/galaxyline.nvim",
 
 	-- others
 	"windwp/nvim-autopairs", -- auto open and close pairs
@@ -32,6 +32,7 @@ require "paq" {
 	"lukas-reineke/indent-blankline.nvim", -- ident guides
 	"andweeb/presence.nvim", -- Rich presence
 	-- "glepnir/dashboard-nvim", -- dashboard screen
+	"github/copilot.vim",
 }
 
 -- Disable Default Vim Plugins
