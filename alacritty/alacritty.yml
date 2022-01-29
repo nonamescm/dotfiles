@@ -1,0 +1,28 @@
+import:
+  - ~/.config/alacritty/palenight.yml
+
+cursor:
+  style:
+    shape: Beam
+
+font:
+  normal:
+    family: Iosevka Nerd Font Mono
+    style: SemiBold
+  bold:
+    family: Iosevka Nerd Font Mono
+    style: Bold
+  italic:
+    family: Iosevka Nerd Font Mono
+    style: Italic
+  offset:
+    x: 0
+    y: 0
+  size: 12
+
+window:
+  padding:
+    x: 5
+    y: 5
+
+background_opacity: 1

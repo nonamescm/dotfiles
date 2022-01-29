@@ -21,7 +21,7 @@ copy_files() {
 	local files_to_copy=
 
 	if test -z $1; then
-		files_to_copy=("$CH/awesome" "$CH/nvim" "$CH/rofi" "$CH/kitty" "$HOME/.Xresources" $(ls $HOME/.zshrc*))
+		files_to_copy=("$CH/awesome" "$CH/nvim" "$CH/rofi" "$CH/kitty" "$HOME/.Xresources" $(ls $HOME/.zshrc*) "$CH/bspwm" "$CH/sxhkd" "$CH/polybar" "$CH/alacritty")
 	else
 		files_to_copy=($1)
 	fi
@@ -43,6 +43,10 @@ else
 			kitty) rm -rf kitty && copy_files "$CH/kitty" & load_status_bar 1;;
 			xterm) rm -rf .Xresources && copy_files "$HOME/.Xresources" & load_status_bar 1;;
 			zsh) for file in $(ls /home/renamed/.zshrc*); do rm -rf $file && copy_files $file &; done&load_status_bar 1;;
+			bspwm) rm -rf bspwm && copy_files "$CH/bspwm" & load_status_bar 1;;
+			sxhkd) rm -rf sxhkd && copy_files "$CH/sxhkd" & load_status_bar 1;;
+			polybar) rm -rf polybar && copy_files "$CH/polybar" & load_status_bar 1;;
+			alacritty) rm -rf alacritty && copy_files "$CH/alacritty" & load_status_bar 1;;
 			*) echo "Unexpected Argument: $arg"
 		esac
 	done
