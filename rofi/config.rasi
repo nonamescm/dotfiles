@@ -1,5 +1,5 @@
 configuration{
-	font:"Iosevka Nerd Font Mono Medium 9";
+	font:"Iosevka Nerd Font SemiBold 9";
 	show-icons:true;
 	icon-theme:"Papirus";
 	display-drun:"";
@@ -17,11 +17,11 @@ element-text, element-icon {
 }
 
 *{
-	background:#222232ff;
+	background:#222632ff;
 	background-alt:#282838ff;
 	foreground:#b6bcddff;
 	border-alt:#282838ff;
-	border:#282838ff;
+	border:#2f2f3fff;
 	selected:#3b3b4bff;
 	urgent:#d05158ff;
 }
@@ -31,13 +31,13 @@ window{
 	transparency:"real";
 	background-color:@background;
 	text-color:@foreground;
-	border:2%;
-	border-color:@background;
-	height:55.50%;
-	width:45%;
-	location:center;
+	border:2px 2px 2px 2px;
+	border-color:@border;
+	height:60%;
+	width:23.33%;
+	location: South West;
 	x-offset:0;
-	y-offset:0;
+	y-offset:-4.4%;
 }
 
 prompt{
@@ -45,7 +45,7 @@ prompt{
 	padding:0% 1% 0% 0%;
 	background-color:@background;
 	text-color:@foreground;
-	font:"Iosevka Nerd Font Mono 10";
+	font:"Iosevka Nerd Font Mono 24";
 }
 
 entry{
@@ -54,9 +54,10 @@ entry{
 	placeholder-color:@foreground;
 	expand:true;
 	horizontal-align:0;
+	vertical-align:0.5;
 	placeholder:"Search Applications";
 	padding:0.15% 0% 0% 0%;
-	blink:true;
+	blink:false;
 }
 
 inputbar{
@@ -64,7 +65,7 @@ inputbar{
 	background-color:@background;
 	text-color:@foreground;
 	expand:false;
-	border:0.3%;
+	border:0%;
 	border-radius:0.5%;
 	border-color:@border-alt;
 	padding:1%;
@@ -73,7 +74,7 @@ inputbar{
 
 listview{
 	background-color:@background;
-	columns:5;
+	columns:1;
 	spacing:1%;
 	cycle:false;
 	dynamic:true;
@@ -90,21 +91,21 @@ mainbox{
 element{
 	background-color:@background;
 	text-color:@foreground;
-	orientation:vertical;
+	orientation:horizontal;
 	border-radius:0%;
-	padding:2% 0% 2% 0%;
+	padding:2% 2% 2% 2%;
 }
 
 element-icon{
-	size:64px;
+	size:4%;
 	border:0px;
 }
 
 element-text{
 	expand:true;
-	horizontal-align:0.5;
+	horizontal-align:0;
 	vertical-align:0.5;
-	margin:0.5% 1% 0% 1%;
+	margin:0.5% 1% 0% 0.5%;
 }
 
 element normal.urgent,
@@ -124,7 +125,7 @@ element selected{
 	background-color:@selected;
 	text-color:@foreground;
 	border:0% 0.2% 0.3% 0%;
-	border-radius:1.5% 0% 1.5% 0%;
+	border-radius:0.4%;
 	border-color:@border-alt;
 }
 
