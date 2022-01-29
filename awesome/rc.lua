@@ -4,6 +4,7 @@ local wibox = require('wibox')
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
+
 local beautiful = require("beautiful")
 local naughty = require("naughty")
 local my_table = awful.util.table or gears.table
@@ -222,7 +223,6 @@ local clientkeys = my_table.join(
 		description = "magnify client",
 		group = "client"
 	}), awful.key({modkey}, "f", function(c)
-		mouse.screen.mywibox.visible = not mouse.screen.mywibox.visible
 		c.fullscreen = not c.fullscreen
 		c:raise()
 	end, {

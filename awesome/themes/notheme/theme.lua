@@ -10,6 +10,8 @@ local theme = {}
 theme.dir = os.getenv("HOME").."/.config/awesome/themes/notheme/"
 
 -- Fonts
+theme.font_name = "Iosevka Nerd Font"
+
 theme.font = "Iosevka Nerd Font 9"
 theme.taglist_font = "FiraMono Nerd Font Mono 15"
 theme.icon_font = "Iosevka Nerd Font 12"
@@ -28,6 +30,7 @@ theme.clr = {
 	yellow = '#ffcb6b'
 }
 theme.fg_normal = '#525770'
+theme.fg_dark = '#424750'
 theme.fg_focus = '#b6bcdd'
 theme.fg_urgent = '#525770'
 
@@ -405,7 +408,7 @@ function theme.at_screen_connect(s)
 	s.mywibox = awful.wibar {
 		width = dpi(1360),
 		height = dpi(30),
-		ontop = true,
+		ontop = false,
 		screen = s,
 		expand = true,
 		visible = true,
