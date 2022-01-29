@@ -8,13 +8,13 @@ cursor:
 font:
   normal:
     family: Iosevka Nerd Font Mono
-    style: SemiBold
+    style: Bold
   bold:
     family: Iosevka Nerd Font Mono
-    style: Bold
+    style: Heavy
   italic:
     family: Iosevka Nerd Font Mono
-    style: Italic
+    style: Bold Italic
   offset:
     x: 0
     y: 0
