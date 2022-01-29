@@ -1,0 +1,31 @@
+#!/bin/bash
+~/.config/bspwm/polybar.sh &
+
+xsetroot -cursor_name left_ptr
+
+pkill sxhkd
+sxhkd &
+feh --bg-scale ~/.config/bspwm/wallpaper &
+
+
+bspc monitor -d I II III IV V
+
+# window borders
+bspc config window_gap 2
+bspc config border_width 2
+bspc config focused_border_color '#545277'
+bspc config normal_border_color '#20253e'
+
+# windo gaps
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Emacs state=tiled
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+
+~/.config/bspwm/2bspwm.sh
