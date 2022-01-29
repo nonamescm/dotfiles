@@ -52,3 +52,6 @@ color15: #ffffff
 
 background:#282838
 foreground:#b6bcdd
+
+background-alt:#1e1e2e
+foreground-alt:#bbc2cf

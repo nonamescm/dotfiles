@@ -12,7 +12,7 @@ alias rm="rm -i"
 alias mv="mv -i"
 alias cp="cp -i"
 alias :q="exit"
-alias ygo="~/Downloads/yugioh/YGO\ Omega.x86_64 & disown"
+alias ygo="cd ~/.ygo && ./YGO\ Omega.x86_64 & disown"
 
 run() {
 	if test -f Cargo.toml; then
