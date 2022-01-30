@@ -1,5 +1,4 @@
 /nvim/plugin/packer_compiled.vim
 /st/config.h
-/st/st.o
-/st/x.o
+/st/*.o
 /st/st
