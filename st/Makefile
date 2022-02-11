@@ -31,7 +31,7 @@ st: $(OBJ)
 	$(CC) -o $@ $(OBJ) $(STLDFLAGS)
 
 clean:
-	rm -rf st st.o x.o config.h
+	rm -rf st *.o config.h
 
 dist: clean
 	mkdir -p st-$(VERSION)
