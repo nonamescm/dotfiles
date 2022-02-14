@@ -4,7 +4,6 @@ syntax keyword Conditional if else then
 syntax keyword Repeat loop
 syntax keyword Boolean true false
 syntax match Number /\v<\d+(\.(<\d+)?)?/
-syntax match Function /[A-z-_][A-z-0-9-_]*\ze\s*(/
 
 syntax match Operator /+/
 syntax match Operator /-/
@@ -20,7 +19,7 @@ syntax match Operator /|>/
 syntax match Operator />>/
 syntax match Operator /<=\?/
 syntax match Operator />=\?/
-syntax match Operator /==\?/
+syntax match Operator /\(=\|!\)=\?/
 syntax match Operator /::/
 syntax match Operator /#/
 
