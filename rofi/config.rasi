@@ -1,5 +1,5 @@
 configuration{
-	font:"Iosevka Nerd Font SemiBold 9";
+	font: "CaskaydiaCove Nerd Font Mono SemiBold 9";
 	show-icons:true;
 	icon-theme:"Papirus";
 	display-drun:"";
@@ -12,8 +12,8 @@ configuration{
 @theme "/dev/null"
 
 element-text, element-icon {
-    background-color: inherit;
-    text-color:       inherit;
+	background-color: inherit;
+	text-color:       inherit;
 }
 
 *{
