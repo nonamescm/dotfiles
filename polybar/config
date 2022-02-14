@@ -45,7 +45,7 @@ lcyan = ${colors.color14}
 lwhite = ${colors.color15}
 
 [icons]
-tag = " "
+tag = "  "
 
 [bar/bar]
 modules-left = sep debian sep bspwm
@@ -55,7 +55,6 @@ modules-right = time sep date sep audio sep battery sep backlight sep
 tray-position = left
 tray-detached = true
 tray-maxsize = 15
-tray-background = ${colors.alpha}
 tray-offset-x = 200
 tray-offset-y = 0
 tray-padding = 0
@@ -78,12 +77,14 @@ border-size = 2
 border-color = "#2f2f3f"
 bottom = true
 
+line-size = 4
+
 [module/bspwm]
 type = internal/bspwm
 
 label-focused = ${icons.tag}
 label-focused-foreground = ${colors.blue}
-label-focused-underline = ${colors.primary}
+label-focused-underline = #313141
 label-focused-padding = 1
 
 label-occupied = ${icons.tag}
