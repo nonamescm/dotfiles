@@ -1,2 +1,2 @@
 autocmd BufNewFile,BufRead *.yex setfiletype yex
-set ts=2 sw=2 noexpandtab
+set ts=4 sw=4 noexpandtab

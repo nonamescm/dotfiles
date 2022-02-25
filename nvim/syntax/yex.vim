@@ -24,8 +24,8 @@ syntax match Operator /::/
 syntax match Operator /#/
 
 syntax keyword Operator and or not
-syntax match Function /\v((let|def)\s+)@<=([A-z-_][A-z-0-9-_]*)(\s+[A-z-_][A-z-0-9-_]*)@=/
-syntax match Identifier /\v((let|def)\s+[A-z-_][A-z-0-9-_]*)@<=(\s+\i+)+/
+syntax match Function /\v([A-z-_][A-z-0-9-_]*('|\?|\!)*)\s*(\(|\[)@=/
+syntax match Identifier /\v((let|def)\s+[A-z-_][A-z-0-9-_]*('|\?|\!)*)@<=(\s+\i+)+/
 syntax region String start=+"+ skip=+\\\\\|\\"+ end=+"+
 syntax match Comment /\/\/.*$/
 syntax match Constant /\v:\i+/

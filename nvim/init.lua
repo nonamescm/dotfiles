@@ -7,6 +7,7 @@ require "paq" {
 
 	-- colors
 	"norcalli/nvim-colorizer.lua",
+	"nonamescm/notheme.nvim",
 
 	-- syntax
 	"nonamescm/neofsharp.vim",
@@ -19,7 +20,6 @@ require "paq" {
 	"hrsh7th/nvim-cmp",
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-buffer",
-	"simrat39/rust-tools.nvim",
 
 	-- tabline/statusline
 	"akinsho/nvim-bufferline.lua",
@@ -72,7 +72,6 @@ opt.guicursor = "v-c-sm:block,c-i-ci-ve:ver25,r-cr-o:hor20"
 
 -- plugins that doesn"t need configuration requires
 require("colorizer").setup()
-require("rust-tools").setup({})
 vim.cmd("colorscheme notheme")
 
 vim.cmd("command! Term split|term")
