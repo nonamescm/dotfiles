@@ -2,6 +2,7 @@ vim.o.completeopt = "menuone,noselect,noinsert"
 vim.o.updatetime = 300
 local cmp  = require('cmp')
 local lspkind = require('lspkind')
+
 cmp.setup {
 	snippet = {
 		expand = function(args)
@@ -9,17 +10,14 @@ cmp.setup {
 		end,
 	},
 	formatting = {
-		format = function(entry, vim_item)
-			vim_item.kind = lspkind.presets.default[vim_item.kind]
-			return vim_item
-		end
+		format = lspkind.cmp_format({}),
 	},
 	completion = {
 		completeopt = 'menuone,noinsert,noselect',
 	},
 	documentation = {
-		border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-		winhighlight = 'FloatBorder:TelescopeBorder',
+		border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" },
+		winhighlight = 'FloatBorder:NormalFloat',
 		maxheigth = math.floor(vim.fn.winheight(0) / 2),
 		maxwidth = math.floor(vim.fn.winwidth(0) / 2),
 	},
