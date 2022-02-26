@@ -65,6 +65,7 @@ for server, command in pairs(servers) do
 		on_attach = on_attach,
 		root_dir = vim.loop.cwd,
 		cmd = command,
+		handlers = handlers,
 	}
 end
 
@@ -83,7 +84,39 @@ lspconf['cssls'].setup {
 }
 
 -- replace the default lsp diagnostic letters with prettier symbols
-vim.fn.sign_define("LspDiagnosticsSignError", {text = "", numhl = "LspDiagnosticsDefaultError"})
-vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", numhl = "LspDiagnosticsDefaultWarning"})
-vim.fn.sign_define("LspDiagnosticsSignInformation", {text = "", numhl = "LspDiagnosticsDefaultInformation"})
-vim.fn.sign_define("LspDiagnosticsSignHint", {text = "", numhl = "LspDiagnosticsDefaultHint"})
+local symbols = {
+	["Error"] = "",
+	["Warning"] = "",
+	["Information"] = "",
+	["Hint"] = ""
+}
+
+for name, symbol in pairs(symbols) do
+	local group = "DiagnosticSign" .. name
+	vim.fn.sign_define(group, { text = symbol, texthl = group, numhl = group })
+end
+
+-- taken from https://github.com/neovim/nvim-lspconfig/wiki/UI-customization#borders
+-- add borders to the default diagnostic floating windows
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+	opts = opts or {}
+	opts.border = opts.border or {
+		{"🭽", "FloatBorder"},
+
+		{"▔", "FloatBorder"},
+
+		{"🭾", "FloatBorder"},
+
+		{"▕", "FloatBorder"},
+
+		{"🭿", "FloatBorder"},
+
+		{"▁", "FloatBorder"},
+
+		{"🭼", "FloatBorder"},
+
+		{"▏", "FloatBorder"},
+	}
+	return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
