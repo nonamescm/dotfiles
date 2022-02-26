@@ -12,6 +12,10 @@ require "paq" {
 	-- syntax
 	"nonamescm/neofsharp.vim",
 
+	-- git integration
+	"lewis6991/gitsigns.nvim",
+	"nvim-lua/plenary.nvim",
+
 	-- lsp
 	"neovim/nvim-lspconfig",
 	"nvim-treesitter/nvim-treesitter",
@@ -61,6 +65,7 @@ opt.background = "light"
 opt.splitbelow = true
 opt.wrap, wopt.wrap = false, false
 opt.number, wopt.number = true, true
+opt.cursorline, wopt.cursorline = true, true
 opt.relativenumber, wopt.relativenumber = true, true
 opt.mouse = "a"
 opt.tabstop, bopt.tabstop = 4, 4
@@ -73,6 +78,7 @@ opt.guicursor = "v-c-sm:block,c-i-ci-ve:ver25,r-cr-o:hor20"
 -- plugins that doesn"t need configuration requires
 require("colorizer").setup()
 vim.cmd("colorscheme notheme")
+require("gitsigns").setup()
 
 vim.cmd("command! Term split|term")
 vim.cmd("command! VTerm belowright vsplit|term")
