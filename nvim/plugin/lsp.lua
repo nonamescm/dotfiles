@@ -85,10 +85,10 @@ lspconf['cssls'].setup {
 
 -- replace the default lsp diagnostic letters with prettier symbols
 local symbols = {
-	["Error"] = "",
-	["Warning"] = "",
-	["Information"] = "",
-	["Hint"] = ""
+	Error = "",
+	Warn = "",
+	Info = "",
+	Hint = "",
 }
 
 for name, symbol in pairs(symbols) do
