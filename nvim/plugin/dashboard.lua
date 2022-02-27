@@ -24,5 +24,5 @@ vim.g.dashboard_custom_footer = {
 vim.g.dashboard_custom_section = {
 	a = { description = { " New File         " }, command = "DashboardNewFile" },
 	b = { description = { " Open File Manager" }, command = "NvimTreeOpen" },
-	c = { description = { " Close Neovim     " }, command = "q" },
+	c = { description = { " Close Neovim     " }, command = "qa" },
 }
