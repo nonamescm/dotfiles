@@ -189,9 +189,9 @@ gls.right[4] = {
 gls.right[5] = {
 	LspProviderInfo = {
 		provider = function()
-			return ' ' .. lsp.get_lsp_client()
+			return ' ' .. lsp.get_lsp_client()
 		end,
-		highlight = { colors.fg, colors.black },
+		highlight = { colors.blue, colors.black },
 
 		separator = '@',
 		separator_highlight = { colors.black, colors.black },
@@ -199,6 +199,23 @@ gls.right[5] = {
 }
 
 gls.right[6] = {
+	LspLoadStatus = {
+		provider = function()
+			local status = vim.lsp.util.get_progress_messages()[1]
+			if status and (status.percentage ~= nil or status.progress) then
+				local percentage = status.percentage or 100
+				local title = status.title or ''
+				return  title .. '(' .. tostring(percentage) .. '%)'
+			end
+		end,
+		highlight = { colors.lightbg, colors.black },
+
+		separator = '@',
+		separator_highlight = { colors.black, colors.black },
+	}
+}
+
+gls.right[7] = {
 	RightSepTwo = {
 		provider = function()
 			return ''
@@ -210,7 +227,7 @@ gls.right[6] = {
 	}
 }
 
-gls.right[7] = {
+gls.right[8] = {
 	EndRight = {
 		provider = function()
 			return '@'

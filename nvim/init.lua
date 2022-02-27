@@ -35,7 +35,7 @@ require "paq" {
 	"kyazdani42/nvim-tree.lua", -- file manager
 	"lukas-reineke/indent-blankline.nvim", -- ident guides
 	"andweeb/presence.nvim", -- Rich presence
-	-- "glepnir/dashboard-nvim", -- dashboard screen
+	"glepnir/dashboard-nvim", -- dashboard screen
 	"github/copilot.vim",
 }
 

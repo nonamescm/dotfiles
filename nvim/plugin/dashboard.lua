@@ -1,14 +1,14 @@
 local hi = require("functions.highlight")
 local colors = require("colors")
 
-hi("DashboardHeader", { guifg = colors.light_grey })
+hi("DashboardHeader", { guifg = colors.red })
 hi("DashboardFooter", { guifg = colors.light_grey })
-hi("DashboardCenter", { guifg = colors.light_grey })
-hi("DashboardShortCut", { guifg = colors.light_grey })
+hi("DashboardCenter", { guifg = colors.blue })
+hi("DashboardShortCut", { guifg = colors.blue })
 
 vim.g.dashboard_custom_header = {
 	'⠀⠀⠀⣶⣶⣶⣶⡆⠀⠀⠀⠀⠀⠀ ',
-	'⠀⠀⠀⠛⠛⢻⣿⣿⡀⠀⠀⠀⠀⠀⠀',
+    '⠀⠀⠀⠛⠛⢻⣿⣿⡀⠀⠀⠀⠀⠀⠀',
 	'⠀⠀⠀⠀⠀⢀⣿⣿⣷⠀⠀⠀⠀⠀⠀',
 	'⠀⠀⠀⠀⢀⣾⣿⣿⣿⣇⠀⠀⠀⠀⠀',
 	'⠀⠀⠀⢠⣿⣿⡟⢹⣿⣿⡆⠀⠀⠀⠀',
@@ -17,16 +17,12 @@ vim.g.dashboard_custom_header = {
 	'⠾⠿⠿⠁⠀⠀⠀⠀⠀⠘⣿⣿⡿⠿⠛',
 }
 
-vim.g.dashboard_default_executive = "telescope"
-
+vim.g.dashboard_custom_footer = {
+	"Fuck you ~ Linus Torvalds, probably.",
+}
 
 vim.g.dashboard_custom_section = {
-	a = { description = { "  Find File                 SPC f f" }, command = "Telescope find_files" },
-	b = { description = { "  Recents                   SPC f o" }, command = "Telescope oldfiles" },
-	d = { description = { "洛 New File                  SPC f n" }, command = "DashboardNewFile" },
+	a = { description = { " New File         " }, command = "DashboardNewFile" },
+	b = { description = { " Open File Manager" }, command = "NvimTreeOpen" },
+	c = { description = { " Close Neovim     " }, command = "q" },
 }
-
-vim.g.dashboard_custom_footer = {
-	"Neovim",
-}
-
