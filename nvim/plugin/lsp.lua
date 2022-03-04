@@ -49,22 +49,22 @@ end
 local lspconf = require("lspconfig")
 
 local servers = {
-	tsserver = { "typescript-language-server", "--stdio" },
-	rust_analyzer = { "rust-analyzer" },
-	sumneko_lua =  { "lua-lsp" },
-	fsautocomplete = { "dotnet", "fsautocomplete", "--background-service-enabled" },
-	clangd = { "clangd", "--background-index" },
-	pyright = { "pyright-langserver", "--stdio" },
+	"tsserver",
+	"rust_analyzer",
+	"fsautocomplete",
+	"clangd",
+	"pyright",
+	"sumneko_lua",
+	"hls",
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-for server, command in pairs(servers) do
+for _, server in ipairs(servers) do
 	lspconf[server].setup {
 		capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities),
 		on_attach = on_attach,
 		root_dir = vim.loop.cwd,
-		cmd = command,
 		handlers = handlers,
 	}
 end

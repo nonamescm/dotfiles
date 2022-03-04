@@ -4,7 +4,6 @@ g.nvim_tree_side = "left"
 g.nvim_tree_width = 30
 -- g.nvim_tree_auto_open = 0
 -- g.nvim_tree_auto_close = 0
-g.nvim_tree_quit_on_open = 1
 -- g.nvim_tree_follow = 1
 
 g.nvim_tree_git_hl = 0
@@ -47,7 +46,8 @@ local hi = require("functions.highlight")
 local colors = require('colors')
 require('nvim-tree').setup {
 	nvim_tree_hide_dotfiles = 1,
-	nvim_tree_ignore = {".git", "node_modules", ".cache", "target"}
+	nvim_tree_ignore = {".git", "node_modules", ".cache", "target"},
+	nvim_tree_quit_on_open = 0,
 }
 
 hi("NvimTreeFolderIcon", { guifg = colors.blue })
