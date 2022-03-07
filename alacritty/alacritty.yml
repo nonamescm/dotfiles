@@ -7,22 +7,22 @@ cursor:
 
 font:
   normal:
-    family: Iosevka Nerd Font Mono
-    style: Bold
+    family: Iosevka SS14
+    style: SemiBold
   bold:
-    family: Iosevka Nerd Font Mono
-    style: Heavy
+    family: Iosevka SS14
+    style: Bold
   italic:
-    family: Iosevka Nerd Font Mono
+    family: Iosevka SS14
     style: Bold Italic
   offset:
     x: 0
-    y: 0
-  size: 12
+    y: 1
+  size: 10
 
 window:
   padding:
-    x: 5
-    y: 5
+    x: 10
+    y: 10
 
-background_opacity: 1
+background_opacity: 0.93

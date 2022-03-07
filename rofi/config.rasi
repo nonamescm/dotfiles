@@ -1,5 +1,5 @@
 configuration{
-	font: "CaskaydiaCove Nerd Font Mono SemiBold 9";
+	font: "Iosevka SS14 SemiBold 11";
 	show-icons:true;
 	icon-theme:"Papirus";
 	display-drun:"";
