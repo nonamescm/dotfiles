@@ -2,6 +2,8 @@
 ~/.config/bspwm/polybar.sh &
 xsetroot -cursor_name left_ptr
 
+! pgrep -X picom && picom
+
 pkill sxhkd
 sxhkd &
 feh --bg-scale ~/.config/bspwm/wallpaper &
