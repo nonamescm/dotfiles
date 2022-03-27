@@ -101,7 +101,7 @@ label-empty-padding = 1
 
 [module/debian]
 type = custom/text
-content = %{T2}%{F#CE0056}%{F-}%{T-}
+content = %{T2}%{F#7cd380}%{F-}%{T-}
 bold = true
 
 click-left = rofi -show drun
@@ -119,7 +119,7 @@ type = internal/date
 date = %{F#ffcb6b}%{T2}%{T-} %{T3}%y/%m/%d%{T-}%{F-}
 
 [module/audio]
-type = internal/pulseaudio
+type = internal/alsa
 format-volume = <ramp-volume> <label-volume>
 
 label-volume = %{T3}%{F#7cd380}%percentage%%%{F-}%{T-}
