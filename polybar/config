@@ -49,8 +49,8 @@ tag = "  "
 
 [bar/bar]
 modules-left = sep debian sep bspwm
-
-modules-right = time sep date sep audio sep battery sep backlight sep
+modules-center = sep audio sep
+modules-right = time sep date sep battery sep backlight sep
 
 tray-position = left
 tray-detached = true
@@ -66,8 +66,8 @@ width = 100%
 height = 4%
 
 # text font
-font-0 = "Iosevka Nerd Font:style=Medium:pixelsize=11;3"
-font-2 = "Iosevka Nerd Font:style=Medium:pixelsize=8;3"
+font-0 = "Iosevka SS14:style=Medium:pixelsize=12;3"
+font-2 = "Iosevka SS14:style=Medium:pixelsize=9;3"
 
 # icon font
 font-1 = "Iosevka Nerd Font:style=Bold:pixelsize=12;3"
@@ -86,18 +86,22 @@ label-focused = ${icons.tag}
 label-focused-foreground = ${colors.blue}
 label-focused-underline = #313141
 label-focused-padding = 1
+label-focused-font = 3
 
 label-occupied = ${icons.tag}
 label-occupied-foreground = ${colors.green}
 label-occupied-padding = 1
+label-occupied-font = 3
 
 label-urgent = ${icons.tag}
 label-urgent-foreground = ${colors.red}
 label-urgent-padding = 1
+label-urgent-font = 3
 
 label-empty = ${icons.tag}
 label-empty-foreground = ${colors.foreground}
 label-empty-padding = 1
+label-empty-font = 3
 
 [module/debian]
 type = custom/text
@@ -120,7 +124,7 @@ date = %{F#ffcb6b}%{T2}%{T-} %{T3}%y/%m/%d%{T-}%{F-}
 
 [module/audio]
 type = internal/alsa
-format-volume = <ramp-volume> <label-volume>
+format-volume = <ramp-volume> <bar-volume>
 
 label-volume = %{T3}%{F#7cd380}%percentage%%%{F-}%{T-}
 label-muted = %{T2}%{F#7cd380}婢%{F-}%{T-}
@@ -130,6 +134,20 @@ ramp-volume-1 = %{T2}%{F#7cd380}奔%{F-}%{T-}
 ramp-volume-2 = %{T2}%{F#7cd380}墳%{F-}%{T-}
 
 interval = 2
+
+
+bar-volume-width = 14
+bar-volume-gradient = true
+
+bar-volume-indicator = 雷
+bar-volume-indicator-foreground = ${colors.green}
+
+bar-volume-fill = 絛
+bar-volume-foreground-0 = ${colors.lgreen}
+
+bar-volume-empty = 絛
+bar-volume-empty-font = 1
+bar-volume-empty-foreground = ${colors.background}
 
 [module/battery]
 type = internal/battery
