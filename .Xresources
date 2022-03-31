@@ -35,7 +35,7 @@ XTerm*visualBell:False
 
 color0:  #3b3b4b
 color1:  #f07178
-color2:  #7cd380
+color2:  #6cc370
 color3:  #ffcb6b
 color4:  #729aef
 color5:  #b782da
@@ -43,7 +43,7 @@ color6:  #529dbc
 color7:  #bbc2cf
 color8:  #97a6c0
 color9:  #ff5370
-color10: #8ce390
+color10: #9cf3a0
 color11: #ffdb7b
 color12: #82aaff
 color13: #c792ea
