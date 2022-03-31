@@ -47,6 +47,8 @@ else
 			sxhkd) rm -rf sxhkd && copy_files "$CH/sxhkd" & load_status_bar 1;;
 			polybar) rm -rf polybar && copy_files "$CH/polybar" & load_status_bar 1;;
 			alacritty) rm -rf alacritty && copy_files "$CH/alacritty" & load_status_bar 1;;
+			picom) rm -rf picom.conf && copy_files "$CH/picom.conf" & load_status_bar 1;;
+			eww) rm -rf eww && copy_files "$CH/eww" & load_status_bar 1;;
 			*) echo "Unexpected Argument: $arg"
 		esac
 	done
