@@ -1,0 +1,156 @@
+;; vi:ft=clojure
+
+;; Main bar widget
+(defwidget bar [screen]
+  (centerbox :orientation "v"
+    (box :class "segment-top"
+         :valign "start"
+      (top))
+    (box :valign "center"
+         :class "middle" 
+      (middle))
+    (box :valign "end"
+         :class "segment-bottom" 
+      (bottom))))
+
+;; begin Top bar widget
+(defwidget top []
+  (box :class "workspaces"
+       :orientation "v"
+       (box :valign "start" (w1))
+       (box :valign "start" (w2))
+       (box :valign "start" (w3))
+       (box :valign "start" (w4))))
+
+;;; begin Workspaces
+(defwidget w1 []
+  (box :class "first workspace ${crw != "I" ? "unfocused" : ""}"
+       :valign "start"
+       ""))
+
+(defwidget w2 []
+  (box :class "workspace second ${crw != "II" ? "unfocused" : ""}"
+       :valign "start"
+       ""))
+
+(defwidget w3 []
+  (box :class "workspace third ${crw != "III" ? "unfocused" : ""}"
+       :valign "start"
+       ""))
+
+(defwidget w4 []
+  (box :class "workspace fourth ${crw != "IV" ? "unfocused" : ""}"
+       :valign "start"
+       ""))
+
+; `crw` = current workspace
+(defpoll crw :interval "0s"
+             :initial "I"
+             `bspc query -D -d --names`)
+;;; end Workspaces
+;; end Top bar widget
+
+;; begin Middle bar widget
+(defwidget middle []
+  (box :class "middle"
+       :orientation "v"
+       :space-evenly false
+       (music)
+       (screenshot)))
+
+;;; begin Screenshot
+(defwidget screenshot []
+  (button :class "label"
+          :onclick "flameshot gui"
+          ""))
+;;; end Screenshot
+
+
+;;; begin Music
+(defpoll music-icon
+  :interval "0s"
+  "scripts/volume-stats.sh")
+
+(defpoll volume
+  :interval "0s"
+  "scripts/volume-level.sh")
+
+(defwidget music []
+    (metric :label {music-icon}
+            :value volume
+            :onchange "amixer sset Master {}%"))
+;;; end Music
+;; end Middle bar widget
+
+;; begin Bottom bar widget
+(defwidget bottom [] (stuff))
+
+;;; begin Time
+(defwidget time []
+  (box :orientation "v" 
+       :class "time"
+       (box :class "time hour" hour)
+       (box :class "time min"  min)))
+
+(defpoll hour :interval "60s" "date '+%H'")
+(defpoll min :interval "10s" "date '+%M'")
+;;; end Time
+
+;;; begin Bat
+(defwidget bat []
+  (box :class "bat"
+       :valign "start"
+       :orientation "v"
+       (box :class "bat icon"
+            "")
+       (box :class "bat percent"
+            bat-percent)))
+
+(defpoll bat-percent :interval "10s" `acpi|awk -F',|%' '{ print $2 }'|sed 's/^ *//g'`)
+;;; end Bat
+
+;;; Begin Bright
+(defwidget bright []
+  (box :class "brightness"
+       :orientation "v"
+       :space-evenly false
+       (box :class "brightness icon" "")
+       (box :class "brightness value" brightness)))
+
+(defpoll brightness :interval "1s"
+  "xbacklight -get|awk -F'.' '{ print $1 }'")
+;;; end Bright
+
+;;; begin Stuff
+(defwidget stuff []
+  (centerbox :orientation "v"
+             :class "stuff"
+             (bat)
+             (bright)
+             (time)))
+;;; end Stuff
+;; end Bottom bar widget
+
+;; begin Utils
+; taken from https://github.com/elkowar/eww/blob/master/examples/eww-bar/
+(defwidget metric [label value onchange]
+  (box :orientation "v"
+       :class "metric"
+       :space-evenly false
+    (box :orientation "v" :class "label" label)
+    (scale :orientation "v"
+           :flipped true
+           :min 0
+           :max 100
+           :active {onchange != ""}
+           :value value
+           :onchange onchange)))
+;; end Utils
+
+(defwindow bar_1
+  :stacking "bg"
+  :geometry (geometry :x 5 :y 0 :width "40px" :height "98%" :anchor "center left")
+  :reserve (struts :distance "50px" :side "left")
+  :windowtype "dock"
+  :focusable true
+  (bar :screen 1))

@@ -1,0 +1,107 @@
+* {
+	all: unset;
+}
+
+window {
+	background: #282838;
+	color: #b6bcdd;
+	border-radius: 0.4em;
+
+	& > * {
+		margin: 6px;
+		font-family: "Iosevka SS14 SemiBold";
+	}
+}
+.workspace {
+	font-size: 1.8em;
+	margin: 0.1em 0px;
+
+	&.first { color: #f89e72; }
+
+	&.second { color: #7cd380; }
+
+	&.third { color: #729aef; }
+
+	&.fourth { color: #b782da; }
+
+	&.unfocused { color: #b6bcdd; }
+}
+
+.workspaces {
+	background-color: #1f1f2f;
+	border-bottom: 0.3em solid #1f1f2f;
+	border-radius: 7px;
+}
+
+.metric scale {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.metric scale trough highlight {
+	all: unset;
+	background-image: linear-gradient(#62adcc, #b782da);
+	color: #000000;
+	border-radius: 10px;
+}
+.metric scale trough {
+	all: unset;
+	background-color: #3b3b4b;
+	border-radius: 50px;
+	min-height: 15em;
+	min-width: 3px;
+}
+.metric scale trough highlight {
+	all: unset;
+	background-image: linear-gradient(#62adcc, #b782da);
+	color: #000000;
+	border-radius: 10px;
+}
+.metric scale trough {
+	all: unset;
+	background-color: #3b3b4b;
+	border-radius: 50px;
+	min-height: 15em;
+	min-width: 3px;
+}
+
+.label {
+	font-size: 1.3em;
+	color: #b782da;
+}
+
+.time {
+	color: #729aef;
+	font-size: 1.2em;
+}
+
+.brightness {
+	color: #ffcb6b;
+	font-size: 1.2em;
+}
+
+.bat {
+	color: #7cd380;
+	font-size: 1.2em;
+}
+
+.stuff {
+	border-radius: 7px;
+}
+
+.stuff > * {
+	background-color: #1f1f2f;
+	border-radius: 0.4em;
+
+	border-top: 4px solid #1f1f2f;
+	border-bottom: 4px solid #1f1f2f;
+
+	border-left: 3px solid #1f1f2f;
+	border-right: 3px solid #1f1f2f;
+
+	margin-top: 0.4em;
+
+	& > * {
+		font-size: 1em;
+	}
+}
