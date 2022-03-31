@@ -68,7 +68,7 @@
 
 ;;; begin Music
 (defpoll music-icon
-  :interval "0s"
+  :interval "1s"
   "scripts/volume-stats.sh")
 
 (defpoll volume
