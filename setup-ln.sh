@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 for dir in */; do
+	dir=$(awk -F/ '{print $1}' <<< $dir)
+	path="$HOME/.config/$dir"
+
 	echo -n "$dir: install? [y/N] "
 	read answer
 
@@ -18,9 +21,6 @@ for dir in */; do
 		echo "skipping $dir"
 		continue
 	fi
-
-	dir=$(awk -F/ '{print $1}' <<< $dir)
-	path="$HOME/.config/$dir"
 
 	rm -rf "$path"
 
