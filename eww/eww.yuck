@@ -44,9 +44,8 @@
        ""))
 
 ; `crw` = current workspace
-(defpoll crw :interval "0s"
-             :initial "I"
-             `bspc query -D -d --names`)
+(deflisten crw :initial "I"
+             "scripts/workspace-watch.sh")
 ;;; end Workspaces
 ;; end Top bar widget
 
