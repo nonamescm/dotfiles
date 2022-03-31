@@ -17,13 +17,13 @@ element-text, element-icon {
 }
 
 *{
-	background:#222632ff;
-	background-alt:#282838ff;
-	foreground:#b6bcddff;
-	border-alt:#282838ff;
-	border:#2f2f3fff;
-	selected:#3b3b4bff;
-	urgent:#d05158ff;
+	background:#282838;
+	background-alt:#282838;
+	foreground:#b6bcdd;
+	border-alt:#282838;
+	border:#2f2f3f;
+	selected:#3b3b4b;
+	urgent:#d05158;
 }
 
 
@@ -35,9 +35,9 @@ window{
 	border-color:@border;
 	height:60%;
 	width:23.33%;
-	location: South West;
-	x-offset:0;
-	y-offset:-4.4%;
+	location: Center;
+	x-offset:0%;
+	y-offset:0%;
 }
 
 prompt{
