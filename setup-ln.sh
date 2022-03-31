@@ -6,12 +6,7 @@ for dir in */; do
 	echo -n "$dir: install? [y/N] "
 	read answer
 
-	if [ "$answer" != "y" ]; then
-		echo "skipping $dir"
-		continue
-	fi
-
-	if test -d ~/.config/$dir; then
+	if test -d ~/.config/$dir && [ "$answer" == "y" ]; then
 		echo "~/.config/$dir already exists"
 		echo -n "are you sure you want to overwrite it? [y/N] "
 		read answer
