@@ -1,5 +1,6 @@
 #!/bin/bash
-~/.config/bspwm/polybar.sh &
+eww daemon
+eww open bar_1
 xsetroot -cursor_name left_ptr
 
 ! pgrep -X picom && picom
