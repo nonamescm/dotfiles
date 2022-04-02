@@ -8,7 +8,7 @@ these dotfiles are probably unusable outside of my machine, use them at your own
 
 ### Some information about my setup
 
-Currently I'm using alpine linux as my primary operating system, specifically the edge version since the stable lack of packages.
+Currently I'm using void linux as my main distro.
 other infos:
 
 * Editor: neovim
@@ -21,7 +21,7 @@ other infos:
 
 ### Screenshot
 
-![Screenshot](https://media.discordapp.net/attachments/793170492411740224/863255108611211264/unknown.png?width=741&height=416)
+![Screenshot](/screenshot.png)
 
 ## Credits
 the assests on awesome/themes/notheme/assets are from [EliverLara/Sweet](https://github.com/EliverLara/Sweet)
