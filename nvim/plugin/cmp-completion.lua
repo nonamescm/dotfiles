@@ -15,11 +15,13 @@ cmp.setup {
 	completion = {
 		completeopt = 'menuone,noinsert,noselect',
 	},
-	documentation = {
-		border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" },
-		winhighlight = 'FloatBorder:NormalFloat',
-		maxheigth = math.floor(vim.fn.winheight(0) / 2),
-		maxwidth = math.floor(vim.fn.winwidth(0) / 2),
+	window = {
+		documentation = {
+			border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" },
+			winhighlight = 'FloatBorder:NormalFloat',
+			maxheigth = math.floor(vim.fn.winheight(0) / 2),
+			maxwidth = math.floor(vim.fn.winwidth(0) / 2),
+		},
 	},
 	sources = {
 		{ name = 'nvim_lsp' },
@@ -27,7 +29,7 @@ cmp.setup {
 		{ name = 'buffer' },
 		{ name = "luasnip" }
 	},
-	mapping = {
+	mapping = cmp.mapping.preset.insert({
 		['<C-d>'] = cmp.mapping.scroll_docs(-4),
 		['<C-f>'] = cmp.mapping.scroll_docs(4),
 		['<C-Space>'] = cmp.mapping.complete(),
@@ -36,5 +38,5 @@ cmp.setup {
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = true,
 		})
-	},
+	}),
 }
