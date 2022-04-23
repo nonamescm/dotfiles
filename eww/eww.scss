@@ -5,7 +5,7 @@
 window {
 	background: #282838;
 	color: #b6bcdd;
-	border-radius: 0.4em;
+	border-radius: 0 0.4em 0.4em 0;
 
 	& > * {
 		margin: 6px;

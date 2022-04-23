@@ -148,8 +148,8 @@
 
 (defwindow bar_1
   :stacking "bg"
-  :geometry (geometry :x 5 :y 0 :width "40px" :height "98%" :anchor "center left")
-  :reserve (struts :distance "50px" :side "left")
+  :geometry (geometry :x 0 :y 0 :width "40px" :height "100%" :anchor "center left")
+  :reserve (struts :distance "45px" :side "left")
   :windowtype "dock"
   :focusable true
   (bar :screen 1))
