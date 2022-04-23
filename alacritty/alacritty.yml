@@ -8,7 +8,7 @@ cursor:
 font:
   normal:
     family: Iosevka SS14
-    style: SemiBold
+    style: Medium
   bold:
     family: Iosevka SS14
     style: Bold
