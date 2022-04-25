@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 for dir in */; do
 	dir=$(awk -F/ '{print $1}' <<< $dir)
-	path="$HOME/.config/$dir"
+	config="$HOME/.config/$dir"
 
 	echo -n "$dir: install? [y/N] "
 	read answer
@@ -17,7 +17,7 @@ for dir in */; do
 		continue
 	fi
 
-	rm -rf "$path"
+	rm -rf "$config"
 
 	ln -s $( realpath $dir ) ~/.config/
 done
