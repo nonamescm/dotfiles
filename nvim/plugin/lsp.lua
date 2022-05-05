@@ -4,10 +4,10 @@ vim.o.completeopt=[[menuone,noinsert,noselect]]
 
 local function on_attach(client)
 	local function buf_set_keymap(...)
-		vim.api.nvim_buf_set_keymap(bufnr, ...)
+		vim.api.nvim_buf_set_keymap(0, ...)
 	end
 	local function buf_set_option(...)
-		vim.api.nvim_buf_set_option(bufnr, ...)
+		vim.api.nvim_buf_set_option(0, ...)
 	end
 
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")

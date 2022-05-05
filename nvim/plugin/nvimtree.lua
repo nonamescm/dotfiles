@@ -2,13 +2,13 @@ local g = vim.g
 
 g.nvim_tree_side = "left"
 g.nvim_tree_width = 30
--- g.nvim_tree_auto_open = 0
--- g.nvim_tree_auto_close = 0
--- g.nvim_tree_follow = 1
+
+g.nvim_tree_hide_dotfiles = 1
+g.nvim_tree_ignore = {".git", "node_modules", ".cache", "target"}
+g.nvim_tree_quit_on_open = 0
 
 g.nvim_tree_git_hl = 0
 g.nvim_tree_root_folder_modifier = ":~"
--- g.nvim_tree_tab_open = 0
 g.nvim_tree_allow_resize = 1
 
 g.nvim_tree_show_icons = {
@@ -44,11 +44,7 @@ vim.api.nvim_set_keymap(
 
 local hi = require("functions.highlight")
 local colors = require('colors')
-require('nvim-tree').setup {
-	nvim_tree_hide_dotfiles = 1,
-	nvim_tree_ignore = {".git", "node_modules", ".cache", "target"},
-	nvim_tree_quit_on_open = 0,
-}
+require('nvim-tree').setup({})
 
 hi("NvimTreeFolderIcon", { guifg = colors.blue })
 hi("NvimTreeEndOfBuffer", { guibg = colors.bg, guifg = colors.bg })
