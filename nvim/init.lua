@@ -58,6 +58,7 @@ vim.g.markdown_fenced_languages = {
 	"rs=rust",
 	"rb=ruby",
 	"yex=yex",
+	"scala=scala",
 }
 
 local opt, bopt, wopt = vim.o, vim.bo, vim.wo

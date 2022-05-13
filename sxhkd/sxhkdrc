@@ -10,6 +10,20 @@ super + Return
 alt + @space
 	rofi -show drun
 
+# trayer
+super + d
+	trayer \
+		--edge top \
+		--align right \
+		--widthtype request \
+		--heighttype request \
+		--transparent true \
+		--alpha 0 \
+		--tint 0x000000
+
+super + shift + d
+	pkill trayer
+
 # Volume hotkeys
 @XF86Audio{Raise,Lower}Volume
 	amixer sset Master 2%{+,-}
