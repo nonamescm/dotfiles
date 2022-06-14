@@ -49,6 +49,7 @@ vim.g.loaded_netrw = 0
 vim.g.loaded_netrwPlugin = 0
 vim.g.loaded_spec = 0
 vim.g.loaded_syncolor = 0
+vim.g.asmsyntax = "nasm"
 
 -- options
 vim.g.markdown_fenced_languages = {
