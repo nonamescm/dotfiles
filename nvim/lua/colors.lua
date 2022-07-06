@@ -1,6 +1,6 @@
 return {
 	black2 = "#2b2b3b",
-	grey_fg = '#545277',
+	grey_fg = "#545277",
 	light_grey = "#6d749c",
 	black = "#212131",
 	white = "#b6bcdd",
@@ -13,5 +13,5 @@ return {
 	orange = "#e37858",
 	purple = "#b782da",
 	lightbg = "#333748",
-	cyan = '#529dbc',
+	cyan = "#529dbc",
 }

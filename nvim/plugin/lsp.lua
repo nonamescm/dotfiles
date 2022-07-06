@@ -1,25 +1,26 @@
 local vim = vim
 
-vim.o.completeopt=[[menuone,noinsert,noselect]]
+vim.o.completeopt = [[menuone,noinsert,noselect]]
 
 local function on_attach(client)
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(0, ...)
 	end
+
 	local function buf_set_option(...)
 		vim.api.nvim_buf_set_option(0, ...)
 	end
 
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
-	vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+	vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 		virtual_text = false,
 		signs = true,
 		update_in_insert = true,
 	})
 
 	-- Mappings.
-	local opts = {noremap = true, silent = true}
+	local opts = { noremap = true, silent = true }
 
 	buf_set_keymap("n", "<space>gd", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 	buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
@@ -49,7 +50,6 @@ end
 local lspconf = require("lspconfig")
 
 local servers = {
-	"tsserver",
 	"rust_analyzer",
 	"fsautocomplete",
 	"clangd",
@@ -62,22 +62,30 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 for _, server in ipairs(servers) do
 	lspconf[server].setup {
-		capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities),
+		capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities),
 		on_attach = on_attach,
 		root_dir = vim.loop.cwd,
 		handlers = handlers,
 	}
 end
 
+lspconf["tsserver"].setup {
+	init_options = {
+		preferences = {
+			disableSuggestions = true,
+		},
+	},
+}
+
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-lspconf['html'].setup {
+lspconf["html"].setup {
 	on_attach = on_attach,
 	root_dir = vim.loop.cwd,
 	capabilities = capabilities
 }
 
-lspconf['cssls'].setup {
+lspconf["cssls"].setup {
 	on_attach = on_attach,
 	root_dir = vim.loop.cwd,
 	capabilities = capabilities
@@ -102,21 +110,21 @@ local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 	opts = opts or {}
 	opts.border = opts.border or {
-		{"🭽", "FloatBorder"},
+		{ "🭽", "FloatBorder" },
 
-		{"▔", "FloatBorder"},
+		{ "▔", "FloatBorder" },
 
-		{"🭾", "FloatBorder"},
+		{ "🭾", "FloatBorder" },
 
-		{"▕", "FloatBorder"},
+		{ "▕", "FloatBorder" },
 
-		{"🭿", "FloatBorder"},
+		{ "🭿", "FloatBorder" },
 
-		{"▁", "FloatBorder"},
+		{ "▁", "FloatBorder" },
 
-		{"🭼", "FloatBorder"},
+		{ "🭼", "FloatBorder" },
 
-		{"▏", "FloatBorder"},
+		{ "▏", "FloatBorder" },
 	}
 	return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end

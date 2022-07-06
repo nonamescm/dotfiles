@@ -1,43 +1,48 @@
 local vim = vim
 
 -- plugins
-require "paq" {
-	-- paq
-	"savq/paq-nvim",
+require("packer").startup(function(use)
+	-- packer
+	use "wbthomason/packer.nvim"
 
 	-- colors
-	"norcalli/nvim-colorizer.lua",
-	"nonamescm/notheme.nvim",
+	use "norcalli/nvim-colorizer.lua"
+	use "nonamescm/notheme.nvim"
 
 	-- syntax
-	"nonamescm/neofsharp.vim",
+	use "nonamescm/neofsharp.vim"
 
 	-- git integration
-	"lewis6991/gitsigns.nvim",
-	"nvim-lua/plenary.nvim",
+	use {
+		"lewis6991/gitsigns.nvim",
+		requires = "nvim-lua/plenary.nvim"
+	}
 
 	-- lsp
-	"neovim/nvim-lspconfig",
-	"nvim-treesitter/nvim-treesitter",
-	"onsails/lspkind-nvim",
-	"L3MON4D3/LuaSnip",
-	"hrsh7th/nvim-cmp",
-	"hrsh7th/cmp-nvim-lsp",
-	"hrsh7th/cmp-buffer",
+	use "neovim/nvim-lspconfig"
+	use "nvim-treesitter/nvim-treesitter"
+	use {
+		"hrsh7th/nvim-cmp",
+		requires = {
+			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "hrsh7th/cmp-buffer" },
+			{ "onsails/lspkind-nvim" },
+			{ "L3MON4D3/LuaSnip" }
+		}
+	}
 
 	-- tabline/statusline
-	"akinsho/nvim-bufferline.lua",
-	"kyazdani42/nvim-web-devicons",
-	"nonamescm/galaxyline.nvim",
+	use "akinsho/nvim-bufferline.lua"
+	use "kyazdani42/nvim-web-devicons"
+	use "nonamescm/galaxyline.nvim"
 
 	-- others
-	"windwp/nvim-autopairs", -- auto open and close pairs
-	"kyazdani42/nvim-tree.lua", -- file manager
-	"lukas-reineke/indent-blankline.nvim", -- ident guides
-	"andweeb/presence.nvim", -- Rich presence
-	"glepnir/dashboard-nvim", -- dashboard screen
-	"github/copilot.vim",
-}
+	use "windwp/nvim-autopairs" -- auto open and close pairs
+	use "kyazdani42/nvim-tree.lua" -- file manager
+	use "lukas-reineke/indent-blankline.nvim" -- ident guides
+	use "andweeb/presence.nvim" -- Rich presence
+	use "glepnir/dashboard-nvim" -- dashboard screen
+end)
 
 -- Disable Default Vim Plugins
 vim.g.loaded_gzip = 0
