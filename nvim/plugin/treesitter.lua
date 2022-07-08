@@ -15,4 +15,16 @@ ts_config.setup {
 		enable = true,
 		use_languagetree = true
 	},
+	rainbow = {
+		enable = false,
+		colors = {
+			colors.red,
+			colors.orange,
+			colors.yellow,
+			colors.green,
+			colors.cyan,
+			colors.blue,
+			colors.purple,
+		},
+	}
 }

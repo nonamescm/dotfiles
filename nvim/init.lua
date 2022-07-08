@@ -20,14 +20,17 @@ require("packer").startup(function(use)
 
 	-- lsp
 	use "neovim/nvim-lspconfig"
-	use "nvim-treesitter/nvim-treesitter"
+	use {
+		"p00f/nvim-ts-rainbow",
+		requires = "nvim-treesitter/nvim-treesitter"
+	}
 	use {
 		"hrsh7th/nvim-cmp",
 		requires = {
-			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "hrsh7th/cmp-buffer" },
-			{ "onsails/lspkind-nvim" },
-			{ "L3MON4D3/LuaSnip" }
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"onsails/lspkind-nvim",
+			"L3MON4D3/LuaSnip"
 		}
 	}
 
@@ -42,6 +45,7 @@ require("packer").startup(function(use)
 	use "lukas-reineke/indent-blankline.nvim" -- ident guides
 	use "andweeb/presence.nvim" -- Rich presence
 	use "glepnir/dashboard-nvim" -- dashboard screen
+	use "rcarriga/nvim-notify" -- better notifications
 end)
 
 -- Disable Default Vim Plugins
@@ -74,6 +78,7 @@ opt.wrap, wopt.wrap = false, false
 opt.number, wopt.number = true, true
 opt.cursorline, wopt.cursorline = true, true
 opt.relativenumber, wopt.relativenumber = true, true
+opt.foldenable = false
 opt.mouse = "a"
 opt.tabstop, bopt.tabstop = 4, 4
 opt.shiftwidth, bopt.shiftwidth = 4, 4

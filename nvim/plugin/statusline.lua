@@ -205,7 +205,7 @@ gls.right[6] = {
 			if status and (status.percentage ~= nil or status.progress) then
 				local percentage = status.percentage or 100
 				local title = status.title or ""
-				return  title .. "(" .. tostring(percentage) .. "%)"
+				return title .. "(" .. tostring(percentage) .. "%)"
 			end
 		end,
 		highlight = { colors.lightbg, colors.black },

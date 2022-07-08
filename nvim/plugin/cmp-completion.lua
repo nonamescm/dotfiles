@@ -1,6 +1,6 @@
 vim.o.completeopt = "menuone,noselect,noinsert"
 vim.o.updatetime = 300
-local cmp  = require("cmp")
+local cmp = require("cmp")
 local lspkind = require("lspkind")
 
 cmp.setup {
