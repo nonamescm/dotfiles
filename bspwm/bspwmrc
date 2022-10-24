@@ -1,6 +1,5 @@
 #!/bin/bash
 xsetroot -cursor_name left_ptr
-eww open bar_1 &
 ! pgrep -X picom && picom &
 
 pkill sxhkd
@@ -19,11 +18,12 @@ bspc config normal_border_color '#282838'
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
-
-bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a Emacs state=tiled
-bspc rule -a Chromium desktop='^2'
-bspc rule -a mplayer2 state=floating
-bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
-bspc rule -a eww manage=off
+
+# eww
+bspc rule -a Eww manage=off state=floating
+bspc config left_padding 45
+
+eww open bar_1
+sleep 1
+stalonetray &

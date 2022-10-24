@@ -5,8 +5,10 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Iosevka SS14:style=Bold:pixelsize=14";
+static char *font = "Iosevka SS14:style=Semibold:pixelsize=14";
 static int borderpx = 12;
+static int boldenable = 0;
+static int italicenable = 0;
 
 /*
  * What program is execed by st depends of these precedence rules:

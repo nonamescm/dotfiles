@@ -60,7 +60,7 @@
 ;;; begin Screenshot
 (defwidget screenshot []
   (button :class "label"
-          :onclick "flameshot gui"
+          :onclick "flameshot gui &"
           ""))
 ;;; end Screenshot
 
@@ -113,7 +113,7 @@
   (box :class "brightness"
        :orientation "v"
        :space-evenly false
-       (box :class "brightness icon" "")
+       (box :class "brightness icon" "")
        (box :class "brightness value" brightness)))
 
 (defpoll brightness :interval "1s"
@@ -147,7 +147,7 @@
 ;; end Utils
 
 (defwindow bar_1
-  :stacking "fg"
+  :stacking "bg"
   :geometry (geometry :x 0 :y 0 :width "40px" :height "100%" :anchor "center left")
   :reserve (struts :distance "45px" :side "left")
   :windowtype "dock"

@@ -39,12 +39,12 @@ bufferline.setup {
 	},
 	highlights = {
 		fill = {
-			guifg = colors.grey_fg,
-			guibg = colors.black,
+			fg = colors.grey_fg,
+			bg = colors.black,
 		},
 		background = {
-			guifg = colors.grey_fg,
-			guibg = colors.black,
+			fg = colors.grey_fg,
+			bg = colors.black,
 		},
 	},
 }
