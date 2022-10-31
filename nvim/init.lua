@@ -20,10 +20,9 @@ require("packer").startup(function(use)
 
 	-- lsp
 	use "neovim/nvim-lspconfig"
-	use {
-		"p00f/nvim-ts-rainbow",
-		requires = "nvim-treesitter/nvim-treesitter"
-	}
+	use "p00f/nvim-ts-rainbow"
+	use "nvim-treesitter/nvim-treesitter"
+	use "nvim-treesitter/playground"
 	use {
 		"hrsh7th/nvim-cmp",
 		requires = {
