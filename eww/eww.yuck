@@ -66,12 +66,10 @@
 
 
 ;;; begin Music
-(defpoll music-icon
-  :interval "1s"
+(deflisten music-icon
   "scripts/volume-stats.sh")
 
-(defpoll volume
-  :interval "0s"
+(deflisten volume
   "scripts/volume-level.sh")
 
 (defwidget music []
@@ -116,8 +114,8 @@
        (box :class "brightness icon" "")
        (box :class "brightness value" brightness)))
 
-(defpoll brightness :interval "1s"
-  "xbacklight -get|awk -F'.' '{ print $1 }'")
+(deflisten brightness :initial "100"
+  "scripts/brightness.sh")
 ;;; end Bright
 
 ;;; begin Stuff
