@@ -1,7 +1,7 @@
 xterm*Background:#282838
 xterm*Foreground:#b6bcdd
 xterm*cursorColor:#969cbd
-xterm*faceName:JetBrainsMono Nerd Font Mono:style=Medium
+xterm*faceName:Fira Code Nerd Font Mono:style=Medium
 xterm*faceSize:12
 xterm*selectToClipboard:true
 xterm*eightBitInput:false

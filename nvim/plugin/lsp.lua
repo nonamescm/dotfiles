@@ -48,8 +48,10 @@ local servers = {
 	"fsautocomplete",
 	"clangd",
 	"pyright",
-	"sumneko_lua",
+	"lua_ls",
 	"hls",
+	"csharp_ls",
+	"ocamlls"
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -63,7 +65,7 @@ for _, server in ipairs(servers) do
 	}
 end
 
-lspconf["tsserver"].setup {
+lspconf.tsserver.setup {
 	init_options = {
 		preferences = {
 			disableSuggestions = true,

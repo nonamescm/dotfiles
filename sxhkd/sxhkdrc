@@ -6,6 +6,9 @@
 super + Return
 	x-terminal-emulator
 
+Print
+	scrot
+
 # program launcher
 alt + space
 	rofi -show drun
@@ -36,8 +39,8 @@ super + ctrl + {q,r}
 	stalonetray & disown
 
 # close and kill
-super + q
-	bspc node -c
+#super + q
+#	bspc node -c
 
 # alternate between the tiled and monocle layout
 super + m

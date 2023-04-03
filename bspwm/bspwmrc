@@ -1,4 +1,9 @@
 #!/bin/bash
+if which wmname > /dev/null; then
+	wmname LG3D
+	bspc rule -a android-studio state=floating border=off follow=open
+fi
+
 xsetroot -cursor_name left_ptr
 ! pgrep -X picom && picom &
 
@@ -22,6 +27,7 @@ bspc rule -a Emacs state=tiled
 
 # eww
 bspc rule -a Eww manage=off state=floating
+bspc rule -a android-studio state=floating border=off follow=on
 bspc config left_padding 45
 
 eww open bar_1
