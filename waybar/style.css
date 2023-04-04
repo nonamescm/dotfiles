@@ -1,0 +1,57 @@
+@define-color bg #13161b;
+@define-color fg #dee9f7;
+@define-color altbg #242a33;
+@define-color altfg #ffffff;
+
+* {
+    min-height: 0;
+}
+
+window > * {
+    font-family: Iosevka SS14, "Font Awesome 6 Free";
+    font-size: 13px;
+	color: @fg;
+	margin: 0px;
+}
+
+window#waybar {
+    background-color: @bg;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#workspaces button {
+	font-size: 13px;
+}
+
+#workspaces button.active {
+    background-color: @altbg;
+	border-radius: 5px;
+}
+
+#clock,
+#battery,
+#backlight,
+#pulseaudio,
+#tray
+{
+    padding: 0px 10px;
+	background-color: @altbg;
+}
+
+#custom-separator,
+#custom-separator-left,
+#custom-separator-right
+{
+	font-size: 30px;
+	color: @bg;
+	background-color: @altbg;
+}
+
+#backlight icon {
+	color: @altbg;
+}

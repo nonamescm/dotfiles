@@ -17,10 +17,10 @@ gls.left[1] = {
 		provider = function()
 			return "   "
 		end,
-		highlight = { colors.bg, colors.green },
+		highlight = { colors.black, colors.green },
 
 		separator = "",
-		separator_highlight = { colors.green, colors.bg },
+		separator_highlight = { colors.green, colors.black },
 	}
 }
 
@@ -32,10 +32,10 @@ gls.left[2] = {
 		provider = function()
 			return "  " .. vcs.get_git_branch()
 		end,
-		highlight = { colors.green, colors.bg },
+		highlight = { colors.green, colors.black },
 
 		separator = "@",
-		separator_highlight = { colors.bg, colors.bg },
+		separator_highlight = { colors.black, colors.black },
 	}
 }
 
@@ -44,10 +44,10 @@ gls.left[3] = {
 		condition = glc.check_git_workspace,
 		provider = "DiffAdd",
 		icon = "  ",
-		highlight = { colors.purple, colors.bg },
+		highlight = { colors.purple, colors.black },
 
 		separator = "@",
-		separator_highlight = { colors.bg, colors.bg },
+		separator_highlight = { colors.black, colors.black },
 	}
 }
 
@@ -56,10 +56,10 @@ gls.left[4] = {
 		condition = glc.check_git_workspace,
 		provider = "DiffModified",
 		icon = " 柳",
-		highlight = { colors.blue, colors.bg },
+		highlight = { colors.blue, colors.black },
 
 		separator = "@",
-		separator_highlight = { colors.bg, colors.bg },
+		separator_highlight = { colors.black, colors.black },
 	}
 }
 
@@ -68,10 +68,10 @@ gls.left[5] = {
 		condition = glc.check_git_workspace,
 		provider = "DiffRemove",
 		icon = "  ",
-		highlight = { colors.red, colors.bg },
+		highlight = { colors.red, colors.black },
 
 		separator = "@",
-		separator_highlight = { colors.bg, colors.bg },
+		separator_highlight = { colors.black, colors.black },
 	}
 }
 
@@ -80,10 +80,10 @@ gls.left[6] = {
 		provider = function()
 			return ""
 		end,
-		highlight = { colors.bg, colors.black },
+		highlight = { colors.black, colors.black2 },
 
 		separator = "@@",
-		separator_highlight = { colors.black, colors.black },
+		separator_highlight = { colors.black2, colors.black2 },
 	}
 }
 
@@ -97,7 +97,7 @@ gls.left[7] = {
 				return icon .. " "
 			end
 		end,
-		highlight = { colors.fg, colors.black }
+		highlight = { colors.fg, colors.black2 }
 	}
 }
 
@@ -112,10 +112,10 @@ gls.left[8] = {
 				return name
 			end
 		end,
-		highlight = { colors.fg, colors.black },
+		highlight = { colors.fg, colors.black2 },
 
 		separator = "@@",
-		separator_highlight = { colors.black, colors.black },
+		separator_highlight = { colors.black2, colors.black2 },
 	}
 }
 
@@ -124,10 +124,10 @@ gls.left[9] = {
 		provider = function()
 			return ""
 		end,
-		highlight = { colors.black, colors.bg },
+		highlight = { colors.black2, colors.black },
 
 		separator = "@@",
-		separator_highlight = { colors.bg, colors.bg },
+		separator_highlight = { colors.black, colors.black },
 	}
 }
 -- }}}
@@ -136,44 +136,44 @@ gls.left[9] = {
 gls.right[0] = {
 	LspErrorInfo = {
 		provider = "DiagnosticError",
-		highlight = { colors.red, colors.bg },
+		highlight = { colors.red, colors.black },
 		icon = " ",
 
 		separator = "@",
-		separator_highlight = { colors.bg, colors.bg },
+		separator_highlight = { colors.black, colors.black },
 	}
 }
 
 gls.right[1] = {
 	LspWarnInfo = {
 		provider = "DiagnosticWarn",
-		highlight = { colors.yellow, colors.bg },
+		highlight = { colors.yellow, colors.black },
 		icon = " ",
 
 		separator = "@",
-		separator_highlight = { colors.bg, colors.bg },
+		separator_highlight = { colors.black, colors.black },
 	}
 }
 
 gls.right[2] = {
 	LspHintInfo = {
 		provider = "DiagnosticHint",
-		highlight = { colors.green, colors.bg },
+		highlight = { colors.green, colors.black },
 		icon = " ",
 
 		separator = "@",
-		separator_highlight = { colors.bg, colors.bg },
+		separator_highlight = { colors.black, colors.black },
 	}
 }
 
 gls.right[3] = {
 	LspInfoInfo = {
 		provider = "DiagnosticInfo",
-		highlight = { colors.blue, colors.bg },
+		highlight = { colors.blue, colors.black },
 		icon = " ",
 
 		separator = "@",
-		separator_highlight = { colors.bg, colors.bg },
+		separator_highlight = { colors.black, colors.black },
 	}
 }
 
@@ -182,7 +182,7 @@ gls.right[4] = {
 		provider = function()
 			return ""
 		end,
-		highlight = { colors.black, colors.bg },
+		highlight = { colors.black2, colors.black },
 	}
 }
 
@@ -191,10 +191,10 @@ gls.right[5] = {
 		provider = function()
 			return " " .. lsp.get_lsp_client()
 		end,
-		highlight = { colors.blue, colors.black },
+		highlight = { colors.blue, colors.black2 },
 
 		separator = "@",
-		separator_highlight = { colors.black, colors.black },
+		separator_highlight = { colors.black2, colors.black2 },
 	}
 }
 
@@ -208,10 +208,10 @@ gls.right[6] = {
 				return title .. "(" .. tostring(percentage) .. "%)"
 			end
 		end,
-		highlight = { colors.lightbg, colors.black },
+		highlight = { colors.lightbg, colors.black2 },
 
 		separator = "@",
-		separator_highlight = { colors.black, colors.black },
+		separator_highlight = { colors.black2, colors.black2 },
 	}
 }
 
@@ -220,10 +220,10 @@ gls.right[7] = {
 		provider = function()
 			return ""
 		end,
-		highlight = { colors.black, colors.bg },
+		highlight = { colors.black2, colors.black },
 
 		separator = "@",
-		separator_highlight = { colors.black, colors.black },
+		separator_highlight = { colors.black2, colors.black2 },
 	}
 }
 
@@ -232,7 +232,7 @@ gls.right[8] = {
 		provider = function()
 			return "@"
 		end,
-		highlight = { colors.bg, colors.bg }
+		highlight = { colors.black, colors.black }
 	}
 }
 -- }}}

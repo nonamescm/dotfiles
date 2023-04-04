@@ -8,6 +8,10 @@ require("packer").startup(function(use)
 	-- colors
 	use "norcalli/nvim-colorizer.lua"
 	use "nonamescm/notheme.nvim"
+	use {
+		"nocksock/bloop.nvim",
+		requires = "rktjmp/lush.nvim",
+	}
 
 	-- syntax
 	use "nonamescm/neofsharp.vim"
@@ -88,7 +92,12 @@ opt.guicursor = "v-c-sm:block,c-i-ci-ve:ver25,r-cr-o:hor20"
 
 -- plugins that doesn"t need configuration requires
 require("colorizer").setup()
-vim.cmd("colorscheme notheme")
+vim.cmd("set background=dark")
+vim.cmd("colorscheme bloop")
+
+vim.cmd("hi EndOfBuffer guibg=NONE")
+vim.cmd("hi Normal guibg=NONE")
+
 require("gitsigns").setup()
 
 vim.cmd("command! Term split|term")

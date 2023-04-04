@@ -39,11 +39,11 @@ bufferline.setup {
 	},
 	highlights = {
 		fill = {
-			fg = colors.grey_fg,
+			fg = colors.black2,
 			bg = colors.black,
 		},
 		background = {
-			fg = colors.grey_fg,
+			fg = colors.black2,
 			bg = colors.black,
 		},
 	},

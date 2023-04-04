@@ -1,5 +1,5 @@
 import:
-  - ~/.config/alacritty/palenight.yml
+  - ~/.config/alacritty/bloop.yml
 
 cursor:
   style:
@@ -22,8 +22,8 @@ font:
 
 window:
   padding:
-    x: 10
-    y: 10
+    x: 2
+    y: 2
   opacity: 0.93
 
 env:

@@ -2,7 +2,8 @@ local vim = vim
 
 vim.o.fillchars = table.concat(
 	{
-		[[fold: ]]
+		"fold: ",
+		"eob: ",
 	},
 	","
 )

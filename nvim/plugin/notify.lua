@@ -1,6 +1,7 @@
 require("notify").setup {
 	stages = "fade",
 	timeout = 1000,
+	background_color = "NONE",
 }
 
 vim.notify = require("notify")

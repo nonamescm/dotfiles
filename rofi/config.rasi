@@ -1,141 +1,139 @@
-configuration{
+configuration {
 	font: "Iosevka SS14 SemiBold 11";
-	show-icons:true;
-	icon-theme:"Papirus";
-	display-drun:"";
-	drun-display-format:"{name}";
-	disable-history:false;
-	fullscreen:false;
-	hide-scrollbar:true;
-	sidebar-mode:false;
+	show-icons: true;
+	icon-theme: "Papirus";
+	display-drun: "";
+	drun-display-format: " {name}";
+	disable-history: false;
+	fullscreen: false;
+	hide-scrollbar: true;
+	sidebar-mode: false;
 }
 @theme "/dev/null"
 
-element-text, element-icon {
+element-text, element-icon  {
 	background-color: inherit;
-	text-color:       inherit;
+	text-color: inherit;
 }
 
-*{
-	background:#282838;
-	background-alt:#282838;
-	foreground:#b6bcdd;
-	border-alt:#282838;
-	border:#2f2f3f;
-	selected:#3b3b4b;
-	urgent:#d05158;
+* {
+	background: #13161b;
+	background-alt: #13161b;
+	foreground: #dee9f7;
+	border-alt: #13161b;
+	border: #242a33;
+	selected: #242a33;
+	urgent: #ef3985;
 }
 
 
-window{
-	transparency:"real";
-	background-color:@background;
-	text-color:@foreground;
-	border:2px 2px 2px 2px;
-	border-color:@border;
-	height:60%;
-	width:23.33%;
+window {
+	transparency: "real";
+	background-color: @background;
+	text-color: @foreground;
+	border: 2px 2px 2px 2px;
+	border-color: @border;
+	height: 60%;
+	width: 23.33%;
 	location: Center;
-	x-offset:0%;
-	y-offset:0%;
+	x-offset: 0%;
+	y-offset: 0%;
 }
 
-prompt{
-	enabled:true;
-	padding:0% 1% 0% 0%;
-	background-color:@background;
-	text-color:@foreground;
-	font:"Iosevka Nerd Font Mono 24";
+prompt {
+	enabled: true;
+	padding: 0% 1% 0% 0%;
+	background-color: @background;
+	text-color: @foreground;
+	font: "Iosevka Nerd Font Mono 24";
 }
 
-entry{
-	background-color:@background;
-	text-color:@foreground;
-	placeholder-color:@foreground;
-	expand:true;
-	horizontal-align:0;
-	vertical-align:0.5;
-	placeholder:"Search Applications";
-	padding:0.15% 0% 0% 0%;
-	blink:false;
+entry {
+	background-color: @background;
+	text-color: @foreground;
+	placeholder-color: @foreground;
+	expand: true;
+	horizontal-align: 0;
+	vertical-align: 0.5;
+	placeholder: "Search Applications";
+	padding: 0.15% 0% 0% 0%;
+	blink: false;
 }
 
-inputbar{
-	children:[prompt,entry];
-	background-color:@background;
-	text-color:@foreground;
-	expand:false;
-	border:0%;
-	border-radius:0.5%;
-	border-color:@border-alt;
-	padding:1%;
-	position:center;
+inputbar {
+	children: [prompt,entry];
+	background-color: @background;
+	text-color: @foreground;
+	expand: false;
+	border: 0%;
+	border-radius: 0.5%;
+	border-color: @border-alt;
+	padding: 1%;
+	position: center;
 }
 
-listview{
-	background-color:@background;
-	columns:1;
-	spacing:1%;
-	cycle:false;
-	dynamic:true;
-	layout:vertical;
+listview {
+	background-color: @background;
+	columns: 1;
+	spacing: 1%;
+	cycle: false;
+	dynamic: true;
+	layout: vertical;
 }
 
-mainbox{
-	background-color:@background;
-	children:[inputbar,listview];
-	spacing:2%;
-	padding:2.5% 2% 2.5% 2%;
+mainbox {
+	background-color: @background;
+	children: [inputbar,listview];
+	spacing: 2%;
+	padding: 2.5% 2% 2.5% 2%;
 }
 
-element{
-	background-color:@background;
-	text-color:@foreground;
-	orientation:horizontal;
-	border-radius:0%;
-	padding:2% 2% 2% 2%;
+element {
+	background-color: @background;
+	text-color: @foreground;
+	orientation: horizontal;
+	border-radius: 0%;
+	padding: 2% 2% 2% 2%;
 }
 
-element-icon{
-	size:4%;
-	border:0px;
+element-icon {
+	size: 4%;
+	border: 0px;
 }
 
-element-text{
-	expand:true;
-	horizontal-align:0;
-	vertical-align:0.5;
-	margin:0.5% 1% 0% 0.5%;
+element-text {
+	expand: true;
+	horizontal-align: 0;
+	vertical-align: 0.5;
+	margin: 0.5% 1% 0% 0.5%;
 }
 
-element normal.urgent,
-element alternate.urgent{
-	background-color:@urgent;
-	text-color:@foreground;
-	border-radius:1%;
+element normal.urgent, element alternate.urgent {
+	background-color: @urgent;
+	text-color: @foreground;
+	border-radius: 1%;
 }
 
-element normal.active,
-element alternate.active{
-	background-color:@background-alt;
-	text-color:@foreground;
+element normal.active, element alternate.active {
+	background-color: @background-alt;
+	text-color: @foreground;
 }
 
-element selected{
-	background-color:@selected;
-	text-color:@foreground;
-	border:0% 0.2% 0.3% 0%;
-	border-radius:0.4%;
-	border-color:@border-alt;
+element selected {
+	background-color: @selected;
+	text-color: @foreground;
+	border: 0% 0.2% 0.3% 0%;
+	border-radius: 0.4%;
+	border-color: @border-alt;
 }
 
-element selected.urgent{
-	background-color:@urgent;
-	text-color:@foreground;
+element selected.urgent {
+	background-color: @urgent;
+	text-color: @foreground;
 }
 
-element selected.active{
-	background-color:@background-alt;
-	color:@foreground;
+element selected.active {
+	background-color: @background-alt;
+	color: @foreground;
 }
 

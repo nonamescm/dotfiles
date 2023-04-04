@@ -1,0 +1,90 @@
+// vim: ft=jsonc
+{
+    "layer": "top",
+    "position": "bottom",
+	"height": 36,
+    "spacing": 0,
+
+    "modules-left": ["clock", "custom/separator-left"],
+    "modules-center": ["wlr/workspaces"],
+    "modules-right": [
+		"custom/separator-right",
+		"pulseaudio",
+		"custom/separator",
+		"backlight",
+		"custom/separator",
+		"battery"
+	],
+    // Modules configuration
+    "wlr/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "<span color=\"#41e6a2\"></span>",
+            "2": "<span color=\"#f7a1c5\"></span>",
+            "3": "<span color=\"#39d1ef\"></span>",
+            "4": "<span color=\"#9ca4f7\"></span>"
+        }
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+		"format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+
+	"custom/separator": {
+		"format": ""
+	},
+
+	"custom/separator-left": {
+		"format": ""
+	},
+
+	"custom/separator-right": {
+		"format": ""
+	}
+}
+
