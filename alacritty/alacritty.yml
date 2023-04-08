@@ -24,7 +24,7 @@ window:
   padding:
     x: 2
     y: 2
-  opacity: 0.93
+  opacity: 0.95
 
 env:
   TERM: xterm-256color

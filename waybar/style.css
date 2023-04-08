@@ -1,57 +1,114 @@
-@define-color bg #13161b;
+@define-color bg #0d0f11;
 @define-color fg #dee9f7;
-@define-color altbg #242a33;
+@define-color altbg #13161b;
 @define-color altfg #ffffff;
+@define-color revfg #242a33;
+@define-color red #ef3985;
+@define-color yellow #ffe985;
+@define-color green #41e692;
+@define-color blue #39a1df;
 
-* {
-    min-height: 0;
-}
-
-window > * {
-    font-family: Iosevka SS14, "Font Awesome 6 Free";
-    font-size: 13px;
-	color: @fg;
-	margin: 0px;
+* { 
+    padding: 0px;
+    margin: 0px;
 }
 
 window#waybar {
-    background-color: @bg;
-    transition-property: background-color;
-    transition-duration: .5s;
+    background-color: transparent;
+    font-family: Iosevka SS14 SemiBold, "Font Awesome 6 Free";
 }
 
-window#waybar.hidden {
-    opacity: 0.2;
+window#waybar > box {
+	/* margin-right: 10px; */
+    background-color: @bg;
+	/* box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, .40); */
+}
+
+#workspaces {
+    margin: 0px 10px;
+    font-size: 16px;
 }
 
 #workspaces button {
-	font-size: 13px;
+    padding: 7px;
+	border-radius: 5px;
+}
+
+#workspaces button:hover {
+    background: @altbg;
+    box-shadow: inherit;
+    text-shadow: inherit;
+    border-color: @altbg;
 }
 
 #workspaces button.active {
     background-color: @altbg;
-	border-radius: 5px;
 }
 
-#clock,
-#battery,
-#backlight,
-#pulseaudio,
-#tray
-{
-    padding: 0px 10px;
-	background-color: @altbg;
+#custom-launcher {
+    color: @bg;
+    background-color: @green;
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 10px 2px;
+    margin: 100px 10px;
+    margin-bottom: 5px;
+    margin-top: 8px;
 }
 
-#custom-separator,
-#custom-separator-left,
-#custom-separator-right
-{
-	font-size: 30px;
-	color: @bg;
-	background-color: @altbg;
+#pulseaudio {
+    color: @red;
+    background-color: @altbg;
+    font-size: 17px;
+    border-radius: 5px;
+    padding: 10px 2px;
+    margin: 0px 10px;
+    margin-top: 5px;
+    margin-bottom: 8px;
 }
 
-#backlight icon {
-	color: @altbg;
+#clock {
+    color: @blue;
+    background-color: @altbg;
+    font-size: 17px;
+    border-radius: 5px;
+    padding: 4px 4px;
+    margin: 0px 10px;
+    margin-bottom: 5px;
+    margin-top: 8px;
+}
+
+#battery {
+    color: @green;
+    background-color: @altbg;
+    font-size: 17px;
+    border-radius: 5px;
+    padding: 10px 2px;
+    margin: 0px 10px;
+    margin-bottom: 5px;
+    margin-top: 8px;
+}
+
+#backlight {
+    color: @yellow;
+    background-color: @altbg;
+    font-size: 17px;
+    border-radius: 5px;
+    padding: 10px 0px;
+    margin: 0px 10px;
+    margin-bottom: 5px;
+}
+
+#custom-power {
+    color: @bg;
+    background-color: @red;
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 10px 0px;
+    margin: 0px 10px;
+    margin-bottom: 5px;
+}
+
+#custom-separator {
+    color: @revfg;
 }

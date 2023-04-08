@@ -1,90 +1,65 @@
 // vim: ft=jsonc
 {
     "layer": "top",
-    "position": "bottom",
-	"height": 36,
+    "position": "left",
+    "width": 0,
     "spacing": 0,
 
-    "modules-left": ["clock", "custom/separator-left"],
-    "modules-center": ["wlr/workspaces"],
-    "modules-right": [
-		"custom/separator-right",
-		"pulseaudio",
-		"custom/separator",
-		"backlight",
-		"custom/separator",
-		"battery"
-	],
-    // Modules configuration
+    "modules-left": ["custom/launcher", "custom/separator", "pulseaudio", "custom/separator", "wlr/workspaces"],
+    "modules-center": [],
+    "modules-right": ["tray", "custom/separator", "backlight", "battery", "clock", "custom/separator", "custom/power"],
     "wlr/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "format": "{icon}",
         "format-icons": {
             "1": "<span color=\"#41e6a2\"></span>",
-            "2": "<span color=\"#f7a1c5\"></span>",
+            "2": "<span color=\"#f7a1c5\"> </span>",
             "3": "<span color=\"#39d1ef\"></span>",
-            "4": "<span color=\"#9ca4f7\"></span>"
-        }
+            "4": "<span color=\"#9ca4f7\"></span>",
+            "default": "<span color=\"#ef3985\"></span>"
+
+        },
+        "sort-by-number": true,
+		"on-click": "activate"
     },
+
+    "custom/power": {
+        "format": "",
+        "on-click": "systemctl poweroff"
+    },
+
+    "clock": {
+        "format": "{:%H\n%M}",
+        "tooltip-format": "{:%D}"
+    },
+
+    "custom/launcher": {
+        "format": "",
+        "on-click": "rofi -show drun"
+    },
+
+    "custom/separator": {
+        "format": "──────"
+    },
+
+    "battery": {
+        "format": "{capacity}"
+    },
+
+    "backlight": {
+        "format": "{percent}"
+    },
+
     "tray": {
         "icon-size": 21,
-        "spacing": 10
+		"spacing": 10,
+		"show-passive-items": true
     },
-    "clock": {
-        // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
-    },
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-		"format-icons": ["", "", "", "", "", "", "", "", ""]
-    },
-    "battery": {
-        "states": {
-            // "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
-    },
+
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
-    },
-
-	"custom/separator": {
-		"format": ""
-	},
-
-	"custom/separator-left": {
-		"format": ""
-	},
-
-	"custom/separator-right": {
-		"format": ""
-	}
+        "format": "{volume}",
+		"on-click": "eww open bar --toggle --screen 0"
+    }
 }
 

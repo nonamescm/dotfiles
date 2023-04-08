@@ -45,5 +45,5 @@ require("nvim-tree").setup({
 })
 
 hi("NvimTreeFolderIcon", { guifg = colors.blue })
-hi("NvimTreeEndOfBuffer", { guibg = colors.bg, guifg = colors.bg })
-hi("NvimTreeNormal", { guibg = colors.bg })
+hi("NvimTreeEndOfBuffer", { guibg = "NONE" })
+hi("NvimTreeNormal", { guibg = "NONE" })

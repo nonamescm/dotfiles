@@ -42,9 +42,10 @@ bufferline.setup {
 			fg = colors.black2,
 			bg = colors.black,
 		},
-		background = {
-			fg = colors.black2,
-			bg = colors.black,
+
+		buffer_selected = {
+			bold = true,
+			italic = false,
 		},
 	},
 }

@@ -97,6 +97,7 @@ vim.cmd("colorscheme bloop")
 
 vim.cmd("hi EndOfBuffer guibg=NONE")
 vim.cmd("hi Normal guibg=NONE")
+vim.cmd("hi NormalFloat guibg=NONE")
 
 require("gitsigns").setup()
 
