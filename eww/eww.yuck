@@ -1,3 +1,4 @@
+;;vi:ft=clojure
 (defwidget bar [screen] (music))
 
 ;;; begin Music

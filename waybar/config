@@ -13,8 +13,8 @@
         "all-outputs": true,
         "format": "{icon}",
         "format-icons": {
-            "1": "<span color=\"#41e6a2\"></span>",
-            "2": "<span color=\"#f7a1c5\"> </span>",
+            "1": "<span color=\"#f7a1c5\"> </span>",
+            "2": "<span color=\"#41e6a2\"></span>",
             "3": "<span color=\"#39d1ef\"></span>",
             "4": "<span color=\"#9ca4f7\"></span>",
             "default": "<span color=\"#ef3985\"></span>"
