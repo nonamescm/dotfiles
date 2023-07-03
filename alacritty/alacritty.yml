@@ -22,9 +22,9 @@ font:
 
 window:
   padding:
-    x: 2
-    y: 2
-  opacity: 0.95
+    x: 0
+    y: 0
+  opacity: 0.9
 
 env:
   TERM: xterm-256color

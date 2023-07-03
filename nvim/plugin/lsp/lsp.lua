@@ -19,6 +19,8 @@ local function on_attach(client)
 		update_in_insert = true,
 	})
 
+	client.server_capabilities.semanticTokensProvider = nil
+
 	-- Mappings.
 	local opts = { noremap = true, silent = true }
 
@@ -51,17 +53,20 @@ local servers = {
 	"lua_ls",
 	"hls",
 	"csharp_ls",
-	"ocamlls"
+	"ocamlls",
+	"nim_langserver",
+	"html",
+	"cssls"
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 for _, server in ipairs(servers) do
 	lspconf[server].setup {
 		capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities),
 		on_attach = on_attach,
 		root_dir = vim.loop.cwd,
-		handlers = handlers,
 	}
 end
 
@@ -73,26 +78,25 @@ lspconf.tsserver.setup {
 	},
 }
 
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-lspconf["html"].setup {
+lspconf.elixirls.setup {
+	cmd = { "/home/noname/.local/elixir-ls/language_server.sh" },
 	on_attach = on_attach,
-	root_dir = vim.loop.cwd,
-	capabilities = capabilities
-}
-
-lspconf["cssls"].setup {
-	on_attach = on_attach,
-	root_dir = vim.loop.cwd,
-	capabilities = capabilities
+	capabilities = capabilities,
+	flags = {
+		debounce_text_changes = 150,
+	},
+	elixirLS = {
+		dialyzerEnabled = false,
+		fetchDeps = false,
+	},
 }
 
 -- replace the default lsp diagnostic letters with prettier symbols
 local symbols = {
-	Error = "",
+	Error = "",
 	Warn = "",
-	Info = "",
-	Hint = "",
+	Info = "",
+	Hint = "",
 }
 
 for name, symbol in pairs(symbols) do
@@ -108,19 +112,19 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 	opts.border = opts.border or {
 		{ "🭽", "FloatBorder" },
 
-		{ "▔", "FloatBorder" },
+		{ "▔",  "FloatBorder" },
 
 		{ "🭾", "FloatBorder" },
 
-		{ "▕", "FloatBorder" },
+		{ "▕",  "FloatBorder" },
 
 		{ "🭿", "FloatBorder" },
 
-		{ "▁", "FloatBorder" },
+		{ "▁",  "FloatBorder" },
 
 		{ "🭼", "FloatBorder" },
 
-		{ "▏", "FloatBorder" },
+		{ "▏",  "FloatBorder" },
 	}
 	return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end

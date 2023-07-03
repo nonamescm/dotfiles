@@ -20,3 +20,5 @@ hi("NotifyWARNIcon", { guifg = colors.yellow })
 hi("NotifyINFOBody", { guifg = colors.blue })
 hi("NotifyINFOBorder", { guifg = colors.blue })
 hi("NotifyINFOIcon", { guifg = colors.blue })
+
+hi("NotifyBackground", { guibg = "#000000" })

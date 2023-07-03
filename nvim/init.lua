@@ -15,6 +15,10 @@ require("packer").startup(function(use)
 
 	-- syntax
 	use "nonamescm/neofsharp.vim"
+	use "alaviss/nim.nvim"
+	use "nvim-treesitter/nvim-treesitter"
+	use "nvim-treesitter/playground"
+	use "p00f/nvim-ts-rainbow"
 
 	-- git integration
 	use {
@@ -24,9 +28,6 @@ require("packer").startup(function(use)
 
 	-- lsp
 	use "neovim/nvim-lspconfig"
-	use "p00f/nvim-ts-rainbow"
-	use "nvim-treesitter/nvim-treesitter"
-	use "nvim-treesitter/playground"
 	use {
 		"hrsh7th/nvim-cmp",
 		requires = {
@@ -74,30 +75,26 @@ vim.g.markdown_fenced_languages = {
 	"scala=scala",
 }
 
-local opt, bopt, wopt = vim.o, vim.bo, vim.wo
-opt.background = "light"
-opt.splitbelow = true
-opt.wrap, wopt.wrap = false, false
-opt.number, wopt.number = true, true
-opt.cursorline, wopt.cursorline = true, true
-opt.relativenumber, wopt.relativenumber = true, true
-opt.foldenable = false
-opt.mouse = "a"
-opt.tabstop, bopt.tabstop = 4, 4
-opt.shiftwidth, bopt.shiftwidth = 4, 4
-opt.expandtab = false
-opt.showtabline = 2
-opt.termguicolors = true
-opt.guicursor = "v-c-sm:block,c-i-ci-ve:ver25,r-cr-o:hor20"
+vim.o.background = "light"
+vim.o.splitbelow = true
+vim.o.wrap, vim.wo.wrap = false, false
+vim.o.number, vim.wo.number = true, true
+vim.o.cursorline, vim.wo.cursorline = true, true
+vim.o.relativenumber, vim.wo.relativenumber = true, true
+vim.o.foldenable = false
+vim.o.mouse = "a"
+vim.o.tabstop, vim.bo.tabstop = 4, 4
+vim.o.shiftwidth, vim.bo.shiftwidth = 4, 4
+vim.o.expandtab = false
+vim.o.showtabline = 2
+vim.o.termguicolors = true
+vim.o.guicursor = "v-c-sm:block,c-i-ci-ve:ver25,r-cr-o:hor20"
+vim.o.laststatus = 3
 
 -- plugins that doesn"t need configuration requires
 require("colorizer").setup()
 vim.cmd("set background=dark")
 vim.cmd("colorscheme bloop")
-
-vim.cmd("hi EndOfBuffer guibg=NONE")
-vim.cmd("hi Normal guibg=NONE")
-vim.cmd("hi NormalFloat guibg=NONE")
 
 require("gitsigns").setup()
 
