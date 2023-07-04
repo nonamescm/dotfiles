@@ -1,4 +1,7 @@
-require("nvim-tree").setup({
+local nvtree = require("nvim-tree")
+local events = require("nvim-tree.api").events
+
+nvtree.setup({
 	renderer = {
 		icons = {
 			show = {
@@ -24,3 +27,6 @@ require("nvim-tree").setup({
 	},
 })
 
+events.subscribe(events.Event.TreeOpen, function()
+	vim.cmd("setlocal ts=2")
+end)

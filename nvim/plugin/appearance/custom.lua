@@ -18,16 +18,7 @@ local lspkinds = {
 	Hint = colors.green,
 }
 
-local diagnostics = {
-	Floating = {},
-	Sign = {},
-	Underline = { gui = "underline" },
-	VirtualText = { gui = "underline" },
-}
-
 for kind, color in pairs(lspkinds) do
-	for diagnostic, opts in pairs(diagnostics) do
-		opts.guifg = color
-		highlight("Diagnostic" .. diagnostic .. kind, opts)
-	end
+	local group = "DiagnosticSign" .. kind
+	highlight(group, { guifg = color })
 end

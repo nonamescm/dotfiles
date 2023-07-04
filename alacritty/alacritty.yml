@@ -8,23 +8,23 @@ cursor:
 font:
   normal:
     family: Iosevka SS14
-    style: Bold
+    style: Medium
   bold:
     family: Iosevka SS14
     style: Bold
   italic:
     family: Iosevka SS14
-    style: Bold Italic
+    style: Medium Italic
   offset:
     x: 0
     y: 1
-  size: 11
+  size: 10.9
 
 window:
   padding:
     x: 0
     y: 0
-  opacity: 0.9
+  opacity: 0.8
 
 env:
   TERM: xterm-256color

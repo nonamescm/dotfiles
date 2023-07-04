@@ -56,7 +56,7 @@ local servers = {
 	"ocamlls",
 	"nim_langserver",
 	"html",
-	"cssls"
+	"cssls",
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
