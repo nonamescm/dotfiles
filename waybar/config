@@ -1,65 +1,75 @@
 // vim: ft=jsonc
 {
-    "layer": "top",
-    "position": "left",
-    "width": 0,
-    "spacing": 0,
+	"layer": "top",
+	"position": "left",
+	"width": 0,
+	"spacing": 0,
 
-    "modules-left": ["custom/launcher", "custom/separator", "pulseaudio", "custom/separator", "wlr/workspaces"],
-    "modules-center": [],
-    "modules-right": ["tray", "custom/separator", "backlight", "battery", "clock", "custom/separator", "custom/power"],
-    "wlr/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "format": "{icon}",
-        "format-icons": {
-            "1": "<span color=\"#f7a1c5\"> </span>",
-            "2": "<span color=\"#41e6a2\"></span>",
-            "3": "<span color=\"#39d1ef\"></span>",
-            "4": "<span color=\"#9ca4f7\"></span>",
-            "default": "<span color=\"#ef3985\"></span>"
+	"modules-left": ["custom/launcher", "custom/separator", "wlr/workspaces"],
+	"modules-center": [],
+	"modules-right": ["tray", "custom/separator", "network", "pulseaudio", "backlight", "battery", "clock"],
+	"wlr/workspaces": {
+		"disable-scroll": true,
+		"all-outputs": true,
+		"format": "{icon}",
+		"format-icons": {
+			"1": "<span color=\"#f7a1c5\"> </span>",
+			"2": "<span color=\"#41e6a2\"></span>",
+			"3": "<span color=\"#39d1ef\"></span>",
+			"4": "<span color=\"#9ca4f7\"></span>",
+			"default": "<span color=\"#ef3985\"></span>"
 
-        },
-        "sort-by-number": true,
+		},
+		"sort-by-number": true,
 		"on-click": "activate"
-    },
+	},
 
-    "custom/power": {
-        "format": "",
-        "on-click": "systemctl poweroff"
-    },
+	"clock": {
+		"format": "{:%H\n%M}",
+		"tooltip-format": "{:%D}"
+	},
 
-    "clock": {
-        "format": "{:%H\n%M}",
-        "tooltip-format": "{:%D}"
-    },
+	"custom/launcher": {
+		"format": "",
+		"on-click": "rofi -show drun"
+	},
 
-    "custom/launcher": {
-        "format": "",
-        "on-click": "rofi -show drun"
-    },
+	"custom/separator": {
+		"format": "──────"
+	},
 
-    "custom/separator": {
-        "format": "──────"
-    },
+	"battery": {
+		"format": "{icon}",
+		"format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+		"tooltip-format": "{capacity}"
+	},
 
-    "battery": {
-        "format": "{capacity}"
-    },
+	"backlight": {
+		"format": "{percent}"
+	},
 
-    "backlight": {
-        "format": "{percent}"
-    },
-
-    "tray": {
-        "icon-size": 21,
+	"tray": {
+		"icon-size": 21,
 		"spacing": 10,
 		"show-passive-items": true
-    },
+	},
 
-    "pulseaudio": {
-        "format": "{volume}",
+	"pulseaudio": {
+		"format": "{icon}",
+		"format-icons": ["󰕿", "󰖀", "󰕾"],
+		"format-muted": "󰖁",
 		"on-click": "eww open bar --toggle --screen 0"
-    }
+	},
+
+	"network": {
+		"interface": "wl*",
+		"format-icons": ["󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "],
+		"format-wifi": "{icon}",
+		"format-disconnected": "󰤭",
+		"tooltip-format-wifi": "{essid} ({signalStrength}%)",
+		"tooltip-format-ethernet": "{ifname} ",
+		"tooltip-format-disconnected": "Disconnected",
+		"on-click": "alacritty --command=nmtui"
+	}
 }
 

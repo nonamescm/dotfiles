@@ -7,6 +7,7 @@
 @define-color yellow #ffe985;
 @define-color green #41e692;
 @define-color blue #39a1df;
+@define-color orange #f7a1c5;
 
 * { 
     padding: 0px;
@@ -15,7 +16,7 @@
 
 window#waybar {
     background-color: transparent;
-    font-family: Iosevka SS14 SemiBold, "Font Awesome 6 Free";
+    font-family: Iosevka SS01, "Font Awesome 6 Free";
 }
 
 window#waybar > box {
@@ -24,9 +25,20 @@ window#waybar > box {
 	/* box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, .40); */
 }
 
-#workspaces {
-    margin: 0px 10px;
+#tray {
+    margin: 0px 5px;
     font-size: 16px;
+    background: @altbg;
+	border-radius: 5px;
+	padding: 10px 5px;
+}
+
+#workspaces {
+    margin: 0px 5px 0px 5px;
+    font-size: 14px;
+    padding: 2px;
+	background: @altbg;
+	border-radius: 5px;
 }
 
 #workspaces button {
@@ -35,78 +47,71 @@ window#waybar > box {
 }
 
 #workspaces button:hover {
-    background: @altbg;
+    background: @bg;
     box-shadow: inherit;
     text-shadow: inherit;
-    border-color: @altbg;
+    border-color: @bg;
 }
 
 #workspaces button.active {
-    background-color: @altbg;
-}
-
-#custom-launcher {
-    color: @bg;
-    background-color: @green;
-    font-size: 15px;
-    border-radius: 5px;
-    padding: 10px 2px;
-    margin: 100px 10px;
-    margin-bottom: 5px;
-    margin-top: 8px;
+    background-color: @bg;
 }
 
 #pulseaudio {
     color: @red;
     background-color: @altbg;
-    font-size: 17px;
+    font-size: 16px;
     border-radius: 5px;
-    padding: 10px 2px;
-    margin: 0px 10px;
-    margin-top: 5px;
-    margin-bottom: 8px;
+    padding: 10px 0px;
+    margin: 2.5px 5px;
+	margin-top: 0px;
+}
+
+#network {
+    color: @orange;
+    background-color: @altbg;
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 10px 0px;
+    margin: 2.5px 5px;
 }
 
 #clock {
     color: @blue;
     background-color: @altbg;
-    font-size: 17px;
+    font-size: 16px;
     border-radius: 5px;
-    padding: 4px 4px;
-    margin: 0px 10px;
-    margin-bottom: 5px;
-    margin-top: 8px;
+    padding: 10px 0px;
+    margin: 2.5px 5px;
 }
 
 #battery {
     color: @green;
     background-color: @altbg;
-    font-size: 17px;
+    font-size: 16px;
     border-radius: 5px;
-    padding: 10px 2px;
-    margin: 0px 10px;
-    margin-bottom: 5px;
-    margin-top: 8px;
+    padding: 10px 0px;
+    margin: 2.5px 5px;
 }
 
 #backlight {
     color: @yellow;
     background-color: @altbg;
-    font-size: 17px;
+    font-size: 16px;
     border-radius: 5px;
     padding: 10px 0px;
-    margin: 0px 10px;
-    margin-bottom: 5px;
+    margin: 2.5px 5px;
 }
 
-#custom-power {
-    color: @bg;
-    background-color: @red;
-    font-size: 15px;
+#custom-launcher {
+	font-family: JetBrainsMono Nerd Font Mono;
+    color: @blue;
+    background-color: @altbg;
+    font-size: 30px;
     border-radius: 5px;
-    padding: 10px 0px;
-    margin: 0px 10px;
-    margin-bottom: 5px;
+    padding: 0px 0px;
+    margin: 2.5px 5px;
+	margin-bottom: 0px;
 }
 
 #custom-separator {

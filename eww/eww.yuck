@@ -35,7 +35,7 @@
 
 (defwindow bar
   :stacking "fg"
-  :geometry (geometry :x 0 :y 30 :width "40px" :height "5%" :anchor "top left")
+  :geometry (geometry :x -4 :y 450 :width "40px" :height "5%" :anchor "top left")
   :windowtype "dock"
   :focusable false
   (bar :screen 1))

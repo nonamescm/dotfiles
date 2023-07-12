@@ -11,7 +11,7 @@ font:
     style: Medium
   bold:
     family: Iosevka SS14
-    style: Bold
+    style: Medium
   italic:
     family: Iosevka SS14
     style: Medium Italic
