@@ -6,7 +6,7 @@ local vcs = require("galaxyline.provider_vcs")
 local fileinfo = require("galaxyline.provider_fileinfo")
 local colors = require("colors")
 
-galaxy.short_line_list = { "NvimTree", "packer" } -- keeping this table { } as empty will show inactive statuslines
+galaxy.short_line_list = { "packer" } -- keeping this table { } as empty will show inactive statuslines
 
 galaxy.section.left = {
 	{
