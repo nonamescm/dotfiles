@@ -41,7 +41,7 @@ require("packer").startup(function(use)
 	-- tabline/statusline
 	use "akinsho/nvim-bufferline.lua"
 	use "kyazdani42/nvim-web-devicons"
-	use "nonamescm/galaxyline.nvim"
+	use "nvimdev/galaxyline.nvim"
 
 	-- others
 	use "windwp/nvim-autopairs" -- auto open and close pairs
@@ -83,13 +83,13 @@ vim.o.cursorline, vim.wo.cursorline = true, true
 vim.o.relativenumber, vim.wo.relativenumber = true, true
 vim.o.foldenable = false
 vim.o.mouse = "a"
-vim.o.tabstop, vim.bo.tabstop = 4, 4
-vim.o.shiftwidth, vim.bo.shiftwidth = 4, 4
-vim.o.expandtab = false
 vim.o.showtabline = 2
 vim.o.termguicolors = true
 vim.o.guicursor = "v-c-sm:block,c-i-ci-ve:ver25,r-cr-o:hor20"
 vim.o.laststatus = 3
+vim.o.tabstop, vim.bo.tabstop = 4, 4
+vim.o.shiftwidth, vim.bo.shiftwidth = 4, 4
+
 
 -- plugins that doesn"t need configuration requires
 require("colorizer").setup()

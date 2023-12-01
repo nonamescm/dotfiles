@@ -183,7 +183,8 @@ galaxy.section.right = {
 				local folder = vim.fn.expand("%:p:h")
 				local cwd = vim.fn.getcwd()
 				if folder:sub(1, cwd:len()) == cwd then
-					return folder:gsub(cwd .. "", ".")
+					local _, bound = folder:find(cwd, nil, true)
+					return "." .. folder:sub(bound + 1)
 				else
 					return folder
 				end

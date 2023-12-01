@@ -24,7 +24,14 @@ nvtree.setup({
 		},
 		root_folder_modifier = ":~",
 		highlight_git = false,
+		indent_markers = {
+			enable = true,
+			inline_arrows = false,
+		}
 	},
+	sort = {
+		sorter = "extension",
+	}
 })
 
 events.subscribe(events.Event.TreeOpen, function()

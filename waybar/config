@@ -5,10 +5,10 @@
 	"width": 0,
 	"spacing": 0,
 
-	"modules-left": ["custom/launcher", "custom/separator", "wlr/workspaces"],
+	"modules-left": ["custom/launcher", "custom/separator", "hyprland/workspaces"],
 	"modules-center": [],
 	"modules-right": ["tray", "custom/separator", "network", "pulseaudio", "backlight", "battery", "clock"],
-	"wlr/workspaces": {
+	"hyprland/workspaces": {
 		"disable-scroll": true,
 		"all-outputs": true,
 		"format": "{icon}",

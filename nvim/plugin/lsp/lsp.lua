@@ -57,6 +57,8 @@ local servers = {
 	"nim_langserver",
 	"html",
 	"cssls",
+	"typeprof",
+	"tsserver"
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -69,14 +71,6 @@ for _, server in ipairs(servers) do
 		root_dir = vim.loop.cwd,
 	}
 end
-
-lspconf.tsserver.setup {
-	init_options = {
-		preferences = {
-			disableSuggestions = true,
-		},
-	},
-}
 
 lspconf.elixirls.setup {
 	cmd = { "/home/noname/.local/elixir-ls/language_server.sh" },
