@@ -1,0 +1,33 @@
+import = ["/home/noname/.config/alacritty/bloop.toml"]
+
+[cursor.style]
+shape = "Beam"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 10.9
+
+[font.bold]
+family = "Iosevka SS14"
+style = "Medium"
+
+[font.italic]
+family = "Iosevka SS14"
+style = "Medium Italic"
+
+[font.normal]
+family = "Iosevka SS14"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 1
+
+[window]
+opacity = 0.8
+
+[window.padding]
+x = 0
+y = 0
