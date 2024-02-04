@@ -1,5 +1,5 @@
 configuration {
-	font: "Iosevka SS14 SemiBold 11";
+	font: "Iosevka SS14 Regular 18";
 	show-icons: true;
 	icon-theme: "Papirus";
 	display-drun: "";
@@ -34,7 +34,7 @@ window {
 	border: 2px 2px 2px 2px;
 	border-color: @border;
 	height: 60%;
-	width: 23.33%;
+	width: 46.66%;
 	location: Center;
 	x-offset: 0%;
 	y-offset: 0%;
