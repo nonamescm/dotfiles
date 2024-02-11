@@ -13,6 +13,7 @@ alias rm="rm -i"
 alias mv="mv -i"
 alias cp="cp -i"
 alias :q="exit"
+alias luamake=/tmp/lua-language-server/3rd/luamake/luamake
 
 run() {
 	if test -f Cargo.toml; then

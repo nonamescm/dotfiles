@@ -36,10 +36,10 @@ __initialize_git_prompt(){
 		local files_to_add="$(__get_files_to_add)"
 		local files_to_commit="$(__get_files_to_commit)"
 
-		local git_final_string=" %F{red}git:%f(%F{blue}$__GIT_BRANCH%f"
+		local git_final_string=" %F{red}git:%f(%F{green}$__GIT_BRANCH%f"
 
 		if [[ $files_to_add > 0 ]]; then
-			git_final_string+=" %F{green}*$files_to_add%f"
+			git_final_string+=" %F{blue}*$files_to_add%f"
 		fi
 
 		if [[ $files_to_commit > 0 ]]; then
@@ -55,7 +55,6 @@ __initialize_git_prompt(){
 
 precmd(){
 	local LAST_STAT=$?
-	__initialize_git_prompt
 
 	if [[ "$LAST_STAT" == "0" ]]; then
 		STATUS="%F{green}"
@@ -67,11 +66,11 @@ precmd(){
 	printf "\033[6 q"
 }
 
-chpwd(){
-	__initialize_git_prompt
-}
+__initialize_git_prompt
+add-zsh-hook chpwd __initialize_git_prompt
+
 ### }}}
 
-PROMPT='${STATUS}%c%f${__GIT_PROMPT} %f'
+PROMPT='%F{blue}%c${__GIT_PROMPT}%f${STATUS} %% %f'
 
 precmd

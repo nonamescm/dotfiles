@@ -3,6 +3,7 @@ autoload -Uz colors && colors
 autoload -Uz promptinit && promptinit
 autoload -Uz compinit && compinit
 autoload -U history-search-end
+autoload -U add-zsh-hook
 fpath+=~/.zfunc
 
 setopt autocd histignorealldups sharehistory no_nomatch prompt_subst interactivecomments
@@ -20,5 +21,8 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^[[A" history-beginning-search-backward-end
 bindkey "^[[B" history-beginning-search-forward-end
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
 
-#. /opt/asdf-vm/asdf.sh
+[ -f "/opt/asdf-vm/asdf.sh" ] && source "/opt/asdf-vm/asdf.sh"
+[ -f "/home/noname/.ghcup/env" ] && source "/home/noname/.ghcup/env" # ghcup-env

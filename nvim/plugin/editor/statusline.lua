@@ -12,7 +12,7 @@ galaxy.section.left = {
 	{
 		StartLeft = {
 			provider = function()
-				return "   "
+				return "   "
 			end,
 			highlight = { colors.black, colors.green },
 

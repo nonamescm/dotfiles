@@ -7,7 +7,7 @@ shape = "Beam"
 TERM = "xterm-256color"
 
 [font]
-size = 10.9
+size = 10.5
 
 [font.bold]
 family = "Iosevka SS14"
