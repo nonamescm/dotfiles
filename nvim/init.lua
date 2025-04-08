@@ -37,6 +37,7 @@ require("packer").startup(function(use)
 			"L3MON4D3/LuaSnip"
 		}
 	}
+	use "mfussenegger/nvim-jdtls" -- java specific plugin
 
 	-- tabline/statusline
 	use "akinsho/nvim-bufferline.lua"
@@ -47,7 +48,6 @@ require("packer").startup(function(use)
 	use "windwp/nvim-autopairs" -- auto open and close pairs
 	use "kyazdani42/nvim-tree.lua" -- file manager
 	use "lukas-reineke/indent-blankline.nvim" -- ident guides
-	use "andweeb/presence.nvim" -- Rich presence
 	use "glepnir/dashboard-nvim" -- dashboard screen
 	use "rcarriga/nvim-notify" -- better notifications
 end)
@@ -80,7 +80,7 @@ vim.o.splitbelow = true
 vim.o.wrap, vim.wo.wrap = false, false
 vim.o.number, vim.wo.number = true, true
 vim.o.cursorline, vim.wo.cursorline = true, true
-vim.o.relativenumber, vim.wo.relativenumber = true, true
+vim.o.relativenumber, vim.wo.relativenumber = false, false
 vim.o.foldenable = false
 vim.o.mouse = "a"
 vim.o.showtabline = 2

@@ -1,4 +1,3 @@
-import = ["/home/noname/.config/alacritty/bloop.toml"]
 
 [cursor.style]
 shape = "Beam"
@@ -31,3 +30,6 @@ opacity = 0.8
 [window.padding]
 x = 0
 y = 0
+
+[general]
+import = ["/home/noname/.config/alacritty/bloop.toml"]

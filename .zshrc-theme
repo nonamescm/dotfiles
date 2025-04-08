@@ -62,12 +62,13 @@ precmd(){
 		STATUS="%F{red}"
 	fi
 
+	__initialize_git_prompt
 
 	printf "\033[6 q"
 }
 
 __initialize_git_prompt
-add-zsh-hook chpwd __initialize_git_prompt
+#add-zsh-hook chpwd __initialize_git_prompt
 
 ### }}}
 
