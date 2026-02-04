@@ -91,6 +91,7 @@ window#waybar > box {
 	color: @blue;
 	border-radius: 5px;
 	padding: 5px 0px;
+	font-size: 12px;
 	font-family: "FiraCode Nerd Font Med";
 }
 

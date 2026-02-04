@@ -19,32 +19,33 @@ require("packer").startup(function(use)
 	use "alaviss/nim.nvim"
 	use {
 		"nvim-treesitter/nvim-treesitter",
-		version = false,
 		build = ":TSUpdate",
 		lazy = false,
 		main = "nvim-treesitter.configs",
 		branch = "master",
-		opts = {
-			ensure_installed = { "lua", "vim", "vimdoc", "nix", "rust", "haskell", "python", "javascript", "markdown", "markdown_inline", "json", "clojure" },
-			auto_install = true,
-			highlight = {
-				enable = true, 
-				use_languagetree = true
-			},
-			indent = { enable = true },
-			rainbow = {
-				enable = false,
-				colors = {
-					colors.red,
-					colors.orange,
-					colors.yellow,
-					colors.green,
-					colors.cyan,
-					colors.blue,
-					colors.purple,
+		config = function()
+			require("nvim-treesitter.configs").setup({
+				ensure_installed = { "lua", "vim", "vimdoc", "nix", "rust", "haskell", "python", "javascript", "markdown", "markdown_inline", "json", "clojure" },
+				auto_install = true,
+				highlight = {
+					enable = true, 
+					use_languagetree = true
+				},
+				indent = { enable = true },
+				rainbow = {
+					enable = false,
+					colors = {
+						colors.red,
+						colors.orange,
+						colors.yellow,
+						colors.green,
+						colors.cyan,
+						colors.blue,
+						colors.purple,
+					}
 				}
-			}
-		}
+			})
+		end
 	}
 	-- git integration
 	use {
@@ -126,3 +127,8 @@ require("gitsigns").setup()
 
 vim.cmd("command! Term split|term")
 vim.cmd("command! VTerm belowright vsplit|term")
+
+vim.api.nvim_create_autocmd('FileType', {
+	pattern = { "lua", "vim", "vimdoc", "nix", "rust", "haskell", "python", "javascript", "markdown", "markdown_inline", "json", "clojure" },
+	callback = function() vim.treesitter.start() end,
+})
