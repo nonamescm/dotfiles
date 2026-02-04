@@ -43,8 +43,6 @@ local function on_attach(client)
 	buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", opts)
 end
 
-local lspconf = require("lspconfig")
-
 local servers = {
 	"rust_analyzer",
 	"fsautocomplete",
@@ -66,25 +64,8 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 for _, server in ipairs(servers) do
-	lspconf[server].setup {
-		capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities),
-		on_attach = on_attach,
-		root_dir = vim.loop.cwd,
-	}
+	vim.lsp.enable(server)
 end
-
-lspconf.elixirls.setup {
-	cmd = { "/home/noname/.local/elixir-ls/language_server.sh" },
-	on_attach = on_attach,
-	capabilities = capabilities,
-	flags = {
-		debounce_text_changes = 150,
-	},
-	elixirLS = {
-		dialyzerEnabled = false,
-		fetchDeps = false,
-	},
-}
 
 -- replace the default lsp diagnostic letters with prettier symbols
 local symbols = {

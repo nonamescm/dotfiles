@@ -1,3 +1,4 @@
+local colors = require("colors")
 local vim = vim
 
 -- plugins
@@ -16,10 +17,35 @@ require("packer").startup(function(use)
 	-- syntax
 	use "nonamescm/neofsharp.vim"
 	use "alaviss/nim.nvim"
-	use "nvim-treesitter/nvim-treesitter"
-	use "nvim-treesitter/playground"
-	use "p00f/nvim-ts-rainbow"
-
+	use {
+		"nvim-treesitter/nvim-treesitter",
+		version = false,
+		build = ":TSUpdate",
+		lazy = false,
+		main = "nvim-treesitter.configs",
+		branch = "master",
+		opts = {
+			ensure_installed = { "lua", "vim", "vimdoc", "nix", "rust", "haskell", "python", "javascript", "markdown", "markdown_inline", "json", "clojure" },
+			auto_install = true,
+			highlight = {
+				enable = true, 
+				use_languagetree = true
+			},
+			indent = { enable = true },
+			rainbow = {
+				enable = false,
+				colors = {
+					colors.red,
+					colors.orange,
+					colors.yellow,
+					colors.green,
+					colors.cyan,
+					colors.blue,
+					colors.purple,
+				}
+			}
+		}
+	}
 	-- git integration
 	use {
 		"lewis6991/gitsigns.nvim",

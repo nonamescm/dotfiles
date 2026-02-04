@@ -19,10 +19,9 @@ HISTFILE=~/.zsh_history
 # auto filter history
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
-bindkey "^[[A" history-beginning-search-backward-end
-bindkey "^[[B" history-beginning-search-forward-end
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-beginning-search-backward-end
+bindkey "$terminfo[kcud1]" history-beginning-search-forward-end
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
-[ -f "/opt/asdf-vm/asdf.sh" ] && source "/opt/asdf-vm/asdf.sh"
-[ -f "/home/noname/.ghcup/env" ] && source "/home/noname/.ghcup/env" # ghcup-env

@@ -1,6 +1,6 @@
 #!/bin/zsh
-alias sudo="doas "
-alias doas="doas "
+alias sudo="sudo "
+alias doas="sudo "
 alias vim="nvim"
 alias vi="nvim"
 alias cl="clear"

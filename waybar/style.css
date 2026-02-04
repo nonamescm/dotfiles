@@ -1,119 +1,141 @@
 @define-color bg #0d0f11;
 @define-color fg #dee9f7;
-@define-color altbg #13161b;
+@define-color altbg #16191e;
 @define-color altfg #ffffff;
 @define-color revfg #242a33;
 @define-color red #ef3985;
-@define-color yellow #ffe985;
+@define-color yellow #dac965;
 @define-color green #41e692;
 @define-color blue #39a1df;
 @define-color orange #f7a1c5;
 
-* { 
-    padding: 0px;
-    margin: 0px;
+* > * { 
+	padding: 1px;
+	font-size: 15px;
+}
+
+#misc {
+	padding: 8px 4px;
+	background-color: @altbg;
+	border-radius: 1000px;
+}
+
+window#waybar > box > * {
+	margin: 2px;
 }
 
 window#waybar {
-    background-color: transparent;
-    font-family: Iosevka SS01, "Font Awesome 6 Free";
+	background-color: transparent;
+	font-family: "Symbols Nerd Font";
 }
 
 window#waybar > box {
-	/* margin-right: 10px; */
-    background-color: @bg;
-	/* box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, .40); */
-}
-
-#tray {
-    margin: 0px 5px;
-    font-size: 16px;
-    background: @altbg;
-	border-radius: 5px;
-	padding: 10px 5px;
+	background-color: @bg;
 }
 
 #workspaces {
-    margin: 0px 5px 0px 5px;
-    font-size: 14px;
-    padding: 2px;
+	font-family: "FiraCode Nerd Font Med";
 	background: @altbg;
-	border-radius: 5px;
+	border-radius: 1000px;
+	padding: 2px;
 }
 
 #workspaces button {
-    padding: 7px;
-	border-radius: 5px;
+	padding: 0px 4px;
+	padding-left: 1px;
+	border-radius: 1000px;
 }
 
 #workspaces button:hover {
-    background: @bg;
-    box-shadow: inherit;
-    text-shadow: inherit;
-    border-color: @bg;
+	background: @revfg;
+	box-shadow: inherit;
+	text-shadow: inherit;
 }
 
 #workspaces button.active {
-    background-color: @bg;
+	background-color: @revfg;
 }
 
-#pulseaudio {
-    color: @red;
-    background-color: @altbg;
-    font-size: 16px;
-    border-radius: 5px;
-    padding: 10px 0px;
-    margin: 2.5px 5px;
-	margin-top: 0px;
+#tray {
+	border-radius: 100000px;
+	padding: 15px 0px;
+	background-color: @altbg;
+	margin-bottom: 5px;
 }
 
 #network {
-    color: @orange;
-    background-color: @altbg;
-    font-size: 14px;
-    border-radius: 5px;
-    padding: 10px 0px;
-    margin: 2.5px 5px;
+	color: @orange;
+	border-radius: 5px;
+	padding: 5px 0px;
 }
 
-#clock {
-    color: @blue;
-    background-color: @altbg;
-    font-size: 16px;
-    border-radius: 5px;
-    padding: 10px 0px;
-    margin: 2.5px 5px;
-}
-
-#battery {
-    color: @green;
-    background-color: @altbg;
-    font-size: 16px;
-    border-radius: 5px;
-    padding: 10px 0px;
-    margin: 2.5px 5px;
+#pulseaudio {
+	color: @red;
+	border-radius: 5px;
+	padding: 5px 0px;
 }
 
 #backlight {
-    color: @yellow;
-    background-color: @altbg;
-    font-size: 16px;
-    border-radius: 5px;
-    padding: 10px 0px;
-    margin: 2.5px 5px;
+	color: @yellow;
+	border-radius: 5px;
+	padding: 5px 0px;
 }
 
-#custom-launcher {
-	font-family: JetBrainsMono Nerd Font Mono;
+#battery {
+	color: @green;
+	border-radius: 5px;
+	padding: 5px 0px;
+}
+
+#clock {
+	color: @blue;
+	border-radius: 5px;
+	padding: 5px 0px;
+	font-family: "FiraCode Nerd Font Med";
+}
+
+#audio, #brightness {
+	padding: 0;
+	margin: 0;
+	min-width: 0;
+}
+
+#pulseaudio-slider slider, #backlight-slider slider {
+	min-height: 0px;
+	min-width: 0px;
+	opacity: 0;
+	background-image: none;
+	border: none;
+	box-shadow: none;
+	background-color: transparent;
+}
+
+#pulseaudio-slider trough, #backlight-slider trough {
+	min-height: 80px;
+	min-width: 2px;
+	border-radius: 5px;
+	background-color: @altbg;
+	border: none;
+	box-shadow: none;
+}
+
+#pulseaudio-slider highlight, #backlight-slider highlight {
+	min-width: 2px;
+	border-radius: 5px;
+	border: none;
+	box-shadow: none;
+}
+
+#pulseaudio-slider highlight {
+	background-color: @red;
+}
+#backlight-slider highlight {
+	background-color: @yellow;
+}
+
+#custom-nixos {
     color: @blue;
-    background-color: @altbg;
     font-size: 30px;
-    border-radius: 5px;
-    padding: 0px 0px;
-    margin: 2.5px 5px;
-	margin-bottom: 0px;
-}
-
-#custom-separator {
-    color: @revfg;
+    border-radius: 1000px;
+    padding: 1px;
 }

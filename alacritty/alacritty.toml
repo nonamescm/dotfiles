@@ -1,4 +1,3 @@
-
 [cursor.style]
 shape = "Beam"
 
@@ -6,18 +5,18 @@ shape = "Beam"
 TERM = "xterm-256color"
 
 [font]
-size = 10.5
+size = 10
 
 [font.bold]
-family = "Iosevka SS14"
-style = "Medium"
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
 
 [font.italic]
-family = "Iosevka SS14"
-style = "Medium Italic"
+family = "JetBrainsMono Nerd Font"
+style = "Italic"
 
 [font.normal]
-family = "Iosevka SS14"
+family = "FiraCode Nerd Font Mono"
 style = "Regular"
 
 [font.offset]

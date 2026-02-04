@@ -1,5 +1,6 @@
 configuration {
-	font: "Iosevka SS14 Light 18";
+	margin-bottom: 0px;
+	font: "FiraCode Nerd Font 15";
 	show-icons: true;
 	icon-theme: "Papirus";
 	display-drun: "";
@@ -9,6 +10,7 @@ configuration {
 	hide-scrollbar: true;
 	sidebar-mode: false;
 }
+
 @theme "/dev/null"
 
 element-text, element-icon  {
@@ -17,22 +19,23 @@ element-text, element-icon  {
 }
 
 * {
-	background: #13161b;
-	background-alt: #13161b;
+	background: #13161bbb;
+	background-alt: #13161bbb;
 	foreground: #dee9f7;
-	border-alt: #13161b;
+	foreground-alt: #bec9d7;
+	border-alt: #13161bbb;
 	border: #242a33;
-	selected: #242a33;
+	selected: #242a3377;
 	urgent: #ef3985;
 }
 
 
 window {
-	transparency: "real";
 	background-color: @background;
 	text-color: @foreground;
-	border: 2px 2px 2px 2px;
+	border: 2px;
 	border-color: @border;
+	border-radius: 5px;
 	height: 60%;
 	width: 46.66%;
 	location: Center;
@@ -43,26 +46,27 @@ window {
 prompt {
 	enabled: true;
 	padding: 0% 1% 0% 0%;
-	background-color: @background;
+	background-color: transparent;
 	text-color: @foreground;
-	font: "Iosevka Nerd Font Mono 24";
 }
 
 entry {
-	background-color: @background;
+	background-color: transparent;
 	text-color: @foreground;
 	placeholder-color: @foreground;
 	expand: true;
 	horizontal-align: 0;
 	vertical-align: 0.5;
 	placeholder: "Search Applications";
-	padding: 0.15% 0% 0% 0%;
+	padding: 0.05% 0% 0% 0%;
 	blink: false;
+	cursor-width: 1px;
+	cursor-color: @foreground-alt;
 }
 
 inputbar {
 	children: [prompt,entry];
-	background-color: @background;
+	background-color: @selected;
 	text-color: @foreground;
 	expand: false;
 	border: 0%;
@@ -73,8 +77,8 @@ inputbar {
 }
 
 listview {
-	background-color: @background;
-	columns: 1;
+	background-color: transparent;
+	columns: 2;
 	spacing: 1%;
 	cycle: false;
 	dynamic: true;
@@ -82,26 +86,28 @@ listview {
 }
 
 mainbox {
-	background-color: @background;
+	background-color: transparent;
 	children: [inputbar,listview];
 	spacing: 2%;
 	padding: 2.5% 2% 2.5% 2%;
 }
 
 element {
-	background-color: @background;
+	background-color: transparent;
 	text-color: @foreground;
 	orientation: horizontal;
 	border-radius: 0%;
-	padding: 2% 2% 2% 2%;
+	padding: 1% 1% 1% 1%;
 }
 
 element-icon {
+	background-color: transparent;
 	size: 4%;
 	border: 0px;
 }
 
 element-text {
+	background-color: transparent;
 	expand: true;
 	horizontal-align: 0;
 	vertical-align: 0.5;
@@ -122,7 +128,6 @@ element normal.active, element alternate.active {
 element selected {
 	background-color: @selected;
 	text-color: @foreground;
-	border: 0% 0.2% 0.3% 0%;
 	border-radius: 0.4%;
 	border-color: @border-alt;
 }
