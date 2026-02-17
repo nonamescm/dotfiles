@@ -115,7 +115,7 @@ window#waybar > box {
 	min-height: 80px;
 	min-width: 2px;
 	border-radius: 5px;
-	background-color: @altbg;
+	background-color: @bg;
 	border: none;
 	box-shadow: none;
 }
