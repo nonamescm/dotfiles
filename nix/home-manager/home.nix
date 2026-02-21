@@ -10,7 +10,7 @@ in
   # plain files is through 'home.file'.
   home.sessionVariables = {
     EDITOR = "nvim";
-	QT_QPA_PLATFORMTHEME = "qt5ct";
+    QT_QPA_PLATFORMTHEME = "qt5ct";
   };
   programs.home-manager.enable = true;
 

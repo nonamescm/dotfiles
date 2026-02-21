@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
     ];
 
   services.pulseaudio.enable = false;
@@ -173,7 +173,6 @@
     git
     ripgrep
     ly
-    discord
     steam
     steam-run
     waybar
@@ -186,6 +185,7 @@
     xbacklight
     libsForQt5.qt5ct
     pulseaudio
+    discord
   ];
   programs.zsh.enable = true;
   programs.hyprland = {
