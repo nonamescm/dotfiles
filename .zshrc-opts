@@ -6,6 +6,8 @@ autoload -U history-search-end
 autoload -U add-zsh-hook
 fpath+=~/.zfunc
 
+export EDITOR=nvim
+
 setopt autocd histignorealldups sharehistory no_nomatch prompt_subst interactivecomments
 
 # Use emacs keybindings even if our EDITOR is set to vi
@@ -24,4 +26,3 @@ bindkey "$terminfo[kcuu1]" history-beginning-search-backward-end
 bindkey "$terminfo[kcud1]" history-beginning-search-forward-end
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
-

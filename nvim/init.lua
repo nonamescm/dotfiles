@@ -132,3 +132,5 @@ vim.api.nvim_create_autocmd('FileType', {
 	pattern = { "lua", "vim", "vimdoc", "nix", "rust", "haskell", "python", "javascript", "markdown", "markdown_inline", "json", "clojure" },
 	callback = function() vim.treesitter.start() end,
 })
+
+vim.api.nvim_set_keymap("n", "Q", "<cmd>bd<CR>", {})
