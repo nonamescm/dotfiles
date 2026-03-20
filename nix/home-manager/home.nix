@@ -48,4 +48,32 @@ in
     settings.user.name = "nonamescm";
     settings.user.email = "snadragona12bionic@gmail.com";
   };
+
+  nixpkgs.config.allowUnfree = true;
+  home.packages = with pkgs; [
+    alacritty
+    waybar
+    swaybg
+    chromium
+    dunst
+    ghc
+    eww
+    discord
+    rofi
+    feh
+    flameshot
+    grim
+  ];
+
+  services.flameshot = {
+    enable = true;
+    settings = {
+      General = {
+        useGrimAdapter = true;
+        disabledGrimWarning = true;
+        drawColor = "#ff0000";
+        savePath = "/home/noname/Downloads";
+      };
+    };
+  };
 }
