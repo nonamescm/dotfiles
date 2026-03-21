@@ -1,6 +1,8 @@
 local colors = require("colors")
 local vim = vim
 
+vim.g.mapleader = " "
+
 -- plugins
 require("packer").startup(function(use)
 	-- packer
@@ -69,7 +71,7 @@ require("packer").startup(function(use)
 	-- tabline/statusline
 	use "akinsho/nvim-bufferline.lua"
 	use "kyazdani42/nvim-web-devicons"
-	use "nvimdev/galaxyline.nvim"
+	use "nvim-lualine/lualine.nvim"
 
 	-- others
 	use "windwp/nvim-autopairs" -- auto open and close pairs
@@ -114,9 +116,9 @@ vim.o.showtabline = 2
 vim.o.termguicolors = true
 vim.o.guicursor = "v-c-sm:block,c-i-ci-ve:ver25,r-cr-o:hor20"
 vim.o.laststatus = 3
-vim.o.tabstop, vim.bo.tabstop = 4, 4
-vim.o.shiftwidth, vim.bo.shiftwidth = 4, 4
-
+vim.o.tabstop, vim.bo.tabstop = 2, 2
+vim.o.shiftwidth, vim.bo.shiftwidth = 2, 2
+	
 
 -- plugins that doesn"t need configuration requires
 require("colorizer").setup()

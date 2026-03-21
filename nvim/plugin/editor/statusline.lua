@@ -1,217 +1,100 @@
-local vim = vim
-
-local galaxy = require("galaxyline")
-local condition = require("galaxyline.condition")
-local vcs = require("galaxyline.provider_vcs")
-local fileinfo = require("galaxyline.provider_fileinfo")
 local colors = require("colors")
 
-galaxy.short_line_list = { "packer" } -- keeping this table { } as empty will show inactive statuslines
-
-galaxy.section.left = {
-	{
-		StartLeft = {
-			provider = function()
-				return "   "
-			end,
-			highlight = { colors.black, colors.green },
-
-			separator = "",
-			separator_highlight = { colors.green, colors.black },
-		}
+-- 1. Create a custom theme based on your Galaxyline colors
+local theme = {
+	normal = {
+		a = { fg = colors.black, bg = colors.green, gui = 'bold' },
+		b = { fg = colors.green, bg = colors.black },
+		c = { fg = colors.fg, bg = colors.black2 },
 	},
-	{
-		StatusLeft = {
-			condition = function()
-				return condition.check_git_workspace() and vcs.get_git_branch() ~= nil
-			end,
-			provider = function()
-				return "  " .. vcs.get_git_branch()
-			end,
-			highlight = { colors.green, colors.black },
-
-			separator = "@",
-			separator_highlight = { colors.black, colors.black },
-		}
+	insert = { a = { fg = colors.black, bg = colors.blue } },
+	visual = { a = { fg = colors.black, bg = colors.purple } },
+	replace = { a = { fg = colors.black, bg = colors.red } },
+	inactive = {
+		a = { fg = colors.fg, bg = colors.black },
+		b = { fg = colors.fg, bg = colors.black },
+		c = { fg = colors.fg, bg = colors.black },
 	},
-	{
-		GitDiffAdd = {
-			condition = condition.check_git_workspace,
-			provider = "DiffAdd",
-			icon = "  ",
-			highlight = { colors.purple, colors.black },
-
-			separator = "@",
-			separator_highlight = { colors.black, colors.black },
-		}
-	},
-	{
-		GitDiffModified = {
-			condition = condition.check_git_workspace,
-			provider = "DiffModified",
-			icon = "  ",
-			highlight = { colors.blue, colors.black },
-
-			separator = "@",
-			separator_highlight = { colors.black, colors.black },
-		}
-	},
-	{
-		GitDiffRemove = {
-			condition = condition.check_git_workspace,
-			provider = "DiffRemove",
-			icon = "  ",
-			highlight = { colors.red, colors.black },
-
-			separator = "@",
-			separator_highlight = { colors.black, colors.black },
-		}
-	},
-	{
-		LeftSectionStart = {
-			provider = function()
-				return ""
-			end,
-			highlight = { colors.black, colors.black2 },
-
-			separator = "@@",
-			separator_highlight = { colors.black2, colors.black2 },
-		}
-	},
-	{
-		FileIcon = {
-			provider = function()
-				return fileinfo.get_file_icon()
-			end,
-
-			highlight = { fileinfo.get_file_icon_color(), colors.black2 }
-		}
-	},
-	{
-		FileName = {
-			provider = function()
-				local name = fileinfo.get_current_file_name()
-
-				if name == "" then
-					return "Empty buffer"
-				else
-					return name
-				end
-			end,
-			highlight = { colors.fg, colors.black2 },
-
-			separator = "@@",
-			separator_highlight = { colors.black2, colors.black2 },
-		}
-	},
-	{
-		LeftSectionEnd = {
-			provider = function()
-				return ""
-			end,
-			highlight = { colors.black2, colors.black },
-
-			separator = "@@",
-			separator_highlight = { colors.black, colors.black },
-		}
-	}
 }
 
-galaxy.section.right = {
-	{
-		LspErrorInfo = {
-			provider = "DiagnosticError",
-			highlight = { colors.red, colors.black },
-			icon = " ",
+require('lualine').setup({
+	options = {
+		theme = theme,
+		component_separators = '',
+		section_separators = { left = '', right = '' }, -- Matches your slanted separators
+		disabled_filetypes = { 'packer' },
+		globalstatus = true,
+	},
+	sections = {
+		lualine_a = {
+			{ 
+				function() return "" end, 
+				padding = { left = 2, right = 1 } 
+			},
+		},
+		lualine_b = {
+			{ 'branch', icon = '', color = { fg = colors.green } },
+			{ 
+				'diff', 
+				symbols = { added = ' ', modified = ' ', removed = ' ' },
+				diff_color = {
+					added = { fg = colors.purple },
+					modified = { fg = colors.blue },
+					removed = { fg = colors.red },
+				},
+			},
+		},
+		lualine_c = {
+			{
+				'filetype',
+				icon_only = true,
+				separator = '',
+				padding = { left = 1, right = 0 }
+			},
+			{ 
+				'filename', 
+				file_status = true, 
+				path = 0,
+				symbols = { unnamed = 'Empty buffer' },
+				padding = { left = 0, right = 0 }
+			},
+		},
+		lualine_x = {
+			{
+				'diagnostics',
+				sources = { 'nvim_diagnostic' },
+				symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
+				diagnostics_color = {
+					error = { fg = colors.red },
+					warn = { fg = colors.yellow },
+					info = { fg = colors.blue },
+					hint = { fg = colors.green },
+				},
+			},
+		},
+		lualine_y = {
+			{
+        function() return "" end,
+        color = { fg = colors.blue, bg = colors.black2 },
+        padding = { left = 1, right = 0 },
+			},
+			{
+				function()
+					local folder = vim.fn.expand("%:p:h")
+					local cwd = vim.fn.getcwd()
+					if folder:sub(1, cwd:len()) == cwd then
+						local _, bound = folder:find(cwd, nil, true)
+						return "." .. folder:sub(bound + 1)
+					else
+						return folder
+					end
+				end,
+				color = { fg = colors.fg, bg = colors.black2 },
+			}
+		},
+		lualine_z = {
+			{ 'location', color = { fg = colors.fg, bg = colors.black2 } }
+		},
+	},
+})
 
-			separator = "@",
-			separator_highlight = { colors.black, colors.black },
-		}
-	},
-	{
-		LspWarnInfo = {
-			provider = "DiagnosticWarn",
-			highlight = { colors.yellow, colors.black },
-			icon = " ",
-
-			separator = "@",
-			separator_highlight = { colors.black, colors.black },
-		}
-	},
-	{
-		LspHintInfo = {
-			provider = "DiagnosticHint",
-			highlight = { colors.green, colors.black },
-			icon = " ",
-
-			separator = "@",
-			separator_highlight = { colors.black, colors.black },
-		}
-	},
-	{
-		LspInfoInfo = {
-			provider = "DiagnosticInfo",
-			highlight = { colors.blue, colors.black },
-			icon = " ",
-
-			separator = "@",
-			separator_highlight = { colors.black, colors.black },
-		}
-	},
-	{
-		RightSectionStart = {
-			provider = function()
-				return ""
-			end,
-			highlight = { colors.black, colors.black2 },
-		}
-	},
-	{
-		FolderIcon = {
-			provider = function()
-				return " "
-			end,
-			highlight = { colors.blue, colors.black2 },
-
-			separator = "@@",
-			separator_highlight = { colors.black2, colors.black2 },
-		}
-	},
-	{
-		FolderName = {
-			provider = function()
-				local folder = vim.fn.expand("%:p:h")
-				local cwd = vim.fn.getcwd()
-				if folder:sub(1, cwd:len()) == cwd then
-					local _, bound = folder:find(cwd, nil, true)
-					return "." .. folder:sub(bound + 1)
-				else
-					return folder
-				end
-			end,
-			highlight = { colors.fg, colors.black2 },
-
-			separator = "@",
-			separator_highlight = { colors.black2, colors.black2 },
-		}
-	},
-	{
-		RightSectionEnd = {
-			provider = function()
-				return ""
-			end,
-			highlight = { colors.black2, colors.black },
-
-			separator = "@",
-			separator_highlight = { colors.black2, colors.black2 },
-		}
-	},
-	{
-		EndRight = {
-			provider = function()
-				return "@"
-			end,
-			highlight = { colors.black, colors.black }
-		}
-	}
-}
