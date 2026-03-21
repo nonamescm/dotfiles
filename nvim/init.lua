@@ -27,7 +27,6 @@ require("packer").startup(function(use)
 		branch = "master",
 		config = function()
 			require("nvim-treesitter.configs").setup({
-				ensure_installed = { "lua", "vim", "vimdoc", "nix", "rust", "haskell", "python", "javascript", "markdown", "markdown_inline", "json", "clojure" },
 				auto_install = true,
 				highlight = {
 					enable = true, 
