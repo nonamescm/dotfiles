@@ -1,0 +1,113 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+* {
+    --bg-primary: #080812;      /* Main background */
+    --bg-secondary: #181828;    /* Search switcher background */
+    --bg-highlight: #3a3a4a;    /* Borders and Hover states */
+    
+    --text-primary: #e0e0e0;    /* Main text color */
+    --text-secondary: #c0c0c0;  /* Close buttons/icons */
+    
+    --color-accent: #ff5555;    /* Red/Danger/Hover states */
+}
+
+/* ------------------------------
+   Styles
+------------------------------- */
+
+#urlbar-searchmode-switcher, .searchmode-switcher-chicklet {
+    background-color: var(--bg-secondary) !important;
+}
+
+#navigator-toolbox {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Tabs */
+#sidebar-main {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+    padding: 0px;
+    margin: 0px;
+}
+
+#tabbrowser-tabs {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+    padding: 0px;
+}
+
+.tab-content {
+    padding 0px;
+}
+
+.tab-background:hover {
+    background-color: blue !important;
+}
+
+.tab-background[selected] {
+    background-color: var(--bg-secondary) !important;;
+}
+/* ------------------------------
+   Toolbar buttons (back, forward, reload)
+------------------------------- */
+.toolbarbutton-1 {
+    background-color: var(--bg-primary) !important;
+    border-radius: 4px !important;
+}
+
+.toolbarbutton-1:hover {
+    background-color: var(--bg-primary) !important;
+}
+
+/* ------------------------------
+   URL bar / search bar
+------------------------------- */
+#urlbar, #searchbar {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--bg-highlight) !important;
+}
+
+#urlbar:focus {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--bg-highlight) !important;
+}
+
+.urlbar-background {
+  background-color: var(--bg-primary) !important;
+}
+
+/* ------------------------------
+   Menus
+------------------------------- */
+menupopup, popup {
+    color: var(--text-primary) !important;
+}
+
+arrowscrollbox.menupopup-arrowscrollbox {
+    background-color: var(--bg-primary) !important;
+}
+
+menuitem, menu, toolbarbutton {
+    font-size: 12px !important;
+}
+
+/* Hover for menu items */
+menuitem:hover, toolbarbutton:hover {
+    background-color: var(--bg-highlight) !important;
+}
+
+.buttons-wrapper {
+    display: none !important;
+}
+
+tools-overflow {
+    background-color: blue !important;;
+}
+
+.titlebar-button {
+    display: none;
+}

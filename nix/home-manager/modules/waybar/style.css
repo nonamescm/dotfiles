@@ -1,0 +1,142 @@
+@define-color bg #0d0f11;
+@define-color fg #dee9f7;
+@define-color altbg #16191e;
+@define-color altfg #ffffff;
+@define-color revfg #242a33;
+@define-color red #ef3985;
+@define-color yellow #dac965;
+@define-color green #41e692;
+@define-color blue #39a1df;
+@define-color orange #f7a1c5;
+
+* > * { 
+	padding: 1px;
+	font-size: 15px;
+}
+
+#misc {
+	padding: 8px 4px;
+	background-color: @altbg;
+	border-radius: 1000px;
+}
+
+window#waybar > box > * {
+	margin: 2px;
+}
+
+window#waybar {
+	background-color: transparent;
+	font-family: "Symbols Nerd Font";
+}
+
+window#waybar > box {
+	background-color: @bg;
+}
+
+#workspaces {
+	font-family: "FiraCode Nerd Font Med";
+	background: @altbg;
+	border-radius: 1000px;
+	padding: 2px;
+}
+
+#workspaces button {
+	padding: 0px 4px;
+	padding-left: 1px;
+	border-radius: 1000px;
+}
+
+#workspaces button:hover {
+	background: @revfg;
+	box-shadow: inherit;
+	text-shadow: inherit;
+}
+
+#workspaces button.active {
+	background-color: @revfg;
+}
+
+#tray {
+	border-radius: 100000px;
+	padding: 15px 0px;
+	background-color: @altbg;
+	margin-bottom: 5px;
+}
+
+#network {
+	color: @orange;
+	border-radius: 5px;
+	padding: 5px 0px;
+}
+
+#pulseaudio {
+	color: @red;
+	border-radius: 5px;
+	padding: 5px 0px;
+}
+
+#backlight {
+	color: @yellow;
+	border-radius: 5px;
+	padding: 5px 0px;
+}
+
+#battery {
+	color: @green;
+	border-radius: 5px;
+	padding: 5px 0px;
+}
+
+#clock {
+	color: @blue;
+	border-radius: 5px;
+	padding: 5px 0px;
+	font-size: 12px;
+	font-family: "FiraCode Nerd Font Med";
+}
+
+#audio, #brightness {
+	padding: 0;
+	margin: 0;
+	min-width: 0;
+}
+
+#pulseaudio-slider slider, #backlight-slider slider {
+	min-height: 0px;
+	min-width: 0px;
+	opacity: 0;
+	background-image: none;
+	border: none;
+	box-shadow: none;
+	background-color: transparent;
+}
+
+#pulseaudio-slider trough, #backlight-slider trough {
+	min-height: 80px;
+	min-width: 2px;
+	border-radius: 5px;
+	background-color: @bg;
+	border: none;
+	box-shadow: none;
+}
+
+#pulseaudio-slider highlight, #backlight-slider highlight {
+	min-width: 2px;
+	border-radius: 5px;
+	border: none;
+	box-shadow: none;
+}
+
+#pulseaudio-slider highlight {
+	background-color: @red;
+}
+#backlight-slider highlight {
+	background-color: @yellow;
+}
+
+#custom-nixos {
+    color: @blue;
+    font-size: 30px;
+    border-radius: 1000px;
+    padding: 1px;
+}

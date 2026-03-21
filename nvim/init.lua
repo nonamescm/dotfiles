@@ -1,4 +1,7 @@
+local colors = require("colors")
 local vim = vim
+
+vim.g.mapleader = " "
 
 -- plugins
 require("packer").startup(function(use)
@@ -8,10 +11,44 @@ require("packer").startup(function(use)
 	-- colors
 	use "norcalli/nvim-colorizer.lua"
 	use "nonamescm/notheme.nvim"
+	use {
+		"nocksock/bloop.nvim",
+		requires = "rktjmp/lush.nvim",
+	}
 
 	-- syntax
 	use "nonamescm/neofsharp.vim"
-
+	use "alaviss/nim.nvim"
+	use {
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		lazy = false,
+		main = "nvim-treesitter.configs",
+		branch = "master",
+		config = function()
+			require("nvim-treesitter.configs").setup({
+				ensure_installed = { "lua", "vim", "vimdoc", "nix", "rust", "haskell", "python", "javascript", "markdown", "markdown_inline", "json", "clojure" },
+				auto_install = true,
+				highlight = {
+					enable = true, 
+					use_languagetree = true
+				},
+				indent = { enable = true },
+				rainbow = {
+					enable = false,
+					colors = {
+						colors.red,
+						colors.orange,
+						colors.yellow,
+						colors.green,
+						colors.cyan,
+						colors.blue,
+						colors.purple,
+					}
+				}
+			})
+		end
+	}
 	-- git integration
 	use {
 		"lewis6991/gitsigns.nvim",
@@ -20,9 +57,6 @@ require("packer").startup(function(use)
 
 	-- lsp
 	use "neovim/nvim-lspconfig"
-	use "p00f/nvim-ts-rainbow"
-	use "nvim-treesitter/nvim-treesitter"
-	use "nvim-treesitter/playground"
 	use {
 		"hrsh7th/nvim-cmp",
 		requires = {
@@ -32,17 +66,17 @@ require("packer").startup(function(use)
 			"L3MON4D3/LuaSnip"
 		}
 	}
+	use "mfussenegger/nvim-jdtls" -- java specific plugin
 
 	-- tabline/statusline
 	use "akinsho/nvim-bufferline.lua"
 	use "kyazdani42/nvim-web-devicons"
-	use "nonamescm/galaxyline.nvim"
+	use "nvim-lualine/lualine.nvim"
 
 	-- others
 	use "windwp/nvim-autopairs" -- auto open and close pairs
 	use "kyazdani42/nvim-tree.lua" -- file manager
 	use "lukas-reineke/indent-blankline.nvim" -- ident guides
-	use "andweeb/presence.nvim" -- Rich presence
 	use "glepnir/dashboard-nvim" -- dashboard screen
 	use "rcarriga/nvim-notify" -- better notifications
 end)
@@ -70,26 +104,35 @@ vim.g.markdown_fenced_languages = {
 	"scala=scala",
 }
 
-local opt, bopt, wopt = vim.o, vim.bo, vim.wo
-opt.background = "light"
-opt.splitbelow = true
-opt.wrap, wopt.wrap = false, false
-opt.number, wopt.number = true, true
-opt.cursorline, wopt.cursorline = true, true
-opt.relativenumber, wopt.relativenumber = true, true
-opt.foldenable = false
-opt.mouse = "a"
-opt.tabstop, bopt.tabstop = 4, 4
-opt.shiftwidth, bopt.shiftwidth = 4, 4
-opt.expandtab = false
-opt.showtabline = 2
-opt.termguicolors = true
-opt.guicursor = "v-c-sm:block,c-i-ci-ve:ver25,r-cr-o:hor20"
+vim.o.background = "light"
+vim.o.splitbelow = true
+vim.o.wrap, vim.wo.wrap = false, false
+vim.o.number, vim.wo.number = true, true
+vim.o.cursorline, vim.wo.cursorline = true, true
+vim.o.relativenumber, vim.wo.relativenumber = false, false
+vim.o.foldenable = false
+vim.o.mouse = "a"
+vim.o.showtabline = 2
+vim.o.termguicolors = true
+vim.o.guicursor = "v-c-sm:block,c-i-ci-ve:ver25,r-cr-o:hor20"
+vim.o.laststatus = 3
+vim.o.tabstop, vim.bo.tabstop = 2, 2
+vim.o.shiftwidth, vim.bo.shiftwidth = 2, 2
+	
 
 -- plugins that doesn"t need configuration requires
 require("colorizer").setup()
-vim.cmd("colorscheme notheme")
+vim.cmd("set background=dark")
+vim.cmd("colorscheme bloop")
+
 require("gitsigns").setup()
 
 vim.cmd("command! Term split|term")
 vim.cmd("command! VTerm belowright vsplit|term")
+
+vim.api.nvim_create_autocmd('FileType', {
+	pattern = { "lua", "vim", "vimdoc", "nix", "rust", "haskell", "python", "javascript", "markdown", "markdown_inline", "json", "clojure" },
+	callback = function() vim.treesitter.start() end,
+})
+
+vim.api.nvim_set_keymap("n", "Q", "<cmd>bd<CR>", {})

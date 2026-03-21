@@ -1,0 +1,24 @@
+/* hides sponsored content */
+html body.activity-stream div#root div.has-search.no-recommended-stories div.outer-wrapper.ds-outer-wrapper-breakpoint-override.visible-logo main.newtab-main div.body-wrapper.on div.discovery-stream.ds-layout.ds-layout-topsites {
+	display: none !important;	
+}
+
+/* changes background color */
+html body.activity-stream div#root {
+	background-color: #181820 !important;
+}
+
+/* hides the customize button */
+html body.activity-stream div#root div.has-search.no-recommended-stories menu.personalizeButtonWrapper {
+	display: none !important;
+}
+
+/* hides the "Firefox" written next to the logo */
+html body.activity-stream div#root div.has-search.no-recommended-stories div.outer-wrapper.ds-outer-wrapper-breakpoint-override.visible-logo main.newtab-main div.non-collapsible-section div.search-wrapper h1.logo-and-wordmark-wrapper div.logo-and-wordmark {
+	display: none !important;
+}
+
+/* changes the background color of the search bar */
+html body.activity-stream div#root div.has-search.no-recommended-stories div.outer-wrapper.ds-outer-wrapper-breakpoint-override.visible-logo main.newtab-main div.non-collapsible-section div.search-wrapper div.search-inner-wrapper button.search-handoff-button {
+	background-color: #282838 !important;
+}
