@@ -26,13 +26,14 @@ in
       color15 = bloop.bright.white;
 
       font_family = "family='CaskaydiaCove Nerd Font Mono' style=Light";
-      italic_font = "CaskaydiaCove Nerd Font";
-      bold_font = "CaskaydiaCove Nerd Font";
+      italic_font = "family='CaskaydiaCove Nerd Font Mono' style=Light";
+      bold_font = "family='CaskaydiaCove Nerd Font' style=Light";
       font_size = 10;
       background_opacity = "0.6";
       cursor_shape = "beam";
       cursor_blink_interval = "0";
       term = "xterm-256color";
+      scrollback_indicator_opacity = "0";
     };
   };
 }
