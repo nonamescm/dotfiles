@@ -2,8 +2,7 @@
 {
   programs.rofi = {
     enable = true;
-    # Use pkgs.rofi-wayland if you are on Wayland
-    package = pkgs.rofi-wayland;
+    package = pkgs.rofi;
 
     extraConfig = {
       font = "FiraCode Nerd Font 15";
@@ -22,8 +21,6 @@
         inherit (config.lib.formats.rasi) mkLiteral;
       in
       {
-        # The @theme "/dev/null" is handled by Home Manager starting with a clean slate
-
         "*" = {
           background = mkLiteral "#13161bbb";
           background-alt = mkLiteral "#13161bbb";
