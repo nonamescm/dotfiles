@@ -6,7 +6,6 @@ in
   programs.kitty = {
     enable = true;
     settings = {
-      # Primary
       background = bloop.primary.background;
       foreground = bloop.primary.foreground;
       color0 = bloop.normal.black;
@@ -26,10 +25,13 @@ in
       color14 = bloop.bright.cyan;
       color15 = bloop.bright.white;
 
-      font_family = "JetBrainsMono Nerd Font Mono";
+      font_family = "family='CaskaydiaCove Nerd Font Mono' style=Light";
+      italic_font = "CaskaydiaCove Nerd Font";
+      bold_font = "CaskaydiaCove Nerd Font";
       font_size = 10;
-      background_opacity = "0.8";
+      background_opacity = "0.6";
       cursor_shape = "beam";
+      cursor_blink_interval = "0";
       term = "xterm-256color";
     };
   };

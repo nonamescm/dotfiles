@@ -14,7 +14,7 @@
     autocd = true;
     defaultKeymap = "emacs";
 
-    initExtra = ''
+    initContent = ''
       setopt no_nomatch prompt_subst interactivecomments
       fpath+=~/.zfunc
 

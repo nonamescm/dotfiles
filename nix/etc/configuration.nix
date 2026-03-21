@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    /etc/nixos/hardware-configuration.nix
+    ./hardware-configuration.nix
     ./modules/audio.nix
     ./modules/bluetooth.nix
     ./modules/boot.nix
