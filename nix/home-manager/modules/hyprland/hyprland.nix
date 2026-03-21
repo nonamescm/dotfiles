@@ -8,8 +8,8 @@
   wayland.windowManager.hyprland.settings = {
     exec-once = [
       "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-      "waybar & zsh -c \"$(sleep 5; flameshot) & disown\""
       "swaybg -i ${./fractal2.png}"
+      "waybar"
     ];
 
     env = [ "XCURSOR_SIZE,24" ];
