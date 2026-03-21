@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   home.username = "noname";
   home.homeDirectory = "/home/noname";
@@ -10,6 +10,7 @@
 
   imports = [
     ./modules/alacritty/alacritty.nix
+    ./modules/kitty/kitty.nix
     ./modules/waybar/waybar.nix
     ./modules/flameshot.nix
     ./modules/git.nix
@@ -18,6 +19,8 @@
     ./modules/mcmojave.nix
     ./modules/qt.nix
     ./modules/rofi.nix
+    ./modules/zsh.nix
+    ./modules/xresources.nix
   ];
 
   programs.home-manager.enable = true;

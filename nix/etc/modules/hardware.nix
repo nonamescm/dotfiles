@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 {
   console.keyMap = "br-abnt2";
   hardware = {

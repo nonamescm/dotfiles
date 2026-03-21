@@ -3,7 +3,7 @@
   programs.rofi = {
     enable = true;
     # Use pkgs.rofi-wayland if you are on Wayland
-    package = pkgs.rofi;
+    package = pkgs.rofi-wayland;
 
     extraConfig = {
       font = "FiraCode Nerd Font 15";
