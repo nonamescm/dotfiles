@@ -1,11 +1,10 @@
+{ pkgs, mcmojave-src, ... }:
 let
-  pkgs = import <nixpkgs> { };
   themeName = "McMojave Cursors";
   mcmojave = pkgs.stdenv.mkDerivation {
-    name = "mcmojave-cursors";
-    src = builtins.fetchGit {
-      url = "https://github.com/vinceliuice/McMojave-cursors/";
-    };
+    pname = "mcmojave-cursors";
+    version = "unstable";
+    src = mcmojave-src;
     dontBuild = true;
     installPhase = ''
       mkdir -p $out/share/icons/
@@ -13,7 +12,6 @@ let
     '';
   };
 in
-{ pkgs, ... }:
 {
   home.pointerCursor = {
     gtk.enable = true;
