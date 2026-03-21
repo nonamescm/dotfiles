@@ -12,10 +12,10 @@
     ./modules/alacritty/alacritty.nix
     ./modules/kitty/kitty.nix
     ./modules/waybar/waybar.nix
+    ./modules/hyprland/hyprland.nix
     ./modules/flameshot.nix
     ./modules/git.nix
     ./modules/gtk.nix
-    ./modules/hyprland.nix
     ./modules/mcmojave.nix
     ./modules/qt.nix
     ./modules/rofi.nix

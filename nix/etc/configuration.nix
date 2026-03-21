@@ -33,6 +33,7 @@
   ];
   programs.zsh.enable = true;
   programs.firefox.enable = true;
+  programs.dconf.enable = true;
 
   # Version of the system when the configuration was created.
   system.stateVersion = "25.11";

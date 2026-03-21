@@ -9,7 +9,7 @@
     exec-once = [
       "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       "waybar & zsh -c \"$(sleep 5; flameshot) & disown\""
-      "swaybg -i ~/.config/hypr/fractal2.png"
+      "swaybg -i ${./fractal2.png}"
     ];
 
     env = [ "XCURSOR_SIZE,24" ];
