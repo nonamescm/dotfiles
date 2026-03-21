@@ -7,10 +7,5 @@
       "nix-command"
       "flakes"
     ];
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "-d";
-    };
   };
 }

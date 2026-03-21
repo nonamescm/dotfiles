@@ -9,6 +9,7 @@
     ./modules/hardware.nix
     ./modules/locale.nix
     ./modules/networking.nix
+    ./modules/nh.nix
     ./modules/nix-config.nix
     ./modules/users.nix
   ];
