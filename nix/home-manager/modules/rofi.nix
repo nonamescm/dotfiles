@@ -29,12 +29,8 @@
           border-alt = mkLiteral "#13161bbb";
           border = mkLiteral "#242a33";
           selected = mkLiteral "#242a3377";
+          inputbar = mkLiteral "#242a3377";
           urgent = mkLiteral "#ef3985";
-        };
-
-        "element-text, element-icon" = {
-          background-color = mkLiteral "inherit";
-          text-color = mkLiteral "inherit";
         };
 
         "window" = {
@@ -76,7 +72,7 @@
             "prompt"
             "entry"
           ];
-          background-color = mkLiteral "@selected";
+          background-color = mkLiteral "@inputbar";
           text-color = mkLiteral "@foreground";
           expand = false;
           border = mkLiteral "0%";
@@ -114,12 +110,14 @@
         };
 
         "element-icon" = {
+          text-color = mkLiteral "inherit";
           background-color = mkLiteral "transparent";
           size = mkLiteral "4%";
           border = mkLiteral "0px";
         };
 
         "element-text" = {
+          text-color = mkLiteral "inherit";
           background-color = mkLiteral "transparent";
           expand = true;
           horizontal-align = mkLiteral "0";
@@ -133,26 +131,15 @@
           border-radius = mkLiteral "1%";
         };
 
-        "element normal.active, element alternate.active" = {
-          background-color = mkLiteral "@background-alt";
-          text-color = mkLiteral "@foreground";
-        };
-
         "element selected" = {
           background-color = mkLiteral "@selected";
           text-color = mkLiteral "@foreground";
           border-radius = mkLiteral "0.4%";
-          border-color = mkLiteral "@border-alt";
         };
 
         "element selected.urgent" = {
           background-color = mkLiteral "@urgent";
           text-color = mkLiteral "@foreground";
-        };
-
-        "element selected.active" = {
-          background-color = mkLiteral "@background-alt";
-          color = mkLiteral "@foreground";
         };
       };
   };
