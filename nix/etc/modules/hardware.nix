@@ -1,5 +1,6 @@
 { config, ... }:
 {
+  services.xserver.videoDrivers = [ "nvidia" ];
   console.keyMap = "br-abnt2";
   hardware = {
     enableAllFirmware = true;

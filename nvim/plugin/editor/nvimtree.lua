@@ -31,9 +31,11 @@ nvtree.setup({
 	},
 	sort = {
 		sorter = "extension",
-	}
+	},
 })
 
 events.subscribe(events.Event.TreeOpen, function()
 	vim.cmd("setlocal ts=2")
 end)
+
+vim.cmd("highlight link NvimTreeNormal Normal")

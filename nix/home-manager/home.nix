@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, home, ... }:
 {
   home.username = "noname";
   home.homeDirectory = "/home/noname";
@@ -49,4 +49,9 @@
     nixfmt
     nixfmt-tree
   ];
+
+  home.file.".config/nvim" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Desktop/dotfiles/nvim";
+    recursive = false;
+  };
 }

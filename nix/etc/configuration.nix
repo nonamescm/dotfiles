@@ -31,7 +31,15 @@
     libsForQt5.qt5ct
     pulseaudio
     linux-wifi-hotspot
+    scala
+    scala-cli
+    coursier
+    sbt
   ];
+  programs.java = {
+    enable = true;
+    package = pkgs.jdk25;
+  };
   programs.zsh.enable = true;
   programs.firefox.enable = true;
   programs.dconf.enable = true;

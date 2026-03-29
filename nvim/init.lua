@@ -18,7 +18,6 @@ require("packer").startup(function(use)
 
 	-- syntax
 	use "nonamescm/neofsharp.vim"
-	use "alaviss/nim.nvim"
 	use {
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
@@ -29,22 +28,10 @@ require("packer").startup(function(use)
 			require("nvim-treesitter.configs").setup({
 				auto_install = true,
 				highlight = {
-					enable = true, 
+					enable = true,
 					use_languagetree = true
 				},
 				indent = { enable = true },
-				rainbow = {
-					enable = false,
-					colors = {
-						colors.red,
-						colors.orange,
-						colors.yellow,
-						colors.green,
-						colors.cyan,
-						colors.blue,
-						colors.purple,
-					}
-				}
 			})
 		end
 	}
@@ -65,16 +52,15 @@ require("packer").startup(function(use)
 			"L3MON4D3/LuaSnip"
 		}
 	}
-	use "mfussenegger/nvim-jdtls" -- java specific plugin
 
 	-- tabline/statusline
 	use "akinsho/nvim-bufferline.lua"
-	use "kyazdani42/nvim-web-devicons"
+	use "nvim-tree/nvim-web-devicons"
 	use "nvim-lualine/lualine.nvim"
 
 	-- others
 	use "windwp/nvim-autopairs" -- auto open and close pairs
-	use "kyazdani42/nvim-tree.lua" -- file manager
+	use "nvim-tree/nvim-tree.lua" -- file manager
 	use "lukas-reineke/indent-blankline.nvim" -- ident guides
 	use "glepnir/dashboard-nvim" -- dashboard screen
 	use "rcarriga/nvim-notify" -- better notifications
@@ -117,7 +103,7 @@ vim.o.guicursor = "v-c-sm:block,c-i-ci-ve:ver25,r-cr-o:hor20"
 vim.o.laststatus = 3
 vim.o.tabstop, vim.bo.tabstop = 2, 2
 vim.o.shiftwidth, vim.bo.shiftwidth = 2, 2
-	
+
 
 -- plugins that doesn"t need configuration requires
 require("colorizer").setup()
@@ -129,9 +115,12 @@ require("gitsigns").setup()
 vim.cmd("command! Term split|term")
 vim.cmd("command! VTerm belowright vsplit|term")
 
-vim.api.nvim_create_autocmd('FileType', {
-	pattern = { "lua", "vim", "vimdoc", "nix", "rust", "haskell", "python", "javascript", "markdown", "markdown_inline", "json", "clojure" },
-	callback = function() vim.treesitter.start() end,
+vim.api.nvim_create_autocmd("BufEnter", {
+	callback = function()
+		if require("nvim-treesitter.parsers").has_parser() then
+			vim.treesitter.start()
+		end
+	end
 })
 
 vim.api.nvim_set_keymap("n", "Q", "<cmd>bd<CR>", {})

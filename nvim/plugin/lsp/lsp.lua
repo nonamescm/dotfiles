@@ -68,7 +68,8 @@ local servers = {
 	"hls",
 	"gleam",
 	"nixd",
-	"nil_ls"
+	"nil_ls",
+	"metals",
 }
 
 -- Apply capabilities to all and enable
