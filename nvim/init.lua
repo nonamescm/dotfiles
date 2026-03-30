@@ -35,6 +35,7 @@ require("packer").startup(function(use)
 			})
 		end
 	}
+
 	-- git integration
 	use {
 		"lewis6991/gitsigns.nvim",
@@ -52,6 +53,8 @@ require("packer").startup(function(use)
 			"L3MON4D3/LuaSnip"
 		}
 	}
+	use "j-hui/fidget.nvim"
+	use "scalameta/nvim-metals"
 
 	-- tabline/statusline
 	use "akinsho/nvim-bufferline.lua"
@@ -63,31 +66,11 @@ require("packer").startup(function(use)
 	use "nvim-tree/nvim-tree.lua" -- file manager
 	use "lukas-reineke/indent-blankline.nvim" -- ident guides
 	use "glepnir/dashboard-nvim" -- dashboard screen
-	use "rcarriga/nvim-notify" -- better notifications
 end)
 
 -- Disable Default Vim Plugins
-vim.g.loaded_gzip = 0
-vim.g.loaded_tar = 0
-vim.g.loaded_tarPlugin = 0
-vim.g.loaded_zipPlugin = 0
-vim.g.loaded_2html_plugin = 0
 vim.g.loaded_netrw = 0
 vim.g.loaded_netrwPlugin = 0
-vim.g.loaded_spec = 0
-vim.g.loaded_syncolor = 0
-vim.g.asmsyntax = "nasm"
-
--- options
-vim.g.markdown_fenced_languages = {
-	"fs=fsharp",
-	"js=javascript",
-	"py=python",
-	"rs=rust",
-	"rb=ruby",
-	"yex=yex",
-	"scala=scala",
-}
 
 vim.o.background = "light"
 vim.o.splitbelow = true
