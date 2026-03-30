@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   gtk = {
     enable = true;
@@ -15,4 +15,5 @@
       size = 11;
     };
   };
+	gtk.gtk4.theme = config.gtk.theme;
 }
