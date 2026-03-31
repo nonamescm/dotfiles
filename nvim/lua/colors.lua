@@ -2,7 +2,7 @@ return {
 	red = "#ef3985",
 	green = "#41e6a2",
 	bg = "#13161b",
-	blue = "#39d1ef",
+	blue = "#399fef",
 	black = "#0d0f11",
 	black2 = "#090a0c",
 	lightbg = "#242a33",

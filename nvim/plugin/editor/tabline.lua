@@ -1,51 +1,167 @@
 local colors = require("colors")
-local bufferline = require("bufferline")
+	require("bufferline").setup({
+  options = {
+    mode = "buffers",
+    separator_style = "slant",
+    always_show_bufferline = true,
+    show_buffer_close_icons = true,
+    show_close_icon = false,
+    color_icons = true,
+    diagnostics = "nvim_lsp",
+    offsets = {
+      {
+        filetype = "neo-tree",
+        text = "File Explorer",
+        highlight = "Directory",
+        separator = true,
+      },
+    },
+		indicator = {
+			style = "underline"
+		}
+  },
 
-bufferline.setup {
-	options = {
-		offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
-		buffer_close_icon = "",
-		modified_icon = "",
-		close_icon = "",
-		left_trunc_marker = "",
-		right_trunc_marker = "",
-		max_name_length = 9999,
-		max_prefix_length = 9999,
-		tab_size = 20,
-		show_tab_indicators = true,
-		enforce_regular_tabs = false,
-		view = "multiwindow",
-		show_buffer_close_icons = true,
-		separator_style = "thin",
-		always_show_bufferline = true,
-		custom_filter = function(buf_number)
-			-- Func to filter out our managed/persistent split terms
-			local present_type, type = pcall(function()
-				return vim.api.nvim_buf_get_var(buf_number, "term_type")
-			end)
+  highlights = {
+    buffer_selected = {
+      fg = colors.white,
+      bg = colors.lightbg,
+      bold = true,
+      italic = false,
+    },
 
-			if present_type then
-				if type == "vert" then
-					return false
-				elseif type == "hori" then
-					return false
-				else
-					return true
-				end
-			else
-				return true
-			end
-		end,
-	},
-	highlights = {
-		fill = {
-			fg = colors.black2,
-			bg = colors.black,
-		},
+    numbers_selected = {
+      fg = colors.cyan,
+      bg = colors.lightbg,
+      bold = true,
+    },
 
-		buffer_selected = {
-			bold = true,
-			italic = false,
-		},
-	},
-}
+    diagnostic_selected = {
+      fg = colors.red,
+      bg = colors.lightbg,
+      bold = true,
+    },
+
+    hint_selected = {
+      fg = colors.green,
+      bg = colors.lightbg,
+    },
+
+    info_selected = {
+      fg = colors.blue,
+      bg = colors.lightbg,
+    },
+
+    warning_selected = {
+      fg = colors.yellow,
+      bg = colors.lightbg,
+    },
+
+    error_selected = {
+      fg = colors.red,
+      bg = colors.lightbg,
+    },
+
+    buffer = {
+      fg = colors.fg,
+      bg = colors.bg,
+    },
+
+    numbers = {
+      fg = colors.purple,
+      bg = colors.bg,
+    },
+
+    diagnostic = {
+      fg = colors.red,
+      bg = colors.bg,
+    },
+
+    hint = {
+      fg = colors.green,
+      bg = colors.bg,
+    },
+
+    info = {
+      fg = colors.blue,
+      bg = colors.bg,
+    },
+
+    warning = {
+      fg = colors.yellow,
+      bg = colors.bg,
+    },
+
+    error = {
+      fg = colors.red,
+      bg = colors.bg,
+    },
+
+    fill = {
+      bg = colors.black2,
+    },
+
+    separator = {
+      fg = colors.black2,
+      bg = colors.bg,
+    },
+
+    separator_selected = {
+      fg = colors.black2,
+      bg = colors.lightbg,
+    },
+
+    separator_visible = {
+      fg = colors.black2,
+      bg = colors.bg,
+    },
+
+    close_button = {
+      fg = colors.grey_fg,
+      bg = colors.bg,
+    },
+
+    close_button_selected = {
+      fg = colors.red,
+      bg = colors.lightbg,
+    },
+
+    close_button_visible = {
+      fg = colors.grey_fg,
+      bg = colors.bg,
+    },
+
+    modified = {
+      fg = colors.orange,
+      bg = colors.bg,
+    },
+
+    modified_selected = {
+      fg = colors.orange,
+      bg = colors.lightbg,
+    },
+
+    duplicate = {
+      fg = colors.purple,
+      bg = colors.bg,
+      italic = true,
+    },
+
+    duplicate_selected = {
+      fg = colors.purple,
+      bg = colors.lightbg,
+      italic = true,
+    },
+
+    pick = {
+      fg = colors.red,
+      bg = colors.bg,
+      bold = true,
+    },
+
+    pick_selected = {
+      fg = colors.green,
+      bg = colors.lightbg,
+      bold = true,
+    },
+  },
+})

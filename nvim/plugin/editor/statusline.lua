@@ -3,17 +3,55 @@ local colors = require("colors")
 -- 1. Create a custom theme based on your Galaxyline colors
 local theme = {
 	normal = {
-		a = { fg = colors.black, bg = colors.green, gui = 'bold' },
-		b = { fg = colors.green, bg = colors.black },
-		c = { fg = colors.fg, bg = colors.black2 },
+		a = {
+			fg = colors.black,
+			bg = colors.green,
+			gui = "bold"
+		},
+		b = {
+			fg = colors.green,
+			bg = colors.black,
+		},
+		c = {
+			fg = colors.fg,
+			bg = colors.black2,
+		},
 	},
-	insert = { a = { fg = colors.black, bg = colors.blue } },
-	visual = { a = { fg = colors.black, bg = colors.purple } },
-	replace = { a = { fg = colors.black, bg = colors.red } },
+	insert = {
+		a = {
+			fg = colors.black,
+			bg = colors.blue,
+			gui = "bold"
+		}
+	},
+	visual = {
+		a = {
+			fg = colors.black,
+			bg = colors.purple,
+			gui = "bold"
+		} 
+	},
+	replace = {
+		a = {
+			fg = colors.black,
+			bg = colors.red,
+			gui = "bold"
+		} 
+	},
 	inactive = {
-		a = { fg = colors.fg, bg = colors.black },
-		b = { fg = colors.fg, bg = colors.black },
-		c = { fg = colors.fg, bg = colors.black },
+		a = {
+			fg = colors.fg,
+			bg = colors.black,
+			gui = "bold"
+		},
+		b = {
+			fg = colors.fg,
+			bg = colors.black
+		},
+		c = {
+			fg = colors.fg,
+			bg = colors.black
+		},
 	},
 }
 

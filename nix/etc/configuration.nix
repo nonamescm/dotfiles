@@ -16,7 +16,7 @@
 
   programs.neovim = {
     enable = true;
-    package = neovim-nightly-overlay.packages.${pkgs.system}.default;
+    package = neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default;
   };
 
   environment.systemPackages = with pkgs; [
@@ -39,7 +39,9 @@
     scala-cli
     coursier
     sbt
+    tree-sitter
   ];
+
   programs.java = {
     enable = true;
     package = pkgs.jdk25;

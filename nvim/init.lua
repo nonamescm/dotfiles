@@ -3,95 +3,49 @@ local vim = vim
 
 vim.g.mapleader = " "
 
--- plugins
-require("packer").startup(function(use)
-	-- packer
-	use "wbthomason/packer.nvim"
-
-	-- colors
-	use "norcalli/nvim-colorizer.lua"
-	use "nonamescm/notheme.nvim"
-	use {
-		"nocksock/bloop.nvim",
-		requires = "rktjmp/lush.nvim",
-	}
+vim.pack.add({
+	-- colors and themes
+	"https://github.com/norcalli/nvim-colorizer.lua",
+	"https://github.com/nonamescm/notheme.nvim",
+	"https://github.com/nocksock/bloop.nvim",
 
 	-- syntax
-	use "nonamescm/neofsharp.vim"
-	use {
-		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate",
-		lazy = false,
-		main = "nvim-treesitter.configs",
-		branch = "master",
-		config = function()
-			require("nvim-treesitter.configs").setup({
-				auto_install = true,
-				highlight = {
-					enable = true,
-					use_languagetree = true
-				},
-				indent = { enable = true },
-			})
-		end
-	}
+	"https://github.com/nvim-treesitter/nvim-treesitter",
 
-	-- git integration
-	use {
-		"lewis6991/gitsigns.nvim",
-		requires = "nvim-lua/plenary.nvim"
-	}
+	-- git interaction
+	"https://github.com/lewis6991/gitsigns.nvim",
 
-	-- lsp
-	use "neovim/nvim-lspconfig"
-	use {
-		"hrsh7th/nvim-cmp",
-		requires = {
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-buffer",
-			"onsails/lspkind-nvim",
-			"L3MON4D3/LuaSnip"
-		}
-	}
-	use "j-hui/fidget.nvim"
-	use "scalameta/nvim-metals"
+
+	-- LSP and completion
+	"https://github.com/neovim/nvim-lspconfig",
+	"https://github.com/hrsh7th/nvim-cmp",
+	"https://github.com/hrsh7th/cmp-nvim-lsp",
+	"https://github.com/hrsh7th/cmp-buffer",
+	"https://github.com/onsails/lspkind-nvim",
+	"https://github.com/L3MON4D3/LuaSnip",
+
+	-- Scala-specific LSP support
+	"https://github.com/scalameta/nvim-metals",
+
+	-- notification plugin
+	"https://github.com/j-hui/fidget.nvim",
 
 	-- tabline/statusline
-	use "akinsho/nvim-bufferline.lua"
-	use "nvim-tree/nvim-web-devicons"
-	use "nvim-lualine/lualine.nvim"
+	"https://github.com/akinsho/nvim-bufferline.lua",
+	"https://github.com/nvim-tree/nvim-web-devicons",
+	"https://github.com/nvim-lualine/lualine.nvim",
 
-	-- others
-	use "windwp/nvim-autopairs" -- auto open and close pairs
-	use "nvim-tree/nvim-tree.lua" -- file manager
-	use "lukas-reineke/indent-blankline.nvim" -- ident guides
-	use "glepnir/dashboard-nvim" -- dashboard screen
-end)
+	-- misc
+	"https://github.com/windwp/nvim-autopairs", -- auto open and close pairs
+	"https://github.com/nvim-neo-tree/neo-tree.nvim", -- file manager
+	"https://github.com/lukas-reineke/indent-blankline.nvim", -- ident guides
+	"https://github.com/glepnir/dashboard-nvim", -- dashboard screen
 
--- Disable Default Vim Plugins
-vim.g.loaded_netrw = 0
-vim.g.loaded_netrwPlugin = 0
-
-vim.o.background = "light"
-vim.o.splitbelow = true
-vim.o.wrap, vim.wo.wrap = false, false
-vim.o.number, vim.wo.number = true, true
-vim.o.cursorline, vim.wo.cursorline = true, true
-vim.o.relativenumber, vim.wo.relativenumber = false, false
-vim.o.foldenable = false
-vim.o.mouse = "a"
-vim.o.showtabline = 2
-vim.o.termguicolors = true
-vim.o.guicursor = "v-c-sm:block,c-i-ci-ve:ver25,r-cr-o:hor20"
-vim.o.laststatus = 3
-vim.o.tabstop, vim.bo.tabstop = 2, 2
-vim.o.shiftwidth, vim.bo.shiftwidth = 2, 2
-
-
--- plugins that doesn"t need configuration requires
-require("colorizer").setup()
-vim.cmd("set background=dark")
-vim.cmd("colorscheme bloop")
+	-- dependencies
+	"https://github.com/MunifTanjim/nui.nvim", -- needed for neo-tree
+	"https://github.com/nvim-lua/plenary.nvim", -- needed for gitsgins and neo-tree
+	"https://github.com/rktjmp/lush.nvim", -- needed for bloop
+})
 
 require("gitsigns").setup()
 
@@ -100,7 +54,7 @@ vim.cmd("command! VTerm belowright vsplit|term")
 
 vim.api.nvim_create_autocmd("BufEnter", {
 	callback = function()
-		if require("nvim-treesitter.parsers").has_parser() then
+		if vim.treesitter.language.require_language(vim.bo.filetype) then
 			vim.treesitter.start()
 		end
 	end

@@ -1,41 +1,26 @@
-local nvtree = require("nvim-tree")
-local events = require("nvim-tree.api").events
+-- to see the full config and check for
+-- possible options in the future, run
+-- `:lua require("neo-tree").paste_default_config()`
 
-nvtree.setup({
-	renderer = {
-		icons = {
-			show = {
-				file = true,
-				folder = true,
-				folder_arrow = false,
-				git = false,
-			},
-			glyphs = {
-				default = " ",
-				symlink = " ",
-				git = {
-					unstaged = "✗",
-					staged = "✓",
-					unmerged = "",
-					renamed = "➜",
-					untracked = "★"
-				}
-			},
+require("neo-tree").setup({
+	close_if_last_window = true,
+	enable_git_status = false,
+	event_handlers = {
+		{
+			event = "before_render",
+			handler = function(state)
+				vim.cmd("highlight link NeoTreeDirectoryIcon Function")
+				vim.cmd("highlight NeoTreeRootName gui=none")
+				vim.cmd("highlight link NeoTreeRootName String")
+			end
 		},
-		root_folder_modifier = ":~",
-		highlight_git = false,
-		indent_markers = {
-			enable = true,
-			inline_arrows = false,
+	},
+	window = {
+		width = 25,
+	},
+	filesystem = {
+		filtered_items = {
+			visible = true,
 		}
-	},
-	sort = {
-		sorter = "extension",
-	},
+	}
 })
-
-events.subscribe(events.Event.TreeOpen, function()
-	vim.cmd("setlocal ts=2")
-end)
-
-vim.cmd("highlight link NvimTreeNormal Normal")
