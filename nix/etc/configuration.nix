@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, neovim-nightly-overlay, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -14,11 +14,15 @@
     ./modules/users.nix
   ];
 
+  programs.neovim = {
+    enable = true;
+    package = neovim-nightly-overlay.packages.${pkgs.system}.default;
+  };
+
   environment.systemPackages = with pkgs; [
     clang
     gcc
     mesa-demos
-    neovim
     wget
     zsh
     ripgrep
@@ -47,7 +51,6 @@
     enable = true;
     xwayland.enable = true;
   };
-
 
   # Version of the system when the configuration was created.
   system.stateVersion = "25.11";
