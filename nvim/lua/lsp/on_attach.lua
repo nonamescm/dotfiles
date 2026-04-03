@@ -1,8 +1,8 @@
 local function on_attach(client, bufnr)
 	vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
 
-	if client then
-		client.server_capabilities.semanticTokensProvider = nil
+	if client and client.server_capabilities.semanticTokensProvider then
+		vim.lsp.semantic_tokens.enable(true, { bufnr = bufnr })
 	end
 
 	local opts = { buffer = bufnr, noremap = true, silent = true }

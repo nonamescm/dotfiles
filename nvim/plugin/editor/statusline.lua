@@ -1,6 +1,5 @@
 local colors = require("colors")
 
--- 1. Create a custom theme based on your Galaxyline colors
 local theme = {
 	normal = {
 		a = {
@@ -59,7 +58,7 @@ require('lualine').setup({
 	options = {
 		theme = theme,
 		component_separators = '',
-		section_separators = { left = '', right = '' }, -- Matches your slanted separators
+		section_separators = { left = '', right = '' },
 		disabled_filetypes = { 'packer' },
 		globalstatus = true,
 	},

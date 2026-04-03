@@ -13,4 +13,4 @@ map("n", "<TAB>", [[<Cmd>BufferLineCycleNext<CR>]], opt)
 map("n", "<S-TAB>", [[<Cmd>BufferLineCyclePrev<CR>]], opt)
 
 -- open file explorer
-map("n", "<C-n>", [[<Cmd>Neotree toggle<CR>]], opt)
+map("n", "<C-n>", [[<Cmd>Neotree float toggle<CR>]], opt)
