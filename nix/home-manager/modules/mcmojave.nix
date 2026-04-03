@@ -1,10 +1,10 @@
-{ pkgs, mcmojave-src, ... }:
+{ pkgs, inputs, ... }:
 let
   themeName = "McMojave Cursors";
   mcmojave = pkgs.stdenv.mkDerivation {
     pname = "mcmojave-cursors";
     version = "unstable";
-    src = mcmojave-src;
+    src = inputs.mcmojave-src;
     dontBuild = true;
     installPhase = ''
       mkdir -p $out/share/icons/

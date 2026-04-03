@@ -23,7 +23,7 @@
       mcmojave-src,
       neovim-nightly-overlay,
       ...
-    }:
+    }@inputs:
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -32,7 +32,7 @@
       };
       homeConfigurations.noname = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
-        extraSpecialArgs = { inherit mcmojave-src; };
+        extraSpecialArgs = { inherit inputs; };
         modules = [ ./nix/home-manager/home.nix ];
       };
     };
