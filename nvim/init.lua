@@ -54,7 +54,7 @@ vim.cmd("command! VTerm belowright vsplit|term")
 
 vim.api.nvim_create_autocmd("BufEnter", {
 	callback = function()
-		if vim.treesitter.language.require_language(vim.bo.filetype) then
+		if vim.treesitter.language.add(vim.bo.filetype) then
 			vim.treesitter.start()
 		end
 	end

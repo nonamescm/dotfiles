@@ -29,7 +29,7 @@ in
       italic_font = "family='CaskaydiaCove Nerd Font Mono' style=Light";
       bold_font = "family='CaskaydiaCove Nerd Font' style=Light";
       font_size = 10;
-      background_opacity = "0.6";
+      background_opacity = "1";
       cursor_shape = "beam";
       cursor_blink_interval = "0";
       term = "xterm-256color";

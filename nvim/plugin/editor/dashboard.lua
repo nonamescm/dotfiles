@@ -1,54 +1,58 @@
-local hi = require("functions.highlight")
-local colors = require("colors")
-local dashboard = require("dashboard")
+vim.api.nvim_create_autocmd({ "VimEnter" }, {
+	callback = function()
+		local dashboard = require("dashboard")
+		local hi = require("functions.highlight")
+		local colors = require("colors")
 
-hi("DashboardHeader", { guifg = colors.red })
-hi("DashboardFooter", { guifg = colors.purple })
-hi("DashboardCenter", { guifg = colors.blue })
+		local function highlight_center(table)
+			for i, item in pairs(table) do
+				item.icon_hl = "DashboardCenter"
+				item.desc_hl = "DashboardCenter"
+				table[i] = item
+			end
 
-local function highlight_center(table)
-	for i, item in pairs(table) do
-		item.icon_hl = "DashboardCenter"
-		item.desc_hl = "DashboardCenter"
-		table[i] = item
+			return table
+		end
+
+		dashboard.setup({
+			theme = "doom",
+			hide = {
+				statusline = false,
+				tabline = false,
+				winbar = false,
+			},
+			config = {
+				header = {
+					"               ",
+					"               ",
+					"               ",
+					"               ",
+					"⠀⠀⠀⣶⣶⣶⣶⡆⠀⠀⠀⠀⠀⠀ ",
+					"⠀⠀⠀⠛⠛⢻⣿⣿⡀⠀⠀⠀⠀⠀⠀",
+					"⠀⠀⠀⠀⠀⢀⣿⣿⣷⠀⠀⠀⠀⠀⠀",
+					"⠀⠀⠀⠀⢀⣾⣿⣿⣿⣇⠀⠀⠀⠀⠀",
+					"⠀⠀⠀⢠⣿⣿⡟⢹⣿⣿⡆⠀⠀⠀⠀",
+					"⠀⠀⣰⣿⣿⠏⠀⠀⢻⣿⣿⡄⠀⠀⠀",
+					"⠀⣴⣿⡿⠃⠀⠀⠀⠈⢿⣿⣷⣤⣤⡆",
+					"⠾⠿⠿⠁⠀⠀⠀⠀⠀⠘⣿⣿⡿⠿⠛",
+					"               ",
+					"               ",
+				},
+				center = highlight_center({
+					{ icon = " ", desc = "New File         ", action = "enew" },
+					{ icon = " ", desc = "Open File Manager", action = "NvimTreeOpen" },
+					{ icon = " ", desc = "Close Neovim     ", action = "qa" },
+				}),
+				footer = {
+					"                                    ",
+					"                                    ",
+					"Fuck you ~ Linus Torvalds, probably.",
+				}
+			}
+		})
+
+		hi("DashboardHeader", { guifg = colors.red })
+		hi("DashboardFooter", { guifg = colors.purple })
+		hi("DashboardCenter", { guifg = colors.blue })
 	end
-
-	return table
-end
-
-dashboard.setup({
-	theme = "doom",
-	hide = {
-		statusline = false,
-		tabline = false,
-		winbar = false,
-	},
-	config = {
-		header = {
-			"               ",
-			"               ",
-			"               ",
-			"               ",
-			"⠀⠀⠀⣶⣶⣶⣶⡆⠀⠀⠀⠀⠀⠀ ",
-			"⠀⠀⠀⠛⠛⢻⣿⣿⡀⠀⠀⠀⠀⠀⠀",
-			"⠀⠀⠀⠀⠀⢀⣿⣿⣷⠀⠀⠀⠀⠀⠀",
-			"⠀⠀⠀⠀⢀⣾⣿⣿⣿⣇⠀⠀⠀⠀⠀",
-			"⠀⠀⠀⢠⣿⣿⡟⢹⣿⣿⡆⠀⠀⠀⠀",
-			"⠀⠀⣰⣿⣿⠏⠀⠀⢻⣿⣿⡄⠀⠀⠀",
-			"⠀⣴⣿⡿⠃⠀⠀⠀⠈⢿⣿⣷⣤⣤⡆",
-			"⠾⠿⠿⠁⠀⠀⠀⠀⠀⠘⣿⣿⡿⠿⠛",
-			"               ",
-			"               ",
-		},
-		center = highlight_center({
-			{ icon = " ", desc = "New File         ", action = "enew" },
-			{ icon = " ", desc = "Open File Manager", action = "NvimTreeOpen" },
-			{ icon = " ", desc = "Close Neovim     ", action = "qa" },
-		}),
-		footer = {
-			"                                    ",
-			"                                    ",
-			"Fuck you ~ Linus Torvalds, probably.",
-		}
-	}
 })
