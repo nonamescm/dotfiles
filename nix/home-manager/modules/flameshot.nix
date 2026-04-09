@@ -1,4 +1,4 @@
-{ ... }:
+{ username, ... }:
 {
   services.flameshot = {
     enable = true;
@@ -7,7 +7,7 @@
         useGrimAdapter = true;
         disabledGrimWarning = true;
         drawColor = "#ff0000";
-        savePath = "/home/noname/Downloads";
+        savePath = "/home/${username}/Downloads";
       };
     };
   };

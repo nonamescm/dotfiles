@@ -1,8 +1,8 @@
-{ ... }:
+{ gitUsername, gitEmail, ... }:
 {
   programs.git = {
     enable = true;
-    settings.user.name = "nonamescm";
-    settings.user.email = "snadragona12bionic@gmail.com";
+    settings.user.name = gitUsername;
+    settings.user.email = gitEmail;
   };
 }

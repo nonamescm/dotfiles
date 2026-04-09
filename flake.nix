@@ -24,15 +24,32 @@
       neovim-nightly-overlay,
       ...
     }@inputs:
+    let
+      username = "noname";
+      dotfiles = "/home/${username}/Desktop/dotfiles";
+      gitUsername = "nonamescm";
+			gitEmail = "snadragona12bionic@gmail.com";
+    in
     {
+
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit neovim-nightly-overlay; };
+        specialArgs = {
+          inherit neovim-nightly-overlay;
+          inherit username;
+          inherit dotfiles;
+        };
         modules = [ ./nix/etc/configuration.nix ];
       };
       homeConfigurations.noname = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
-        extraSpecialArgs = { inherit inputs; };
+        extraSpecialArgs = {
+          inherit inputs;
+          inherit username;
+          inherit dotfiles;
+          inherit gitUsername;
+					inherit gitEmail;
+        };
         modules = [ ./nix/home-manager/home.nix ];
       };
     };

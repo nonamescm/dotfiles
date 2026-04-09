@@ -1,7 +1,13 @@
-{ pkgs, config, home, ... }:
 {
-  home.username = "noname";
-  home.homeDirectory = "/home/noname";
+  pkgs,
+  config,
+  username,
+  dotfiles,
+  ...
+}:
+{
+  home.username = username;
+  home.homeDirectory = "/home/${username}";
   home.stateVersion = "25.11";
   home.sessionVariables = {
     EDITOR = "nvim";
@@ -51,7 +57,7 @@
   ];
 
   home.file.".config/nvim" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Desktop/dotfiles/nvim";
+    source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/nvim";
     recursive = false;
   };
 }
