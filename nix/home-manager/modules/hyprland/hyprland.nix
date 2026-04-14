@@ -66,6 +66,18 @@
 
     "$mod" = "SUPER";
 
+    binde = [
+      # Backlight
+      ", XF86MonBrightnessUp, exec, brightnessctl s 5%+"
+      ", XF86MonBrightnessDown, exec, brightnessctl s 5%-"
+      ", Print, exec, flameshot gui"
+
+      # Music
+      ", XF86AudioRaiseVolume, exec, amixer sset Master 2%+"
+      ", XF86AudioLowerVolume, exec, amixer sset Master 2%-"
+      ", XF86AudioMute, exec, amixer sset Master toggle"
+    ];
+
     bind = [
       "$mod, Return, exec, kitty"
       "$mod, Q, killactive, "
@@ -76,16 +88,6 @@
       "$mod, /, exec, rofi -show drun"
       "$mod SHIFT, P, pseudo,"
       "$mod SHIFT, C, exec, bash -c \"wl-paste | wl-copy\""
-
-      # Backlight
-      ", XF86MonBrightnessUp, exec, xbacklight -inc 5"
-      ", XF86MonBrightnessDown, exec, xbacklight -dec 5"
-      ", Print, exec, flameshot gui"
-
-      # Music
-      ", XF86AudioRaiseVolume, exec, amixer sset Master 2%+"
-      ", XF86AudioLowerVolume, exec, amixer sset Master 2%-"
-      ", XF86AudioMute, exec, amixer sset Master toggle"
 
       # Move focus with mainMod + arrow keys
       "$mod, left, movefocus, l"

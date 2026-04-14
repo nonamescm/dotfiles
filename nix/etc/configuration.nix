@@ -40,6 +40,9 @@
     coursier
     sbt
     tree-sitter
+    pptp
+    ppp
+    brightnessctl
   ];
 
   programs.java = {

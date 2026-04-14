@@ -28,7 +28,7 @@
       username = "noname";
       dotfiles = "/home/${username}/Desktop/dotfiles";
       gitUsername = "nonamescm";
-			gitEmail = "snadragona12bionic@gmail.com";
+      gitEmail = "snadragona12bionic@gmail.com";
     in
     {
 
@@ -48,7 +48,7 @@
           inherit username;
           inherit dotfiles;
           inherit gitUsername;
-					inherit gitEmail;
+          inherit gitEmail;
         };
         modules = [ ./nix/home-manager/home.nix ];
       };
