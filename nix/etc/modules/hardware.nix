@@ -18,7 +18,7 @@
       powerManagement.finegrained = false;
       open = false;
       nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages;
+      package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
       prime = {
         offload = {
           enable = true;
