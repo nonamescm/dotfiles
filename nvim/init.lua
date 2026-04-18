@@ -7,7 +7,6 @@ vim.pack.add({
 	-- colors and themes
 	"https://github.com/norcalli/nvim-colorizer.lua",
 	"https://github.com/nonamescm/notheme.nvim",
-	"https://github.com/nocksock/bloop.nvim",
 
 	-- syntax
 	"https://github.com/nvim-treesitter/nvim-treesitter",
@@ -44,7 +43,6 @@ vim.pack.add({
 	-- dependencies
 	"https://github.com/MunifTanjim/nui.nvim", -- needed for neo-tree
 	"https://github.com/nvim-lua/plenary.nvim", -- needed for gitsgins and neo-tree
-	"https://github.com/rktjmp/lush.nvim", -- needed for bloop
 })
 
 require("gitsigns").setup()

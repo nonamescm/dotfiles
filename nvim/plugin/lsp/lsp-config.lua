@@ -10,6 +10,7 @@ local servers = {
 	"gleam",
 	"nixd",
 	"nil_ls",
+	"zls",
 }
 
 for _, server in ipairs(servers) do
