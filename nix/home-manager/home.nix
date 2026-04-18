@@ -54,6 +54,9 @@
     nil
     nixfmt
     nixfmt-tree
+    zig
+    zls
+    rustup
   ];
 
   home.file.".config/nvim" = {
