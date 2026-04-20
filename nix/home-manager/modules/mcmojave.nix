@@ -16,7 +16,7 @@ in
   home.pointerCursor = {
     gtk.enable = true;
     package = mcmojave;
-    name = "McMojave Cursors";
+    name = themeName;
     size = 10;
   };
 }

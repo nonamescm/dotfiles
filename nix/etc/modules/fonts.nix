@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, iosevka-custom, ... }:
 {
   fonts = {
     enableDefaultPackages = true;
@@ -13,6 +13,7 @@
       nerd-fonts.symbols-only
       nerd-fonts.hasklug
       nerd-fonts.caskaydia-cove
+			iosevka-custom
     ];
   };
 }

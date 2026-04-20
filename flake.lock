@@ -41,6 +41,26 @@
         "type": "github"
       }
     },
+    "iosevka-custom": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1776723839,
+        "narHash": "sha256-kOAEJoyjyCVe33CRjvpI5c+spM/VHiAzNK4k1a3qw3o=",
+        "owner": "nonamescm",
+        "repo": "iosevka-custom",
+        "rev": "8803d2ef6964787caa02e92653f97110691be105",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nonamescm",
+        "repo": "iosevka-custom",
+        "type": "github"
+      }
+    },
     "mcmojave-src": {
       "flake": false,
       "locked": {
@@ -128,6 +148,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "iosevka-custom": "iosevka-custom",
         "mcmojave-src": "mcmojave-src",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixpkgs": "nixpkgs_2"

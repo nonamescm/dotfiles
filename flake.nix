@@ -15,12 +15,16 @@
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
     };
+    iosevka-custom = {
+      url = "github:nonamescm/iosevka-custom";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
       nixpkgs,
       home-manager,
-      mcmojave-src,
+			iosevka-custom,
       neovim-nightly-overlay,
       ...
     }@inputs:
@@ -36,6 +40,7 @@
         system = "x86_64-linux";
         specialArgs = {
           inherit neovim-nightly-overlay;
+					inherit iosevka-custom;
           inherit username;
           inherit dotfiles;
         };

@@ -25,14 +25,19 @@ in
       color14 = bloop.bright.cyan;
       color15 = bloop.bright.white;
 
-      font_family = "family='CaskaydiaCove Nerd Font Mono' style=Light";
-      italic_font = "family='CaskaydiaCove Nerd Font Mono' style=Light";
-      bold_font = "family='CaskaydiaCove Nerd Font' style=Light";
-      font_size = 10;
+      font_family = "family='Iosevka Custom' style=Regular";
+      bold_font = "family='Iosevka Custom' style=Regular";
+      italic_font = "family='Iosevka Custom' style=Regular";
+      bold_italic_font = "family='Iosevka Custom' style=Regular";
+      font_size = 12;
+
       background_opacity = "0.7";
+
       cursor_shape = "beam";
       cursor_blink_interval = "0";
+
       term = "xterm-256color";
+
       scrollback_indicator_opacity = "0";
     };
   };
