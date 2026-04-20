@@ -9,14 +9,14 @@ local theme = {
 		bold = true
 	},
 	ColorColumn = {
-		bg = "#394351"
+		bg = colors.lightbg
 	},
 	Comment = {
-		fg = "#7188A8",
+		fg = colors.dark_purple,
 		italic = true
 	},
 	Conceal = {
-		fg = "#1AC77F"
+		fg = colors.dark_green
 	},
 	Constant = {
 		fg = colors.green
@@ -52,13 +52,13 @@ local theme = {
 	},
 	Debug = {
 		fg = colors.orange,
-		bg = "#394351"
+		bg = colors.lightbg
 	},
 	DiagnosticSignError = {
 		fg = colors.red
 	},
 	DiagnosticSignHint = {
-		fg = "#4C596B"
+		fg = colors.purple_alt
 	},
 	DiagnosticSignInfo = {
 		fg = colors.purple
@@ -74,7 +74,7 @@ local theme = {
 		fg = colors.green
 	},
 	DiffChange = {
-		fg = "#1AC77F"
+		fg = colors.dark_green
 	},
 	DiffDelete = {
 		fg = colors.red
@@ -86,7 +86,7 @@ local theme = {
 		fg = colors.green
 	},
 	EndOfBuffer = {
-		fg = "#4C596B"
+		fg = colors.purple_alt
 	},
 	TSDanger = {
 		link = "Error"
@@ -131,8 +131,8 @@ local theme = {
 		link = "FloatNormal"
 	},
 	Folded = {
-		fg = "#7188A8",
-		bg = "#394351"
+		fg = colors.dark_purple,
+		bg = colors.lightbg
 	},
 	FoldColumn = {
 		link = "Folded"
@@ -147,7 +147,7 @@ local theme = {
 		link = "GitSignsAdd"
 	},
 	GitSignsChange = {
-		fg = "#1AC77F"
+		fg = colors.dark_green
 	},
 	GitGutterChange = {
 		link = "GitSignsChange"
@@ -166,15 +166,15 @@ local theme = {
 		link = "HintMsg"
 	},
 	Identifier = {
-		fg = colors.fg
+		fg = colors.red
 	},
 	Ignore = {},
 	IncSearch = {
 		fg = colors.red,
-		bg = "#394351"
+		bg = colors.lightbg
 	},
 	InfoMsg = {
-		fg = "#7188A8"
+		fg = colors.dark_purple
 	},
 	DiagnosticInfo = {
 		link = "InfoMsg"
@@ -201,38 +201,38 @@ local theme = {
 		link = "Keyword"
 	},
 	LineNr = {
-		fg = "#4C596B"
+		fg = colors.purple_alt
 	},
 	LspReferenceRead = {
-		bg = "#394351"
+		bg = colors.lightbg
 	},
 	LspReferenceText = {
-		bg = "#394351"
+		bg = colors.lightbg
 	},
 	LspSignatureActiveParameter = {
 		link = "LspReferenceText"
 	},
 	LspReferenceWrite = {
-		bg = "#394351"
+		bg = colors.lightbg
 	},
 	MatchParen = {
 		fg = colors.red,
-		bg = "#394351"
+		bg = colors.lightbg
 	},
 	ModeMsg = {
-		fg = "#4C596B"
+		fg = colors.purple_alt
 	},
 	MoreMsg = {
 		fg = colors.green
 	},
 	MsgArea = {
-		fg = "#7188A8"
+		fg = colors.dark_purple
 	},
 	MsgSeparator = {
-		fg = "#4C596B"
+		fg = colors.purple_alt
 	},
 	Noise = {
-		fg = "#4C596B"
+		fg = colors.purple_alt
 	},
 	Assign = {
 		link = "Noise"
@@ -265,14 +265,13 @@ local theme = {
 		link = "Noise"
 	},
 	NonText = {
-		fg = "#394351"
+		fg = colors.lightbg
 	},
 	Whitespace = {
 		link = "NonText"
 	},
 	NormalFloat = {
-		fg = colors.fg,
-		bg = "#0B0C0F"
+		link = "Normal",
 	},
 	Pmenu = {
 		fg = colors.fg
@@ -283,10 +282,10 @@ local theme = {
 	},
 	PmenuSel = {
 		fg = colors.fg,
-		bg = "#394351"
+		bg = colors.lightbg
 	},
 	PmenuThumb = {
-		bg = "#394351"
+		bg = colors.lightbg
 	},
 	Question = {
 		fg = colors.orange
@@ -298,7 +297,7 @@ local theme = {
 		bg = "#39051A"
 	},
 	SignColumn = {
-		fg = "#7188A8"
+		fg = colors.dark_purple
 	},
 	Special = {
 		fg = colors.red
@@ -308,7 +307,7 @@ local theme = {
 	},
 	SpecialKey = {
 		fg = colors.green,
-		bg = "#394351"
+		bg = colors.lightbg
 	},
 	Conditional = {
 		link = "Statement"
@@ -323,10 +322,10 @@ local theme = {
 		link = "Statement"
 	},
 	StatusLine = {
-		fg = "#7188A8"
+		fg = colors.dark_purple
 	},
 	StatusLineNC = {
-		fg = "#4C596B"
+		fg = colors.purple_alt
 	},
 	Substitute = {
 		fg = colors.red,
@@ -361,10 +360,10 @@ local theme = {
 		fg = colors.purple
 	},
 	TSTag = {
-		fg = "#7188A8"
+		fg = colors.dark_purple
 	},
 	TSTagAttribute = {
-		fg = "#7188A8"
+		fg = colors.dark_purple
 	},
 	TSVariable = {
 		fg = colors.fg
@@ -376,7 +375,7 @@ local theme = {
 		fg = colors.red
 	},
 	TabLine = {
-		fg = "#7188A8"
+		fg = colors.dark_purple
 	},
 	TabLineFill = {
 		link = "TabLine"
@@ -422,13 +421,13 @@ local theme = {
 		fg = "#262D36"
 	},
 	Visual = {
-		bg = "#394351"
+		bg = colors.lightbg
 	},
 	VisualNOS = {
 		bg = "#262D36"
 	},
 	WarnMsg = {
-		fg = "#7188A8",
+		fg = colors.dark_purple,
 		bg = "#0B0C0F",
 		bold = true
 	},
@@ -443,7 +442,7 @@ local theme = {
 	},
 	WildMenu = {
 		fg = colors.fg,
-		bg = "#394351"
+		bg = colors.lightbg
 	},
 	markdownH1 = {
 		fg = colors.red,
@@ -457,17 +456,20 @@ local theme = {
 		italic = true
 	},
 	markdownH4 = {
-		fg = "#7188A8",
+		fg = colors.dark_purple,
 		italic = true
 	},
 	markdownH5 = {
-		fg = "#7188A8",
+		fg = colors.dark_purple,
 		italic = true
 	},
 	markdownH6 = {
-		fg = "#7188A8",
+		fg = colors.dark_purple,
 		italic = true
 	},
+	["@variable.member.lua"] = {
+		link = "Identifier",
+	}
 }
 
 vim.cmd("highlight clear")

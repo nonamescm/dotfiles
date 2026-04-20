@@ -1,9 +1,13 @@
 local function on_attach(client, bufnr)
 	vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
 
+	-- I'm not really liking LSP highlighting, it feels
+	-- glitchy and slow. I prefer treesitter by a lot.
+	--[[
 	if client and client.server_capabilities.semanticTokensProvider then
 		vim.lsp.semantic_tokens.enable(true, { bufnr = bufnr })
 	end
+	]]--
 
 	local opts = { buffer = bufnr, noremap = true, silent = true }
 
