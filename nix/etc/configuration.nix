@@ -14,6 +14,13 @@
     ./modules/users.nix
   ];
 
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 8 * 1024; # 16 GiB
+    }
+  ];
+
   programs.neovim = {
     enable = true;
     package = neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default;
