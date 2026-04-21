@@ -57,10 +57,16 @@
     zig
     zls
     rustup
+		macchina
   ];
 
   home.file.".config/nvim" = {
     source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/nvim";
+    recursive = false;
+  };
+
+  home.file.".config/macchina" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/macchina";
     recursive = false;
   };
 }

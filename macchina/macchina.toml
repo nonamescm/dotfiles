@@ -1,0 +1,14 @@
+theme = "theme"
+
+show = [
+	"Host",
+	"Kernel",
+	"Shell",
+	"Uptime",
+	"DiskSpace",
+	"Processor",
+	"Packages",
+	"ProcessorLoad",
+	"Memory",
+	"GPU",
+]
