@@ -10,4 +10,6 @@
     ];
     shell = pkgs.zsh;
   };
+
+  security.sudo.extraConfig = ''Defaults env_reset,pwfeedback'';
 }
