@@ -57,7 +57,7 @@
     zig
     zls
     rustup
-		macchina
+    macchina
   ];
 
   home.file.".config/nvim" = {

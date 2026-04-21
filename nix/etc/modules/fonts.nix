@@ -13,7 +13,7 @@
       nerd-fonts.symbols-only
       nerd-fonts.hasklug
       nerd-fonts.caskaydia-cove
-			iosevka-custom
+      iosevka-custom
     ];
   };
 }
