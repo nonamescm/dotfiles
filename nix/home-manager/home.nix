@@ -25,7 +25,7 @@
     ./modules/mcmojave.nix
     ./modules/qt.nix
     ./modules/rofi.nix
-    ./modules/zsh.nix
+    ./modules/zsh/zsh.nix
     ./modules/xresources.nix
   ];
 

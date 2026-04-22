@@ -12,7 +12,7 @@ color = "blue"
 [palette]
 type = "Full"
 visible = true
-glyph = "* "
+glyph = "██"
 
 [bar]
 glyph           = "*"

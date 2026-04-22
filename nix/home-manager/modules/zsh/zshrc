@@ -1,0 +1,107 @@
+#!/usr/bin/env zsh
+
+setopt no_nomatch prompt_subst interactivecomments
+fpath+=~/.zfunc
+
+autoload -Uz colors && colors
+autoload -U history-search-end
+autoload -U add-zsh-hook
+
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+zmodload zsh/terminfo
+[[ -n "$terminfo[kcuu1]" ]] && bindkey "$terminfo[kcuu1]" history-beginning-search-backward-end
+[[ -n "$terminfo[kcud1]" ]] && bindkey "$terminfo[kcud1]" history-beginning-search-forward-end
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
+__build_git_prompt() {
+	local branch
+	branch=$(git symbolic-ref --short HEAD 2>/dev/null) || return
+	[[ -z $branch ]] && { __GIT_PROMPT=""; return }
+
+	local untracked=0 modified=0 staged=0 line
+
+	while IFS= read -r line; do
+		case "$line" in
+			'??'*) ((untracked++)) ;;
+			' M'*|' D'*) ((modified++)) ;;
+			[AMD]*) ((staged++)) ;;
+		esac
+	done < <(git status --porcelain=v1 2>/dev/null)
+
+	local git_info=" %F{red}git:%f(%F{green}$branch%f"
+	(( untracked + modified > 0 )) && git_info+=" %F{blue}*$((untracked + modified))%f"
+	(( staged > 0 )) && git_info+=" %F{yellow}+$staged%f"
+
+	echo "$git_info)"
+}
+
+__zle_git_callback() {
+  local fd=$1
+  local result
+
+  if read -r result <&$fd; then
+    __GIT_PROMPT=" $result"
+	else
+    __GIT_PROMPT=""
+  fi
+
+  exec {fd}<&-
+  zle -F $fd
+
+  __GIT_WORKING=0
+  zle reset-prompt
+}
+
+__initialize_git_prompt_async() {
+  [[ $__GIT_WORKING -eq 1 ]] && return
+  __GIT_WORKING=1
+  local fd
+  exec {fd}< <(__build_git_prompt)
+  zle -F $fd __zle_git_callback
+}
+
+_my_prompt_precmd() {
+	local last_status=$?
+	if [[ $last_status -eq 0 ]]; then
+		STATUS_COLOR="%F{green}"
+	else
+		STATUS_COLOR="%F{red}"
+	fi
+
+	if [[ $IN_NIX_SHELL ]]; then
+		NIX_PROMPT="%F{cyan}nix-shell "
+	else
+		NIX_PROMPT=""
+	fi
+
+	__initialize_git_prompt_async
+	printf "\033[6 q"
+}
+
+add-zsh-hook precmd _my_prompt_precmd
+
+PROMPT='${NIX_PROMPT}%F{blue}%c${__GIT_PROMPT}%f${STATUS_COLOR} %% %f'
+
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' group-name ""
+zstyle ':completion:*:default' list-colors ''${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors ""
+zstyle ':completion:*' list-prompt '%SAt %p: Hit TAB for more, or the character to insert%s'
+zstyle ':completion:*' matcher-list "" 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+zstyle ':completion:*' menu select=long
+zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+nix-develop() {
+	command nix develop "$@" --command zsh -c '
+		export IN_NIX_SHELL=1
+		exec zsh
+	'
+}

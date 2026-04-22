@@ -2,13 +2,13 @@ theme = "theme"
 
 show = [
 	"Host",
+	"Distribution",
 	"Kernel",
+	"Packages",
 	"Shell",
 	"Uptime",
-	"DiskSpace",
+	"GPU",
 	"Processor",
-	"Packages",
 	"ProcessorLoad",
 	"Memory",
-	"GPU",
 ]
