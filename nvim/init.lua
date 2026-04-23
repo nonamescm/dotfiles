@@ -39,6 +39,7 @@ vim.pack.add({
 	"https://github.com/nvim-neo-tree/neo-tree.nvim", -- file manager
 	"https://github.com/lukas-reineke/indent-blankline.nvim", -- ident guides
 	"https://github.com/glepnir/dashboard-nvim", -- dashboard screen
+	"https://github.com/lervag/vimtex", -- LaTeX support
 
 	-- dependencies
 	"https://github.com/MunifTanjim/nui.nvim", -- needed for neo-tree

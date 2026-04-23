@@ -58,6 +58,7 @@
     zls
     rustup
     macchina
+		texliveFull
   ];
 
   home.file.".config/nvim" = {
