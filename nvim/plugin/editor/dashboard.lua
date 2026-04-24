@@ -40,7 +40,7 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
 				},
 				center = highlight_center({
 					{ icon = " ", desc = "New File         ", action = "enew" },
-					{ icon = " ", desc = "Open File Manager", action = "NvimTreeOpen" },
+					{ icon = " ", desc = "Open File Manager", action = "Neotree float selector" },
 					{ icon = " ", desc = "Close Neovim     ", action = "qa" },
 				}),
 				footer = {

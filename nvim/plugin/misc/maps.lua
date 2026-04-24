@@ -1,16 +1,15 @@
 local vim = vim
 
-local opt = { silent = true }
-local map = vim.api.nvim_set_keymap
-vim.g.mapleader = ","
+local opt = { silent = false }
 
 -- MAPPINGS
-map("n", "<S-t>", [[<Cmd>tabnew<CR>]], opt) -- new tab
-map("n", "<S-x>", [[<Cmd>bdelete<CR>]], opt) -- close tab
+vim.keymap.set("n", "<S-t>", [[<Cmd>tabnew<CR>]], opt) -- new tab
+vim.keymap.set("n", "<S-x>", [[<Cmd>bdelete<CR>]], opt) -- close tab
 
 -- move between tabs
-map("n", "<TAB>", [[<Cmd>BufferLineCycleNext<CR>]], opt)
-map("n", "<S-TAB>", [[<Cmd>BufferLineCyclePrev<CR>]], opt)
+vim.keymap.set("n", "<TAB>", [[<Cmd>bnext<CR>]], opt)
+vim.keymap.set("n", "<S-TAB>", [[<Cmd><CR>]], opt)
 
--- open file explorer
-map("n", "<C-n>", [[<Cmd>Neotree float toggle<CR>]], opt)
+-- Neotree bindings
+vim.keymap.set("n", "<C-n>", [[<Cmd>Neotree float toggle<CR>]], opt)
+vim.keymap.set("n", "<C-b>", [[<Cmd>Neotree float toggle source=buffers<CR>]], opt)

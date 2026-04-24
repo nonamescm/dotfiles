@@ -54,12 +54,13 @@ local theme = {
 	},
 }
 
-require('lualine').setup({
+require("lualine").setup({
 	options = {
 		theme = theme,
-		component_separators = '',
-		section_separators = { left = '', right = '' },
-		disabled_filetypes = { 'packer' },
+		component_separators = "",
+		section_separators = { left = "", right = "" },
+		ignore_focus = { "neo-tree" },
+		disabled_filetypes = { "packer" },
 		globalstatus = true,
 	},
 	sections = {
@@ -70,10 +71,10 @@ require('lualine').setup({
 			},
 		},
 		lualine_b = {
-			{ 'branch', icon = '', color = { fg = colors.green } },
+			{ "branch", icon = "", color = { fg = colors.green } },
 			{ 
-				'diff', 
-				symbols = { added = ' ', modified = ' ', removed = ' ' },
+				"diff", 
+				symbols = { added = " ", modified = " ", removed = " " },
 				diff_color = {
 					added = { fg = colors.purple },
 					modified = { fg = colors.blue },
@@ -83,24 +84,24 @@ require('lualine').setup({
 		},
 		lualine_c = {
 			{
-				'filetype',
+				"filetype",
 				icon_only = true,
-				separator = '',
+				separator = "",
 				padding = { left = 1, right = 0 }
 			},
 			{ 
-				'filename', 
+				"filename", 
 				file_status = true, 
 				path = 0,
-				symbols = { unnamed = 'Empty buffer' },
+				symbols = { unnamed = "Empty buffer" },
 				padding = { left = 0, right = 0 }
 			},
 		},
 		lualine_x = {
 			{
-				'diagnostics',
-				sources = { 'nvim_diagnostic' },
-				symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
+				"diagnostics",
+				sources = { "nvim_diagnostic" },
+				symbols = { error = " ", warn = " ", info = " ", hint = " " },
 				diagnostics_color = {
 					error = { fg = colors.red },
 					warn = { fg = colors.yellow },
@@ -130,7 +131,7 @@ require('lualine').setup({
 			}
 		},
 		lualine_z = {
-			{ 'location', color = { fg = colors.fg, bg = colors.black2 } }
+			{ "location", color = { fg = colors.fg, bg = colors.black2 } }
 		},
 	},
 })

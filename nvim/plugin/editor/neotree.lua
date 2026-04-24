@@ -7,6 +7,10 @@ local colors = require("colors")
 require("neo-tree").setup({
 	close_if_last_window = false,
 	enable_git_status = false,
+	sources = {
+		"filesystem",
+		"buffers",
+	},
 	event_handlers = {
 		{
 			event = "before_render",
@@ -16,13 +20,13 @@ require("neo-tree").setup({
 			end
 		},
 	},
-	popup_border_style = "double",
 	window = {
 		width = 25,
 		mappings = {
 			["<C-[>"] = "navigate_up",
 			["<C-]>"] = "set_root",
-		}
+		},
+		border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" },
 	},
 	filesystem = {
 		filtered_items = {
