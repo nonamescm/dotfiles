@@ -3,6 +3,7 @@
   config,
   username,
   dotfiles,
+  inputs,
   ...
 }:
 {
@@ -33,32 +34,33 @@
   programs.firefox.enable = true;
   nixpkgs.config.allowUnfree = true;
 
-  home.packages = with pkgs; [
-    git
-    steam
-    steam-run
-    kitty
-    alacritty
-    waybar
-    swaybg
-    chromium
-    dunst
-    ghc
-    eww
-    discord
-    rofi
-    feh
-    flameshot
-    grim
-    nixd
-    nil
-    nixfmt
-    nixfmt-tree
-    zig
-    zls
-    rustup
-    macchina
-		texliveFull
+  home.packages = [
+    inputs.zig-overlay.packages.x86_64-linux.master
+    inputs.zls-overlay.packages.x86_64-linux.default
+
+    pkgs.alacritty
+    pkgs.chromium
+    pkgs.discord
+    pkgs.dunst
+    pkgs.eww
+    pkgs.feh
+    pkgs.flameshot
+    pkgs.ghc
+    pkgs.git
+    pkgs.grim
+    pkgs.kitty
+    pkgs.macchina
+    pkgs.nil
+    pkgs.nixd
+    pkgs.nixfmt
+    pkgs.nixfmt-tree
+    pkgs.rofi
+    pkgs.rustup
+    pkgs.steam
+    pkgs.steam-run
+    pkgs.swaybg
+    pkgs.texliveFull
+    pkgs.waybar
   ];
 
   home.file.".config/nvim" = {

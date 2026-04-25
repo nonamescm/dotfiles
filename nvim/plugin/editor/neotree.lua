@@ -11,6 +11,17 @@ require("neo-tree").setup({
 		"filesystem",
 		"buffers",
 	},
+	buffers = {
+		leave_dirs_open = true,
+		follow_current_file = {
+			enabled = true,
+			leave_dirs_open = true,
+		},
+		bind_to_cwd = false,
+	},
+	filesystem = {
+		bind_to_cwd = false,
+	},
 	event_handlers = {
 		{
 			event = "before_render",

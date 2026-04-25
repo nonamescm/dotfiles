@@ -12,4 +12,4 @@ vim.keymap.set("n", "<S-TAB>", [[<Cmd><CR>]], opt)
 
 -- Neotree bindings
 vim.keymap.set("n", "<C-n>", [[<Cmd>Neotree float toggle<CR>]], opt)
-vim.keymap.set("n", "<C-b>", [[<Cmd>Neotree float toggle source=buffers<CR>]], opt)
+vim.keymap.set("n", "<C-b>", [[<Cmd>Neotree buffers float toggle dir=/<CR>]], opt)

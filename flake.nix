@@ -12,20 +12,15 @@
       url = "github:vinceliuice/McMojave-cursors";
       flake = false;
     };
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-    };
-    iosevka-custom = {
-      url = "github:nonamescm/iosevka-custom";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    iosevka-custom.url = "github:nonamescm/iosevka-custom";
+    zig-overlay.url = "github:mitchellh/zig-overlay";
+    zls-overlay.url = "github:zigtools/zls";
   };
   outputs =
     {
       nixpkgs,
       home-manager,
-			iosevka-custom,
-      neovim-nightly-overlay,
       ...
     }@inputs:
     let
@@ -35,12 +30,10 @@
       gitEmail = "snadragona12bionic@gmail.com";
     in
     {
-
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
-          inherit neovim-nightly-overlay;
-					inherit iosevka-custom;
+          inherit inputs;
           inherit username;
           inherit dotfiles;
         };

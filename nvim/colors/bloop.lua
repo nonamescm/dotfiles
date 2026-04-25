@@ -3,7 +3,6 @@ local colors = require("colors")
 local theme = {
 	-- UI: Base and Editor
 	Normal                      = { fg = colors.fg, bg = colors.bg },
-	NormalFloat                 = { link = "Normal" },
 	Bold                        = { bold = true },
 	Italic                      = { italic = false },
 	Underlined                  = { underline = true },
@@ -29,9 +28,9 @@ local theme = {
 	TabLine                     = { fg = colors.dark_purple },
 	TabLineFill                 = { link = "TabLine" },
 	TabLineSel                  = { fg = colors.green, bg = "#262D36" },
-	Pmenu                       = { fg = colors.fg },
+	Pmenu                       = { fg = colors.fg, bg = colors.black },
 	PmenuSel                    = { fg = colors.fg, bg = colors.lightbg },
-	PmenuSbar                   = { fg = colors.green, bg = colors.bg },
+	PmenuSbar                   = { fg = colors.green, bg = colors.black2 },
 	PmenuThumb                  = { bg = colors.lightbg },
 	WildMenu                    = { fg = colors.fg, bg = colors.lightbg },
 	Directory                   = { fg = colors.green },
@@ -91,7 +90,7 @@ local theme = {
 	Comma                       = { link = "Noise" },
 	Parens                      = { link = "Noise" },
 
-	-- Syntax: Modern Tree-sitter (@)
+	-- Tree-sitter 
 	["@variable"]               = { fg = colors.fg },
 	["@variable.builtin"]       = { fg = colors.green },
 	["@variable.member"]        = { fg = colors.purple },
@@ -114,7 +113,7 @@ local theme = {
 	["@comment.warning"]        = { fg = colors.red },
 	["@error"]                  = { link = "Error" },
 
-	-- Syntax: Legacy Tree-sitter (TS)
+	-- Legacy Tree-sitter
 	TSVariable                  = { fg = colors.fg },
 	TSVariableBuiltin           = { fg = colors.green },
 	TSField                     = { fg = colors.purple },
@@ -152,8 +151,9 @@ local theme = {
 	DiagnosticUnderlineHint     = {},
 
 	-- LSP and Floating Windows
-	FloatBorder                 = { fg = "#262D36", bg = "#0B0C0F" },
-	FloatNormal                 = { fg = colors.fg, bg = "#0B0C0F" },
+	NormalFloat                 = { fg = colors.fg, bg = colors.bg2 },
+	FloatNormal                 = { link = "NormalFloat" },
+	FloatBorder                 = { fg = colors.lightbg, bg = colors.bg },
 	LspFloatWinBorder           = { link = "FloatBorder" },
 	LspFloatWinNormal           = { link = "FloatNormal" },
 	LspReferenceRead            = { bg = colors.lightbg },
@@ -180,6 +180,10 @@ local theme = {
 	WhichKey                    = { fg = colors.green },
 	WhichKeyFloat               = { link = "FloatNormal" },
 	NvimTreeNormal              = { link = "FloatNormal" },
+	NeoTreeTitleBar             = { fg = colors.fg, bg = colors.black2 },
+	NeoTreeNormal               = { link = "FloatNormal" },
+	NeoTreeNormalNC             = { link = "FloatNormal" },
+	NeoTreeFloatBorder          = { fg = colors.black2, bg = colors.black2 },
 
 	-- Terminal
 	TermNormal                  = { bg = "#0B0C0F" },
@@ -187,7 +191,7 @@ local theme = {
 	TermCursorNC                = { bg = "#262D36" },
 	Title                       = { fg = colors.fg },
 
-	-- Language Specific
+	-- Markdown
 	markdownH1                  = { fg = colors.red, bold = true },
 	markdownH2                  = { fg = colors.green },
 	markdownH3                  = { fg = colors.green },

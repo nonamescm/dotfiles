@@ -1,4 +1,4 @@
-{ pkgs, neovim-nightly-overlay, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -23,7 +23,7 @@
 
   programs.neovim = {
     enable = true;
-    package = neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    package = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default;
   };
 
   environment.systemPackages = with pkgs; [
