@@ -1,4 +1,9 @@
 { ... }:
+let
+  colors = builtins.mapAttrs (
+    _: builtins.mapAttrs (_: value: "rgba(${builtins.substring 1 6 value}FF)")
+  ) (import ../alacritty/bloop.nix);
+in
 {
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.settings = {
@@ -21,9 +26,9 @@
       gaps_in = 0;
       gaps_out = 0;
       border_size = 1;
-      "col.inactive_border" = "rgba(1a1d22ff)";
-      "col.active_border" = "rgba(242a33ff)";
-      layout = "dwindle";
+      "col.inactive_border" = colors.primary.background;
+      "col.active_border" = colors.bright.black;
+      layout = "master";
     };
 
     decoration = {
@@ -54,7 +59,7 @@
     windowrule = [
       "no_anim on, stay_focused on, match:title ^(flameshot)$"
       "opacity 0, match:class ^(xwaylandvideobridge)$"
-      "no_anim on , match:class ^(xwaylandvideobridge)$"
+      "no_anim on, match:class ^(xwaylandvideobridge)$"
       "no_initial_focus on, match:class ^(xwaylandvideobridge)$"
       "max_size 1 1, match:class ^(xwaylandvideobridge)$"
       "no_blur on, match:class ^(xwaylandvideobridge)$"
@@ -94,6 +99,12 @@
       "$mod, right, movefocus, r"
       "$mod, up, movefocus, u"
       "$mod, down, movefocus, d"
+
+      # Swap window position with mainMod + SHIFT + arrow keys
+      "$mod SHIFT, left, swapwindow, l"
+      "$mod SHIFT, right, swapwindow, r"
+      "$mod SHIFT, up, swapwindow, u"
+      "$mod SHIFT, down, swapwindow, d"
 
       # Switch workspaces with mainMod + [0-9]
       "$mod, 1, workspace, 1"
