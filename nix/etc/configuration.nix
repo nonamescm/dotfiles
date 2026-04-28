@@ -64,6 +64,10 @@
     xwayland.enable = true;
   };
 
+  virtualisation.docker = {
+    enable = true;
+  };
+
   # Version of the system when the configuration was created.
   system.stateVersion = "25.11";
 }

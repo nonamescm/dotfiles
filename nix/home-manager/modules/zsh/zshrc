@@ -72,6 +72,8 @@ _my_prompt_precmd() {
 
 	if [[ $IN_NIX_SHELL ]]; then
 		NIX_PROMPT="%F{cyan}nix-shell "
+	elif [[ $SHLVL -ge 3 ]]; then
+		NIX_PROMPT="%F{cyan}nix-shell "
 	else
 		NIX_PROMPT=""
 	fi

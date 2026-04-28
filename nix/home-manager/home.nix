@@ -72,4 +72,6 @@
     source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/macchina";
     recursive = false;
   };
+
+	programs.firefox.configPath = "${config.xdg.configHome}/mozilla/firefox";
 }

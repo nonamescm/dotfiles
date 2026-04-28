@@ -3,10 +3,11 @@
   users.users.${username} = {
     isNormalUser = true;
     extraGroups = [
-      "networkmanager"
-      "wheel"
-      "video"
       "audio"
+			"docker"
+      "networkmanager"
+      "video"
+      "wheel"
     ];
     shell = pkgs.zsh;
   };

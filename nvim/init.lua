@@ -40,6 +40,7 @@ vim.pack.add({
 	"https://github.com/lukas-reineke/indent-blankline.nvim", -- ident guides
 	"https://github.com/glepnir/dashboard-nvim", -- dashboard screen
 	"https://github.com/lervag/vimtex", -- LaTeX support
+	"https://github.com/andweeb/presence.nvim",
 
 	-- dependencies
 	"https://github.com/MunifTanjim/nui.nvim", -- needed for neo-tree

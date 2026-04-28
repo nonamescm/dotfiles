@@ -66,6 +66,7 @@ in
     ];
 
     layerrule = [
+			"blur off, match:class selection"
       "blur on, match:class rofi"
     ];
 
