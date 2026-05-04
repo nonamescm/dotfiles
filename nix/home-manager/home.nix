@@ -8,7 +8,7 @@
 }:
 let
   discord-canary-patch = pkgs.discord-canary.override {
-    withOpenASAR = true;
+    #withOpenASAR = true;
   };
 in
 {
@@ -33,6 +33,7 @@ in
     ./modules/rofi.nix
     ./modules/zsh/zsh.nix
     ./modules/xresources.nix
+		./modules/river/river.nix
   ];
 
   programs.home-manager.enable = true;

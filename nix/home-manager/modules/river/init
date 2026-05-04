@@ -1,0 +1,61 @@
+#!/usr/bin/env zsh
+
+dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
+systemctl --user stop river-session.target 2>/dev/null
+systemctl --user start river-session.target 2>/dev/null
+
+export XCURSOR_SIZE=24
+
+swaybg -i  &
+waybar &
+
+riverctl border-width 1
+riverctl border-color-focused 0x4a5564ff
+riverctl border-color-unfocused 0x13161bff
+riverctl background-color 0x13161bff
+riverctl rule-add ssd
+
+riverctl keyboard-layout br
+riverctl focus-follows-cursor normal
+riverctl input pointer-* pointer-accel 0
+riverctl input touchpad-* natural-scroll disabled
+
+riverctl default-layout rivertile
+riverctl default-attach-mode bottom
+rivertile -view-padding 0 -outer-padding 0 -main-location left -main-ratio 0.7 &
+
+riverctl map normal Super Return spawn kitty
+riverctl map normal Alt Space spawn 'rofi -show drun'
+riverctl map normal Super slash spawn 'rofi -show drun'
+
+riverctl map normal Super Q close
+riverctl map normal Super M exit
+riverctl map normal Super S toggle-float
+riverctl map normal Super F toggle-fullscreen
+riverctl map normal Super+Shift C spawn 'bash -c "wl-paste | wl-copy"'
+
+riverctl map normal Super Left focus-view left
+riverctl map normal Super Right focus-view right
+riverctl map normal Super Up focus-view up
+riverctl map normal Super Down focus-view down
+
+riverctl map normal Super+Shift Left swap left
+riverctl map normal Super+Shift Right swap right
+riverctl map normal Super+Shift Up swap up
+riverctl map normal Super+Shift Down swap down
+
+riverctl map-pointer normal Super BTN_LEFT move-view
+riverctl map-pointer normal Super BTN_RIGHT resize-view
+
+riverctl map -repeat normal None XF86MonBrightnessUp spawn 'brightnessctl s 5%+'
+riverctl map -repeat normal None XF86MonBrightnessDown spawn 'brightnessctl s 5%-'
+riverctl map normal None Print spawn 'flameshot gui'
+riverctl map -repeat normal None XF86AudioRaiseVolume spawn 'amixer sset Master 2%+'
+riverctl map -repeat normal None XF86AudioLowerVolume spawn 'amixer sset Master 2%-'
+riverctl map normal None XF86AudioMute spawn 'amixer sset Master toggle'
+
+for i in $(seq 1 9); do
+    tags=$((1 << (i - 1)))
+    riverctl map normal Super "$i" set-focused-tags "$tags"
+    riverctl map normal Super+Shift "$i" set-view-tags "$tags"
+done

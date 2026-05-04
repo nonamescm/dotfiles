@@ -14,6 +14,9 @@
       name = "Sans";
       size = 11;
     };
+    gtk4.theme = config.gtk.theme;
+    gtk3.extraConfig = {
+      gtk-decoration-layout = "";
+    };
   };
-  gtk.gtk4.theme = config.gtk.theme;
 }

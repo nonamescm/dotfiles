@@ -135,8 +135,51 @@ window#waybar > box {
 }
 
 #custom-nixos {
-    color: @blue;
-    font-size: 30px;
-    border-radius: 1000px;
-    padding: 1px;
+	color: @blue;
+	font-size: 30px;
+	border-radius: 1000px;
+	padding: 1px;
+}
+
+#tags button.tag-1 { color: #f7a1c5; }
+#tags button.tag-2 { color: #41e6a2; }
+#tags button.tag-3 { color: #39d1ef; }
+#tags button.tag-4 { color: #9ca4f7; }
+#tags button.tag-5 { color: #ef3985; }
+#tags button.tag-6 { color: #ef3985; }
+#tags button.tag-7 { color: #ef3985; }
+#tags button.tag-8 { color: #ef3985; }
+#tags button.tag-9 { color: #ef3985; }
+
+#tags {
+	font-family: "FiraCode Nerd Font Med";
+	background: @altbg;
+	border-radius: 1000px;
+	padding: 2px;
+}
+
+#tags button {
+	min-width: 0;
+	padding: 0px 4px;
+	padding-left: 1px;
+	border-radius: 1000px;
+}
+
+#tags button:hover {
+	background: @revfg;
+	box-shadow: inherit;
+	text-shadow: inherit;
+}
+
+#tags button.focused {
+	background-color: @revfg;
+}
+
+#tags button:not(.focused):not(.occupied):not(.urgent) {
+	color: transparent;
+	background: transparent;
+	padding: 0;
+	margin: 0;
+	min-width: 0;
+	border: 0;
 }

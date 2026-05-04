@@ -10,26 +10,26 @@
         width = 1;
         spacing = 0;
 
-        modules-left = [ "hyprland/workspaces" ];
+        modules-left = [ "river/tags" ];
         modules-center = [ "custom/nixos" ];
         modules-right = [
           "tray"
           "group/misc"
         ];
 
-        "hyprland/workspaces" = {
-          disable-scroll = true;
-          all-outputs = true;
-          format = "{icon}";
-          format-icons = {
-            "1" = "<span color=\"#f7a1c5\">󰈹</span>";
-            "2" = "<span color=\"#41e6a2\"></span>";
-            "3" = "<span color=\"#39d1ef\">󰙯</span>";
-            "4" = "<span color=\"#9ca4f7\">󰊖</span>";
-            "default" = "<span color=\"#ef3985\"></span>";
-          };
-          sort-by-number = true;
-          on-click = "activate";
+        "river/tags" = {
+          hide-vacant = true;
+          tag-labels = [
+            "󰈹"
+            ""
+            "󰙯"
+            "󰊖"
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
         };
 
         "clock" = {
