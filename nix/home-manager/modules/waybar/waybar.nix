@@ -1,7 +1,8 @@
-{ ... }:
+{ pkgs, inputs, ... }:
 {
   programs.waybar = {
     enable = true;
+    package = inputs.waybar-river-patch.packages.${pkgs.stdenv.hostPlatform.system}.default;
     style = ./style.css;
     settings = {
       mainBar = {

@@ -31,8 +31,8 @@ in
       bold_italic_font = "family='Iosevka Custom' style=Regular";
       font_size = 12;
 
-      background_opacity = "0.95";
-			background_blur = "1";
+      background_opacity = "1";
+      background_blur = "1";
 
       cursor_shape = "beam";
       cursor_blink_interval = "0";

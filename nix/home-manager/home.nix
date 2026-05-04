@@ -33,7 +33,7 @@ in
     ./modules/rofi.nix
     ./modules/zsh/zsh.nix
     ./modules/xresources.nix
-		./modules/river/river.nix
+    ./modules/river/river.nix
   ];
 
   programs.home-manager.enable = true;
@@ -48,6 +48,7 @@ in
 
     inputs.zig-overlay.packages.x86_64-linux.master
     inputs.zls-overlay.packages.x86_64-linux.default
+    inputs.waybar-river-patch.packages.x86_64-linux.default
 
     pkgs.alacritty
     pkgs.chromium
@@ -64,14 +65,13 @@ in
     pkgs.nixd
     pkgs.nixfmt
     pkgs.nixfmt-tree
-		pkgs.river-classic
+    pkgs.river-classic
     pkgs.rofi
     pkgs.rustup
     pkgs.steam
     pkgs.steam-run
     pkgs.swaybg
     pkgs.texliveMedium
-    pkgs.waybar
   ];
 
   home.file.".config/nvim" = {

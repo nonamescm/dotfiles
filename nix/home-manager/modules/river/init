@@ -6,7 +6,7 @@ systemctl --user start river-session.target 2>/dev/null
 
 export XCURSOR_SIZE=24
 
-swaybg -i  &
+swaybg -i ./fractal.png &
 waybar &
 
 riverctl border-width 1

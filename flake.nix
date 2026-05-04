@@ -14,6 +14,7 @@
     };
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     iosevka-custom.url = "github:nonamescm/iosevka-custom";
+    waybar-river-patch.url = "github:nonamescm/Waybar/add-static-river-tag-classes";
     zig-overlay.url = "github:mitchellh/zig-overlay";
     zls-overlay.url = "github:zigtools/zls";
   };
