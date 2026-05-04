@@ -32,6 +32,7 @@ in
       font_size = 12;
 
       background_opacity = "0.7";
+			background_blur = "1";
 
       cursor_shape = "beam";
       cursor_blink_interval = "0";

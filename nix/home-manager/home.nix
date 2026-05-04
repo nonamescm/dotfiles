@@ -6,6 +6,11 @@
   inputs,
   ...
 }:
+let
+  discord-canary-patch = pkgs.discord-canary.override {
+    withOpenASAR = true;
+  };
+in
 {
   home.username = username;
   home.homeDirectory = "/home/${username}";
@@ -33,14 +38,18 @@
   programs.home-manager.enable = true;
   programs.firefox.enable = true;
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "openssl-1.1.1w"
+  ];
 
   home.packages = [
+    discord-canary-patch
+
     inputs.zig-overlay.packages.x86_64-linux.master
     inputs.zls-overlay.packages.x86_64-linux.default
 
     pkgs.alacritty
     pkgs.chromium
-    pkgs.discord
     pkgs.dunst
     pkgs.eww
     pkgs.feh
@@ -54,12 +63,13 @@
     pkgs.nixd
     pkgs.nixfmt
     pkgs.nixfmt-tree
+		pkgs.river-classic
     pkgs.rofi
     pkgs.rustup
     pkgs.steam
     pkgs.steam-run
     pkgs.swaybg
-    pkgs.texliveFull
+    pkgs.texliveMedium
     pkgs.waybar
   ];
 
@@ -73,5 +83,5 @@
     recursive = false;
   };
 
-	programs.firefox.configPath = "${config.xdg.configHome}/mozilla/firefox";
+  programs.firefox.configPath = "${config.xdg.configHome}/mozilla/firefox";
 }

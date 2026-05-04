@@ -50,6 +50,8 @@
     pptp
     ppp
     brightnessctl
+    zip
+    unzip
   ];
 
   programs.java = {

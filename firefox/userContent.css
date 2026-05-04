@@ -5,7 +5,7 @@ html body.activity-stream div#root div.has-search.no-recommended-stories div.out
 
 /* changes background color */
 html body.activity-stream div#root {
-	background-color: #181820 !important;
+	background-color: #13161B !important;
 }
 
 /* hides the customize button */

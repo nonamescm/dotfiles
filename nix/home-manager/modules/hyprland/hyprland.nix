@@ -9,7 +9,7 @@ in
   wayland.windowManager.hyprland.settings = {
     exec-once = [
       "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-      "swaybg -i ${./fractal2.png}"
+      "swaybg -i ${./rainbow-nix.png}"
       "waybar"
     ];
 
@@ -29,6 +29,10 @@ in
       "col.inactive_border" = colors.primary.background;
       "col.active_border" = colors.bright.black;
       layout = "master";
+    };
+
+    master = {
+      mfact = 0.7;
     };
 
     decoration = {
@@ -66,7 +70,7 @@ in
     ];
 
     layerrule = [
-			"blur off, match:class selection"
+      "blur off, match:class selection"
       "blur on, match:class rofi"
     ];
 

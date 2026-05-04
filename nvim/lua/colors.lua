@@ -8,6 +8,7 @@ return {
 	black = "#0d0f11",
 	black2 = "#090a0c",
 	lightbg = "#394351",
+	lightbg2 = "#262D36",
 	grey_fg = "#0d0f11",
 	light_grey = "#0d0f11",
 	fg = "#dee9f7",
@@ -18,4 +19,5 @@ return {
 	orange = "#f7a1c5",
 	yellow = "#f3f7a0",
 	cyan = "#39d1ef",
+	wine = "#39051A",
 }

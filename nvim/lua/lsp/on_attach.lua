@@ -8,6 +8,7 @@ local function on_attach(client, bufnr)
 		vim.lsp.semantic_tokens.enable(true, { bufnr = bufnr })
 	end
 	]]--
+	client.server_capabilities.semanticTokensProvider = nil
 
 	local opts = { buffer = bufnr, noremap = true, silent = true }
 

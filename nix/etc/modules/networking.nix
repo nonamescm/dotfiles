@@ -15,6 +15,6 @@
     iptables -A OUTPUT -p gre -j ACCEPT
     iptables -t raw -A OUTPUT -p tcp --dport 1723 -j CT --helper pptp
   '';
-	services.resolved.enable = true;
-	networking.networkmanager.dns = "systemd-resolved";
+  services.resolved.enable = true;
+  networking.networkmanager.dns = "systemd-resolved";
 }

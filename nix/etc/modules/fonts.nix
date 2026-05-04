@@ -1,4 +1,9 @@
-{ inputs, pkgs, iosevka-custom, ... }:
+{
+  inputs,
+  pkgs,
+  iosevka-custom,
+  ...
+}:
 {
   fonts = {
     enableDefaultPackages = true;

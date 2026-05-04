@@ -1,113 +1,179 @@
+/* AI assisted, I can't be assed to figure out firefox CSSing */
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
 * {
-    --bg-primary: #080812;      /* Main background */
-    --bg-secondary: #181828;    /* Search switcher background */
-    --bg-highlight: #3a3a4a;    /* Borders and Hover states */
-    
-    --text-primary: #e0e0e0;    /* Main text color */
-    --text-secondary: #c0c0c0;  /* Close buttons/icons */
-    
-    --color-accent: #ff5555;    /* Red/Danger/Hover states */
+	--bg-primary: #090A0C; /* Main background */
+	--bg-secondary: #0F1215; /* Search switcher background */
+	--bg-highlight: #394351; /* Borders and Hover states */
+	--text-primary: #DEE9F7; /* Main text color */
+	--text-secondary: #EEF9FF; /* Close buttons/icons */
+	--color-accent: #ff5555; /* Red/Danger/Hover states */
+	--toolbar-field-focus-border-color: var(--bg-highlight) !important;
+	--focus-outline-color: var(--bg-highlight) !important;
+	--content-border-radius: 0px !important;
+	--focus-outline-color: var(--bg-highlight) !important; /* Change this to your color */
 }
 
-/* ------------------------------
-   Styles
-------------------------------- */
+/* 2. Target the URL Bar and Search Bar background */
+#urlbar[focused="true"] > #urlbar-background,
+#searchbar:focus-within {
+	outline: 2px solid var(--focus-outline-color) !important;
+	outline-offset: -2px !important;
+}
+
+/* 3. Target all Toolbar Buttons when focused via keyboard */
+.toolbarbutton-1:focus-visible > *,
+.toolbarbutton-1[focused] > * {
+	outline: 2px solid var(--focus-outline-color) !important;
+	outline-offset: -2px !important;
+	box-shadow: none !important; /* Removes the default glow/shadow */
+}
+
+/* 4. Remove the 'extra' system focus ring to prevent the double-box */
+:-moz-focusring {
+	outline: none !important;
+}
+
+/* Styles */
 
 #urlbar-searchmode-switcher, .searchmode-switcher-chicklet {
-    background-color: var(--bg-secondary) !important;
+	background-color: var(--bg-secondary) !important;
 }
 
 #navigator-toolbox {
-    background-color: var(--bg-primary) !important;
-    color: var(--text-primary) !important;
+	background-color: var(--bg-primary) !important;
+	color: var(--text-primary) !important;
 }
 
 /* Tabs */
 #sidebar-main {
-    background-color: var(--bg-primary) !important;
-    color: var(--text-primary) !important;
-    padding: 0px;
-    margin: 0px;
+	background-color: var(--bg-primary) !important;
+	color: var(--text-primary) !important;
+	padding: 0px;
+	margin: 0px;
 }
 
 #tabbrowser-tabs {
-    background-color: var(--bg-primary) !important;
-    color: var(--text-primary) !important;
-    padding: 0px;
+	background-color: var(--bg-primary) !important;
+	color: var(--text-primary) !important;
+	padding: 0px;
 }
 
 .tab-content {
-    padding 0px;
+	padding 0px;
 }
 
 .tab-background:hover {
-    background-color: blue !important;
+	background-color: blue !important;
 }
 
 .tab-background[selected] {
-    background-color: var(--bg-secondary) !important;;
+	background-color: var(--bg-secondary) !important;;
 }
-/* ------------------------------
-   Toolbar buttons (back, forward, reload)
-------------------------------- */
+/* Toolbar buttons (back, forward, reload) */
 .toolbarbutton-1 {
-    background-color: var(--bg-primary) !important;
-    border-radius: 4px !important;
+	background-color: var(--bg-primary) !important;
+	border-radius: 4px !important;
 }
 
 .toolbarbutton-1:hover {
-    background-color: var(--bg-primary) !important;
+	background-color: var(--bg-primary) !important;
 }
 
-/* ------------------------------
-   URL bar / search bar
-------------------------------- */
+/* URL bar / search bar */
 #urlbar, #searchbar {
-    background-color: var(--bg-primary) !important;
-    color: var(--text-primary) !important;
-    border: 1px solid var(--bg-highlight) !important;
+	background-color: var(--bg-primary) !important;
+	color: var(--text-primary) !important;
+	border: 1px solid var(--bg-highlight) !important;
 }
 
 #urlbar:focus {
-    background-color: var(--bg-primary) !important;
-    color: var(--text-primary) !important;
-    border: 1px solid var(--bg-highlight) !important;
+	background-color: var(--bg-primary) !important;
+	color: var(--text-primary) !important;
+	border: 1px solid var(--bg-highlight) !important;
 }
 
 .urlbar-background {
-  background-color: var(--bg-primary) !important;
+	background-color: var(--bg-primary) !important;
 }
 
-/* ------------------------------
-   Menus
-------------------------------- */
+/* Menus */
 menupopup, popup {
-    color: var(--text-primary) !important;
+	color: var(--text-primary) !important;
 }
 
 arrowscrollbox.menupopup-arrowscrollbox {
-    background-color: var(--bg-primary) !important;
+	background-color: var(--bg-primary) !important;
 }
 
 menuitem, menu, toolbarbutton {
-    font-size: 12px !important;
+	font-size: 12px !important;
 }
 
 /* Hover for menu items */
 menuitem:hover, toolbarbutton:hover {
-    background-color: var(--bg-highlight) !important;
+	background-color: var(--bg-highlight) !important;
 }
 
 .buttons-wrapper {
-    display: none !important;
+	display: none !important;
 }
 
 tools-overflow {
-    background-color: blue !important;;
+	background-color: blue !important;;
 }
 
 .titlebar-button {
-    display: none;
+	display: none;
+}
+
+.actions-list {
+	display: none !important;
+}
+
+/* Removes the rounded corners from the main web content area */
+#tabbrowser-tabpanels,
+.browserStack,
+#nav-bar {
+	border-radius: 0 !important;
+}
+
+/* This targets the specific 'deck' container that often holds the rounding */
+#tabbrowser-deck,
+#tabbrowser-tabbox {
+	border-radius: 0 !important;
+}
+
+/* Specifically for the 'Proton' floating content look */
+#content-deck {
+	border-radius: 0 !important;
+}
+
+/* 1. Kill the rounded corners on the main content container */
+#tabbrowser-tabpanels {
+	border-radius: 0px !important;
+}
+
+/* 2. Remove the margin/padding that creates the "frame" look */
+#browser, 
+.browserContainer {
+	margin: 0px !important;
+	padding: 0px !important;
+	border-radius: 0px !important;
+}
+
+/* 3. Specifically for the Sidebar/Content split */
+#sidebar-box {
+	border-radius: 0px !important;
+}
+
+/* 4. This targets the actual background canvas of the browser */
+:root {
+	--tabpanel-border-radius: 0px !important;
+	--panel-border-radius: 0px !important;
+}
+
+#stack-box,
+.deck-selected {
+	border-radius: 0px !important;
 }
