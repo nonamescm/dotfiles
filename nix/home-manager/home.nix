@@ -60,6 +60,7 @@ in
     pkgs.git
     pkgs.grim
     pkgs.kitty
+		pkgs.libnotify
     pkgs.macchina
     pkgs.nil
     pkgs.nixd

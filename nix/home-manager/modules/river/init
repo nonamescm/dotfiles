@@ -1,12 +1,15 @@
 #!/usr/bin/env zsh
 
-dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
+export XCURSOR_THEME="McMojave Cursors"
+export XCURSOR_SIZE=10
+
+dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XCURSOR_SIZE XCURSOR_THEME
 systemctl --user stop river-session.target 2>/dev/null
 systemctl --user start river-session.target 2>/dev/null
 
 export XCURSOR_SIZE=24
 
-swaybg -i ./fractal.png &
+swaybg -i ~/.config/river/fractal.png &
 waybar &
 
 riverctl border-width 1
@@ -19,6 +22,7 @@ riverctl keyboard-layout br
 riverctl focus-follows-cursor normal
 riverctl input pointer-* pointer-accel 0
 riverctl input touchpad-* natural-scroll disabled
+riverctl xcursor-theme "${XCURSOR_THEME}" "${XCURSOR_SIZE}"
 
 riverctl default-layout rivertile
 riverctl default-attach-mode bottom
@@ -27,6 +31,7 @@ rivertile -view-padding 0 -outer-padding 0 -main-location left -main-ratio 0.7 &
 riverctl map normal Super Return spawn kitty
 riverctl map normal Alt Space spawn 'rofi -show drun'
 riverctl map normal Super slash spawn 'rofi -show drun'
+riverctl map normal Super R spawn ~/.config/river/rofi-show-run
 
 riverctl map normal Super Q close
 riverctl map normal Super M exit

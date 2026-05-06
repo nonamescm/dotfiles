@@ -5,7 +5,7 @@
     package = pkgs.rofi;
 
     extraConfig = {
-      font = "FiraCode Nerd Font 15";
+      font = "Iosevka Custom 10";
       show-icons = true;
       icon-theme = "Papirus";
       display-drun = "";
@@ -22,14 +22,14 @@
       in
       {
         "*" = {
-          background = mkLiteral "#13161bbb";
-          background-alt = mkLiteral "#13161bbb";
+          background = mkLiteral "#13161b";
+          background-alt = mkLiteral "#13161b";
           foreground = mkLiteral "#dee9f7";
           foreground-alt = mkLiteral "#bec9d7";
-          border-alt = mkLiteral "#13161bbb";
+          border-alt = mkLiteral "#13161b";
           border = mkLiteral "#242a33";
-          selected = mkLiteral "#242a3377";
-          inputbar = mkLiteral "#242a3377";
+          selected = mkLiteral "#242a33";
+          inputbar = mkLiteral "#242a33";
           urgent = mkLiteral "#ef3985";
         };
 

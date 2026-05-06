@@ -1,0 +1,17 @@
+#!/usr/bin/env zsh
+local str="$(sh \
+	-c "$(rofi \
+		-dmenu \
+		-show run \
+		-theme-str '
+			listview { enabled: false; }
+			window { height: 5.8%; location: North; y-offset: 2%; }
+			prompt { enabled: false; }
+			entry { placeholder: ""; padding: 0 0 0 0; }
+			inputbar { padding: 0.5%; }
+			mainbox { padding: 1% 1% 1% 1%; }
+			configuration { font: "Iosevka Custom SemiBold 12"; }
+')")"
+if [[ str ]]; then
+	notify-send str
+fi

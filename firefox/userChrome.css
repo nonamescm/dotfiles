@@ -4,7 +4,7 @@
 * {
 	--bg-primary: #090A0C; /* Main background */
 	--bg-secondary: #0F1215; /* Search switcher background */
-	--bg-highlight: #394351; /* Borders and Hover states */
+	--bg-highlight: #4C596B; /* Borders and Hover states */
 	--text-primary: #DEE9F7; /* Main text color */
 	--text-secondary: #EEF9FF; /* Close buttons/icons */
 	--color-accent: #ff5555; /* Red/Danger/Hover states */
@@ -57,6 +57,11 @@
 	background-color: var(--bg-primary) !important;
 	color: var(--text-primary) !important;
 	padding: 0px;
+}
+
+vbox.tab-background[selected] {
+  /* Styles for the selected vbox */
+  background-color: var(--bg-highlight) !important;
 }
 
 .tab-content {
