@@ -1,6 +1,5 @@
 #!/usr/bin/env zsh
-local str="$(sh \
-	-c "$(rofi \
+local rofi_command_string="$(rofi \
 		-dmenu \
 		-show run \
 		-theme-str '
@@ -11,7 +10,9 @@ local str="$(sh \
 			inputbar { padding: 0.5%; }
 			mainbox { padding: 1% 1% 1% 1%; }
 			configuration { font: "Iosevka Custom SemiBold 12"; }
-')")"
-if [[ str ]]; then
-	notify-send str
+')"
+
+local str="$(zsh -c "$rofi_command_string" 2>&1)"
+if [[ $str ]]; then
+	notify-send "Command output" $str
 fi

@@ -8,7 +8,7 @@
 }:
 let
   discord-canary-patch = pkgs.discord-canary.override {
-    #withOpenASAR = true;
+    withOpenASAR = false;
   };
 in
 {
@@ -25,6 +25,7 @@ in
     ./modules/kitty/kitty.nix
     ./modules/waybar/waybar.nix
     ./modules/hyprland/hyprland.nix
+		./modules/dunst.nix
     ./modules/flameshot.nix
     ./modules/git.nix
     ./modules/gtk.nix
@@ -69,10 +70,12 @@ in
     pkgs.river-classic
     pkgs.rofi
     pkgs.rustup
+		pkgs.slurp
     pkgs.steam
     pkgs.steam-run
     pkgs.swaybg
     pkgs.texliveMedium
+		pkgs.wl-clipboard
   ];
 
   home.file.".config/nvim" = {

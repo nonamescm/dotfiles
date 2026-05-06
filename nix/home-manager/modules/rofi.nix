@@ -5,7 +5,7 @@
     package = pkgs.rofi;
 
     extraConfig = {
-      font = "Iosevka Custom 10";
+      font = "Iosevka Custom 12";
       show-icons = true;
       icon-theme = "Papirus";
       display-drun = "";
