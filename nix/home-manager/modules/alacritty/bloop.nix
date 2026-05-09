@@ -3,6 +3,10 @@
     background = "#13161b";
     foreground = "#dee9f7";
   };
+  secondary = {
+    background = "#090a0c";
+    foreground = "#bec9d7";
+  };
   normal = {
     black = "#242a33";
     red = "#ef3985";

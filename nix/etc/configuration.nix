@@ -52,6 +52,7 @@
     brightnessctl
     zip
     unzip
+    update-resolv-conf
   ];
 
   programs.java = {

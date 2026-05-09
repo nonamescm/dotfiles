@@ -18,19 +18,23 @@
 
     theme =
       let
+        colors = import ./alacritty/bloop.nix;
         inherit (config.lib.formats.rasi) mkLiteral;
       in
       {
         "*" = {
-          background = mkLiteral "#13161b";
-          background-alt = mkLiteral "#13161b";
-          foreground = mkLiteral "#dee9f7";
-          foreground-alt = mkLiteral "#bec9d7";
-          border-alt = mkLiteral "#13161b";
-          border = mkLiteral "#242a33";
-          selected = mkLiteral "#242a33";
-          inputbar = mkLiteral "#242a33";
-          urgent = mkLiteral "#ef3985";
+          background = mkLiteral colors.normal.black;
+          background-alt = mkLiteral colors.normal.black;
+
+          foreground = mkLiteral colors.primary.foreground;
+          foreground-alt = mkLiteral colors.secondary.foreground;
+
+          border = mkLiteral colors.bright.black;
+          border-alt = mkLiteral colors.primary.background;
+
+          selected = mkLiteral colors.bright.black;
+          inputbar = mkLiteral colors.bright.black;
+          urgent = mkLiteral colors.bright.red;
         };
 
         "window" = {
@@ -38,7 +42,6 @@
           text-color = mkLiteral "@foreground";
           border = mkLiteral "2px";
           border-color = mkLiteral "@border";
-          border-radius = mkLiteral "5px";
           height = mkLiteral "60%";
           width = mkLiteral "46.66%";
           location = mkLiteral "Center";
@@ -76,7 +79,6 @@
           text-color = mkLiteral "@foreground";
           expand = false;
           border = mkLiteral "0%";
-          border-radius = mkLiteral "0.5%";
           border-color = mkLiteral "@border-alt";
           padding = mkLiteral "1%";
           position = mkLiteral "center";
@@ -105,7 +107,6 @@
           background-color = mkLiteral "transparent";
           text-color = mkLiteral "@foreground";
           orientation = mkLiteral "horizontal";
-          border-radius = mkLiteral "0%";
           padding = mkLiteral "1% 1% 1% 1%";
         };
 
@@ -128,13 +129,11 @@
         "element normal.urgent, element alternate.urgent" = {
           background-color = mkLiteral "@urgent";
           text-color = mkLiteral "@foreground";
-          border-radius = mkLiteral "1%";
         };
 
         "element selected" = {
           background-color = mkLiteral "@selected";
           text-color = mkLiteral "@foreground";
-          border-radius = mkLiteral "0.4%";
         };
 
         "element selected.urgent" = {

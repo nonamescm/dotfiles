@@ -25,7 +25,7 @@ in
     ./modules/kitty/kitty.nix
     ./modules/waybar/waybar.nix
     ./modules/hyprland/hyprland.nix
-		./modules/dunst.nix
+    ./modules/dunst.nix
     ./modules/flameshot.nix
     ./modules/git.nix
     ./modules/gtk.nix
@@ -61,7 +61,7 @@ in
     pkgs.git
     pkgs.grim
     pkgs.kitty
-		pkgs.libnotify
+    pkgs.libnotify
     pkgs.macchina
     pkgs.nil
     pkgs.nixd
@@ -70,12 +70,12 @@ in
     pkgs.river-classic
     pkgs.rofi
     pkgs.rustup
-		pkgs.slurp
+    pkgs.slurp
     pkgs.steam
     pkgs.steam-run
     pkgs.swaybg
     pkgs.texliveMedium
-		pkgs.wl-clipboard
+    pkgs.wl-clipboard
   ];
 
   home.file.".config/nvim" = {
