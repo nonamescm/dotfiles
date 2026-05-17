@@ -24,7 +24,6 @@ in
     ./modules/alacritty/alacritty.nix
     ./modules/kitty/kitty.nix
     ./modules/waybar/waybar.nix
-    ./modules/hyprland/hyprland.nix
     ./modules/dunst.nix
     ./modules/flameshot.nix
     ./modules/git.nix
@@ -52,11 +51,13 @@ in
     inputs.waybar-river-patch.packages.x86_64-linux.default
 
     pkgs.alacritty
+    pkgs.any-nix-shell
     pkgs.chromium
     pkgs.dunst
     pkgs.eww
     pkgs.feh
     pkgs.flameshot
+    pkgs.gamescope
     pkgs.ghc
     pkgs.git
     pkgs.grim
@@ -76,6 +77,7 @@ in
     pkgs.swaybg
     pkgs.texliveMedium
     pkgs.wl-clipboard
+    pkgs.obsidian
   ];
 
   home.file.".config/nvim" = {
@@ -89,4 +91,25 @@ in
   };
 
   programs.firefox.configPath = "${config.xdg.configHome}/mozilla/firefox";
+
+  xdg.portal = {
+    enable = true;
+
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-wlr
+    ];
+
+    config = {
+      river = {
+        default = [ "gtk" ];
+        "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];
+        "org.freedesktop.impl.portal.Screenshot" = [ "wlr" ];
+      };
+
+      common = {
+        default = [ "gtk" ];
+      };
+    };
+  };
 }

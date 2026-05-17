@@ -3,7 +3,11 @@
 export XCURSOR_THEME="McMojave Cursors"
 export XCURSOR_SIZE=10
 
-dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XCURSOR_SIZE XCURSOR_THEME
+systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river XCURSOR_SIZE XCURSOR_THEME
+systemctl --user restart xdg-desktop-portal
+systemctl --user restart xdg-desktop-portal-wlr
+
 systemctl --user stop river-session.target 2>/dev/null
 systemctl --user start river-session.target 2>/dev/null
 
