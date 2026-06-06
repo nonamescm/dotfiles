@@ -3,7 +3,7 @@
   programs.waybar = {
     enable = true;
     package = inputs.waybar-river-patch.packages.${pkgs.stdenv.hostPlatform.system}.default;
-    style = ./style-${import ../theme/mode.nix}.css;
+    style = ./style.css;
     settings = {
       mainBar = {
         layer = "top";

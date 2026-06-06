@@ -14,12 +14,12 @@
     ./modules/users.nix
   ];
 
-  swapDevices = [
-    {
-      device = "/var/lib/swapfile";
-      size = 8 * 1024; # 16 GiB
-    }
-  ];
+#  swapDevices = [
+#    {
+#      #device = "/var/lib/swapfile";
+#      #size = 8 * 1024; # 16 GiB
+#    }
+#  ];
 
   programs.neovim = {
     enable = true;

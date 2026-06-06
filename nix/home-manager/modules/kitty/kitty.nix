@@ -1,6 +1,6 @@
 { ... }:
 let
-  bloop = import ../alacritty/bloop.nix;
+  bloop = import ../theme/bloop.nix;
 in
 {
   programs.kitty = {
@@ -26,9 +26,9 @@ in
       color15 = bloop.bright.white;
 
       font_family = "family='Iosevka Custom' style=Regular";
-      bold_font = "family='Iosevka Custom' style=Regular";
+      bold_font = "family='Iosevka Custom' style=Medium";
       italic_font = "family='Iosevka Custom' style=Regular";
-      bold_italic_font = "family='Iosevka Custom' style=Regular";
+      bold_italic_font = "family='Iosevka Custom' style=Medium";
       font_size = 12;
 
       background_opacity = "1";

@@ -41,6 +41,7 @@ riverctl map normal Super Q close
 riverctl map normal Super M exit
 riverctl map normal Super S toggle-float
 riverctl map normal Super F toggle-fullscreen
+riverctl map normal Super W spawn 'sh -c "pkill waybar || waybar"'
 riverctl map normal Super+Shift C spawn 'bash -c "wl-paste | wl-copy"'
 
 riverctl map normal Super Left focus-view left
@@ -52,6 +53,9 @@ riverctl map normal Super+Shift Left swap left
 riverctl map normal Super+Shift Right swap right
 riverctl map normal Super+Shift Up swap up
 riverctl map normal Super+Shift Down swap down
+
+riverctl map -repeat normal Super+Control Left send-layout-cmd rivertile "main-ratio -0.01"
+riverctl map -repeat normal Super+Control Right send-layout-cmd rivertile "main-ratio +0.01"
 
 riverctl map-pointer normal Super BTN_LEFT move-view
 riverctl map-pointer normal Super BTN_RIGHT resize-view

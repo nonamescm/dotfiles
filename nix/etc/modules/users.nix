@@ -1,5 +1,7 @@
 { pkgs, username, ... }:
 {
+  users.groups.${username} = { };
+
   users.users.${username} = {
     isNormalUser = true;
     extraGroups = [
@@ -8,6 +10,8 @@
       "networkmanager"
       "video"
       "wheel"
+      "tty"
+      "${username}"
     ];
     shell = pkgs.zsh;
   };

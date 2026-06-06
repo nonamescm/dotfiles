@@ -1,4 +1,7 @@
 { ... }:
+let
+  colors = import ./theme/bloop.nix;
+in
 {
   services.dunst = {
     enable = true;
@@ -24,7 +27,7 @@
 
         ### Frame ###
         frame_width = 1;
-        frame_color = "#4C596B";
+        frame_color = colors.bright.black;
         separator_color = "frame";
 
         ### Text ###
@@ -60,21 +63,21 @@
       };
 
       urgency_low = {
-        background = "#262D36";
-        foreground = "#dee9f7";
+        background = colors.secondary.background;
+        foreground = colors.secondary.foreground;
         timeout = 10;
       };
 
       urgency_normal = {
-        background = "#262D36";
-        foreground = "#dee9f7";
+        background = colors.secondary.background;
+        foreground = colors.secondary.foreground;
         timeout = 10;
       };
 
       urgency_critical = {
-        background = "#13161b";
-        foreground = "#ff66a3";
-        frame_color = "#ef3985";
+        background = colors.primary.background;
+        foreground = colors.normal.red;
+        frame_color = colors.bright.red;
         timeout = 0;
       };
     };

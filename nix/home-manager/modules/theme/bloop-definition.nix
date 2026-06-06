@@ -40,7 +40,7 @@
       foreground = "#1a1030";
     };
     normal = {
-      black = "#ffffff";
+      black = "#dddaf5";
       red = "#c52a4e";
       green = "#2a8c4a";
       yellow = "#5a5000";
@@ -50,7 +50,7 @@
       white = "#242a33";
     };
     bright = {
-      black = "#ffffff";
+      black = "#d0cce8";
       blue = "#0d3d5a";
       cyan = "#083854";
       green = "#154625";

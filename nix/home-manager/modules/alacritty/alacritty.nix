@@ -3,14 +3,14 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      colors = import ./bloop.nix;
+      colors = removeAttrs (import ../theme/bloop.nix) [ "secondary" ];
 
       env = {
         TERM = "xterm-256color";
       };
 
       window = {
-        opacity = 1;
+        opacity = 0.9;
         dynamic_padding = false;
         padding = {
           x = 1;
@@ -19,18 +19,18 @@
       };
 
       font = {
-        size = 10;
+        size = 12;
         normal = {
-          family = "FiraCode Nerd Font Mono";
-          style = "Regular";
+          family = "Iosevka Custom";
+          style = "Medium";
         };
         bold = {
-          family = "JetBrainsMono Nerd Font";
+          family = "Iosevka Custom";
           style = "Bold";
         };
         italic = {
-          family = "JetBrainsMono Nerd Font";
-          style = "Italic";
+          family = "Iosevka Custom";
+          style = "Medium";
         };
         offset = {
           x = 0;

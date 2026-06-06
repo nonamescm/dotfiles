@@ -2,9 +2,9 @@
 {
   qt = {
     enable = true;
-    style.package = with pkgs; [
-      darkly-qt5
-      darkly
+    style.package = [
+      pkgs.adwaita-qt
+      pkgs.adwaita-qt6
     ];
     platformTheme.name = "qtct";
   };

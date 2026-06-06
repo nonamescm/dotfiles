@@ -78,6 +78,11 @@ in
     pkgs.texliveMedium
     pkgs.wl-clipboard
     pkgs.obsidian
+    pkgs.xdg-utils
+    pkgs.distrobox
+    pkgs.emacs
+    pkgs.zathura
+    pkgs.wineWow64Packages.stable
   ];
 
   home.file.".config/nvim" = {

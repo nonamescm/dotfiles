@@ -18,7 +18,7 @@
 
     theme =
       let
-        colors = import ./alacritty/bloop.nix;
+        colors = import ./theme/bloop.nix;
         inherit (config.lib.formats.rasi) mkLiteral;
       in
       {
