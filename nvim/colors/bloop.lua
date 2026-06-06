@@ -102,7 +102,7 @@ local theme = {
 	["@keyword"]                = { link = "Keyword" },
 	["@keyword.function"]       = { link = "Keyword" },
 	["@keyword.operator"]       = { fg = colors.red },
-	["@keyword.return"]         = { fg = colors.red, bold = true },
+	["@keyword.return"]         = { fg = colors.red },
 	["@operator"]               = { link = "Noise" },
 	["@punctuation.bracket"]    = { link = "Noise" },
 	["@punctuation.delimiter"]  = { link = "Noise" },
@@ -124,7 +124,7 @@ local theme = {
 	TSKeyword                   = { link = "Keyword" },
 	TSKeywordFunction           = { link = "Keyword" },
 	TSKeywordOperator           = { fg = colors.red },
-	TSKeywordReturn             = { fg = colors.red, bold = true },
+	TSKeywordReturn             = { fg = colors.red },
 	TSOperator                  = { link = "Noise" },
 	TSPunctBracket              = { link = "Noise" },
 	TSPunctDelimiter            = { link = "Noise" },
@@ -153,7 +153,7 @@ local theme = {
 	-- LSP and Floating Windows
 	NormalFloat                 = { fg = colors.fg, bg = colors.bg2 },
 	FloatNormal                 = { link = "NormalFloat" },
-	FloatBorder                 = { fg = colors.lightbg, bg = colors.bg },
+	FloatBorder                 = { fg = colors.lightbg, bg = colors.bg2 },
 	LspFloatWinBorder           = { link = "FloatBorder" },
 	LspFloatWinNormal           = { link = "FloatNormal" },
 	LspReferenceRead            = { bg = colors.lightbg },
@@ -192,14 +192,13 @@ local theme = {
 	Title                       = { fg = colors.fg },
 
 	-- Markdown
-	markdownH1                  = { fg = colors.red, bold = true },
+	markdownH1                  = { fg = colors.red },
 	markdownH2                  = { fg = colors.green },
 	markdownH3                  = { fg = colors.green },
 	markdownH4                  = { fg = colors.dark_purple },
 	markdownH5                  = { fg = colors.dark_purple },
 	markdownH6                  = { fg = colors.dark_purple },
 }
-vim.cmd("highlight clear")
 vim.cmd("set t_Co=256")
 vim.cmd("let g:colors_name='bloop'")
 

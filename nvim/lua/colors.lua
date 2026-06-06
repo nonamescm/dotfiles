@@ -1,23 +1,5 @@
-return {
-	red = "#ef3985",
-	green = "#41e6a2",
-	dark_green = "#1AC77F",
-	bg = "#13161b",
-	bg2 = "#0e1012",
-	blue = "#399fef",
-	black = "#0d0f11",
-	black2 = "#090a0c",
-	lightbg = "#394351",
-	lightbg2 = "#262D36",
-	grey_fg = "#0d0f11",
-	light_grey = "#0d0f11",
-	fg = "#dee9f7",
-	white = "#ffffff",
-	purple_alt = "#4C596B",
-	purple = "#9ca4f7",
-	dark_purple = "#7188A8",
-	orange = "#f7a1c5",
-	yellow = "#f3f7a0",
-	cyan = "#39d1ef",
-	wine = "#39051A",
-}
+if vim.o.background == "light" then
+	return require("light-colors")
+else
+	return require("dark-colors")
+end

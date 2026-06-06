@@ -3,7 +3,7 @@
   programs.waybar = {
     enable = true;
     package = inputs.waybar-river-patch.packages.${pkgs.stdenv.hostPlatform.system}.default;
-    style = ./style.css;
+    style = ./style-${import ../theme/mode.nix}.css;
     settings = {
       mainBar = {
         layer = "top";
@@ -12,7 +12,7 @@
         spacing = 0;
 
         modules-left = [ "river/tags" ];
-        modules-center = [ "custom/nixos" ];
+        modules-center = [ ];
         modules-right = [
           "tray"
           "group/misc"
@@ -20,17 +20,7 @@
 
         "river/tags" = {
           hide-vacant = true;
-          tag-labels = [
-            "󰈹"
-            ""
-            "󰙯"
-            "󰊖"
-            ""
-            ""
-            ""
-            ""
-            ""
-          ];
+          tag-labels = builtins.genList (n: toString (n + 1)) 9;
         };
 
         "clock" = {
@@ -39,7 +29,7 @@
         };
 
         "custom/nixos" = {
-          format = "  ";
+          format = " ";
           on-click = "rofi -show drun";
         };
 

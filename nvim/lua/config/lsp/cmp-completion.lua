@@ -1,5 +1,3 @@
-local vim = vim
-
 vim.o.completeopt = "menuone,noselect,noinsert"
 vim.o.updatetime = 300
 local cmp = require("cmp")
@@ -24,11 +22,14 @@ cmp.setup {
 			maxheigth = math.floor(vim.fn.winheight(0) / 2),
 			maxwidth = math.floor(vim.fn.winwidth(0) / 2),
 		},
+		completion = {
+			border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" },
+		}
 	},
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "path" },
-		{ name = "buffer" },
+		--{ name = "buffer" },
 		{ name = "luasnip" }
 	},
 	mapping = cmp.mapping.preset.insert({
@@ -37,7 +38,7 @@ cmp.setup {
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.close(),
 		["<CR>"] = cmp.mapping.confirm({
-			behavior = cmp.ConfirmBehavior.Replace,
+			behavior = cmp.ConfirmBehavior.Insert,
 			select = true,
 		})
 	}),

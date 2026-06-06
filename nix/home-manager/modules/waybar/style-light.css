@@ -1,13 +1,13 @@
-@define-color bg     #070809;
-@define-color fg     #dee9f7;
-@define-color altbg  #0d0f11;
-@define-color altfg  #ffffff;
+@define-color bg     #EDEDFC;
+@define-color fg     #2A2A3E;
+@define-color altbg  #F7F4FB;
+@define-color altfg  #000000;
 @define-color revfg  #242a33;
-@define-color red    #ef3985;
-@define-color yellow #dac965;
-@define-color green  #41e692;
-@define-color blue   #39a1df;
-@define-color orange #f7a1c5;
+@define-color red    #C52A4E;
+@define-color yellow #5A5000;
+@define-color green  #2A8C4A;
+@define-color blue   #1A7AB5;
+@define-color orange #c07060;
 
 * > * {
 	padding: 0px;

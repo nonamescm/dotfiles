@@ -1,6 +1,3 @@
-local colors = require("colors")
-local vim = vim
-
 vim.g.mapleader = " "
 
 vim.pack.add({
@@ -13,7 +10,6 @@ vim.pack.add({
 
 	-- git interaction
 	"https://github.com/lewis6991/gitsigns.nvim",
-
 
 	-- LSP and completion
 	"https://github.com/neovim/nvim-lspconfig",
@@ -30,7 +26,6 @@ vim.pack.add({
 	"https://github.com/j-hui/fidget.nvim",
 
 	-- tabline/statusline
-	"https://github.com/akinsho/nvim-bufferline.lua",
 	"https://github.com/nvim-tree/nvim-web-devicons",
 	"https://github.com/nvim-lualine/lualine.nvim",
 
@@ -49,6 +44,9 @@ vim.pack.add({
 
 require("gitsigns").setup()
 
+vim.cmd("set background=dark")
+vim.cmd("colorscheme bloop")
+
 vim.cmd("command! Term split|term")
 vim.cmd("command! VTerm belowright vsplit|term")
 
@@ -60,4 +58,4 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	end
 })
 
-vim.api.nvim_set_keymap("n", "Q", "<cmd>bd<CR>", {})
+require("config.init")

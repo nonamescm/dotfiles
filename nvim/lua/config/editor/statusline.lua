@@ -60,8 +60,8 @@ require("lualine").setup({
 		component_separators = "",
 		section_separators = { left = "", right = "" },
 		ignore_focus = { "neo-tree" },
-		disabled_filetypes = { "packer" },
-		globalstatus = true,
+		disabled_filetypes = { },
+		globalstatus = false,
 	},
 	sections = {
 		lualine_a = {
