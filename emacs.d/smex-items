@@ -1,0 +1,21 @@
+
+;; ----- smex-history -----
+(
+ mc/edit-lines
+ set-variable
+ indent-tabs-mode
+ haskell-ts-mode
+ multiple-cursors-mode
+ find-file
+ cd
+)
+
+;; ----- smex-data -----
+(
+ (find-file . 1)
+ (haskell-ts-mode . 3)
+ (multiple-cursors-mode . 2)
+ (mc/edit-lines . 4)
+ (indent-tabs-mode . 1)
+ (set-variable . 1)
+)

@@ -14,12 +14,12 @@
     ./modules/users.nix
   ];
 
-#  swapDevices = [
-#    {
-#      #device = "/var/lib/swapfile";
-#      #size = 8 * 1024; # 16 GiB
-#    }
-#  ];
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 8 * 1024;
+    }
+  ];
 
   programs.neovim = {
     enable = true;
@@ -65,6 +65,9 @@
   virtualisation.docker = {
     enable = true;
   };
+
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
 
   # Version of the system when the configuration was created.
   system.stateVersion = "25.11";

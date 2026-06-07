@@ -90,6 +90,11 @@ in
     recursive = false;
   };
 
+  home.file.".emacs.d" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/emacs.d";
+    recursive = false;
+  };
+
   home.file.".config/macchina" = {
     source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/macchina";
     recursive = false;

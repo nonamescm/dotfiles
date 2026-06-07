@@ -11,6 +11,7 @@
       "video"
       "wheel"
       "tty"
+			"libvirtd"
       "${username}"
     ];
     shell = pkgs.zsh;

@@ -100,5 +100,18 @@
   :ensure t
   :hook (compilation-filter-hook . ansi-color-compilation-filter))
 
+(use-package ido
+  :ensure t)
+
+(use-package smex
+  :ensure t
+  :init
+  (global-set-key (kbd "M-x") 'smex)
+  (global-set-key (kbd "M-X") 'smex-major-mode-commands)
+  (global-set-key (kbd "C-x M-x") 'execute-extended-command))
+
+(ido-mode)
+(smex-initialize)
+
 (load-theme 'bloop-nvim-light)
 (global-set-key [remap list-buffers] 'ibuffer)

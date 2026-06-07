@@ -1,0 +1,28 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/noname/Desktop/" . "codewars/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/noname/Desktop/codewars/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "SymbolicDifferentiationOfPrefixExpressions.hs"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/noname/Desktop/codewars/" (27173 36656 221096 609000) "SymbolicDifferentiationOfPrefixExpressions.hs" "../" "Cake.hs" "fourmolu.yaml" "Parser.hs" ".ghci" "LexicalPos.hs" "Singletons.hs" "flake.nix" "SimpleSQLEngine.hs" "flake.lock" "./")
+
+ ("/home/noname/Desktop/" (27173 30840 46898 665000) "oop-class/" "java/" "Waybar/" "maps/" "Heavy Hearts.desktop" "steam-recovery-code.txt" "Cockatrice/" "../" "TerrariaWorlds/" "gparted40" "lua/" "nonamescm.github.io/" "network.desktop" "bash/" "diario/" "dbhw/" "mydiscordpfp.jpg" "Containers/" "fsharp/" "dotfiles/" "ante/" "scala/" "wallpaper/" "zig/" "gparted-live-1.8.1-3-amd64.iso" "gleam/" "obsidian-git-notes/" "javascript/" "nonamescm/" "discord_backup_codes.txt" "fonts/" "characters/" "window-manager/" "auto-chess-scala/" "c/" "tex/" "math/" "ocaml/" "challenges/" "user-home.desktop" "python/" "calc/" "st/" "worlds/" "codewars/" "computer.desktop" "./" "rust/" "MelodicMassacre/" "Downloads/" "trash-can.desktop" "foot/")
+
+ ("/home/noname/" (27173 34765 691394 268000) ".dotnet/" ".sh_history" ".xonshrc" ".ash_history" ".julia/" "Downloads/" "../" ".zprofile.backup" "./" ".profile" ".cargo_history" ".xsession-errors.old" ".sbt/" ".icons/" "DoL/" ".local/" ".g8/" ".bash_history" "Documents/" ".gtkrc-2.0" ".zcompdump" ".steampath" ".dotty_history" "OmegaUpdater" "Desktop/" ".zcompdump.nixos.495856" "Waybar/" ".pulse-cookie" ".zshenv" "test.nix" ".kshrc_history" ".Xresources" ".xsession-errors" ".ivy2/" ".serverauth.47558" ".clojure_history" ".zshrc" ".nv/" ".compose-cache/" "uwufetch/" ".npm/" "f25837800.png" "file.js" "theme-color-patcher.el" ".Xauthority" ".bashrc" ".zsh_history" ".serverauth.7625" ".templateengine/" ".zprofile" ".ssh/" ".config/" ".m2/" "Colors.hs" ".cache/" ".mozilla/" ".wget-hsts" ".nix-channels" "Torrents/" ".pki/" ".cargo/" ".rustup/" "Pictures/" ".nix-profile/" "out" ".steampid" ".viminfo" ".masterpdfeditor/" ".steam/" ".wine/" ".xinitrc" ".var/" ".clojure/" ".serverauth.8232" ".zig_history" ".fehbg" "iosevka/" ".python_history" ".lesshst" ".emacs.d/" "diff.lua" ".yex_history" ".nix-defexpr/" ".nuget/")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
