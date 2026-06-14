@@ -2,26 +2,45 @@
 
 ;; ----- ido-last-directory-list -----
 (
- ("/home/noname/Desktop/" . "codewars/")
+ ("/home/noname/.config/" . "hypr/")
+ ("/home/noname/" . ".config/")
+ ("/home/" . "noname/")
+ ("/home/noname/Desktop/dotfiles/" . "emacs.d/")
+ ("/home/noname/Desktop/" . "dotfiles/")
 )
 
 ;; ----- ido-work-directory-list -----
 (
+ "/home/noname/.config/hypr/"
+ "/home/noname/Desktop/dotfiles/"
  "/home/noname/Desktop/codewars/"
+ "/home/noname/"
 )
 
 ;; ----- ido-work-file-list -----
 (
+ "hyprland.lua"
+ "Sudoku.hs"
  "SymbolicDifferentiationOfPrefixExpressions.hs"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/home/noname/Desktop/codewars/" (27173 36656 221096 609000) "SymbolicDifferentiationOfPrefixExpressions.hs" "../" "Cake.hs" "fourmolu.yaml" "Parser.hs" ".ghci" "LexicalPos.hs" "Singletons.hs" "flake.nix" "SimpleSQLEngine.hs" "flake.lock" "./")
+ ("/home/noname/.config/hypr/" (27182 1745 666425 384000) "../" "./" ".luarc.json" "hyprland.lua" "bloop/" "bindings.lua")
 
- ("/home/noname/Desktop/" (27173 30840 46898 665000) "oop-class/" "java/" "Waybar/" "maps/" "Heavy Hearts.desktop" "steam-recovery-code.txt" "Cockatrice/" "../" "TerrariaWorlds/" "gparted40" "lua/" "nonamescm.github.io/" "network.desktop" "bash/" "diario/" "dbhw/" "mydiscordpfp.jpg" "Containers/" "fsharp/" "dotfiles/" "ante/" "scala/" "wallpaper/" "zig/" "gparted-live-1.8.1-3-amd64.iso" "gleam/" "obsidian-git-notes/" "javascript/" "nonamescm/" "discord_backup_codes.txt" "fonts/" "characters/" "window-manager/" "auto-chess-scala/" "c/" "tex/" "math/" "ocaml/" "challenges/" "user-home.desktop" "python/" "calc/" "st/" "worlds/" "codewars/" "computer.desktop" "./" "rust/" "MelodicMassacre/" "Downloads/" "trash-can.desktop" "foot/")
+ ("/home/noname/.config/" (27182 1984 28867 218000) "procps/" "pavucontrol.ini" "Electron/" "konsolesshconfig" "mimeapps.list" "nvim/" "gtk-3.0/" "zls.json" "ghc/" "zathura/" "xmonad/" "../" "./" "flameshot/" "nixpkgs/" "kitty/" "alacritty/" "rofi/" "vesktop/" "river/" "hypr/" "mpv/" "qt6ct/" "macchina/" "i3/" "cosmic/" "Discord/" "wireplumber/" "picom.conf" "environment.d/" "xdg-desktop-portal/" "xonsh/" "mozilla/" "inkscape/" "dconf/" "dunst/" "sublime-text/" ".bashrc" "menus/" "neovide/" "Code Industry/" "Vencord/" "nxserverhosts" "neofetch/" "home-manager/" "Necesse/" "htop/" "obsidian/" "hyfetch.json" "urx/" "unity3d/" "blender/" "discord/" "GIMP/" "jgit/" "QtProject.conf" "git/" "discordcanary/" "konsolerc" "nushell/" "lxqt/" "gtk-4.0/" "gowall/" "qt5ct/" "pulse/" "qBittorrent/" "ghostty/" "chromium/" "eww" "fastfetch/" "notify/" "waybar/" "pcmanfm-qt/" "systemd/")
 
- ("/home/noname/" (27173 34765 691394 268000) ".dotnet/" ".sh_history" ".xonshrc" ".ash_history" ".julia/" "Downloads/" "../" ".zprofile.backup" "./" ".profile" ".cargo_history" ".xsession-errors.old" ".sbt/" ".icons/" "DoL/" ".local/" ".g8/" ".bash_history" "Documents/" ".gtkrc-2.0" ".zcompdump" ".steampath" ".dotty_history" "OmegaUpdater" "Desktop/" ".zcompdump.nixos.495856" "Waybar/" ".pulse-cookie" ".zshenv" "test.nix" ".kshrc_history" ".Xresources" ".xsession-errors" ".ivy2/" ".serverauth.47558" ".clojure_history" ".zshrc" ".nv/" ".compose-cache/" "uwufetch/" ".npm/" "f25837800.png" "file.js" "theme-color-patcher.el" ".Xauthority" ".bashrc" ".zsh_history" ".serverauth.7625" ".templateengine/" ".zprofile" ".ssh/" ".config/" ".m2/" "Colors.hs" ".cache/" ".mozilla/" ".wget-hsts" ".nix-channels" "Torrents/" ".pki/" ".cargo/" ".rustup/" "Pictures/" ".nix-profile/" "out" ".steampid" ".viminfo" ".masterpdfeditor/" ".steam/" ".wine/" ".xinitrc" ".var/" ".clojure/" ".serverauth.8232" ".zig_history" ".fehbg" "iosevka/" ".python_history" ".lesshst" ".emacs.d/" "diff.lua" ".yex_history" ".nix-defexpr/" ".nuget/")
+ ("/home/" (27172 29361 776299 998000) "../" "./" "noname/")
+
+ ("/home/noname/" (27182 2172 224674 588000) ".dotnet/" ".sh_history" "#random-deck.py#" ".xonshrc" ".ash_history" ".julia/" "Downloads/" "../" ".zprofile.backup" "./" ".profile" ".cargo_history" ".xsession-errors.old" ".sbt/" ".icons/" "DoL/" ".local/" ".g8/" ".bash_history" "Documents/" ".gtkrc-2.0" ".zcompdump" ".steampath" ".dotty_history" "OmegaUpdater" "Desktop/" ".zcompdump.nixos.495856" "Waybar/" ".pulse-cookie" ".zshenv" "test.nix" ".kshrc_history" ".Xresources" ".xsession-errors" ".ivy2/" ".serverauth.47558" ".clojure_history" ".zshrc" ".nv/" ".compose-cache/" "uwufetch/" ".npm/" "f25837800.png" "file.js" "theme-color-patcher.el" ".Xauthority" ".bashrc" ".zsh_history" ".serverauth.7625" ".templateengine/" ".zprofile" ".ssh/" "random-deck.py" ".config/" ".m2/" "Colors.hs" ".cache/" ".mozilla/" ".wget-hsts" ".nix-channels" "Torrents/" ".pki/" ".cargo/" ".rustup/" "Pictures/" ".nix-profile/" "out" ".steampid" ".viminfo" ".masterpdfeditor/" ".steam/" ".wine/" ".xinitrc" ".var/" ".clojure/" ".serverauth.8232" ".zig_history" ".fehbg" "iosevka/" ".python_history" ".lesshst" ".emacs.d/" "diff.lua" ".yex_history" ".nix-defexpr/" ".nuget/")
+
+ ("/home/noname/Desktop/dotfiles/emacs.d/" (27181 47246 733423 625000) "custom.el" "eln-cache/" "smex-items" "../" "history" "elpa/" "auto-save-list/" "ielm-history.eld" "init.el" "bloop-nvim-theme.el" "projects" "url/" "./" "bloop-nvim-light-theme.el" ".mc-lists.el" "tree-sitter/" "ido.last")
+
+ ("/home/noname/Desktop/dotfiles/" (27172 6917 912936 607000) "nix/" "../" ".git/" ".gitignore" "firefox/" "macchina/" "flake.nix" "misc/" "nvim/" "emacs.d/" "flake.lock" "./" "README.md")
+
+ ("/home/noname/Desktop/codewars/" (27180 46917 82802 189000) "SymbolicDifferentiationOfPrefixExpressions.hs" "../" "Cake.hs" "fourmolu.yaml" "Parser.hs" ".ghci" "LexicalPos.hs" "Singletons.hs" "flake.nix" "SimpleSQLEngine.hs" "flake.lock" "./")
+
+ ("/home/noname/Desktop/" (27173 39920 9769 485000) "oop-class/" "java/" "Waybar/" "maps/" "Heavy Hearts.desktop" "steam-recovery-code.txt" "Cockatrice/" "../" "TerrariaWorlds/" "gparted40" "lua/" "nonamescm.github.io/" "network.desktop" "bash/" "diario/" "dbhw/" "mydiscordpfp.jpg" "Containers/" "fsharp/" "dotfiles/" "ante/" "scala/" "wallpaper/" "zig/" "gparted-live-1.8.1-3-amd64.iso" "gleam/" "obsidian-git-notes/" "javascript/" "nonamescm/" "discord_backup_codes.txt" "fonts/" "characters/" "window-manager/" "auto-chess-scala/" "c/" "tex/" "math/" "ocaml/" "challenges/" "user-home.desktop" "python/" "calc/" "st/" "worlds/" "codewars/" "computer.desktop" "./" "rust/" "MelodicMassacre/" "Downloads/" "trash-can.desktop" "foot/")
 )
 
 ;; ----- ido-unc-hosts-cache -----

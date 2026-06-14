@@ -83,6 +83,7 @@ in
     pkgs.emacs
     pkgs.zathura
     pkgs.wineWow64Packages.stable
+    pkgs.blender
   ];
 
   home.file.".config/nvim" = {

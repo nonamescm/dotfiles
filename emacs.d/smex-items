@@ -1,21 +1,24 @@
 
 ;; ----- smex-history -----
 (
+ describe-face
+ lua-ts-mode
  mc/edit-lines
+ haskell-ts-mode
+ python-ts-mode
  set-variable
  indent-tabs-mode
- haskell-ts-mode
- multiple-cursors-mode
- find-file
- cd
 )
 
 ;; ----- smex-data -----
 (
  (find-file . 1)
- (haskell-ts-mode . 3)
+ (haskell-ts-mode . 4)
  (multiple-cursors-mode . 2)
- (mc/edit-lines . 4)
+ (mc/edit-lines . 6)
  (indent-tabs-mode . 1)
  (set-variable . 1)
+ (python-ts-mode . 1)
+ (describe-face . 3)
+ (lua-ts-mode . 1)
 )
