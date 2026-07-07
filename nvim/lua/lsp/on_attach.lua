@@ -1,14 +1,9 @@
 local function on_attach(client, bufnr)
 	vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
 
-	-- I'm not really liking LSP highlighting, it feels
-	-- glitchy and slow. I prefer treesitter by a lot.
-	--[[
 	if client and client.server_capabilities.semanticTokensProvider then
-		vim.lsp.semantic_tokens.enable(true, { bufnr = bufnr })
+		vim.lsp.semantic_tokens.enable(false, { bufnr = bufnr })
 	end
-	]]--
-	client.server_capabilities.semanticTokensProvider = nil
 
 	vim.keymap.set("n", "<leader>gd", vim.lsp.buf.declaration)
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition)

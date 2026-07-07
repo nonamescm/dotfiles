@@ -1,6 +1,5 @@
 local on_attach = require("lsp.on_attach")
 
-
 local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "scala", "sbt", "java" },

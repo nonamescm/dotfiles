@@ -39,9 +39,4 @@ require("neo-tree").setup({
 		},
 		border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" },
 	},
-	filesystem = {
-		filtered_items = {
-			visible = true,
-		}
-	},
 })

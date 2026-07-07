@@ -44,8 +44,8 @@ vim.pack.add({
 
 require("gitsigns").setup()
 
-vim.cmd("set background=dark")
-vim.cmd("colorscheme bloop")
+vim.o.background = "dark"
+vim.cmd.colorscheme("bloop")
 
 vim.cmd("command! Term split|term")
 vim.cmd("command! VTerm belowright vsplit|term")

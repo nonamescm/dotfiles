@@ -31,24 +31,24 @@
    `(shadow                              ((t :foreground ,purple_alt)))
    `(link                                ((t :foreground ,blue :underline t)))
    `(link-visited                        ((t :foreground ,purple :underline t)))
-   `(match                               ((t :background ,lightbg :foreground ,red :weight bold)))
+   `(match                               ((t :background ,lightbg :foreground ,red)))
    `(lazy-highlight                      ((t :background ,lightbg2 :foreground ,fg)))
    `(trailing-whitespace                 ((t :foreground ,wine)))
    `(escape-glyph                        ((t :foreground ,yellow)))
-   `(error                               ((t :foreground ,red :weight bold)))
+   `(error                               ((t :foreground ,red)))
    `(warning                             ((t :foreground ,orange)))
    `(success                             ((t :foreground ,green)))
    `(line-number                         ((t :background ,bg :foreground ,purple_alt)))
    `(line-number-current-line            ((t :background ,bg :foreground ,red)))
    `(vertical-border                     ((t :foreground ,lightbg)))
-   `(minibuffer-prompt                   ((t :background ,bg :foreground ,purple :weight bold)))
+   `(minibuffer-prompt                   ((t :background ,bg :foreground ,purple)))
 
    ;; modeline
    `(mode-line                            ((t :background ,wine :foreground ,fg)))
    `(mode-line-inactive                   ((t :background ,bg :foreground ,dark_purple)))
    `(mode-line-active                     ((t :background ,wine :foreground ,fg)))
    `(mode-line-highlight                  ((t :foreground ,red)))
-   `(mode-line-buffer-id                  ((t :foreground ,red :weight bold)))
+   `(mode-line-buffer-id                  ((t :foreground ,red)))
 
    ;; syntax
    `(font-lock-keyword-face              ((t :foreground ,red)))

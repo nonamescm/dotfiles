@@ -25,10 +25,10 @@ in
       color14 = bloop.bright.cyan;
       color15 = bloop.bright.white;
 
-      font_family = "family='Iosevka Custom' style=Regular";
-      bold_font = "family='Iosevka Custom' style=Medium";
-      italic_font = "family='Iosevka Custom' style=Regular";
-      bold_italic_font = "family='Iosevka Custom' style=Medium";
+      font_family = "family='Iosevka Custom' style=Light";
+      bold_font = "family='Iosevka Custom' style=Regular";
+      italic_font = "family='Iosevka Custom' style=Light";
+      bold_italic_font = "family='Iosevka Custom' style=Regular";
       font_size = 12;
 
       background_opacity = "1";

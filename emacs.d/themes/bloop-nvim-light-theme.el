@@ -27,7 +27,7 @@
    'bloop-nvim-light
    ;; Editor core
    `(default                             ((t :background ,bg :foreground ,fg)))
-   `(cursor                              ((t :background ,lightbg :foreground ,bg)))
+   `(cursor                              ((t :background ,fg :foreground ,bg)))
    `(fringe                              ((t :background ,bg :foreground ,purple_alt)))
    `(region                              ((t :background ,lightbg :foreground ,fg)))
    `(highlight                           ((t :background ,lightbg2)))
@@ -46,6 +46,9 @@
    `(vertical-border                     ((t :foreground ,lightbg)))
    `(minibuffer-prompt                   ((t :background ,bg :foreground ,purple :weight bold)))
 
+   ;; highlight numbers
+   `(highlight-numbers-number            ((t :foreground ,green)))
+   
    ;; modeline
    `(mode-line                            ((t :background ,wine :foreground ,fg)))
    `(mode-line-inactive                   ((t :background ,bg :foreground ,dark_purple)))

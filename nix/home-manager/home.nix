@@ -46,8 +46,6 @@ in
   home.packages = [
     discord-canary-patch
 
-    inputs.zig-overlay.packages.x86_64-linux.master
-    inputs.zls-overlay.packages.x86_64-linux.default
     inputs.waybar-river-patch.packages.x86_64-linux.default
 
     pkgs.alacritty
@@ -70,7 +68,6 @@ in
     pkgs.nixfmt-tree
     pkgs.river-classic
     pkgs.rofi
-    pkgs.rustup
     pkgs.slurp
     pkgs.steam
     pkgs.steam-run
@@ -84,6 +81,7 @@ in
     pkgs.zathura
     pkgs.wineWow64Packages.stable
     pkgs.blender
+    pkgs.hyprland
   ];
 
   home.file.".config/nvim" = {
